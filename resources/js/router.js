@@ -145,6 +145,12 @@ import TypeStage from './views/backend/Personnels/TypeStage.vue'
 import CategorieServicePers from './views/backend/Personnels/CategorieServicePers.vue'
 import ServicePersonnel from './views/backend/Personnels/ServicePersonnel.vue'
 import CategorieCirconstance from './views/backend/Personnels/CategorieCirconstance.vue'
+
+
+import ParametreSecteur from './views/backend/Personnels/ParametreSecteur.vue'
+import SecteurMinerais from './views/backend/Personnels/SecteurMinerais.vue'
+import CooperativeMinerais from './views/backend/Personnels/CooperativeMinerais.vue'
+
 //CategorieCirconstance
 import ParametreSalairebBase from './views/backend/Personnels/ParametreSalairebBase.vue'
 import Annee from './views/backend/Personnels/Annee.vue'
@@ -1350,6 +1356,21 @@ const Router = new VueRouter({
         path: '/admin/CategorieCirconstance',
         name: 'CategorieCirconstance',
         component: CategorieCirconstance,
+    },
+    {
+        path: '/admin/ParametreSecteur',
+        name: 'ParametreSecteur',
+        component: ParametreSecteur,
+    },
+    {
+        path: '/admin/SecteurMinerais',
+        name: 'SecteurMinerais',
+        component: SecteurMinerais,
+    },
+    {
+        path: '/admin/CooperativeMinerais',
+        name: 'CooperativeMinerais',
+        component: CooperativeMinerais,
     },
     {
         path: '/admin/ParametreSalairebBase',

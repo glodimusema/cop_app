@@ -64,18 +64,28 @@ class tperso_paramettre_secteurController extends Controller
     function fetch_dropdown_2()
     {
         $data = DB::table('tperso_paramettre_secteur')
-        ->join('tperso_secteur_minerais','tperso_secteur_minerais.id','=','tperso_paramettre_secteur.refSecteur')
-        ->join('tperso_cooperative_minerais','tperso_cooperative_minerais.id','=','tperso_paramettre_secteur.refCooperative')
-        ->select("tperso_paramettre_secteur.id",'refCooperative','refSecteur','active_param',
-        "tperso_paramettre_secteur.created_at","tperso_cooperative_minerais.nom_coop",
-        'responsable_coop','contact_respo_coop','description_coop',
-        "tperso_secteur_minerais.nom_secteur",'description_secteur')
-        ->orderBy("id", "desc")
-        ->get();
-        return response()->json([
-            'data'  => $data
-        ]);
+            ->join('tperso_secteur_minerais', 'tperso_secteur_minerais.id', '=', 'tperso_paramettre_secteur.refSecteur')
+            ->join('tperso_cooperative_minerais', 'tperso_cooperative_minerais.id', '=', 'tperso_paramettre_secteur.refCooperative')
+            ->select(
+                "tperso_paramettre_secteur.id",
+                'refCooperative',
+                'refSecteur',
+                'active_param',
+                "tperso_paramettre_secteur.created_at",
+                "tperso_cooperative_minerais.nom_coop",
+                'responsable_coop',
+                'contact_respo_coop',
+                'description_coop',
+                "tperso_secteur_minerais.nom_secteur",
+                'description_secteur'
+            )
+            ->selectRaw('CONCAT(nom_coop, " - ", nom_secteur) as date_param_secteur') 
+            ->orderBy("tperso_paramettre_secteur.id", "desc")
+            ->get();
 
+        return response()->json([
+            'data' => $data
+        ]);
     }
 
     

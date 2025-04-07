@@ -678,45 +678,57 @@ export default {
                   text: "Param.SalaireBase",
                   href: "/admin/ParametreSalairebBase",
                 },
+                {
+                  text: "Param.Secteur Minier",
+                  href: "/admin/ParametreSecteur",
+                },
+                {
+                  text: "Secteur Minier",
+                  href: "/admin/SecteurMinerais",
+                },
+                {
+                  text: "Cooperatives",
+                  href: "/admin/CooperativeMinerais",
+                },
                 //ParametreSalairebBase
               ],
             },
           ],
           listPresence: [
-            // {
-            //   text: "Présences",
-            //   icon: "mdi-account-settings",
-            //   items: [                
-            //     {
-            //       text: "Aujourd'hui",
-            //       href: "/admin/JourPresences",
-            //     },
-            //     {
-            //       text: "Toutes les Présences",
-            //       href: "/admin/AllPresenceAgent",
-            //     }
-            //   ],
-            // },
+            {
+              text: "Présences",
+              icon: "mdi-account-settings",
+              items: [                
+                {
+                  text: "Aujourd'hui",
+                  href: "/admin/JourPresences",
+                },
+                {
+                  text: "Toutes les Présences",
+                  href: "/admin/AllPresenceAgent",
+                }
+              ],
+            },
           ],
           listCorresp: [
-            // {
-            //   text: "Correspondances",
-            //   icon: "mdi-account-settings",
-            //   items: [                
-            //     {
-            //       text: "Aujourd'hui",
-            //       href: "/admin/JourCorrespondance",
-            //     },
-            //     {
-            //       text: "Toutes les Corresp.",
-            //       href: "/admin/AllCorrespondance",
-            //     },
-            //     {
-            //       text: "Mes Correspondances",
-            //       href: "/admin/UserCorrespondance",
-            //     }
-            //   ],
-            // },
+            {
+              text: "Correspondances",
+              icon: "mdi-account-settings",
+              items: [                
+                {
+                  text: "Aujourd'hui",
+                  href: "/admin/JourCorrespondance",
+                },
+                {
+                  text: "Toutes les Corresp.",
+                  href: "/admin/AllCorrespondance",
+                },
+                {
+                  text: "Mes Correspondances",
+                  href: "/admin/UserCorrespondance",
+                }
+              ],
+            },
           ],
           listTimeSheet: [
             // {
@@ -769,7 +781,7 @@ export default {
           // ],
           listCommancdes: [
             {
-              text: "Commandes",
+              text: "Remise Minarais",
               icon: "mdi-cart-off",
               items: [ 
               { //Commandes
@@ -909,29 +921,29 @@ export default {
             },
           ],
           listFactureGroup: [
-            {
-              text: "Factures Groupées",
-              icon: "mdi-cards",
-              items: [
-                {
-                  text: "Création Fact.Groupée",
-                  href: "/admin/CreateFactureGroupe",
-                },
-                {
-                  text: "Liste des Factures",
-                  href: "/admin/VenteEnteteFactureGroupe",
-                },
-                {
-                  text: "Les Organisations",
-                  href: "/admin/ClientVente",
-                },
-                {
-                  icon: "store",
-                  text: "Rapports",
-                  href: "/admin/RapportsJour_Reservation",
-                },
-              ],
-            },
+            // {
+            //   text: "Factures Groupées",
+            //   icon: "mdi-cards",
+            //   items: [
+            //     {
+            //       text: "Création Fact.Groupée",
+            //       href: "/admin/CreateFactureGroupe",
+            //     },
+            //     {
+            //       text: "Liste des Factures",
+            //       href: "/admin/VenteEnteteFactureGroupe",
+            //     },
+            //     {
+            //       text: "Les Organisations",
+            //       href: "/admin/ClientVente",
+            //     },
+            //     {
+            //       icon: "store",
+            //       text: "Rapports",
+            //       href: "/admin/RapportsJour_Reservation",
+            //     },
+            //   ],
+            // },
           ],
           listUsage: [
             {
@@ -954,25 +966,25 @@ export default {
             },
           ],
           listCmdCuisine: [
-            {
-              text: "Commande Cuisine",
-              icon: "mdi-album",
-              items: [
-                {
-                  text: "Création Commande",
-                  href: "/admin/CreateCommandeCuisine",
-                },
-                {
-                  text: "Liste Commandes",
-                  href: "/admin/VenteEnteteCuisine",
-                },
-                {
-                  icon: "store",
-                  text: "Rapports",
-                  href: "/admin/RapportSortie",
-                },
-              ],
-            },
+            // {
+            //   text: "Commande Cuisine",
+            //   icon: "mdi-album",
+            //   items: [
+            //     {
+            //       text: "Création Commande",
+            //       href: "/admin/CreateCommandeCuisine",
+            //     },
+            //     {
+            //       text: "Liste Commandes",
+            //       href: "/admin/VenteEnteteCuisine",
+            //     },
+            //     {
+            //       icon: "store",
+            //       text: "Rapports",
+            //       href: "/admin/RapportSortie",
+            //     },
+            //   ],
+            // },
           ],
           listInventaire: [
             {
@@ -983,7 +995,7 @@ export default {
                   text: "Création Inventaire",
                   href: "/admin/CreateInventaire",
                 },
-                { //VenteEnteteFactureGroupe          CreateFactureGroupe
+                {
                   text: "Liste Inventaires",
                   href: "/admin/VenteEnteteInventaire",
                 },
@@ -1025,57 +1037,61 @@ export default {
             // },
           ],
           listArchivages: [
-            // {
-            //   text: "Archivages",
-            //   icon: "mdi-email-open",
-            //   items: [              
-            //     {
-            //       text: "Archivages",
-            //       href: "/admin/Archivages", 
-            //     },
-            //     {
-            //       text: "Division",
-            //       href: "/admin/DivisionArchive",
-            //     },
-            //     {
-            //       text: "CategorieArch.",
-            //       href: "/admin/CategorieArchivage",
-            //     },
-            //     {
-            //       text: "Services",
-            //       href: "/admin/ServiceArchivage",
-            //     }
-            //   ],
-            // },
-          ],
-          listReservations: [
             {
-              text: "Hebergement",
-              icon: "mdi-home",
-              items: [                
-                { 
-                  text: "Réservation Chambre",
-                  href: "/admin/ReservationAll",
+              text: "Archivages",
+              icon: "mdi-email-open",
+              items: [              
+                {
+                  text: "Archivages",
+                  href: "/admin/Archivages", 
                 },
-                { 
-                  text: "Clients",
-                  href: "/admin/ClientHotel",
+                {
+                  text: "User-Service",
+                  href: "/admin/ArchiveUserService",
                 },
-                { //
-                  text: "Location Appartement",
-                  href: "/admin/LocationAppartementAll",
+                {
+                  text: "Division",
+                  href: "/admin/DivisionArchive",
                 },
-                { 
-                  text: "Salles",
-                  href: "/admin/ClientVente",
+                {
+                  text: "CategorieArch.",
+                  href: "/admin/CategorieArchivage",
                 },
-                { 
-                  text: "Rapports",
-                  href: "/admin/RapportsJour_Reservation",
+                {
+                  text: "Services",
+                  href: "/admin/ServiceArchivage",
                 }
-
               ],
             },
+          ],
+          listReservations: [
+            // {
+            //   text: "Hebergement",
+            //   icon: "mdi-home",
+            //   items: [                
+            //     { 
+            //       text: "Réservation Chambre",
+            //       href: "/admin/ReservationAll",
+            //     },
+            //     { 
+            //       text: "Clients",
+            //       href: "/admin/ClientHotel",
+            //     },
+            //     { //
+            //       text: "Location Appartement",
+            //       href: "/admin/LocationAppartementAll",
+            //     },
+            //     { 
+            //       text: "Salles",
+            //       href: "/admin/ClientVente",
+            //     },
+            //     { 
+            //       text: "Rapports",
+            //       href: "/admin/RapportsJour_Reservation",
+            //     }
+
+            //   ],
+            // },
           ],
           // listBillards: [
           //   {
@@ -1250,4375 +1266,4375 @@ export default {
           ],
         };
       }
-      else if (this.userData.id_role == 2) {        
-        this.linkAdmin = {
-          links: [
-            // {
-            //   icon: "mdi-microsoft-windows",
-            //   text: "Tableau de bord",
-            //   href: "/admin/dashboard",
-            // },
-            // {
-            //   icon: "mdi-chart-pie",
-            //   text: "Tableau de bord(Ese)",
-            //   href: "/admin/statistique_entreprise",
-            // },
-            // {
-            //   icon: "chat",
-            //   text: "Chat",
-            //   href: "/admin/chat",
-            // },
-          ],
-          links_operation_2: [
-            // {
-            //   icon: "credit_card",
-            //   text: "Carousel",
-            //   href: "/admin/carousel",
-            // },
-            // {
-            //   icon: "credit_card",
-            //   text: "Service",
-            //   href: "/admin/operation_service",
-            // },
-            // {
-            //   icon: "store",
-            //   text: "Galérie",
-            //   href: "/admin/operation_galery",
-            // },
-            // {
-            //   icon: "store",
-            //   text: "Vidéo",
-            //   href: "/admin/operation_video",
-            // },
-            // {
-            //   icon: "store",
-            //   text: "Partenaire",
-            //   href: "/admin/operation_partenaire",
-            // },
+      // else if (this.userData.id_role == 2) {        
+      //   this.linkAdmin = {
+      //     links: [
+      //       // {
+      //       //   icon: "mdi-microsoft-windows",
+      //       //   text: "Tableau de bord",
+      //       //   href: "/admin/dashboard",
+      //       // },
+      //       // {
+      //       //   icon: "mdi-chart-pie",
+      //       //   text: "Tableau de bord(Ese)",
+      //       //   href: "/admin/statistique_entreprise",
+      //       // },
+      //       // {
+      //       //   icon: "chat",
+      //       //   text: "Chat",
+      //       //   href: "/admin/chat",
+      //       // },
+      //     ],
+      //     links_operation_2: [
+      //       // {
+      //       //   icon: "credit_card",
+      //       //   text: "Carousel",
+      //       //   href: "/admin/carousel",
+      //       // },
+      //       // {
+      //       //   icon: "credit_card",
+      //       //   text: "Service",
+      //       //   href: "/admin/operation_service",
+      //       // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Galérie",
+      //       //   href: "/admin/operation_galery",
+      //       // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Vidéo",
+      //       //   href: "/admin/operation_video",
+      //       // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Partenaire",
+      //       //   href: "/admin/operation_partenaire",
+      //       // },
 
-            // {
-            //   icon: "store",
-            //   text: "Notre famille",
-            //   href: "/admin/operation_team",
-            // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Notre famille",
+      //       //   href: "/admin/operation_team",
+      //       // },
 
-          ],
-          links_finance: [
-            // {
-            //   icon: "groups",
-            //   text: "Classes",
-            //   href: "/admin/ClassesFin",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Comptes",
-            //   href: "/admin/CompteFin",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Sous Comptes",
-            //   href: "/admin/SousCompte",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "SSous Comptes",
-            //   href: "/admin/SSousCompte",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Type Compte",
-            //   href: "/admin/TypeCompte",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Config. Taux",
-            //   href: "/admin/TTaux",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Type Position",
-            //   href: "/admin/TypePosition",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Type Opération",
-            //   href: "/admin/TypeOperation",
-            // },
-            // {
-            //   text: "Rubriques",
-            //   href: "/admin/Comptes",
-            // },
-            // {
-            //   text: "Caisse&Banque",
-            //   href: "/admin/Banque",
-            // },
-            // {
-            //   text: "ModePaie",
-            //   href: "/admin/modepaie",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Taux",
-            //   href: "/admin/TTaux",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Services Treseorerie",
-            //   href: "/admin/Provenance",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Cat. Rubriques",
-            //   href: "/admin/CategorieRubrique",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Rubriques Depenses",
-            //   href: "/admin/Rubriques",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Blocs",
-            //   href: "/admin/Blocs",
-            // }
+      //     ],
+      //     links_finance: [
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Classes",
+      //       //   href: "/admin/ClassesFin",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Comptes",
+      //       //   href: "/admin/CompteFin",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Sous Comptes",
+      //       //   href: "/admin/SousCompte",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "SSous Comptes",
+      //       //   href: "/admin/SSousCompte",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Type Compte",
+      //       //   href: "/admin/TypeCompte",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Config. Taux",
+      //       //   href: "/admin/TTaux",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Type Position",
+      //       //   href: "/admin/TypePosition",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Type Opération",
+      //       //   href: "/admin/TypeOperation",
+      //       // },
+      //       // {
+      //       //   text: "Rubriques",
+      //       //   href: "/admin/Comptes",
+      //       // },
+      //       // {
+      //       //   text: "Caisse&Banque",
+      //       //   href: "/admin/Banque",
+      //       // },
+      //       // {
+      //       //   text: "ModePaie",
+      //       //   href: "/admin/modepaie",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Taux",
+      //       //   href: "/admin/TTaux",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Services Treseorerie",
+      //       //   href: "/admin/Provenance",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Cat. Rubriques",
+      //       //   href: "/admin/CategorieRubrique",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Rubriques Depenses",
+      //       //   href: "/admin/Rubriques",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Blocs",
+      //       //   href: "/admin/Blocs",
+      //       // }
 
-          ],
-          links_vente: [
-            // {
-            //   icon: "groups",
-            //   text: "CatégorieProduit",
-            //   href: "/admin/CategorieProduit",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Emplacements",
-            //   href: "/admin/Emplacements",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Service Logistique",
-            //   href: "/admin/SalonProduit",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Service Salon",
-            //   href: "/admin/SalonProduit",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "CatégorieClient",
-            //   href: "/admin/CategorieClient",
-            // }
-          ],
-          links_tresorerie: [
-            // {
-            //   text: "Rubriques Depenses",
-            //   href: "/admin/Comptes",
-            // },
-            // {
-            //   text: "Cat.Rubriques EB",
-            //   href: "/admin/CategorieRubrique",
-            // },
-            // {
-            //   text: "Rubriques EB",
-            //   href: "/admin/Rubriques",
-            // },
-            // {
-            //   text: "Blocs(Finances)",
-            //   href: "/admin/Blocs",
-            // },
-            // {
-            //   text: "Les Services(Finances)",
-            //   href: "/admin/Provenance",
-            // }
-          ],
-          links_hotel: [
-            // {
-            //   text: "ClasseChambre",
-            //   href: "/admin/ClasseChambre",
-            // },
-            // {
-            //   text: "Chambres",
-            //   href: "/admin/Chambre",
-            // },
-            // { //SalonProduit
-            //   text: "Salles",
-            //   href: "/admin/Salle",
-            // },
-            // { //SalonProduit
-            //   text: "Services Salon",
-            //   href: "/admin/SalonProduit",
-            // }
-          ],
-          links_personne: [
-                // {
-                //   text: "Type Agent",
-                //   href: "/admin/TypeAgent",
-                // },
-                // {
-                //   text: "Fonctions",
-                //   href: "/admin/FonctionAgent",
-                // },
-                // {
-                //   text: "Catégorie Agent",
-                //   href: "/admin/CategorieAgent",
-                // },
-                // {
-                //   text: "Type RubriquesPaies",
-                //   href: "/admin/CategorieRubriquePers",
-                // },
-                // {//CategorieCirconstance
-                //   text: "Type Contrat",
-                //   href: "/admin/TypeContrat",
-                // },
-                // {//TypeStage
-                //   text: "Type Stage",
-                //   href: "/admin/TypeStage",
-                // },
-                // {//CategorieCirconstance
-                //   text: "Categorie Circontance",
-                //   href: "/admin/CategorieCirconstance",
-                // },
-                // {
-                //   text: "Type Circonstance",
-                //   href: "/admin/TypeCirconstance",
-                // },
-                // {
-                //   text: "Les Postes",
-                //   href: "/admin/Postes",
-                // },
-                // {
-                //   text: "Les Mutuelles",
-                //   href: "/admin/Mutuelle",
-                // },
-                // {
-                //   text: "Lieu Affectation",
-                //   href: "/admin/LieuAffectation",
-                // },
-                // {
-                //   text: "RubriquesPaies",
-                //   href: "/admin/RubriquePaie",
-                // },
-                // {
-                //   text: "Param. RubriquesPaies",
-                //   href: "/admin/ParametreRubrique",
-                // },
-                // {
-                //   text: "Catégorie Service",
-                //   href: "/admin/CategorieServicePers",
-                // },
-                // {
-                //   text: "Service Pers.",
-                //   href: "/admin/ServicePersonnel",
-                // },
-                // {
-                //   text: "Année Civile",
-                //   href: "/admin/Annee",
-                // },
-                // {
-                //   text: "Mois",
-                //   href: "/admin/Mois",
-                // },
-                // {
-                //   text: "PromotionAcadémique",
-                //   href: "/admin/Promotion",
-                // },
-                // {
-                //   text: "DomaineAcadémique",
-                //   href: "/admin/DomaineStage",
-                // },
-                // {
-                //   text: "OptionAcadémique",
-                //   href: "/admin/OptionStage",
-                // },
-                // {
-                //   text: "AnnéeAcadémique",
-                //   href: "/admin/AnneeStage",
-                // },
-                // {
-                //   text: "InstitutionsAC",
-                //   href: "/admin/Institution",
-                // },
-                // {
-                //   text: "Raison Familliale",
-                //   href: "/admin/RaisonFamilliale",
-                // }
-          ],
-          links_operation: [
-            // {
-            //   icon: "store",
-            //   text: "Pays",
-            //   href: "/admin/pays",
-            // },
-            // {
-            //   icon: "credit_card",
-            //   text: "Provinces",
-            //   href: "/admin/provinces",
-            // },
+      //     ],
+      //     links_vente: [
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "CatégorieProduit",
+      //       //   href: "/admin/CategorieProduit",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Emplacements",
+      //       //   href: "/admin/Emplacements",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Service Logistique",
+      //       //   href: "/admin/SalonProduit",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Service Salon",
+      //       //   href: "/admin/SalonProduit",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "CatégorieClient",
+      //       //   href: "/admin/CategorieClient",
+      //       // }
+      //     ],
+      //     links_tresorerie: [
+      //       // {
+      //       //   text: "Rubriques Depenses",
+      //       //   href: "/admin/Comptes",
+      //       // },
+      //       // {
+      //       //   text: "Cat.Rubriques EB",
+      //       //   href: "/admin/CategorieRubrique",
+      //       // },
+      //       // {
+      //       //   text: "Rubriques EB",
+      //       //   href: "/admin/Rubriques",
+      //       // },
+      //       // {
+      //       //   text: "Blocs(Finances)",
+      //       //   href: "/admin/Blocs",
+      //       // },
+      //       // {
+      //       //   text: "Les Services(Finances)",
+      //       //   href: "/admin/Provenance",
+      //       // }
+      //     ],
+      //     links_hotel: [
+      //       // {
+      //       //   text: "ClasseChambre",
+      //       //   href: "/admin/ClasseChambre",
+      //       // },
+      //       // {
+      //       //   text: "Chambres",
+      //       //   href: "/admin/Chambre",
+      //       // },
+      //       // { //SalonProduit
+      //       //   text: "Salles",
+      //       //   href: "/admin/Salle",
+      //       // },
+      //       // { //SalonProduit
+      //       //   text: "Services Salon",
+      //       //   href: "/admin/SalonProduit",
+      //       // }
+      //     ],
+      //     links_personne: [
+      //           // {
+      //           //   text: "Type Agent",
+      //           //   href: "/admin/TypeAgent",
+      //           // },
+      //           // {
+      //           //   text: "Fonctions",
+      //           //   href: "/admin/FonctionAgent",
+      //           // },
+      //           // {
+      //           //   text: "Catégorie Agent",
+      //           //   href: "/admin/CategorieAgent",
+      //           // },
+      //           // {
+      //           //   text: "Type RubriquesPaies",
+      //           //   href: "/admin/CategorieRubriquePers",
+      //           // },
+      //           // {//CategorieCirconstance
+      //           //   text: "Type Contrat",
+      //           //   href: "/admin/TypeContrat",
+      //           // },
+      //           // {//TypeStage
+      //           //   text: "Type Stage",
+      //           //   href: "/admin/TypeStage",
+      //           // },
+      //           // {//CategorieCirconstance
+      //           //   text: "Categorie Circontance",
+      //           //   href: "/admin/CategorieCirconstance",
+      //           // },
+      //           // {
+      //           //   text: "Type Circonstance",
+      //           //   href: "/admin/TypeCirconstance",
+      //           // },
+      //           // {
+      //           //   text: "Les Postes",
+      //           //   href: "/admin/Postes",
+      //           // },
+      //           // {
+      //           //   text: "Les Mutuelles",
+      //           //   href: "/admin/Mutuelle",
+      //           // },
+      //           // {
+      //           //   text: "Lieu Affectation",
+      //           //   href: "/admin/LieuAffectation",
+      //           // },
+      //           // {
+      //           //   text: "RubriquesPaies",
+      //           //   href: "/admin/RubriquePaie",
+      //           // },
+      //           // {
+      //           //   text: "Param. RubriquesPaies",
+      //           //   href: "/admin/ParametreRubrique",
+      //           // },
+      //           // {
+      //           //   text: "Catégorie Service",
+      //           //   href: "/admin/CategorieServicePers",
+      //           // },
+      //           // {
+      //           //   text: "Service Pers.",
+      //           //   href: "/admin/ServicePersonnel",
+      //           // },
+      //           // {
+      //           //   text: "Année Civile",
+      //           //   href: "/admin/Annee",
+      //           // },
+      //           // {
+      //           //   text: "Mois",
+      //           //   href: "/admin/Mois",
+      //           // },
+      //           // {
+      //           //   text: "PromotionAcadémique",
+      //           //   href: "/admin/Promotion",
+      //           // },
+      //           // {
+      //           //   text: "DomaineAcadémique",
+      //           //   href: "/admin/DomaineStage",
+      //           // },
+      //           // {
+      //           //   text: "OptionAcadémique",
+      //           //   href: "/admin/OptionStage",
+      //           // },
+      //           // {
+      //           //   text: "AnnéeAcadémique",
+      //           //   href: "/admin/AnneeStage",
+      //           // },
+      //           // {
+      //           //   text: "InstitutionsAC",
+      //           //   href: "/admin/Institution",
+      //           // },
+      //           // {
+      //           //   text: "Raison Familliale",
+      //           //   href: "/admin/RaisonFamilliale",
+      //           // }
+      //     ],
+      //     links_operation: [
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Pays",
+      //       //   href: "/admin/pays",
+      //       // },
+      //       // {
+      //       //   icon: "credit_card",
+      //       //   text: "Provinces",
+      //       //   href: "/admin/provinces",
+      //       // },
 
-            // {
-            //   icon: "store",
-            //   text: "Chef lieu",
-            //   href: "/admin/ville",
-            // },
-            // {
-            //   icon: "store",
-            //   text: "Commune",
-            //   href: "/admin/commune",
-            // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Chef lieu",
+      //       //   href: "/admin/ville",
+      //       // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Commune",
+      //       //   href: "/admin/commune",
+      //       // },
 
-            // {
-            //   icon: "store",
-            //   text: "Quartier",
-            //   href: "/admin/quartier",
-            // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Quartier",
+      //       //   href: "/admin/quartier",
+      //       // },
 
-            // {
-            //   icon: "store",
-            //   text: "Avenue",
-            //   href: "/admin/avenue",
-            // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Avenue",
+      //       //   href: "/admin/avenue",
+      //       // },
 
-            // {
-            //   icon: "store",
-            //   text: "Forme juridique",
-            //   href: "/admin/forme_juridique",
-            // },
-            // {
-            //   text: "Statistique sur les blogs",
-            //   href: "/admin/statistique_entreprise",
-            // },
-            // {
-            //   icon: "store",
-            //   text: "Territoire",
-            //   href: "/admin/territoire",
-            // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Forme juridique",
+      //       //   href: "/admin/forme_juridique",
+      //       // },
+      //       // {
+      //       //   text: "Statistique sur les blogs",
+      //       //   href: "/admin/statistique_entreprise",
+      //       // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Territoire",
+      //       //   href: "/admin/territoire",
+      //       // },
 
-            // {
-            //   icon: "store",
-            //   text: "Envoie SMS",
-            //   href: "/admin/texto",
-            // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Envoie SMS",
+      //       //   href: "/admin/texto",
+      //       // },
 
-            // {
-            //   icon: "store",
-            //   text: "Statistique sur Les utilisateur",
-            //   href: "/admin/statistique_user",
-            // },
-
-
-            // {
-            //   icon: "api",
-            //   text: "Témoignage",
-            //   href: "/admin/temoignages",
-            // },
-
-            // {
-            //   icon: "api",
-            //   text: "Nos Valeurs",
-            //   href: "/admin/valeur",
-            // },
-
-            // {
-            //   icon: "api",
-            //   text: "Nos Rôles",
-            //   href: "/admin/role_service",
-            // },
-
-            // {
-            //   icon: "api",
-            //   text: "Nos Choix",
-            //   href: "/admin/choix",
-            // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Statistique sur Les utilisateur",
+      //       //   href: "/admin/statistique_user",
+      //       // },
 
 
-            // {
-            //   icon: "credit_card",
-            //   text: "Services",
-            //   href: "/admin/service",
-            // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Témoignage",
+      //       //   href: "/admin/temoignages",
+      //       // },
+
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Nos Valeurs",
+      //       //   href: "/admin/valeur",
+      //       // },
+
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Nos Rôles",
+      //       //   href: "/admin/role_service",
+      //       // },
+
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Nos Choix",
+      //       //   href: "/admin/choix",
+      //       // },
 
 
-            // {
-            //   icon: "api",
-            //   text: "Decisions",
-            //   href: "/admin/decision",
-            // },
+      //       // {
+      //       //   icon: "credit_card",
+      //       //   text: "Services",
+      //       //   href: "/admin/service",
+      //       // },
 
-            // {
-            //   icon: "api",
-            //   text: "Avantage",
-            //   href: "/admin/avantage",
-            // },
-            // {
-            //   icon: "api",
-            //   text: "Sous services",
-            //   href: "/admin/sous_service",
-            // },
+
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Decisions",
+      //       //   href: "/admin/decision",
+      //       // },
+
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Avantage",
+      //       //   href: "/admin/avantage",
+      //       // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Sous services",
+      //       //   href: "/admin/sous_service",
+      //       // },
             
-          ],
-          links_systems: [
-            // {
-            //   icon: "people",
-            //   text: "Utilisateurs",
-            //   href: "/admin/Users",
-            // },
-            // {
-            //   icon: "api",
-            //   text: "Entreprise",
-            //   href: "/admin/liste_entreprise",
-            // },
-            // {
-            //   icon: "api",
-            //   text: "Privilège",
-            //   href: "/admin/role",
-            // },
-            // {
-            //   icon: "api",
-            //   text: "Configuration Menu",
-            //   href: "/admin/ListeMenu",
-            // },
-            // {
-            //   icon: "api",
-            //   text: "Historiques Infos.",
-            //   href: "/admin/HistoriqueData",
-            // },
-            // {
-            //   icon: "credit_card",
-            //   text: "Contact pour info",
-            //   href: "/admin/contact_info",
-            // },
-            // {
-            //   icon: "api",
-            //   text: "Configuration basique",
-            //   href: "/admin/configure_basic",
-            // },
+      //     ],
+      //     links_systems: [
+      //       // {
+      //       //   icon: "people",
+      //       //   text: "Utilisateurs",
+      //       //   href: "/admin/Users",
+      //       // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Entreprise",
+      //       //   href: "/admin/liste_entreprise",
+      //       // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Privilège",
+      //       //   href: "/admin/role",
+      //       // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Configuration Menu",
+      //       //   href: "/admin/ListeMenu",
+      //       // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Historiques Infos.",
+      //       //   href: "/admin/HistoriqueData",
+      //       // },
+      //       // {
+      //       //   icon: "credit_card",
+      //       //   text: "Contact pour info",
+      //       //   href: "/admin/contact_info",
+      //       // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Configuration basique",
+      //       //   href: "/admin/configure_basic",
+      //       // },
 
-            // {
-            //   icon: "api",
-            //   text: "Configuration du site",
-            //   href: "/admin/configure_site",
-            // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Configuration du site",
+      //       //   href: "/admin/configure_site",
+      //       // },
 
-          ],
-          sublinks: [
-            {
-              icon: "book",
-              text: "A propos ",
-              href: "/admin/about_page",
-            },
-          ],
-          listPersonnel: [
-          {
-              text: "RH",
-              icon: "mdi-account-settings",
-              items: [                
-                {
-                  text: "Personnels",
-                  href: "/admin/Agent",
-                },
-                {
-                  text: "Contrats Encours",
-                  href: "/admin/ContratActif",
-                },
-                {
-                  text: "En Congé",
-                  href: "/admin/ContratEnconge",
-                },
-                {
-                  text: "Contrats Finis",
-                  href: "/admin/ContratFini",
-                },
-                {
-                  text: "Tous les Contrats",
-                  href: "/admin/AllContrat",
-                },
-                {
-                  text: "Stages Encours",
-                  href: "/admin/StageEncours",
-                },
-                { //AllPresenceAgent
-                  text: "Tous les Stages",
-                  href: "/admin/AllStages",
-                },
-                { //AllPresenceAgent
-                  text: "Toutes les Présences",
-                  href: "/admin/AllPresenceAgent",
-                },
-                {
-                  text: "Paiement Global",
-                  href: "/admin/FichePaieGlobale",
-                },
-                {
-                  text: "Paiement/Agent",
-                  href: "/admin/FichePaie",
-                },
-                {
-                  text: "Rapports Contrat",
-                  href: "/admin/RapportContrat",
-                },
-                {
-                  text: "Rapports Remuneration Agent",
-                  href: "/admin/RapportsJour_Personnel",
-                },
-                {
-                  text: "Param.SalaireBase",
-                  href: "/admin/ParametreSalairebBase",
-                },
-                //ParametreSalairebBase
-              ],
-            },
-          ],
-          listPresence: [
-            {
-              text: "Présences",
-              icon: "mdi-account-settings",
-              items: [                
-                {
-                  text: "Aujourd'hui",
-                  href: "/admin/JourPresences",
-                },
-                {
-                  text: "Toutes les Présences",
-                  href: "/admin/AllPresenceAgent",
-                }
-              ],
-            },
-          ],
-          listCorresp: [
-            {
-              text: "Correspondances",
-              icon: "mdi-account-settings",
-              items: [                
-                {
-                  text: "Aujourd'hui",
-                  href: "/admin/JourCorrespondance",
-                },
-                {
-                  text: "Toutes les Corresp.",
-                  href: "/admin/AllCorrespondance",
-                },
-                {
-                  text: "Mes Correspondances",
-                  href: "/admin/UserCorrespondance",
-                }
-              ],
-            },
-          ],
-          listTimeSheet: [
-            {
-              text: "Time Sheets",
-              icon: "mdi-account-settings",
-              items: [                
-                {
-                  text: "Aujourd'hui",
-                  href: "/admin/JourTimeSheet",
-                },
-                {
-                  text: "Tous les TimeSheets.",
-                  href: "/admin/AllTimeSheet",
-                },
-                {
-                  text: "Mes TimeSheets",
-                  href: "/admin/UserTimeSheet",
-                }
-              ],
-            },
-          ],
-          // listGroup: [
-          //   {
-          //     text: "Article",
-          //     icon: "local_mall",
-          //     items: [
-          //       {
-          //         text: "Catégorie d'article",
-          //         href: "/admin/operation_catArticle",
-          //       },
-          //       {
-          //         text: "Blog",
-          //         href: "/admin/operation_blog",
-          //       },
+      //     ],
+      //     sublinks: [
+      //       {
+      //         icon: "book",
+      //         text: "A propos ",
+      //         href: "/admin/about_page",
+      //       },
+      //     ],
+      //     listPersonnel: [
+      //     {
+      //         text: "RH",
+      //         icon: "mdi-account-settings",
+      //         items: [                
+      //           {
+      //             text: "Personnels",
+      //             href: "/admin/Agent",
+      //           },
+      //           {
+      //             text: "Contrats Encours",
+      //             href: "/admin/ContratActif",
+      //           },
+      //           {
+      //             text: "En Congé",
+      //             href: "/admin/ContratEnconge",
+      //           },
+      //           {
+      //             text: "Contrats Finis",
+      //             href: "/admin/ContratFini",
+      //           },
+      //           {
+      //             text: "Tous les Contrats",
+      //             href: "/admin/AllContrat",
+      //           },
+      //           {
+      //             text: "Stages Encours",
+      //             href: "/admin/StageEncours",
+      //           },
+      //           { //AllPresenceAgent
+      //             text: "Tous les Stages",
+      //             href: "/admin/AllStages",
+      //           },
+      //           { //AllPresenceAgent
+      //             text: "Toutes les Présences",
+      //             href: "/admin/AllPresenceAgent",
+      //           },
+      //           {
+      //             text: "Paiement Global",
+      //             href: "/admin/FichePaieGlobale",
+      //           },
+      //           {
+      //             text: "Paiement/Agent",
+      //             href: "/admin/FichePaie",
+      //           },
+      //           {
+      //             text: "Rapports Contrat",
+      //             href: "/admin/RapportContrat",
+      //           },
+      //           {
+      //             text: "Rapports Remuneration Agent",
+      //             href: "/admin/RapportsJour_Personnel",
+      //           },
+      //           {
+      //             text: "Param.SalaireBase",
+      //             href: "/admin/ParametreSalairebBase",
+      //           },
+      //           //ParametreSalairebBase
+      //         ],
+      //       },
+      //     ],
+      //     listPresence: [
+      //       {
+      //         text: "Présences",
+      //         icon: "mdi-account-settings",
+      //         items: [                
+      //           {
+      //             text: "Aujourd'hui",
+      //             href: "/admin/JourPresences",
+      //           },
+      //           {
+      //             text: "Toutes les Présences",
+      //             href: "/admin/AllPresenceAgent",
+      //           }
+      //         ],
+      //       },
+      //     ],
+      //     listCorresp: [
+      //       {
+      //         text: "Correspondances",
+      //         icon: "mdi-account-settings",
+      //         items: [                
+      //           {
+      //             text: "Aujourd'hui",
+      //             href: "/admin/JourCorrespondance",
+      //           },
+      //           {
+      //             text: "Toutes les Corresp.",
+      //             href: "/admin/AllCorrespondance",
+      //           },
+      //           {
+      //             text: "Mes Correspondances",
+      //             href: "/admin/UserCorrespondance",
+      //           }
+      //         ],
+      //       },
+      //     ],
+      //     listTimeSheet: [
+      //       {
+      //         text: "Time Sheets",
+      //         icon: "mdi-account-settings",
+      //         items: [                
+      //           {
+      //             text: "Aujourd'hui",
+      //             href: "/admin/JourTimeSheet",
+      //           },
+      //           {
+      //             text: "Tous les TimeSheets.",
+      //             href: "/admin/AllTimeSheet",
+      //           },
+      //           {
+      //             text: "Mes TimeSheets",
+      //             href: "/admin/UserTimeSheet",
+      //           }
+      //         ],
+      //       },
+      //     ],
+      //     // listGroup: [
+      //     //   {
+      //     //     text: "Article",
+      //     //     icon: "local_mall",
+      //     //     items: [
+      //     //       {
+      //     //         text: "Catégorie d'article",
+      //     //         href: "/admin/operation_catArticle",
+      //     //       },
+      //     //       {
+      //     //         text: "Blog",
+      //     //         href: "/admin/operation_blog",
+      //     //       },
 
-          //       {
-          //         icon: "store",
-          //         text: "Mot de la semaine",
-          //         href: "/admin/week",
-          //       },
+      //     //       {
+      //     //         icon: "store",
+      //     //         text: "Mot de la semaine",
+      //     //         href: "/admin/week",
+      //     //       },
 
-          //     ],
-          //   },
-          // ],
-          // listVentes: [
-          //   {
-          //     text: "Ventes & Stock",
-          //     icon: "mdi-cart",
-          //     items: [
-          //       {
-          //         text: "Ventes",
-          //         href: "/admin/VenteEnteteVente",
-          //       },
-          //       {
-          //         text: "Clients",
-          //         href: "/admin/ClientVente",
-          //       },
-          //       {
-          //         text: "Approvisionnements",
-          //         href: "/admin/VenteEnteteEntree",
-          //       },
-          //       {
-          //         text: "Etat de Besoin",
-          //         href: "/admin/VenteEnteteCommande",
-          //       },
-          //       {
-          //         text: "Produits",
-          //         href: "/admin/Produits",
-          //       },
-          //       {
-          //         icon: "store",
-          //         text: "Fournisseurs",
-          //         href: "/admin/Fournisseur",
-          //       },
-          //       {
-          //         icon: "store",
-          //         text: "Rapports",
-          //         href: "/admin/RapportsJour_Vente",
-          //       },
-          //     ],
-          //   },
-          // ],
-          listProjets: [
-            {
-              text: "Projets",
-              icon: "mdi-projector-screen",
-              items: [
-                {
-                  text: "Partenaires",
-                  href: "/admin/PartenaireProjet",
-                },
-                {
-                  text: "Projets",
-                  href: "/admin/Projets",
-                },
-                // {
-                //   icon: "store",
-                //   text: "Rapports",
-                //   href: "/admin/RapportsJour_Vente",
-                // },
-              ],
-            },
-          ],
-          listArchivages: [
-          {
-              text: "Archivages",
-              icon: "mdi-email-open",
-              items: [              
-                {
-                  text: "Archivages",
-                  href: "/admin/Archivages", 
-                },
-                // {
-                //   text: "Division",
-                //   href: "/admin/DivisionArchive",
-                // },
-                // {
-                //   text: "CategorieArch.",
-                //   href: "/admin/CategorieArchivage",
-                // },
-                // {
-                //   text: "Services",
-                //   href: "/admin/ServiceArchivage",
-                // }
-              ],
-            },
-          ],
-          // listReservations: [
-          //   {
-          //     text: "Resérvations",
-          //     icon: "mdi-home",
-          //     items: [
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     // listVentes: [
+      //     //   {
+      //     //     text: "Ventes & Stock",
+      //     //     icon: "mdi-cart",
+      //     //     items: [
+      //     //       {
+      //     //         text: "Ventes",
+      //     //         href: "/admin/VenteEnteteVente",
+      //     //       },
+      //     //       {
+      //     //         text: "Clients",
+      //     //         href: "/admin/ClientVente",
+      //     //       },
+      //     //       {
+      //     //         text: "Approvisionnements",
+      //     //         href: "/admin/VenteEnteteEntree",
+      //     //       },
+      //     //       {
+      //     //         text: "Etat de Besoin",
+      //     //         href: "/admin/VenteEnteteCommande",
+      //     //       },
+      //     //       {
+      //     //         text: "Produits",
+      //     //         href: "/admin/Produits",
+      //     //       },
+      //     //       {
+      //     //         icon: "store",
+      //     //         text: "Fournisseurs",
+      //     //         href: "/admin/Fournisseur",
+      //     //       },
+      //     //       {
+      //     //         icon: "store",
+      //     //         text: "Rapports",
+      //     //         href: "/admin/RapportsJour_Vente",
+      //     //       },
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     listProjets: [
+      //       {
+      //         text: "Projets",
+      //         icon: "mdi-projector-screen",
+      //         items: [
+      //           {
+      //             text: "Partenaires",
+      //             href: "/admin/PartenaireProjet",
+      //           },
+      //           {
+      //             text: "Projets",
+      //             href: "/admin/Projets",
+      //           },
+      //           // {
+      //           //   icon: "store",
+      //           //   text: "Rapports",
+      //           //   href: "/admin/RapportsJour_Vente",
+      //           // },
+      //         ],
+      //       },
+      //     ],
+      //     listArchivages: [
+      //     {
+      //         text: "Archivages",
+      //         icon: "mdi-email-open",
+      //         items: [              
+      //           {
+      //             text: "Archivages",
+      //             href: "/admin/Archivages", 
+      //           },
+      //           // {
+      //           //   text: "Division",
+      //           //   href: "/admin/DivisionArchive",
+      //           // },
+      //           // {
+      //           //   text: "CategorieArch.",
+      //           //   href: "/admin/CategorieArchivage",
+      //           // },
+      //           // {
+      //           //   text: "Services",
+      //           //   href: "/admin/ServiceArchivage",
+      //           // }
+      //         ],
+      //       },
+      //     ],
+      //     // listReservations: [
+      //     //   {
+      //     //     text: "Resérvations",
+      //     //     icon: "mdi-home",
+      //     //     items: [
 
-          //       {
-          //         text: "Chambres",
-          //         href: "/admin/ClientHotel",
-          //       },
-          //       { 
-          //         text: "Salles",
-          //         href: "/admin/ClientVente",
-          //       },
-          //       { 
-          //         text: "Rapports",
-          //         href: "/admin/RapportsJour_Reservation",
-          //       }
+      //     //       {
+      //     //         text: "Chambres",
+      //     //         href: "/admin/ClientHotel",
+      //     //       },
+      //     //       { 
+      //     //         text: "Salles",
+      //     //         href: "/admin/ClientVente",
+      //     //       },
+      //     //       { 
+      //     //         text: "Rapports",
+      //     //         href: "/admin/RapportsJour_Reservation",
+      //     //       }
 
-          //     ],
-          //   },
-          // ],
-          // listBillards: [
-          //   {
-          //     text: "Billards",
-          //     icon: "mdi-gamepad",
-          //     items: [                
-          //       {
-          //         text: "Billards",
-          //         href: "/admin/ClientVente",
-          //       }
-          //     ],
-          //   },
-          // ],
-          // listFinances: [
-          //   {
-          //     text: "Finances",
-          //     icon: "mdi-cards",
-          //     items: [                
-          //       {
-          //         text: "Recettes",
-          //         href: "/admin/recette",
-          //       },
-          //       {
-          //         text: "Etat de Besoin",
-          //         href: "/admin/EnteteEtatBesoin",
-          //       },
-          //       {
-          //         text: "Bon d'Engagement",
-          //         href: "/admin/EnteteBonEngagement",
-          //       },
-          //       {
-          //         text: "Cloture de la Caisse",
-          //         href: "/admin/Cloture_Caisse",
-          //       },
-          //       // {
-          //       //   text: "Cloture de la Caisse Hotel",
-          //       //   href: "/admin/Cloture_Caisse_Chambre",
-          //       // },
-          //       // {
-          //       //   text: "Cloture de la Caisse Salle",
-          //       //   href: "/admin/Cloture_Caisse_Salle",
-          //       // },
-          //       // {
-          //       //   text: "Cloture de la Caisse Billards",
-          //       //   href: "/admin/Cloture_Caisse_Billard",
-          //       // },
-          //       { 
-          //         text: "Comptabilité(Opé.)",
-          //         href: "/admin/EnteteOperationComptable",
-          //       },
-          //       { 
-          //         text: "Cloture de la Comptabilité",
-          //         href: "/admin/ClotureComptabilite",
-          //       },
-          //       {
-          //         text: "Rapport Comptabilité",
-          //         href: "/admin/RapportsComptabilite"
-          //         //Services
-          //       },
-          //       {
-          //         text: "Rapport Recettes/Depenses",
-          //         href: "/admin/RapportsJour_Caisse"
-          //       },
-          //       { //RapportContrat
-          //         text: "Rapports Remuneration Agent",
-          //         href: "/admin/RapportsJour_Personnel",
-          //       },
-          //       {
-          //         text: "Les Services",
-          //         href: "/admin/Services"
-          //       }
-          //     ],
-          //   },
-          // ],
-          // listLogistique: [
-          //   {
-          //     text: "Logistique",
-          //     icon: "mdi-cart",
-          //     items: [                
-          //     {
-          //         text: "Approvisionements",
-          //         href: "/admin/LogEnteteEntree",
-          //       },
-          //       {
-          //         text: "Sortie/Services",
-          //         href: "/admin/LogEnteteSortie",
-          //       },
-          //       {
-          //         text: "Requisitions",
-          //         href: "/admin/LogEnteteRequisition",
-          //       },
-          //       {
-          //         text: "Articles",
-          //         href: "/admin/ProduitLog",
-          //       },
-          //       {
-          //         text: "Fournisseur",
-          //         href: "/admin/Fournisseur",
-          //       },
-          //       {
-          //         text: "Categorie Art.",
-          //         href: "/admin/categorieproduit",
-          //       },
-          //       {
-          //         text: "Rapports",
-          //         href: "/admin/RapportsJour_Logistique",
-          //       }
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     // listBillards: [
+      //     //   {
+      //     //     text: "Billards",
+      //     //     icon: "mdi-gamepad",
+      //     //     items: [                
+      //     //       {
+      //     //         text: "Billards",
+      //     //         href: "/admin/ClientVente",
+      //     //       }
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     // listFinances: [
+      //     //   {
+      //     //     text: "Finances",
+      //     //     icon: "mdi-cards",
+      //     //     items: [                
+      //     //       {
+      //     //         text: "Recettes",
+      //     //         href: "/admin/recette",
+      //     //       },
+      //     //       {
+      //     //         text: "Etat de Besoin",
+      //     //         href: "/admin/EnteteEtatBesoin",
+      //     //       },
+      //     //       {
+      //     //         text: "Bon d'Engagement",
+      //     //         href: "/admin/EnteteBonEngagement",
+      //     //       },
+      //     //       {
+      //     //         text: "Cloture de la Caisse",
+      //     //         href: "/admin/Cloture_Caisse",
+      //     //       },
+      //     //       // {
+      //     //       //   text: "Cloture de la Caisse Hotel",
+      //     //       //   href: "/admin/Cloture_Caisse_Chambre",
+      //     //       // },
+      //     //       // {
+      //     //       //   text: "Cloture de la Caisse Salle",
+      //     //       //   href: "/admin/Cloture_Caisse_Salle",
+      //     //       // },
+      //     //       // {
+      //     //       //   text: "Cloture de la Caisse Billards",
+      //     //       //   href: "/admin/Cloture_Caisse_Billard",
+      //     //       // },
+      //     //       { 
+      //     //         text: "Comptabilité(Opé.)",
+      //     //         href: "/admin/EnteteOperationComptable",
+      //     //       },
+      //     //       { 
+      //     //         text: "Cloture de la Comptabilité",
+      //     //         href: "/admin/ClotureComptabilite",
+      //     //       },
+      //     //       {
+      //     //         text: "Rapport Comptabilité",
+      //     //         href: "/admin/RapportsComptabilite"
+      //     //         //Services
+      //     //       },
+      //     //       {
+      //     //         text: "Rapport Recettes/Depenses",
+      //     //         href: "/admin/RapportsJour_Caisse"
+      //     //       },
+      //     //       { //RapportContrat
+      //     //         text: "Rapports Remuneration Agent",
+      //     //         href: "/admin/RapportsJour_Personnel",
+      //     //       },
+      //     //       {
+      //     //         text: "Les Services",
+      //     //         href: "/admin/Services"
+      //     //       }
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     // listLogistique: [
+      //     //   {
+      //     //     text: "Logistique",
+      //     //     icon: "mdi-cart",
+      //     //     items: [                
+      //     //     {
+      //     //         text: "Approvisionements",
+      //     //         href: "/admin/LogEnteteEntree",
+      //     //       },
+      //     //       {
+      //     //         text: "Sortie/Services",
+      //     //         href: "/admin/LogEnteteSortie",
+      //     //       },
+      //     //       {
+      //     //         text: "Requisitions",
+      //     //         href: "/admin/LogEnteteRequisition",
+      //     //       },
+      //     //       {
+      //     //         text: "Articles",
+      //     //         href: "/admin/ProduitLog",
+      //     //       },
+      //     //       {
+      //     //         text: "Fournisseur",
+      //     //         href: "/admin/Fournisseur",
+      //     //       },
+      //     //       {
+      //     //         text: "Categorie Art.",
+      //     //         href: "/admin/categorieproduit",
+      //     //       },
+      //     //       {
+      //     //         text: "Rapports",
+      //     //         href: "/admin/RapportsJour_Logistique",
+      //     //       }
 
-          //     ],
-          //   },
-          // ],
+      //     //     ],
+      //     //   },
+      //     // ],
 
-          // listVehicules: [
-          //   { 
-          //     text: "Véhicules",
-          //     icon: "mdi-car",
-          //     items: [                
-          //       {
-          //         text: "Mouvements des Véhicules",
-          //         href: "/admin/CarEnteteMouvement",
-          //       },
-          //       {
-          //         text: "Rapports",
-          //         href: "/admin/RapportsJour_Vehicule",
-          //       },
-          //       {
-          //         text: "Nos Véhicules",
-          //         href: "/admin/CarVehicule",
-          //       },
-          //       {
-          //         text: "Les Gammes",
-          //         href: "/admin/CarProduit",
-          //       },
-          //       {
-          //         text: "Les Fournisseurs",
-          //         href: "/admin/CarProducteur",
-          //       }
-          //     ],
-          //   },
-          // ],
-          // listSalon: [
-          //   { 
-          //     text: "Salon de Beauté",
-          //     icon: "mdi-car",
-          //     items: [              
-          //        { 
-          //          text: "Salon de Beauté",
-          //          href: "/admin/SalonEnteteVente",
-          //        },
-          //        { 
-          //          text: "Rapports(Salon)",
-          //          href: "/admin/RapportsJour_VenteSalon",
-          //        }
-          //     ],
-          //   },
-          // ],
-          links_systems_mouvement: [
-          ],
-          links_systems_mouvement_2: [
-            // ProfilPatient
-          ],
-          links_systems_mouvement_3: [
-          ],
+      //     // listVehicules: [
+      //     //   { 
+      //     //     text: "Véhicules",
+      //     //     icon: "mdi-car",
+      //     //     items: [                
+      //     //       {
+      //     //         text: "Mouvements des Véhicules",
+      //     //         href: "/admin/CarEnteteMouvement",
+      //     //       },
+      //     //       {
+      //     //         text: "Rapports",
+      //     //         href: "/admin/RapportsJour_Vehicule",
+      //     //       },
+      //     //       {
+      //     //         text: "Nos Véhicules",
+      //     //         href: "/admin/CarVehicule",
+      //     //       },
+      //     //       {
+      //     //         text: "Les Gammes",
+      //     //         href: "/admin/CarProduit",
+      //     //       },
+      //     //       {
+      //     //         text: "Les Fournisseurs",
+      //     //         href: "/admin/CarProducteur",
+      //     //       }
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     // listSalon: [
+      //     //   { 
+      //     //     text: "Salon de Beauté",
+      //     //     icon: "mdi-car",
+      //     //     items: [              
+      //     //        { 
+      //     //          text: "Salon de Beauté",
+      //     //          href: "/admin/SalonEnteteVente",
+      //     //        },
+      //     //        { 
+      //     //          text: "Rapports(Salon)",
+      //     //          href: "/admin/RapportsJour_VenteSalon",
+      //     //        }
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     links_systems_mouvement: [
+      //     ],
+      //     links_systems_mouvement_2: [
+      //       // ProfilPatient
+      //     ],
+      //     links_systems_mouvement_3: [
+      //     ],
 
-          admins: [
-            ["Management", ""],
-            ["Settings", ""],
-          ],
-        };
-      }
-      else if (this.userData.id_role == 3) {
-        this.linkAdmin = {
-          links: [
-            // {
-            //   icon: "mdi-microsoft-windows",
-            //   text: "Tableau de bord",
-            //   href: "/admin/dashboard",
-            // },
-            // {
-            //   icon: "mdi-chart-pie",
-            //   text: "Tableau de bord(Ese)",
-            //   href: "/admin/statistique_entreprise",
-            // },
-            // {
-            //   icon: "chat",
-            //   text: "Chat",
-            //   href: "/admin/chat",
-            // },
-          ],
-          links_operation_2: [
-            // {
-            //   icon: "credit_card",
-            //   text: "Carousel",
-            //   href: "/admin/carousel",
-            // },
-            // {
-            //   icon: "credit_card",
-            //   text: "Service",
-            //   href: "/admin/operation_service",
-            // },
-            // {
-            //   icon: "store",
-            //   text: "Galérie",
-            //   href: "/admin/operation_galery",
-            // },
-            // {
-            //   icon: "store",
-            //   text: "Vidéo",
-            //   href: "/admin/operation_video",
-            // },
-            // {
-            //   icon: "store",
-            //   text: "Partenaire",
-            //   href: "/admin/operation_partenaire",
-            // },
+      //     admins: [
+      //       ["Management", ""],
+      //       ["Settings", ""],
+      //     ],
+      //   };
+      // }
+      // else if (this.userData.id_role == 3) {
+      //   this.linkAdmin = {
+      //     links: [
+      //       // {
+      //       //   icon: "mdi-microsoft-windows",
+      //       //   text: "Tableau de bord",
+      //       //   href: "/admin/dashboard",
+      //       // },
+      //       // {
+      //       //   icon: "mdi-chart-pie",
+      //       //   text: "Tableau de bord(Ese)",
+      //       //   href: "/admin/statistique_entreprise",
+      //       // },
+      //       // {
+      //       //   icon: "chat",
+      //       //   text: "Chat",
+      //       //   href: "/admin/chat",
+      //       // },
+      //     ],
+      //     links_operation_2: [
+      //       // {
+      //       //   icon: "credit_card",
+      //       //   text: "Carousel",
+      //       //   href: "/admin/carousel",
+      //       // },
+      //       // {
+      //       //   icon: "credit_card",
+      //       //   text: "Service",
+      //       //   href: "/admin/operation_service",
+      //       // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Galérie",
+      //       //   href: "/admin/operation_galery",
+      //       // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Vidéo",
+      //       //   href: "/admin/operation_video",
+      //       // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Partenaire",
+      //       //   href: "/admin/operation_partenaire",
+      //       // },
 
-            // {
-            //   icon: "store",
-            //   text: "Notre famille",
-            //   href: "/admin/operation_team",
-            // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Notre famille",
+      //       //   href: "/admin/operation_team",
+      //       // },
 
-          ],
-          links_finance: [
-            // {
-            //   icon: "groups",
-            //   text: "Classes",
-            //   href: "/admin/ClassesFin",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Comptes",
-            //   href: "/admin/CompteFin",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Sous Comptes",
-            //   href: "/admin/SousCompte",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "SSous Comptes",
-            //   href: "/admin/SSousCompte",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Type Compte",
-            //   href: "/admin/TypeCompte",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Config. Taux",
-            //   href: "/admin/TTaux",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Type Position",
-            //   href: "/admin/TypePosition",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Type Opération",
-            //   href: "/admin/TypeOperation",
-            // },
-            // {
-            //   text: "Rubriques",
-            //   href: "/admin/Comptes",
-            // },
-            // {
-            //   text: "Caisse&Banque",
-            //   href: "/admin/Banque",
-            // },
-            // {
-            //   text: "ModePaie",
-            //   href: "/admin/modepaie",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Taux",
-            //   href: "/admin/TTaux",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Services Treseorerie",
-            //   href: "/admin/Provenance",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Cat. Rubriques",
-            //   href: "/admin/CategorieRubrique",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Rubriques Depenses",
-            //   href: "/admin/Rubriques",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Blocs",
-            //   href: "/admin/Blocs",
-            // }
+      //     ],
+      //     links_finance: [
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Classes",
+      //       //   href: "/admin/ClassesFin",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Comptes",
+      //       //   href: "/admin/CompteFin",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Sous Comptes",
+      //       //   href: "/admin/SousCompte",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "SSous Comptes",
+      //       //   href: "/admin/SSousCompte",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Type Compte",
+      //       //   href: "/admin/TypeCompte",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Config. Taux",
+      //       //   href: "/admin/TTaux",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Type Position",
+      //       //   href: "/admin/TypePosition",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Type Opération",
+      //       //   href: "/admin/TypeOperation",
+      //       // },
+      //       // {
+      //       //   text: "Rubriques",
+      //       //   href: "/admin/Comptes",
+      //       // },
+      //       // {
+      //       //   text: "Caisse&Banque",
+      //       //   href: "/admin/Banque",
+      //       // },
+      //       // {
+      //       //   text: "ModePaie",
+      //       //   href: "/admin/modepaie",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Taux",
+      //       //   href: "/admin/TTaux",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Services Treseorerie",
+      //       //   href: "/admin/Provenance",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Cat. Rubriques",
+      //       //   href: "/admin/CategorieRubrique",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Rubriques Depenses",
+      //       //   href: "/admin/Rubriques",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Blocs",
+      //       //   href: "/admin/Blocs",
+      //       // }
 
-          ],
-          links_vente: [
-            // {
-            //   icon: "groups",
-            //   text: "CatégorieProduit",
-            //   href: "/admin/CategorieProduit",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Emplacements",
-            //   href: "/admin/Emplacements",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Service Logistique",
-            //   href: "/admin/SalonProduit",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Service Salon",
-            //   href: "/admin/SalonProduit",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "CatégorieClient",
-            //   href: "/admin/CategorieClient",
-            // }
-          ],
-          links_tresorerie: [
-            // {
-            //   text: "Rubriques Depenses",
-            //   href: "/admin/Comptes",
-            // },
-            // {
-            //   text: "Cat.Rubriques EB",
-            //   href: "/admin/CategorieRubrique",
-            // },
-            // {
-            //   text: "Rubriques EB",
-            //   href: "/admin/Rubriques",
-            // },
-            // {
-            //   text: "Blocs(Finances)",
-            //   href: "/admin/Blocs",
-            // },
-            // {
-            //   text: "Les Services(Finances)",
-            //   href: "/admin/Provenance",
-            // }
-          ],
-          links_hotel: [
-            // {
-            //   text: "ClasseChambre",
-            //   href: "/admin/ClasseChambre",
-            // },
-            // {
-            //   text: "Chambres",
-            //   href: "/admin/Chambre",
-            // },
-            // { //SalonProduit
-            //   text: "Salles",
-            //   href: "/admin/Salle",
-            // },
-            // { //SalonProduit
-            //   text: "Services Salon",
-            //   href: "/admin/SalonProduit",
-            // }
-          ],
-          links_personne: [
-                // {
-                //   text: "Type Agent",
-                //   href: "/admin/TypeAgent",
-                // },
-                // {
-                //   text: "Fonctions",
-                //   href: "/admin/FonctionAgent",
-                // },
-                // {
-                //   text: "Catégorie Agent",
-                //   href: "/admin/CategorieAgent",
-                // },
-                // {
-                //   text: "Type RubriquesPaies",
-                //   href: "/admin/CategorieRubriquePers",
-                // },
-                // {//CategorieCirconstance
-                //   text: "Type Contrat",
-                //   href: "/admin/TypeContrat",
-                // },
-                // {//TypeStage
-                //   text: "Type Stage",
-                //   href: "/admin/TypeStage",
-                // },
-                // {//CategorieCirconstance
-                //   text: "Categorie Circontance",
-                //   href: "/admin/CategorieCirconstance",
-                // },
-                // {
-                //   text: "Type Circonstance",
-                //   href: "/admin/TypeCirconstance",
-                // },
-                // {
-                //   text: "Les Postes",
-                //   href: "/admin/Postes",
-                // },
-                // {
-                //   text: "Les Mutuelles",
-                //   href: "/admin/Mutuelle",
-                // },
-                // {
-                //   text: "Lieu Affectation",
-                //   href: "/admin/LieuAffectation",
-                // },
-                // {
-                //   text: "RubriquesPaies",
-                //   href: "/admin/RubriquePaie",
-                // },
-                // {
-                //   text: "Param. RubriquesPaies",
-                //   href: "/admin/ParametreRubrique",
-                // },
-                // {
-                //   text: "Catégorie Service",
-                //   href: "/admin/CategorieServicePers",
-                // },
-                // {
-                //   text: "Service Pers.",
-                //   href: "/admin/ServicePersonnel",
-                // },
-                // {
-                //   text: "Année Civile",
-                //   href: "/admin/Annee",
-                // },
-                // {
-                //   text: "Mois",
-                //   href: "/admin/Mois",
-                // },
-                // {
-                //   text: "PromotionAcadémique",
-                //   href: "/admin/Promotion",
-                // },
-                // {
-                //   text: "DomaineAcadémique",
-                //   href: "/admin/DomaineStage",
-                // },
-                // {
-                //   text: "OptionAcadémique",
-                //   href: "/admin/OptionStage",
-                // },
-                // {
-                //   text: "AnnéeAcadémique",
-                //   href: "/admin/AnneeStage",
-                // },
-                // {
-                //   text: "InstitutionsAC",
-                //   href: "/admin/Institution",
-                // },
-                // {
-                //   text: "Raison Familliale",
-                //   href: "/admin/RaisonFamilliale",
-                // }
-          ],
-          links_operation: [
-            // {
-            //   icon: "store",
-            //   text: "Pays",
-            //   href: "/admin/pays",
-            // },
-            // {
-            //   icon: "credit_card",
-            //   text: "Provinces",
-            //   href: "/admin/provinces",
-            // },
+      //     ],
+      //     links_vente: [
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "CatégorieProduit",
+      //       //   href: "/admin/CategorieProduit",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Emplacements",
+      //       //   href: "/admin/Emplacements",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Service Logistique",
+      //       //   href: "/admin/SalonProduit",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Service Salon",
+      //       //   href: "/admin/SalonProduit",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "CatégorieClient",
+      //       //   href: "/admin/CategorieClient",
+      //       // }
+      //     ],
+      //     links_tresorerie: [
+      //       // {
+      //       //   text: "Rubriques Depenses",
+      //       //   href: "/admin/Comptes",
+      //       // },
+      //       // {
+      //       //   text: "Cat.Rubriques EB",
+      //       //   href: "/admin/CategorieRubrique",
+      //       // },
+      //       // {
+      //       //   text: "Rubriques EB",
+      //       //   href: "/admin/Rubriques",
+      //       // },
+      //       // {
+      //       //   text: "Blocs(Finances)",
+      //       //   href: "/admin/Blocs",
+      //       // },
+      //       // {
+      //       //   text: "Les Services(Finances)",
+      //       //   href: "/admin/Provenance",
+      //       // }
+      //     ],
+      //     links_hotel: [
+      //       // {
+      //       //   text: "ClasseChambre",
+      //       //   href: "/admin/ClasseChambre",
+      //       // },
+      //       // {
+      //       //   text: "Chambres",
+      //       //   href: "/admin/Chambre",
+      //       // },
+      //       // { //SalonProduit
+      //       //   text: "Salles",
+      //       //   href: "/admin/Salle",
+      //       // },
+      //       // { //SalonProduit
+      //       //   text: "Services Salon",
+      //       //   href: "/admin/SalonProduit",
+      //       // }
+      //     ],
+      //     links_personne: [
+      //           // {
+      //           //   text: "Type Agent",
+      //           //   href: "/admin/TypeAgent",
+      //           // },
+      //           // {
+      //           //   text: "Fonctions",
+      //           //   href: "/admin/FonctionAgent",
+      //           // },
+      //           // {
+      //           //   text: "Catégorie Agent",
+      //           //   href: "/admin/CategorieAgent",
+      //           // },
+      //           // {
+      //           //   text: "Type RubriquesPaies",
+      //           //   href: "/admin/CategorieRubriquePers",
+      //           // },
+      //           // {//CategorieCirconstance
+      //           //   text: "Type Contrat",
+      //           //   href: "/admin/TypeContrat",
+      //           // },
+      //           // {//TypeStage
+      //           //   text: "Type Stage",
+      //           //   href: "/admin/TypeStage",
+      //           // },
+      //           // {//CategorieCirconstance
+      //           //   text: "Categorie Circontance",
+      //           //   href: "/admin/CategorieCirconstance",
+      //           // },
+      //           // {
+      //           //   text: "Type Circonstance",
+      //           //   href: "/admin/TypeCirconstance",
+      //           // },
+      //           // {
+      //           //   text: "Les Postes",
+      //           //   href: "/admin/Postes",
+      //           // },
+      //           // {
+      //           //   text: "Les Mutuelles",
+      //           //   href: "/admin/Mutuelle",
+      //           // },
+      //           // {
+      //           //   text: "Lieu Affectation",
+      //           //   href: "/admin/LieuAffectation",
+      //           // },
+      //           // {
+      //           //   text: "RubriquesPaies",
+      //           //   href: "/admin/RubriquePaie",
+      //           // },
+      //           // {
+      //           //   text: "Param. RubriquesPaies",
+      //           //   href: "/admin/ParametreRubrique",
+      //           // },
+      //           // {
+      //           //   text: "Catégorie Service",
+      //           //   href: "/admin/CategorieServicePers",
+      //           // },
+      //           // {
+      //           //   text: "Service Pers.",
+      //           //   href: "/admin/ServicePersonnel",
+      //           // },
+      //           // {
+      //           //   text: "Année Civile",
+      //           //   href: "/admin/Annee",
+      //           // },
+      //           // {
+      //           //   text: "Mois",
+      //           //   href: "/admin/Mois",
+      //           // },
+      //           // {
+      //           //   text: "PromotionAcadémique",
+      //           //   href: "/admin/Promotion",
+      //           // },
+      //           // {
+      //           //   text: "DomaineAcadémique",
+      //           //   href: "/admin/DomaineStage",
+      //           // },
+      //           // {
+      //           //   text: "OptionAcadémique",
+      //           //   href: "/admin/OptionStage",
+      //           // },
+      //           // {
+      //           //   text: "AnnéeAcadémique",
+      //           //   href: "/admin/AnneeStage",
+      //           // },
+      //           // {
+      //           //   text: "InstitutionsAC",
+      //           //   href: "/admin/Institution",
+      //           // },
+      //           // {
+      //           //   text: "Raison Familliale",
+      //           //   href: "/admin/RaisonFamilliale",
+      //           // }
+      //     ],
+      //     links_operation: [
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Pays",
+      //       //   href: "/admin/pays",
+      //       // },
+      //       // {
+      //       //   icon: "credit_card",
+      //       //   text: "Provinces",
+      //       //   href: "/admin/provinces",
+      //       // },
 
-            // {
-            //   icon: "store",
-            //   text: "Chef lieu",
-            //   href: "/admin/ville",
-            // },
-            // {
-            //   icon: "store",
-            //   text: "Commune",
-            //   href: "/admin/commune",
-            // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Chef lieu",
+      //       //   href: "/admin/ville",
+      //       // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Commune",
+      //       //   href: "/admin/commune",
+      //       // },
 
-            // {
-            //   icon: "store",
-            //   text: "Quartier",
-            //   href: "/admin/quartier",
-            // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Quartier",
+      //       //   href: "/admin/quartier",
+      //       // },
 
-            // {
-            //   icon: "store",
-            //   text: "Avenue",
-            //   href: "/admin/avenue",
-            // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Avenue",
+      //       //   href: "/admin/avenue",
+      //       // },
 
-            // {
-            //   icon: "store",
-            //   text: "Forme juridique",
-            //   href: "/admin/forme_juridique",
-            // },
-            // {
-            //   text: "Statistique sur les blogs",
-            //   href: "/admin/statistique_entreprise",
-            // },
-            // {
-            //   icon: "store",
-            //   text: "Territoire",
-            //   href: "/admin/territoire",
-            // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Forme juridique",
+      //       //   href: "/admin/forme_juridique",
+      //       // },
+      //       // {
+      //       //   text: "Statistique sur les blogs",
+      //       //   href: "/admin/statistique_entreprise",
+      //       // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Territoire",
+      //       //   href: "/admin/territoire",
+      //       // },
 
-            // {
-            //   icon: "store",
-            //   text: "Envoie SMS",
-            //   href: "/admin/texto",
-            // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Envoie SMS",
+      //       //   href: "/admin/texto",
+      //       // },
 
-            // {
-            //   icon: "store",
-            //   text: "Statistique sur Les utilisateur",
-            //   href: "/admin/statistique_user",
-            // },
-
-
-            // {
-            //   icon: "api",
-            //   text: "Témoignage",
-            //   href: "/admin/temoignages",
-            // },
-
-            // {
-            //   icon: "api",
-            //   text: "Nos Valeurs",
-            //   href: "/admin/valeur",
-            // },
-
-            // {
-            //   icon: "api",
-            //   text: "Nos Rôles",
-            //   href: "/admin/role_service",
-            // },
-
-            // {
-            //   icon: "api",
-            //   text: "Nos Choix",
-            //   href: "/admin/choix",
-            // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Statistique sur Les utilisateur",
+      //       //   href: "/admin/statistique_user",
+      //       // },
 
 
-            // {
-            //   icon: "credit_card",
-            //   text: "Services",
-            //   href: "/admin/service",
-            // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Témoignage",
+      //       //   href: "/admin/temoignages",
+      //       // },
+
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Nos Valeurs",
+      //       //   href: "/admin/valeur",
+      //       // },
+
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Nos Rôles",
+      //       //   href: "/admin/role_service",
+      //       // },
+
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Nos Choix",
+      //       //   href: "/admin/choix",
+      //       // },
 
 
-            // {
-            //   icon: "api",
-            //   text: "Decisions",
-            //   href: "/admin/decision",
-            // },
+      //       // {
+      //       //   icon: "credit_card",
+      //       //   text: "Services",
+      //       //   href: "/admin/service",
+      //       // },
 
-            // {
-            //   icon: "api",
-            //   text: "Avantage",
-            //   href: "/admin/avantage",
-            // },
-            // {
-            //   icon: "api",
-            //   text: "Sous services",
-            //   href: "/admin/sous_service",
-            // },
+
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Decisions",
+      //       //   href: "/admin/decision",
+      //       // },
+
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Avantage",
+      //       //   href: "/admin/avantage",
+      //       // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Sous services",
+      //       //   href: "/admin/sous_service",
+      //       // },
             
-          ],
-          links_systems: [
-            // {
-            //   icon: "people",
-            //   text: "Utilisateurs",
-            //   href: "/admin/Users",
-            // },
-            // {
-            //   icon: "api",
-            //   text: "Entreprise",
-            //   href: "/admin/liste_entreprise",
-            // },
-            // {
-            //   icon: "api",
-            //   text: "Privilège",
-            //   href: "/admin/role",
-            // },
-            // {
-            //   icon: "api",
-            //   text: "Configuration Menu",
-            //   href: "/admin/ListeMenu",
-            // },
-            // {
-            //   icon: "api",
-            //   text: "Historiques Infos.",
-            //   href: "/admin/HistoriqueData",
-            // },
-            // {
-            //   icon: "credit_card",
-            //   text: "Contact pour info",
-            //   href: "/admin/contact_info",
-            // },
-            // {
-            //   icon: "api",
-            //   text: "Configuration basique",
-            //   href: "/admin/configure_basic",
-            // },
+      //     ],
+      //     links_systems: [
+      //       // {
+      //       //   icon: "people",
+      //       //   text: "Utilisateurs",
+      //       //   href: "/admin/Users",
+      //       // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Entreprise",
+      //       //   href: "/admin/liste_entreprise",
+      //       // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Privilège",
+      //       //   href: "/admin/role",
+      //       // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Configuration Menu",
+      //       //   href: "/admin/ListeMenu",
+      //       // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Historiques Infos.",
+      //       //   href: "/admin/HistoriqueData",
+      //       // },
+      //       // {
+      //       //   icon: "credit_card",
+      //       //   text: "Contact pour info",
+      //       //   href: "/admin/contact_info",
+      //       // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Configuration basique",
+      //       //   href: "/admin/configure_basic",
+      //       // },
 
-            // {
-            //   icon: "api",
-            //   text: "Configuration du site",
-            //   href: "/admin/configure_site",
-            // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Configuration du site",
+      //       //   href: "/admin/configure_site",
+      //       // },
 
-          ],
-          sublinks: [
-            {
-              icon: "book",
-              text: "A propos ",
-              href: "/admin/about_page",
-            },
-          ],
-          listPersonnel: [
-          {
-              text: "RH",
-              icon: "mdi-account-settings",
-              items: [                
-                {
-                  text: "Personnels",
-                  href: "/admin/Agent",
-                },
-                {
-                  text: "Contrats Encours",
-                  href: "/admin/ContratActif",
-                },
-                {
-                  text: "En Congé",
-                  href: "/admin/ContratEnconge",
-                },
-                {
-                  text: "Contrats Finis",
-                  href: "/admin/ContratFini",
-                },
-                {
-                  text: "Tous les Contrats",
-                  href: "/admin/AllContrat",
-                },
-                {
-                  text: "Stages Encours",
-                  href: "/admin/StageEncours",
-                },
-                { //AllPresenceAgent
-                  text: "Tous les Stages",
-                  href: "/admin/AllStages",
-                },
-                { //AllPresenceAgent
-                  text: "Toutes les Présences",
-                  href: "/admin/AllPresenceAgent",
-                },
-                {
-                  text: "Paiement Global",
-                  href: "/admin/FichePaieGlobale",
-                },
-                {
-                  text: "Paiement/Agent",
-                  href: "/admin/FichePaie",
-                },
-                {
-                  text: "Rapports Contrat",
-                  href: "/admin/RapportContrat",
-                },
-                {
-                  text: "Rapports Remuneration Agent",
-                  href: "/admin/RapportsJour_Personnel",
-                },
-                {
-                  text: "Param.SalaireBase",
-                  href: "/admin/ParametreSalairebBase",
-                },
-                //ParametreSalairebBase
-              ],
-            },
-          ],
-          listPresence: [
-            {
-              text: "Présences",
-              icon: "mdi-account-settings",
-              items: [                
-                {
-                  text: "Aujourd'hui",
-                  href: "/admin/JourPresences",
-                },
-                {
-                  text: "Toutes les Présences",
-                  href: "/admin/AllPresenceAgent",
-                }
-              ],
-            },
-          ],
-          listCorresp: [
-            {
-              text: "Correspondances",
-              icon: "mdi-account-settings",
-              items: [                
-                {
-                  text: "Aujourd'hui",
-                  href: "/admin/JourCorrespondance",
-                },
-                {
-                  text: "Toutes les Corresp.",
-                  href: "/admin/AllCorrespondance",
-                },
-                {
-                  text: "Mes Correspondances",
-                  href: "/admin/UserCorrespondance",
-                }
-              ],
-            },
-          ],
-          listTimeSheet: [
-            {
-              text: "Time Sheets",
-              icon: "mdi-account-settings",
-              items: [                
-                {
-                  text: "Aujourd'hui",
-                  href: "/admin/JourTimeSheet",
-                },
-                {
-                  text: "Tous les TimeSheets.",
-                  href: "/admin/AllTimeSheet",
-                },
-                {
-                  text: "Mes TimeSheets",
-                  href: "/admin/UserTimeSheet",
-                }
-              ],
-            },
-          ],
-          // listGroup: [
-          //   {
-          //     text: "Article",
-          //     icon: "local_mall",
-          //     items: [
-          //       {
-          //         text: "Catégorie d'article",
-          //         href: "/admin/operation_catArticle",
-          //       },
-          //       {
-          //         text: "Blog",
-          //         href: "/admin/operation_blog",
-          //       },
+      //     ],
+      //     sublinks: [
+      //       {
+      //         icon: "book",
+      //         text: "A propos ",
+      //         href: "/admin/about_page",
+      //       },
+      //     ],
+      //     listPersonnel: [
+      //     {
+      //         text: "RH",
+      //         icon: "mdi-account-settings",
+      //         items: [                
+      //           {
+      //             text: "Personnels",
+      //             href: "/admin/Agent",
+      //           },
+      //           {
+      //             text: "Contrats Encours",
+      //             href: "/admin/ContratActif",
+      //           },
+      //           {
+      //             text: "En Congé",
+      //             href: "/admin/ContratEnconge",
+      //           },
+      //           {
+      //             text: "Contrats Finis",
+      //             href: "/admin/ContratFini",
+      //           },
+      //           {
+      //             text: "Tous les Contrats",
+      //             href: "/admin/AllContrat",
+      //           },
+      //           {
+      //             text: "Stages Encours",
+      //             href: "/admin/StageEncours",
+      //           },
+      //           { //AllPresenceAgent
+      //             text: "Tous les Stages",
+      //             href: "/admin/AllStages",
+      //           },
+      //           { //AllPresenceAgent
+      //             text: "Toutes les Présences",
+      //             href: "/admin/AllPresenceAgent",
+      //           },
+      //           {
+      //             text: "Paiement Global",
+      //             href: "/admin/FichePaieGlobale",
+      //           },
+      //           {
+      //             text: "Paiement/Agent",
+      //             href: "/admin/FichePaie",
+      //           },
+      //           {
+      //             text: "Rapports Contrat",
+      //             href: "/admin/RapportContrat",
+      //           },
+      //           {
+      //             text: "Rapports Remuneration Agent",
+      //             href: "/admin/RapportsJour_Personnel",
+      //           },
+      //           {
+      //             text: "Param.SalaireBase",
+      //             href: "/admin/ParametreSalairebBase",
+      //           },
+      //           //ParametreSalairebBase
+      //         ],
+      //       },
+      //     ],
+      //     listPresence: [
+      //       {
+      //         text: "Présences",
+      //         icon: "mdi-account-settings",
+      //         items: [                
+      //           {
+      //             text: "Aujourd'hui",
+      //             href: "/admin/JourPresences",
+      //           },
+      //           {
+      //             text: "Toutes les Présences",
+      //             href: "/admin/AllPresenceAgent",
+      //           }
+      //         ],
+      //       },
+      //     ],
+      //     listCorresp: [
+      //       {
+      //         text: "Correspondances",
+      //         icon: "mdi-account-settings",
+      //         items: [                
+      //           {
+      //             text: "Aujourd'hui",
+      //             href: "/admin/JourCorrespondance",
+      //           },
+      //           {
+      //             text: "Toutes les Corresp.",
+      //             href: "/admin/AllCorrespondance",
+      //           },
+      //           {
+      //             text: "Mes Correspondances",
+      //             href: "/admin/UserCorrespondance",
+      //           }
+      //         ],
+      //       },
+      //     ],
+      //     listTimeSheet: [
+      //       {
+      //         text: "Time Sheets",
+      //         icon: "mdi-account-settings",
+      //         items: [                
+      //           {
+      //             text: "Aujourd'hui",
+      //             href: "/admin/JourTimeSheet",
+      //           },
+      //           {
+      //             text: "Tous les TimeSheets.",
+      //             href: "/admin/AllTimeSheet",
+      //           },
+      //           {
+      //             text: "Mes TimeSheets",
+      //             href: "/admin/UserTimeSheet",
+      //           }
+      //         ],
+      //       },
+      //     ],
+      //     // listGroup: [
+      //     //   {
+      //     //     text: "Article",
+      //     //     icon: "local_mall",
+      //     //     items: [
+      //     //       {
+      //     //         text: "Catégorie d'article",
+      //     //         href: "/admin/operation_catArticle",
+      //     //       },
+      //     //       {
+      //     //         text: "Blog",
+      //     //         href: "/admin/operation_blog",
+      //     //       },
 
-          //       {
-          //         icon: "store",
-          //         text: "Mot de la semaine",
-          //         href: "/admin/week",
-          //       },
+      //     //       {
+      //     //         icon: "store",
+      //     //         text: "Mot de la semaine",
+      //     //         href: "/admin/week",
+      //     //       },
 
-          //     ],
-          //   },
-          // ],
-          // listVentes: [
-          //   {
-          //     text: "Ventes & Stock",
-          //     icon: "mdi-cart",
-          //     items: [
-          //       {
-          //         text: "Ventes",
-          //         href: "/admin/VenteEnteteVente",
-          //       },
-          //       {
-          //         text: "Clients",
-          //         href: "/admin/ClientVente",
-          //       },
-          //       {
-          //         text: "Approvisionnements",
-          //         href: "/admin/VenteEnteteEntree",
-          //       },
-          //       {
-          //         text: "Etat de Besoin",
-          //         href: "/admin/VenteEnteteCommande",
-          //       },
-          //       {
-          //         text: "Produits",
-          //         href: "/admin/Produits",
-          //       },
-          //       {
-          //         icon: "store",
-          //         text: "Fournisseurs",
-          //         href: "/admin/Fournisseur",
-          //       },
-          //       {
-          //         icon: "store",
-          //         text: "Rapports",
-          //         href: "/admin/RapportsJour_Vente",
-          //       },
-          //     ],
-          //   },
-          // ],
-          listProjets: [
-            {
-              text: "Projets",
-              icon: "mdi-projector-screen",
-              items: [
-                {
-                  text: "Partenaires",
-                  href: "/admin/PartenaireProjet",
-                },
-                {
-                  text: "Projets",
-                  href: "/admin/Projets",
-                },
-                // {
-                //   icon: "store",
-                //   text: "Rapports",
-                //   href: "/admin/RapportsJour_Vente",
-                // },
-              ],
-            },
-          ],
-          listArchivages: [
-          {
-              text: "Archivages",
-              icon: "mdi-email-open",
-              items: [              
-                {
-                  text: "Archivages",
-                  href: "/admin/Archivages", 
-                },
-                // {
-                //   text: "Division",
-                //   href: "/admin/DivisionArchive",
-                // },
-                // {
-                //   text: "CategorieArch.",
-                //   href: "/admin/CategorieArchivage",
-                // },
-                // {
-                //   text: "Services",
-                //   href: "/admin/ServiceArchivage",
-                // }
-              ],
-            },
-          ],
-          // listReservations: [
-          //   {
-          //     text: "Resérvations",
-          //     icon: "mdi-home",
-          //     items: [
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     // listVentes: [
+      //     //   {
+      //     //     text: "Ventes & Stock",
+      //     //     icon: "mdi-cart",
+      //     //     items: [
+      //     //       {
+      //     //         text: "Ventes",
+      //     //         href: "/admin/VenteEnteteVente",
+      //     //       },
+      //     //       {
+      //     //         text: "Clients",
+      //     //         href: "/admin/ClientVente",
+      //     //       },
+      //     //       {
+      //     //         text: "Approvisionnements",
+      //     //         href: "/admin/VenteEnteteEntree",
+      //     //       },
+      //     //       {
+      //     //         text: "Etat de Besoin",
+      //     //         href: "/admin/VenteEnteteCommande",
+      //     //       },
+      //     //       {
+      //     //         text: "Produits",
+      //     //         href: "/admin/Produits",
+      //     //       },
+      //     //       {
+      //     //         icon: "store",
+      //     //         text: "Fournisseurs",
+      //     //         href: "/admin/Fournisseur",
+      //     //       },
+      //     //       {
+      //     //         icon: "store",
+      //     //         text: "Rapports",
+      //     //         href: "/admin/RapportsJour_Vente",
+      //     //       },
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     listProjets: [
+      //       {
+      //         text: "Projets",
+      //         icon: "mdi-projector-screen",
+      //         items: [
+      //           {
+      //             text: "Partenaires",
+      //             href: "/admin/PartenaireProjet",
+      //           },
+      //           {
+      //             text: "Projets",
+      //             href: "/admin/Projets",
+      //           },
+      //           // {
+      //           //   icon: "store",
+      //           //   text: "Rapports",
+      //           //   href: "/admin/RapportsJour_Vente",
+      //           // },
+      //         ],
+      //       },
+      //     ],
+      //     listArchivages: [
+      //     {
+      //         text: "Archivages",
+      //         icon: "mdi-email-open",
+      //         items: [              
+      //           {
+      //             text: "Archivages",
+      //             href: "/admin/Archivages", 
+      //           },
+      //           // {
+      //           //   text: "Division",
+      //           //   href: "/admin/DivisionArchive",
+      //           // },
+      //           // {
+      //           //   text: "CategorieArch.",
+      //           //   href: "/admin/CategorieArchivage",
+      //           // },
+      //           // {
+      //           //   text: "Services",
+      //           //   href: "/admin/ServiceArchivage",
+      //           // }
+      //         ],
+      //       },
+      //     ],
+      //     // listReservations: [
+      //     //   {
+      //     //     text: "Resérvations",
+      //     //     icon: "mdi-home",
+      //     //     items: [
 
-          //       {
-          //         text: "Chambres",
-          //         href: "/admin/ClientHotel",
-          //       },
-          //       { 
-          //         text: "Salles",
-          //         href: "/admin/ClientVente",
-          //       },
-          //       { 
-          //         text: "Rapports",
-          //         href: "/admin/RapportsJour_Reservation",
-          //       }
+      //     //       {
+      //     //         text: "Chambres",
+      //     //         href: "/admin/ClientHotel",
+      //     //       },
+      //     //       { 
+      //     //         text: "Salles",
+      //     //         href: "/admin/ClientVente",
+      //     //       },
+      //     //       { 
+      //     //         text: "Rapports",
+      //     //         href: "/admin/RapportsJour_Reservation",
+      //     //       }
 
-          //     ],
-          //   },
-          // ],
-          // listBillards: [
-          //   {
-          //     text: "Billards",
-          //     icon: "mdi-gamepad",
-          //     items: [                
-          //       {
-          //         text: "Billards",
-          //         href: "/admin/ClientVente",
-          //       }
-          //     ],
-          //   },
-          // ],
-          // listFinances: [
-          //   {
-          //     text: "Finances",
-          //     icon: "mdi-cards",
-          //     items: [                
-          //       {
-          //         text: "Recettes",
-          //         href: "/admin/recette",
-          //       },
-          //       {
-          //         text: "Etat de Besoin",
-          //         href: "/admin/EnteteEtatBesoin",
-          //       },
-          //       {
-          //         text: "Bon d'Engagement",
-          //         href: "/admin/EnteteBonEngagement",
-          //       },
-          //       {
-          //         text: "Cloture de la Caisse",
-          //         href: "/admin/Cloture_Caisse",
-          //       },
-          //       // {
-          //       //   text: "Cloture de la Caisse Hotel",
-          //       //   href: "/admin/Cloture_Caisse_Chambre",
-          //       // },
-          //       // {
-          //       //   text: "Cloture de la Caisse Salle",
-          //       //   href: "/admin/Cloture_Caisse_Salle",
-          //       // },
-          //       // {
-          //       //   text: "Cloture de la Caisse Billards",
-          //       //   href: "/admin/Cloture_Caisse_Billard",
-          //       // },
-          //       { 
-          //         text: "Comptabilité(Opé.)",
-          //         href: "/admin/EnteteOperationComptable",
-          //       },
-          //       { 
-          //         text: "Cloture de la Comptabilité",
-          //         href: "/admin/ClotureComptabilite",
-          //       },
-          //       {
-          //         text: "Rapport Comptabilité",
-          //         href: "/admin/RapportsComptabilite"
-          //         //Services
-          //       },
-          //       {
-          //         text: "Rapport Recettes/Depenses",
-          //         href: "/admin/RapportsJour_Caisse"
-          //       },
-          //       { //RapportContrat
-          //         text: "Rapports Remuneration Agent",
-          //         href: "/admin/RapportsJour_Personnel",
-          //       },
-          //       {
-          //         text: "Les Services",
-          //         href: "/admin/Services"
-          //       }
-          //     ],
-          //   },
-          // ],
-          // listLogistique: [
-          //   {
-          //     text: "Logistique",
-          //     icon: "mdi-cart",
-          //     items: [                
-          //     {
-          //         text: "Approvisionements",
-          //         href: "/admin/LogEnteteEntree",
-          //       },
-          //       {
-          //         text: "Sortie/Services",
-          //         href: "/admin/LogEnteteSortie",
-          //       },
-          //       {
-          //         text: "Requisitions",
-          //         href: "/admin/LogEnteteRequisition",
-          //       },
-          //       {
-          //         text: "Articles",
-          //         href: "/admin/ProduitLog",
-          //       },
-          //       {
-          //         text: "Fournisseur",
-          //         href: "/admin/Fournisseur",
-          //       },
-          //       {
-          //         text: "Categorie Art.",
-          //         href: "/admin/categorieproduit",
-          //       },
-          //       {
-          //         text: "Rapports",
-          //         href: "/admin/RapportsJour_Logistique",
-          //       }
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     // listBillards: [
+      //     //   {
+      //     //     text: "Billards",
+      //     //     icon: "mdi-gamepad",
+      //     //     items: [                
+      //     //       {
+      //     //         text: "Billards",
+      //     //         href: "/admin/ClientVente",
+      //     //       }
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     // listFinances: [
+      //     //   {
+      //     //     text: "Finances",
+      //     //     icon: "mdi-cards",
+      //     //     items: [                
+      //     //       {
+      //     //         text: "Recettes",
+      //     //         href: "/admin/recette",
+      //     //       },
+      //     //       {
+      //     //         text: "Etat de Besoin",
+      //     //         href: "/admin/EnteteEtatBesoin",
+      //     //       },
+      //     //       {
+      //     //         text: "Bon d'Engagement",
+      //     //         href: "/admin/EnteteBonEngagement",
+      //     //       },
+      //     //       {
+      //     //         text: "Cloture de la Caisse",
+      //     //         href: "/admin/Cloture_Caisse",
+      //     //       },
+      //     //       // {
+      //     //       //   text: "Cloture de la Caisse Hotel",
+      //     //       //   href: "/admin/Cloture_Caisse_Chambre",
+      //     //       // },
+      //     //       // {
+      //     //       //   text: "Cloture de la Caisse Salle",
+      //     //       //   href: "/admin/Cloture_Caisse_Salle",
+      //     //       // },
+      //     //       // {
+      //     //       //   text: "Cloture de la Caisse Billards",
+      //     //       //   href: "/admin/Cloture_Caisse_Billard",
+      //     //       // },
+      //     //       { 
+      //     //         text: "Comptabilité(Opé.)",
+      //     //         href: "/admin/EnteteOperationComptable",
+      //     //       },
+      //     //       { 
+      //     //         text: "Cloture de la Comptabilité",
+      //     //         href: "/admin/ClotureComptabilite",
+      //     //       },
+      //     //       {
+      //     //         text: "Rapport Comptabilité",
+      //     //         href: "/admin/RapportsComptabilite"
+      //     //         //Services
+      //     //       },
+      //     //       {
+      //     //         text: "Rapport Recettes/Depenses",
+      //     //         href: "/admin/RapportsJour_Caisse"
+      //     //       },
+      //     //       { //RapportContrat
+      //     //         text: "Rapports Remuneration Agent",
+      //     //         href: "/admin/RapportsJour_Personnel",
+      //     //       },
+      //     //       {
+      //     //         text: "Les Services",
+      //     //         href: "/admin/Services"
+      //     //       }
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     // listLogistique: [
+      //     //   {
+      //     //     text: "Logistique",
+      //     //     icon: "mdi-cart",
+      //     //     items: [                
+      //     //     {
+      //     //         text: "Approvisionements",
+      //     //         href: "/admin/LogEnteteEntree",
+      //     //       },
+      //     //       {
+      //     //         text: "Sortie/Services",
+      //     //         href: "/admin/LogEnteteSortie",
+      //     //       },
+      //     //       {
+      //     //         text: "Requisitions",
+      //     //         href: "/admin/LogEnteteRequisition",
+      //     //       },
+      //     //       {
+      //     //         text: "Articles",
+      //     //         href: "/admin/ProduitLog",
+      //     //       },
+      //     //       {
+      //     //         text: "Fournisseur",
+      //     //         href: "/admin/Fournisseur",
+      //     //       },
+      //     //       {
+      //     //         text: "Categorie Art.",
+      //     //         href: "/admin/categorieproduit",
+      //     //       },
+      //     //       {
+      //     //         text: "Rapports",
+      //     //         href: "/admin/RapportsJour_Logistique",
+      //     //       }
 
-          //     ],
-          //   },
-          // ],
+      //     //     ],
+      //     //   },
+      //     // ],
 
-          // listVehicules: [
-          //   { 
-          //     text: "Véhicules",
-          //     icon: "mdi-car",
-          //     items: [                
-          //       {
-          //         text: "Mouvements des Véhicules",
-          //         href: "/admin/CarEnteteMouvement",
-          //       },
-          //       {
-          //         text: "Rapports",
-          //         href: "/admin/RapportsJour_Vehicule",
-          //       },
-          //       {
-          //         text: "Nos Véhicules",
-          //         href: "/admin/CarVehicule",
-          //       },
-          //       {
-          //         text: "Les Gammes",
-          //         href: "/admin/CarProduit",
-          //       },
-          //       {
-          //         text: "Les Fournisseurs",
-          //         href: "/admin/CarProducteur",
-          //       }
-          //     ],
-          //   },
-          // ],
-          // listSalon: [
-          //   { 
-          //     text: "Salon de Beauté",
-          //     icon: "mdi-car",
-          //     items: [              
-          //        { 
-          //          text: "Salon de Beauté",
-          //          href: "/admin/SalonEnteteVente",
-          //        },
-          //        { 
-          //          text: "Rapports(Salon)",
-          //          href: "/admin/RapportsJour_VenteSalon",
-          //        }
-          //     ],
-          //   },
-          // ],
-          links_systems_mouvement: [
-          ],
-          links_systems_mouvement_2: [
-            // ProfilPatient
-          ],
-          links_systems_mouvement_3: [
-          ],
+      //     // listVehicules: [
+      //     //   { 
+      //     //     text: "Véhicules",
+      //     //     icon: "mdi-car",
+      //     //     items: [                
+      //     //       {
+      //     //         text: "Mouvements des Véhicules",
+      //     //         href: "/admin/CarEnteteMouvement",
+      //     //       },
+      //     //       {
+      //     //         text: "Rapports",
+      //     //         href: "/admin/RapportsJour_Vehicule",
+      //     //       },
+      //     //       {
+      //     //         text: "Nos Véhicules",
+      //     //         href: "/admin/CarVehicule",
+      //     //       },
+      //     //       {
+      //     //         text: "Les Gammes",
+      //     //         href: "/admin/CarProduit",
+      //     //       },
+      //     //       {
+      //     //         text: "Les Fournisseurs",
+      //     //         href: "/admin/CarProducteur",
+      //     //       }
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     // listSalon: [
+      //     //   { 
+      //     //     text: "Salon de Beauté",
+      //     //     icon: "mdi-car",
+      //     //     items: [              
+      //     //        { 
+      //     //          text: "Salon de Beauté",
+      //     //          href: "/admin/SalonEnteteVente",
+      //     //        },
+      //     //        { 
+      //     //          text: "Rapports(Salon)",
+      //     //          href: "/admin/RapportsJour_VenteSalon",
+      //     //        }
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     links_systems_mouvement: [
+      //     ],
+      //     links_systems_mouvement_2: [
+      //       // ProfilPatient
+      //     ],
+      //     links_systems_mouvement_3: [
+      //     ],
 
-          admins: [
-            ["Management", ""],
-            ["Settings", ""],
-          ],
-        };
-      }
-      else if (this.userData.id_role == 4) {
-        this.linkAdmin = {
-          links: [
-            // {
-            //   icon: "mdi-microsoft-windows",
-            //   text: "Tableau de bord",
-            //   href: "/admin/dashboard",
-            // },
-            // {
-            //   icon: "mdi-chart-pie",
-            //   text: "Tableau de bord(Ese)",
-            //   href: "/admin/statistique_entreprise",
-            // },
-            // {
-            //   icon: "chat",
-            //   text: "Chat",
-            //   href: "/admin/chat",
-            // },
-          ],
-          links_operation_2: [
-            // {
-            //   icon: "credit_card",
-            //   text: "Carousel",
-            //   href: "/admin/carousel",
-            // },
-            // {
-            //   icon: "credit_card",
-            //   text: "Service",
-            //   href: "/admin/operation_service",
-            // },
-            // {
-            //   icon: "store",
-            //   text: "Galérie",
-            //   href: "/admin/operation_galery",
-            // },
-            // {
-            //   icon: "store",
-            //   text: "Vidéo",
-            //   href: "/admin/operation_video",
-            // },
-            // {
-            //   icon: "store",
-            //   text: "Partenaire",
-            //   href: "/admin/operation_partenaire",
-            // },
+      //     admins: [
+      //       ["Management", ""],
+      //       ["Settings", ""],
+      //     ],
+      //   };
+      // }
+      // else if (this.userData.id_role == 4) {
+      //   this.linkAdmin = {
+      //     links: [
+      //       // {
+      //       //   icon: "mdi-microsoft-windows",
+      //       //   text: "Tableau de bord",
+      //       //   href: "/admin/dashboard",
+      //       // },
+      //       // {
+      //       //   icon: "mdi-chart-pie",
+      //       //   text: "Tableau de bord(Ese)",
+      //       //   href: "/admin/statistique_entreprise",
+      //       // },
+      //       // {
+      //       //   icon: "chat",
+      //       //   text: "Chat",
+      //       //   href: "/admin/chat",
+      //       // },
+      //     ],
+      //     links_operation_2: [
+      //       // {
+      //       //   icon: "credit_card",
+      //       //   text: "Carousel",
+      //       //   href: "/admin/carousel",
+      //       // },
+      //       // {
+      //       //   icon: "credit_card",
+      //       //   text: "Service",
+      //       //   href: "/admin/operation_service",
+      //       // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Galérie",
+      //       //   href: "/admin/operation_galery",
+      //       // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Vidéo",
+      //       //   href: "/admin/operation_video",
+      //       // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Partenaire",
+      //       //   href: "/admin/operation_partenaire",
+      //       // },
 
-            // {
-            //   icon: "store",
-            //   text: "Notre famille",
-            //   href: "/admin/operation_team",
-            // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Notre famille",
+      //       //   href: "/admin/operation_team",
+      //       // },
 
-          ],
-          links_finance: [
-            // {
-            //   icon: "groups",
-            //   text: "Classes",
-            //   href: "/admin/ClassesFin",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Comptes",
-            //   href: "/admin/CompteFin",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Sous Comptes",
-            //   href: "/admin/SousCompte",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "SSous Comptes",
-            //   href: "/admin/SSousCompte",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Type Compte",
-            //   href: "/admin/TypeCompte",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Config. Taux",
-            //   href: "/admin/TTaux",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Type Position",
-            //   href: "/admin/TypePosition",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Type Opération",
-            //   href: "/admin/TypeOperation",
-            // },
-            // {
-            //   text: "Rubriques",
-            //   href: "/admin/Comptes",
-            // },
-            // {
-            //   text: "Caisse&Banque",
-            //   href: "/admin/Banque",
-            // },
-            // {
-            //   text: "ModePaie",
-            //   href: "/admin/modepaie",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Taux",
-            //   href: "/admin/TTaux",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Services Treseorerie",
-            //   href: "/admin/Provenance",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Cat. Rubriques",
-            //   href: "/admin/CategorieRubrique",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Rubriques Depenses",
-            //   href: "/admin/Rubriques",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Blocs",
-            //   href: "/admin/Blocs",
-            // }
+      //     ],
+      //     links_finance: [
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Classes",
+      //       //   href: "/admin/ClassesFin",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Comptes",
+      //       //   href: "/admin/CompteFin",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Sous Comptes",
+      //       //   href: "/admin/SousCompte",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "SSous Comptes",
+      //       //   href: "/admin/SSousCompte",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Type Compte",
+      //       //   href: "/admin/TypeCompte",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Config. Taux",
+      //       //   href: "/admin/TTaux",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Type Position",
+      //       //   href: "/admin/TypePosition",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Type Opération",
+      //       //   href: "/admin/TypeOperation",
+      //       // },
+      //       // {
+      //       //   text: "Rubriques",
+      //       //   href: "/admin/Comptes",
+      //       // },
+      //       // {
+      //       //   text: "Caisse&Banque",
+      //       //   href: "/admin/Banque",
+      //       // },
+      //       // {
+      //       //   text: "ModePaie",
+      //       //   href: "/admin/modepaie",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Taux",
+      //       //   href: "/admin/TTaux",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Services Treseorerie",
+      //       //   href: "/admin/Provenance",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Cat. Rubriques",
+      //       //   href: "/admin/CategorieRubrique",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Rubriques Depenses",
+      //       //   href: "/admin/Rubriques",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Blocs",
+      //       //   href: "/admin/Blocs",
+      //       // }
 
-          ],
-          links_vente: [
-            // {
-            //   icon: "groups",
-            //   text: "CatégorieProduit",
-            //   href: "/admin/CategorieProduit",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Emplacements",
-            //   href: "/admin/Emplacements",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Service Logistique",
-            //   href: "/admin/SalonProduit",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Service Salon",
-            //   href: "/admin/SalonProduit",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "CatégorieClient",
-            //   href: "/admin/CategorieClient",
-            // }
-          ],
-          links_tresorerie: [
-            // {
-            //   text: "Rubriques Depenses",
-            //   href: "/admin/Comptes",
-            // },
-            // {
-            //   text: "Cat.Rubriques EB",
-            //   href: "/admin/CategorieRubrique",
-            // },
-            // {
-            //   text: "Rubriques EB",
-            //   href: "/admin/Rubriques",
-            // },
-            // {
-            //   text: "Blocs(Finances)",
-            //   href: "/admin/Blocs",
-            // },
-            // {
-            //   text: "Les Services(Finances)",
-            //   href: "/admin/Provenance",
-            // }
-          ],
-          links_hotel: [
-            // {
-            //   text: "ClasseChambre",
-            //   href: "/admin/ClasseChambre",
-            // },
-            // {
-            //   text: "Chambres",
-            //   href: "/admin/Chambre",
-            // },
-            // { //SalonProduit
-            //   text: "Salles",
-            //   href: "/admin/Salle",
-            // },
-            // { //SalonProduit
-            //   text: "Services Salon",
-            //   href: "/admin/SalonProduit",
-            // }
-          ],
-          links_personne: [
-                // {
-                //   text: "Type Agent",
-                //   href: "/admin/TypeAgent",
-                // },
-                // {
-                //   text: "Fonctions",
-                //   href: "/admin/FonctionAgent",
-                // },
-                // {
-                //   text: "Catégorie Agent",
-                //   href: "/admin/CategorieAgent",
-                // },
-                // {
-                //   text: "Type RubriquesPaies",
-                //   href: "/admin/CategorieRubriquePers",
-                // },
-                // {//CategorieCirconstance
-                //   text: "Type Contrat",
-                //   href: "/admin/TypeContrat",
-                // },
-                // {//TypeStage
-                //   text: "Type Stage",
-                //   href: "/admin/TypeStage",
-                // },
-                // {//CategorieCirconstance
-                //   text: "Categorie Circontance",
-                //   href: "/admin/CategorieCirconstance",
-                // },
-                // {
-                //   text: "Type Circonstance",
-                //   href: "/admin/TypeCirconstance",
-                // },
-                // {
-                //   text: "Les Postes",
-                //   href: "/admin/Postes",
-                // },
-                // {
-                //   text: "Les Mutuelles",
-                //   href: "/admin/Mutuelle",
-                // },
-                // {
-                //   text: "Lieu Affectation",
-                //   href: "/admin/LieuAffectation",
-                // },
-                // {
-                //   text: "RubriquesPaies",
-                //   href: "/admin/RubriquePaie",
-                // },
-                // {
-                //   text: "Param. RubriquesPaies",
-                //   href: "/admin/ParametreRubrique",
-                // },
-                // {
-                //   text: "Catégorie Service",
-                //   href: "/admin/CategorieServicePers",
-                // },
-                // {
-                //   text: "Service Pers.",
-                //   href: "/admin/ServicePersonnel",
-                // },
-                // {
-                //   text: "Année Civile",
-                //   href: "/admin/Annee",
-                // },
-                // {
-                //   text: "Mois",
-                //   href: "/admin/Mois",
-                // },
-                // {
-                //   text: "PromotionAcadémique",
-                //   href: "/admin/Promotion",
-                // },
-                // {
-                //   text: "DomaineAcadémique",
-                //   href: "/admin/DomaineStage",
-                // },
-                // {
-                //   text: "OptionAcadémique",
-                //   href: "/admin/OptionStage",
-                // },
-                // {
-                //   text: "AnnéeAcadémique",
-                //   href: "/admin/AnneeStage",
-                // },
-                // {
-                //   text: "InstitutionsAC",
-                //   href: "/admin/Institution",
-                // },
-                // {
-                //   text: "Raison Familliale",
-                //   href: "/admin/RaisonFamilliale",
-                // }
-          ],
-          links_operation: [
-            // {
-            //   icon: "store",
-            //   text: "Pays",
-            //   href: "/admin/pays",
-            // },
-            // {
-            //   icon: "credit_card",
-            //   text: "Provinces",
-            //   href: "/admin/provinces",
-            // },
+      //     ],
+      //     links_vente: [
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "CatégorieProduit",
+      //       //   href: "/admin/CategorieProduit",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Emplacements",
+      //       //   href: "/admin/Emplacements",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Service Logistique",
+      //       //   href: "/admin/SalonProduit",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Service Salon",
+      //       //   href: "/admin/SalonProduit",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "CatégorieClient",
+      //       //   href: "/admin/CategorieClient",
+      //       // }
+      //     ],
+      //     links_tresorerie: [
+      //       // {
+      //       //   text: "Rubriques Depenses",
+      //       //   href: "/admin/Comptes",
+      //       // },
+      //       // {
+      //       //   text: "Cat.Rubriques EB",
+      //       //   href: "/admin/CategorieRubrique",
+      //       // },
+      //       // {
+      //       //   text: "Rubriques EB",
+      //       //   href: "/admin/Rubriques",
+      //       // },
+      //       // {
+      //       //   text: "Blocs(Finances)",
+      //       //   href: "/admin/Blocs",
+      //       // },
+      //       // {
+      //       //   text: "Les Services(Finances)",
+      //       //   href: "/admin/Provenance",
+      //       // }
+      //     ],
+      //     links_hotel: [
+      //       // {
+      //       //   text: "ClasseChambre",
+      //       //   href: "/admin/ClasseChambre",
+      //       // },
+      //       // {
+      //       //   text: "Chambres",
+      //       //   href: "/admin/Chambre",
+      //       // },
+      //       // { //SalonProduit
+      //       //   text: "Salles",
+      //       //   href: "/admin/Salle",
+      //       // },
+      //       // { //SalonProduit
+      //       //   text: "Services Salon",
+      //       //   href: "/admin/SalonProduit",
+      //       // }
+      //     ],
+      //     links_personne: [
+      //           // {
+      //           //   text: "Type Agent",
+      //           //   href: "/admin/TypeAgent",
+      //           // },
+      //           // {
+      //           //   text: "Fonctions",
+      //           //   href: "/admin/FonctionAgent",
+      //           // },
+      //           // {
+      //           //   text: "Catégorie Agent",
+      //           //   href: "/admin/CategorieAgent",
+      //           // },
+      //           // {
+      //           //   text: "Type RubriquesPaies",
+      //           //   href: "/admin/CategorieRubriquePers",
+      //           // },
+      //           // {//CategorieCirconstance
+      //           //   text: "Type Contrat",
+      //           //   href: "/admin/TypeContrat",
+      //           // },
+      //           // {//TypeStage
+      //           //   text: "Type Stage",
+      //           //   href: "/admin/TypeStage",
+      //           // },
+      //           // {//CategorieCirconstance
+      //           //   text: "Categorie Circontance",
+      //           //   href: "/admin/CategorieCirconstance",
+      //           // },
+      //           // {
+      //           //   text: "Type Circonstance",
+      //           //   href: "/admin/TypeCirconstance",
+      //           // },
+      //           // {
+      //           //   text: "Les Postes",
+      //           //   href: "/admin/Postes",
+      //           // },
+      //           // {
+      //           //   text: "Les Mutuelles",
+      //           //   href: "/admin/Mutuelle",
+      //           // },
+      //           // {
+      //           //   text: "Lieu Affectation",
+      //           //   href: "/admin/LieuAffectation",
+      //           // },
+      //           // {
+      //           //   text: "RubriquesPaies",
+      //           //   href: "/admin/RubriquePaie",
+      //           // },
+      //           // {
+      //           //   text: "Param. RubriquesPaies",
+      //           //   href: "/admin/ParametreRubrique",
+      //           // },
+      //           // {
+      //           //   text: "Catégorie Service",
+      //           //   href: "/admin/CategorieServicePers",
+      //           // },
+      //           // {
+      //           //   text: "Service Pers.",
+      //           //   href: "/admin/ServicePersonnel",
+      //           // },
+      //           // {
+      //           //   text: "Année Civile",
+      //           //   href: "/admin/Annee",
+      //           // },
+      //           // {
+      //           //   text: "Mois",
+      //           //   href: "/admin/Mois",
+      //           // },
+      //           // {
+      //           //   text: "PromotionAcadémique",
+      //           //   href: "/admin/Promotion",
+      //           // },
+      //           // {
+      //           //   text: "DomaineAcadémique",
+      //           //   href: "/admin/DomaineStage",
+      //           // },
+      //           // {
+      //           //   text: "OptionAcadémique",
+      //           //   href: "/admin/OptionStage",
+      //           // },
+      //           // {
+      //           //   text: "AnnéeAcadémique",
+      //           //   href: "/admin/AnneeStage",
+      //           // },
+      //           // {
+      //           //   text: "InstitutionsAC",
+      //           //   href: "/admin/Institution",
+      //           // },
+      //           // {
+      //           //   text: "Raison Familliale",
+      //           //   href: "/admin/RaisonFamilliale",
+      //           // }
+      //     ],
+      //     links_operation: [
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Pays",
+      //       //   href: "/admin/pays",
+      //       // },
+      //       // {
+      //       //   icon: "credit_card",
+      //       //   text: "Provinces",
+      //       //   href: "/admin/provinces",
+      //       // },
 
-            // {
-            //   icon: "store",
-            //   text: "Chef lieu",
-            //   href: "/admin/ville",
-            // },
-            // {
-            //   icon: "store",
-            //   text: "Commune",
-            //   href: "/admin/commune",
-            // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Chef lieu",
+      //       //   href: "/admin/ville",
+      //       // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Commune",
+      //       //   href: "/admin/commune",
+      //       // },
 
-            // {
-            //   icon: "store",
-            //   text: "Quartier",
-            //   href: "/admin/quartier",
-            // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Quartier",
+      //       //   href: "/admin/quartier",
+      //       // },
 
-            // {
-            //   icon: "store",
-            //   text: "Avenue",
-            //   href: "/admin/avenue",
-            // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Avenue",
+      //       //   href: "/admin/avenue",
+      //       // },
 
-            // {
-            //   icon: "store",
-            //   text: "Forme juridique",
-            //   href: "/admin/forme_juridique",
-            // },
-            // {
-            //   text: "Statistique sur les blogs",
-            //   href: "/admin/statistique_entreprise",
-            // },
-            // {
-            //   icon: "store",
-            //   text: "Territoire",
-            //   href: "/admin/territoire",
-            // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Forme juridique",
+      //       //   href: "/admin/forme_juridique",
+      //       // },
+      //       // {
+      //       //   text: "Statistique sur les blogs",
+      //       //   href: "/admin/statistique_entreprise",
+      //       // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Territoire",
+      //       //   href: "/admin/territoire",
+      //       // },
 
-            // {
-            //   icon: "store",
-            //   text: "Envoie SMS",
-            //   href: "/admin/texto",
-            // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Envoie SMS",
+      //       //   href: "/admin/texto",
+      //       // },
 
-            // {
-            //   icon: "store",
-            //   text: "Statistique sur Les utilisateur",
-            //   href: "/admin/statistique_user",
-            // },
-
-
-            // {
-            //   icon: "api",
-            //   text: "Témoignage",
-            //   href: "/admin/temoignages",
-            // },
-
-            // {
-            //   icon: "api",
-            //   text: "Nos Valeurs",
-            //   href: "/admin/valeur",
-            // },
-
-            // {
-            //   icon: "api",
-            //   text: "Nos Rôles",
-            //   href: "/admin/role_service",
-            // },
-
-            // {
-            //   icon: "api",
-            //   text: "Nos Choix",
-            //   href: "/admin/choix",
-            // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Statistique sur Les utilisateur",
+      //       //   href: "/admin/statistique_user",
+      //       // },
 
 
-            // {
-            //   icon: "credit_card",
-            //   text: "Services",
-            //   href: "/admin/service",
-            // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Témoignage",
+      //       //   href: "/admin/temoignages",
+      //       // },
+
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Nos Valeurs",
+      //       //   href: "/admin/valeur",
+      //       // },
+
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Nos Rôles",
+      //       //   href: "/admin/role_service",
+      //       // },
+
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Nos Choix",
+      //       //   href: "/admin/choix",
+      //       // },
 
 
-            // {
-            //   icon: "api",
-            //   text: "Decisions",
-            //   href: "/admin/decision",
-            // },
+      //       // {
+      //       //   icon: "credit_card",
+      //       //   text: "Services",
+      //       //   href: "/admin/service",
+      //       // },
 
-            // {
-            //   icon: "api",
-            //   text: "Avantage",
-            //   href: "/admin/avantage",
-            // },
-            // {
-            //   icon: "api",
-            //   text: "Sous services",
-            //   href: "/admin/sous_service",
-            // },
+
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Decisions",
+      //       //   href: "/admin/decision",
+      //       // },
+
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Avantage",
+      //       //   href: "/admin/avantage",
+      //       // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Sous services",
+      //       //   href: "/admin/sous_service",
+      //       // },
             
-          ],
-          links_systems: [
-            // {
-            //   icon: "people",
-            //   text: "Utilisateurs",
-            //   href: "/admin/Users",
-            // },
-            // {
-            //   icon: "api",
-            //   text: "Entreprise",
-            //   href: "/admin/liste_entreprise",
-            // },
-            // {
-            //   icon: "api",
-            //   text: "Privilège",
-            //   href: "/admin/role",
-            // },
-            // {
-            //   icon: "api",
-            //   text: "Configuration Menu",
-            //   href: "/admin/ListeMenu",
-            // },
-            // {
-            //   icon: "api",
-            //   text: "Historiques Infos.",
-            //   href: "/admin/HistoriqueData",
-            // },
-            // {
-            //   icon: "credit_card",
-            //   text: "Contact pour info",
-            //   href: "/admin/contact_info",
-            // },
-            // {
-            //   icon: "api",
-            //   text: "Configuration basique",
-            //   href: "/admin/configure_basic",
-            // },
-
-            // {
-            //   icon: "api",
-            //   text: "Configuration du site",
-            //   href: "/admin/configure_site",
-            // },
-
-          ],
-          sublinks: [
-            {
-              icon: "book",
-              text: "A propos ",
-              href: "/admin/about_page",
-            },
-          ],
-          listPersonnel: [
-          {
-              text: "RH",
-              icon: "mdi-account-settings",
-              items: [                
-                // {
-                //   text: "Personnels",
-                //   href: "/admin/Agent",
-                // },
-                // {
-                //   text: "Tous les Contrats",
-                //   href: "/admin/AllContrat",
-                // },
-                // {
-                //   text: "Contrats Encours",
-                //   href: "/admin/ContratActif",
-                // },
-                // {
-                //   text: "En Congé",
-                //   href: "/admin/ContratEnconge",
-                // },
-                // {
-                //   text: "Contrats Finis",
-                //   href: "/admin/ContratFini",
-                // },
-                // {
-                //   text: "Stages Encours",
-                //   href: "/admin/StageEncours",
-                // },
-                // { //AllPresenceAgent
-                //   text: "Tous les Stages",
-                //   href: "/admin/AllStages",
-                // },
-                // { //AllPresenceAgent
-                //   text: "Toutes les Présences",
-                //   href: "/admin/AllPresenceAgent",
-                // },
-                // {
-                //   text: "Paiement Global",
-                //   href: "/admin/FichePaieGlobale",
-                // },
-                // {
-                //   text: "Paiement/Agent",
-                //   href: "/admin/FichePaie",
-                // },
-                // {
-                //   text: "Rapports Contrat",
-                //   href: "/admin/RapportContrat",
-                // },
-                // {
-                //   text: "Rapports Remuneration Agent",
-                //   href: "/admin/RapportsJour_Personnel",
-                // },
-                // {
-                //   text: "Param.SalaireBase",
-                //   href: "/admin/ParametreSalairebBase",
-                // },
-                //ParametreSalairebBase
-              ],
-            },
-          ],
-          listPresence: [
-            {
-              text: "Présences",
-              icon: "mdi-account-settings",
-              items: [                
-                // {
-                //   text: "Aujourd'hui",
-                //   href: "/admin/JourPresences",
-                // },
-                // {
-                //   text: "Toutes les Présences",
-                //   href: "/admin/AllPresenceAgent",
-                // }
-              ],
-            },
-          ],
-          listCorresp: [
-            {
-              text: "Correspondances",
-              icon: "mdi-account-settings",
-              items: [                
-                // {
-                //   text: "Aujourd'hui",
-                //   href: "/admin/JourCorrespondance",
-                // },
-                // {
-                //   text: "Toutes les Corresp.",
-                //   href: "/admin/AllCorrespondance",
-                // },
-                {
-                  text: "Mes Correspondances",
-                  href: "/admin/UserCorrespondance",
-                }
-              ],
-            },
-          ],
-          listTimeSheet: [
-            {
-              text: "Time Sheets",
-              icon: "mdi-account-settings",
-              items: [                
-                // {
-                //   text: "Aujourd'hui",
-                //   href: "/admin/JourTimeSheet",
-                // },
-                // {
-                //   text: "Tous les TimeSheets.",
-                //   href: "/admin/AllTimeSheet",
-                // },
-                {
-                  text: "Mes TimeSheets",
-                  href: "/admin/UserTimeSheet",
-                }
-              ],
-            },
-          ],
-          // listGroup: [
-          //   {
-          //     text: "Article",
-          //     icon: "local_mall",
-          //     items: [
-          //       {
-          //         text: "Catégorie d'article",
-          //         href: "/admin/operation_catArticle",
-          //       },
-          //       {
-          //         text: "Blog",
-          //         href: "/admin/operation_blog",
-          //       },
-
-          //       {
-          //         icon: "store",
-          //         text: "Mot de la semaine",
-          //         href: "/admin/week",
-          //       },
-
-          //     ],
-          //   },
-          // ],
-          // listVentes: [
-          //   {
-          //     text: "Ventes & Stock",
-          //     icon: "mdi-cart",
-          //     items: [
-          //       {
-          //         text: "Ventes",
-          //         href: "/admin/VenteEnteteVente",
-          //       },
-          //       {
-          //         text: "Clients",
-          //         href: "/admin/ClientVente",
-          //       },
-          //       {
-          //         text: "Approvisionnements",
-          //         href: "/admin/VenteEnteteEntree",
-          //       },
-          //       {
-          //         text: "Etat de Besoin",
-          //         href: "/admin/VenteEnteteCommande",
-          //       },
-          //       {
-          //         text: "Produits",
-          //         href: "/admin/Produits",
-          //       },
-          //       {
-          //         icon: "store",
-          //         text: "Fournisseurs",
-          //         href: "/admin/Fournisseur",
-          //       },
-          //       {
-          //         icon: "store",
-          //         text: "Rapports",
-          //         href: "/admin/RapportsJour_Vente",
-          //       },
-          //     ],
-          //   },
-          // ],
-          listProjets: [
-            {
-              text: "Projets",
-              icon: "mdi-projector-screen",
-              items: [
-                {
-                  text: "Partenaires",
-                  href: "/admin/PartenaireProjet",
-                },
-                {
-                  text: "Projets",
-                  href: "/admin/Projets",
-                },
-                // {
-                //   icon: "store",
-                //   text: "Rapports",
-                //   href: "/admin/RapportsJour_Vente",
-                // },
-              ],
-            },
-          ],
-          listArchivages: [
-          {
-              text: "Archivages",
-              icon: "mdi-email-open",
-              items: [              
-                {
-                  text: "Archivages",
-                  href: "/admin/Archivages", 
-                },
-                // {
-                //   text: "Division",
-                //   href: "/admin/DivisionArchive",
-                // },
-                // {
-                //   text: "CategorieArch.",
-                //   href: "/admin/CategorieArchivage",
-                // },
-                // {
-                //   text: "Services",
-                //   href: "/admin/ServiceArchivage",
-                // }
-              ],
-            },
-          ],
-          // listReservations: [
-          //   {
-          //     text: "Resérvations",
-          //     icon: "mdi-home",
-          //     items: [
-
-          //       {
-          //         text: "Chambres",
-          //         href: "/admin/ClientHotel",
-          //       },
-          //       { 
-          //         text: "Salles",
-          //         href: "/admin/ClientVente",
-          //       },
-          //       { 
-          //         text: "Rapports",
-          //         href: "/admin/RapportsJour_Reservation",
-          //       }
-
-          //     ],
-          //   },
-          // ],
-          // listBillards: [
-          //   {
-          //     text: "Billards",
-          //     icon: "mdi-gamepad",
-          //     items: [                
-          //       {
-          //         text: "Billards",
-          //         href: "/admin/ClientVente",
-          //       }
-          //     ],
-          //   },
-          // ],
-          // listFinances: [
-          //   {
-          //     text: "Finances",
-          //     icon: "mdi-cards",
-          //     items: [                
-          //       {
-          //         text: "Recettes",
-          //         href: "/admin/recette",
-          //       },
-          //       {
-          //         text: "Etat de Besoin",
-          //         href: "/admin/EnteteEtatBesoin",
-          //       },
-          //       {
-          //         text: "Bon d'Engagement",
-          //         href: "/admin/EnteteBonEngagement",
-          //       },
-          //       {
-          //         text: "Cloture de la Caisse",
-          //         href: "/admin/Cloture_Caisse",
-          //       },
-          //       // {
-          //       //   text: "Cloture de la Caisse Hotel",
-          //       //   href: "/admin/Cloture_Caisse_Chambre",
-          //       // },
-          //       // {
-          //       //   text: "Cloture de la Caisse Salle",
-          //       //   href: "/admin/Cloture_Caisse_Salle",
-          //       // },
-          //       // {
-          //       //   text: "Cloture de la Caisse Billards",
-          //       //   href: "/admin/Cloture_Caisse_Billard",
-          //       // },
-          //       { 
-          //         text: "Comptabilité(Opé.)",
-          //         href: "/admin/EnteteOperationComptable",
-          //       },
-          //       { 
-          //         text: "Cloture de la Comptabilité",
-          //         href: "/admin/ClotureComptabilite",
-          //       },
-          //       {
-          //         text: "Rapport Comptabilité",
-          //         href: "/admin/RapportsComptabilite"
-          //         //Services
-          //       },
-          //       {
-          //         text: "Rapport Recettes/Depenses",
-          //         href: "/admin/RapportsJour_Caisse"
-          //       },
-          //       { //RapportContrat
-          //         text: "Rapports Remuneration Agent",
-          //         href: "/admin/RapportsJour_Personnel",
-          //       },
-          //       {
-          //         text: "Les Services",
-          //         href: "/admin/Services"
-          //       }
-          //     ],
-          //   },
-          // ],
-          // listLogistique: [
-          //   {
-          //     text: "Logistique",
-          //     icon: "mdi-cart",
-          //     items: [                
-          //     {
-          //         text: "Approvisionements",
-          //         href: "/admin/LogEnteteEntree",
-          //       },
-          //       {
-          //         text: "Sortie/Services",
-          //         href: "/admin/LogEnteteSortie",
-          //       },
-          //       {
-          //         text: "Requisitions",
-          //         href: "/admin/LogEnteteRequisition",
-          //       },
-          //       {
-          //         text: "Articles",
-          //         href: "/admin/ProduitLog",
-          //       },
-          //       {
-          //         text: "Fournisseur",
-          //         href: "/admin/Fournisseur",
-          //       },
-          //       {
-          //         text: "Categorie Art.",
-          //         href: "/admin/categorieproduit",
-          //       },
-          //       {
-          //         text: "Rapports",
-          //         href: "/admin/RapportsJour_Logistique",
-          //       }
-
-          //     ],
-          //   },
-          // ],
-
-          // listVehicules: [
-          //   { 
-          //     text: "Véhicules",
-          //     icon: "mdi-car",
-          //     items: [                
-          //       {
-          //         text: "Mouvements des Véhicules",
-          //         href: "/admin/CarEnteteMouvement",
-          //       },
-          //       {
-          //         text: "Rapports",
-          //         href: "/admin/RapportsJour_Vehicule",
-          //       },
-          //       {
-          //         text: "Nos Véhicules",
-          //         href: "/admin/CarVehicule",
-          //       },
-          //       {
-          //         text: "Les Gammes",
-          //         href: "/admin/CarProduit",
-          //       },
-          //       {
-          //         text: "Les Fournisseurs",
-          //         href: "/admin/CarProducteur",
-          //       }
-          //     ],
-          //   },
-          // ],
-          // listSalon: [
-          //   { 
-          //     text: "Salon de Beauté",
-          //     icon: "mdi-car",
-          //     items: [              
-          //        { 
-          //          text: "Salon de Beauté",
-          //          href: "/admin/SalonEnteteVente",
-          //        },
-          //        { 
-          //          text: "Rapports(Salon)",
-          //          href: "/admin/RapportsJour_VenteSalon",
-          //        }
-          //     ],
-          //   },
-          // ],
-          links_systems_mouvement: [
-          ],
-          links_systems_mouvement_2: [
-            // ProfilPatient
-          ],
-          links_systems_mouvement_3: [
-          ],
-
-          admins: [
-            ["Management", ""],
-            ["Settings", ""],
-          ],
-        };
-      }
-      else if (this.userData.id_role == 5) {
-        this.linkAdmin = {
-          links: [
-            // {
-            //   icon: "mdi-microsoft-windows",
-            //   text: "Tableau de bord",
-            //   href: "/admin/dashboard",
-            // },
-            // {
-            //   icon: "mdi-chart-pie",
-            //   text: "Tableau de bord(Ese)",
-            //   href: "/admin/statistique_entreprise",
-            // },
-            // {
-            //   icon: "chat",
-            //   text: "Chat",
-            //   href: "/admin/chat",
-            // },
-          ],
-          links_operation_2: [
-            // {
-            //   icon: "credit_card",
-            //   text: "Carousel",
-            //   href: "/admin/carousel",
-            // },
-            // {
-            //   icon: "credit_card",
-            //   text: "Service",
-            //   href: "/admin/operation_service",
-            // },
-            // {
-            //   icon: "store",
-            //   text: "Galérie",
-            //   href: "/admin/operation_galery",
-            // },
-            // {
-            //   icon: "store",
-            //   text: "Vidéo",
-            //   href: "/admin/operation_video",
-            // },
-            // {
-            //   icon: "store",
-            //   text: "Partenaire",
-            //   href: "/admin/operation_partenaire",
-            // },
-
-            // {
-            //   icon: "store",
-            //   text: "Notre famille",
-            //   href: "/admin/operation_team",
-            // },
-
-          ],
-          links_finance: [
-            // {
-            //   icon: "groups",
-            //   text: "Classes",
-            //   href: "/admin/ClassesFin",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Comptes",
-            //   href: "/admin/CompteFin",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Sous Comptes",
-            //   href: "/admin/SousCompte",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "SSous Comptes",
-            //   href: "/admin/SSousCompte",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Type Compte",
-            //   href: "/admin/TypeCompte",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Config. Taux",
-            //   href: "/admin/TTaux",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Type Position",
-            //   href: "/admin/TypePosition",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Type Opération",
-            //   href: "/admin/TypeOperation",
-            // },
-            // {
-            //   text: "Rubriques",
-            //   href: "/admin/Comptes",
-            // },
-            // {
-            //   text: "Caisse&Banque",
-            //   href: "/admin/Banque",
-            // },
-            // {
-            //   text: "ModePaie",
-            //   href: "/admin/modepaie",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Taux",
-            //   href: "/admin/TTaux",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Services Treseorerie",
-            //   href: "/admin/Provenance",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Cat. Rubriques",
-            //   href: "/admin/CategorieRubrique",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Rubriques Depenses",
-            //   href: "/admin/Rubriques",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Blocs",
-            //   href: "/admin/Blocs",
-            // }
-
-          ],
-          links_vente: [
-            // {
-            //   icon: "groups",
-            //   text: "CatégorieProduit",
-            //   href: "/admin/CategorieProduit",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Emplacements",
-            //   href: "/admin/Emplacements",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Service Logistique",
-            //   href: "/admin/SalonProduit",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Service Salon",
-            //   href: "/admin/SalonProduit",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "CatégorieClient",
-            //   href: "/admin/CategorieClient",
-            // }
-          ],
-          links_tresorerie: [
-            // {
-            //   text: "Rubriques Depenses",
-            //   href: "/admin/Comptes",
-            // },
-            // {
-            //   text: "Cat.Rubriques EB",
-            //   href: "/admin/CategorieRubrique",
-            // },
-            // {
-            //   text: "Rubriques EB",
-            //   href: "/admin/Rubriques",
-            // },
-            // {
-            //   text: "Blocs(Finances)",
-            //   href: "/admin/Blocs",
-            // },
-            // {
-            //   text: "Les Services(Finances)",
-            //   href: "/admin/Provenance",
-            // }
-          ],
-          links_hotel: [
-            // {
-            //   text: "ClasseChambre",
-            //   href: "/admin/ClasseChambre",
-            // },
-            // {
-            //   text: "Chambres",
-            //   href: "/admin/Chambre",
-            // },
-            // { //SalonProduit
-            //   text: "Salles",
-            //   href: "/admin/Salle",
-            // },
-            // { //SalonProduit
-            //   text: "Services Salon",
-            //   href: "/admin/SalonProduit",
-            // }
-          ],
-          links_personne: [
-                // {
-                //   text: "Type Agent",
-                //   href: "/admin/TypeAgent",
-                // },
-                // {
-                //   text: "Fonctions",
-                //   href: "/admin/FonctionAgent",
-                // },
-                // {
-                //   text: "Catégorie Agent",
-                //   href: "/admin/CategorieAgent",
-                // },
-                // {
-                //   text: "Type RubriquesPaies",
-                //   href: "/admin/CategorieRubriquePers",
-                // },
-                // {//CategorieCirconstance
-                //   text: "Type Contrat",
-                //   href: "/admin/TypeContrat",
-                // },
-                // {//TypeStage
-                //   text: "Type Stage",
-                //   href: "/admin/TypeStage",
-                // },
-                // {//CategorieCirconstance
-                //   text: "Categorie Circontance",
-                //   href: "/admin/CategorieCirconstance",
-                // },
-                // {
-                //   text: "Type Circonstance",
-                //   href: "/admin/TypeCirconstance",
-                // },
-                // {
-                //   text: "Les Postes",
-                //   href: "/admin/Postes",
-                // },
-                // {
-                //   text: "Les Mutuelles",
-                //   href: "/admin/Mutuelle",
-                // },
-                // {
-                //   text: "Lieu Affectation",
-                //   href: "/admin/LieuAffectation",
-                // },
-                // {
-                //   text: "RubriquesPaies",
-                //   href: "/admin/RubriquePaie",
-                // },
-                // {
-                //   text: "Param. RubriquesPaies",
-                //   href: "/admin/ParametreRubrique",
-                // },
-                // {
-                //   text: "Catégorie Service",
-                //   href: "/admin/CategorieServicePers",
-                // },
-                // {
-                //   text: "Service Pers.",
-                //   href: "/admin/ServicePersonnel",
-                // },
-                // {
-                //   text: "Année Civile",
-                //   href: "/admin/Annee",
-                // },
-                // {
-                //   text: "Mois",
-                //   href: "/admin/Mois",
-                // },
-                // {
-                //   text: "PromotionAcadémique",
-                //   href: "/admin/Promotion",
-                // },
-                // {
-                //   text: "DomaineAcadémique",
-                //   href: "/admin/DomaineStage",
-                // },
-                // {
-                //   text: "OptionAcadémique",
-                //   href: "/admin/OptionStage",
-                // },
-                // {
-                //   text: "AnnéeAcadémique",
-                //   href: "/admin/AnneeStage",
-                // },
-                // {
-                //   text: "InstitutionsAC",
-                //   href: "/admin/Institution",
-                // },
-                // {
-                //   text: "Raison Familliale",
-                //   href: "/admin/RaisonFamilliale",
-                // }
-          ],
-          links_operation: [
-            // {
-            //   icon: "store",
-            //   text: "Pays",
-            //   href: "/admin/pays",
-            // },
-            // {
-            //   icon: "credit_card",
-            //   text: "Provinces",
-            //   href: "/admin/provinces",
-            // },
-
-            // {
-            //   icon: "store",
-            //   text: "Chef lieu",
-            //   href: "/admin/ville",
-            // },
-            // {
-            //   icon: "store",
-            //   text: "Commune",
-            //   href: "/admin/commune",
-            // },
-
-            // {
-            //   icon: "store",
-            //   text: "Quartier",
-            //   href: "/admin/quartier",
-            // },
-
-            // {
-            //   icon: "store",
-            //   text: "Avenue",
-            //   href: "/admin/avenue",
-            // },
-
-            // {
-            //   icon: "store",
-            //   text: "Forme juridique",
-            //   href: "/admin/forme_juridique",
-            // },
-            // {
-            //   text: "Statistique sur les blogs",
-            //   href: "/admin/statistique_entreprise",
-            // },
-            // {
-            //   icon: "store",
-            //   text: "Territoire",
-            //   href: "/admin/territoire",
-            // },
-
-            // {
-            //   icon: "store",
-            //   text: "Envoie SMS",
-            //   href: "/admin/texto",
-            // },
-
-            // {
-            //   icon: "store",
-            //   text: "Statistique sur Les utilisateur",
-            //   href: "/admin/statistique_user",
-            // },
-
-
-            // {
-            //   icon: "api",
-            //   text: "Témoignage",
-            //   href: "/admin/temoignages",
-            // },
-
-            // {
-            //   icon: "api",
-            //   text: "Nos Valeurs",
-            //   href: "/admin/valeur",
-            // },
-
-            // {
-            //   icon: "api",
-            //   text: "Nos Rôles",
-            //   href: "/admin/role_service",
-            // },
-
-            // {
-            //   icon: "api",
-            //   text: "Nos Choix",
-            //   href: "/admin/choix",
-            // },
-
-
-            // {
-            //   icon: "credit_card",
-            //   text: "Services",
-            //   href: "/admin/service",
-            // },
-
-
-            // {
-            //   icon: "api",
-            //   text: "Decisions",
-            //   href: "/admin/decision",
-            // },
-
-            // {
-            //   icon: "api",
-            //   text: "Avantage",
-            //   href: "/admin/avantage",
-            // },
-            // {
-            //   icon: "api",
-            //   text: "Sous services",
-            //   href: "/admin/sous_service",
-            // },
-
-
-
-
-
-
-          ],
-          links_systems: [
-            // {
-            //   icon: "people",
-            //   text: "Utilisateurs",
-            //   href: "/admin/Users",
-            // },
-            // {
-            //   icon: "api",
-            //   text: "Entreprise",
-            //   href: "/admin/liste_entreprise",
-            // },
-            // {
-            //   icon: "api",
-            //   text: "Privilège",
-            //   href: "/admin/role",
-            // },
-            // {
-            //   icon: "api",
-            //   text: "Configuration Menu",
-            //   href: "/admin/ListeMenu",
-            // },
-            // {
-            //   icon: "api",
-            //   text: "Historiques Infos.",
-            //   href: "/admin/HistoriqueData",
-            // },
-            // {
-            //   icon: "credit_card",
-            //   text: "Contact pour info",
-            //   href: "/admin/contact_info",
-            // },
-            // {
-            //   icon: "api",
-            //   text: "Configuration basique",
-            //   href: "/admin/configure_basic",
-            // },
-
-            // {
-            //   icon: "api",
-            //   text: "Configuration du site",
-            //   href: "/admin/configure_site",
-            // },
-
-          ],
-          sublinks: [
-            {
-              icon: "book",
-              text: "A propos ",
-              href: "/admin/about_page",
-            },
-          ],
-          listPersonnel: [
-          // {
-          //     text: "RH",
-          //     icon: "mdi-account-settings",
-          //     items: [                
-          //       {
-          //         text: "Personnels",
-          //         href: "/admin/Agent",
-          //       },
-          //       {
-          //         text: "Tous les Contrats",
-          //         href: "/admin/AllContrat",
-          //       },
-          //       {
-          //         text: "Contrats Encours",
-          //         href: "/admin/ContratActif",
-          //       },
-          //       {
-          //         text: "En Congé",
-          //         href: "/admin/ContratEnconge",
-          //       },
-          //       {
-          //         text: "Contrats Finis",
-          //         href: "/admin/ContratFini",
-          //       },
-          //       {
-          //         text: "Stages Encours",
-          //         href: "/admin/StageEncours",
-          //       },
-          //       { //AllPresenceAgent
-          //         text: "Tous les Stages",
-          //         href: "/admin/AllStages",
-          //       },
-          //       { //AllPresenceAgent
-          //         text: "Toutes les Présences",
-          //         href: "/admin/AllPresenceAgent",
-          //       },
-          //       {
-          //         text: "Paiement Global",
-          //         href: "/admin/FichePaieGlobale",
-          //       },
-          //       {
-          //         text: "Paiement/Agent",
-          //         href: "/admin/FichePaie",
-          //       },
-          //       {
-          //         text: "Rapports Contrat",
-          //         href: "/admin/RapportContrat",
-          //       },
-          //       {
-          //         text: "Rapports Remuneration Agent",
-          //         href: "/admin/RapportsJour_Personnel",
-          //       },
-          //       {
-          //         text: "Param.SalaireBase",
-          //         href: "/admin/ParametreSalairebBase",
-          //       },
-          //       //ParametreSalairebBase
-          //     ],
-          //   },
-          ],
-          listPresence: [
-            // {
-            //   text: "Présences",
-            //   icon: "mdi-account-settings",
-            //   items: [                
-            //     {
-            //       text: "Aujourd'hui",
-            //       href: "/admin/JourPresences",
-            //     },
-            //     {
-            //       text: "Toutes les Présences",
-            //       href: "/admin/AllPresenceAgent",
-            //     }
-            //   ],
-            // },
-          ],
-          listCorresp: [
-            {
-              text: "Correspondances",
-              icon: "mdi-account-settings",
-              items: [                
-                // {
-                //   text: "Aujourd'hui",
-                //   href: "/admin/JourCorrespondance",
-                // },
-                // {
-                //   text: "Toutes les Corresp.",
-                //   href: "/admin/AllCorrespondance",
-                // },
-                {
-                  text: "Mes Correspondances",
-                  href: "/admin/UserCorrespondance",
-                }
-              ],
-            },
-          ],
-          listTimeSheet: [
-            {
-              text: "Time Sheets",
-              icon: "mdi-account-settings",
-              items: [                
-                // {
-                //   text: "Aujourd'hui",
-                //   href: "/admin/JourTimeSheet",
-                // },
-                // {
-                //   text: "Tous les TimeSheets.",
-                //   href: "/admin/AllTimeSheet",
-                // },
-                {
-                  text: "Mes TimeSheets",
-                  href: "/admin/UserTimeSheet",
-                }
-              ],
-            },
-          ],
-          // listGroup: [
-          //   {
-          //     text: "Article",
-          //     icon: "local_mall",
-          //     items: [
-
-          //       {
-
-          //         text: "Catégorie d'article",
-          //         href: "/admin/operation_catArticle",
-          //       },
-          //       {
-          //         text: "Blog",
-          //         href: "/admin/operation_blog",
-          //       },
-
-          //       {
-          //         icon: "store",
-          //         text: "Mot de la semaine",
-          //         href: "/admin/week",
-          //       },
-
-          //     ],
-          //   },
-          // ],
-          // listVentes: [
-          //   {
-          //     text: "Ventes & Stock",
-          //     icon: "mdi-cart",
-          //     items: [
-          //       {
-          //         text: "Ventes",
-          //         href: "/admin/VenteEnteteVente",
-          //       },
-          //       {
-          //         text: "Clients",
-          //         href: "/admin/ClientVente",
-          //       },
-          //       {
-          //         text: "Approvisionnements",
-          //         href: "/admin/VenteEnteteEntree",
-          //       },
-          //       {
-          //         text: "Etat de Besoin",
-          //         href: "/admin/VenteEnteteCommande",
-          //       },
-          //       {
-          //         text: "Produits",
-          //         href: "/admin/Produits",
-          //       },
-          //       {
-          //         icon: "store",
-          //         text: "Fournisseurs",
-          //         href: "/admin/Fournisseur",
-          //       },
-          //       {
-          //         icon: "store",
-          //         text: "Rapports",
-          //         href: "/admin/RapportsJour_Vente",
-          //       },
-          //     ],
-          //   },
-          // ],
-          listProjets: [
-            // {
-            //   text: "Projets",
-            //   icon: "mdi-projector-screen",
-            //   items: [
-            //     {
-            //       text: "Partenaires",
-            //       href: "/admin/PartenaireProjet",
-            //     },
-            //     {
-            //       text: "Projets",
-            //       href: "/admin/Projets",
-            //     },
-            //     {
-            //       icon: "store",
-            //       text: "Rapports",
-            //       href: "/admin/RapportsJour_Vente",
-            //     },
-            //   ],
-            // },
-          ],
-          listArchivages: [
-          // {
-          //     text: "Archivages",
-          //     icon: "mdi-email-open",
-          //     items: [              
-          //       {
-          //         text: "Archivages",
-          //         href: "/admin/Archivages", 
-          //       },
-          //       {
-          //         text: "Division",
-          //         href: "/admin/DivisionArchive",
-          //       },
-          //       {
-          //         text: "CategorieArch.",
-          //         href: "/admin/CategorieArchivage",
-          //       },
-          //       {
-          //         text: "Services",
-          //         href: "/admin/ServiceArchivage",
-          //       }
-          //     ],
-          //   },
-          ],
-          // listReservations: [
-          //   {
-          //     text: "Resérvations",
-          //     icon: "mdi-home",
-          //     items: [
-
-          //       {
-          //         text: "Chambres",
-          //         href: "/admin/ClientHotel",
-          //       },
-          //       { 
-          //         text: "Salles",
-          //         href: "/admin/ClientVente",
-          //       },
-          //       { 
-          //         text: "Rapports",
-          //         href: "/admin/RapportsJour_Reservation",
-          //       }
-
-          //     ],
-          //   },
-          // ],
-          // listBillards: [
-          //   {
-          //     text: "Billards",
-          //     icon: "mdi-gamepad",
-          //     items: [                
-          //       {
-          //         text: "Billards",
-          //         href: "/admin/ClientVente",
-          //       }
-          //     ],
-          //   },
-          // ],
-          // listFinances: [
-          //   {
-          //     text: "Finances",
-          //     icon: "mdi-cards",
-          //     items: [                
-          //       {
-          //         text: "Recettes",
-          //         href: "/admin/recette",
-          //       },
-          //       {
-          //         text: "Etat de Besoin",
-          //         href: "/admin/EnteteEtatBesoin",
-          //       },
-          //       {
-          //         text: "Bon d'Engagement",
-          //         href: "/admin/EnteteBonEngagement",
-          //       },
-          //       {
-          //         text: "Cloture de la Caisse",
-          //         href: "/admin/Cloture_Caisse",
-          //       },
-          //       // {
-          //       //   text: "Cloture de la Caisse Hotel",
-          //       //   href: "/admin/Cloture_Caisse_Chambre",
-          //       // },
-          //       // {
-          //       //   text: "Cloture de la Caisse Salle",
-          //       //   href: "/admin/Cloture_Caisse_Salle",
-          //       // },
-          //       // {
-          //       //   text: "Cloture de la Caisse Billards",
-          //       //   href: "/admin/Cloture_Caisse_Billard",
-          //       // },
-          //       { 
-          //         text: "Comptabilité(Opé.)",
-          //         href: "/admin/EnteteOperationComptable",
-          //       },
-          //       { 
-          //         text: "Cloture de la Comptabilité",
-          //         href: "/admin/ClotureComptabilite",
-          //       },
-          //       {
-          //         text: "Rapport Comptabilité",
-          //         href: "/admin/RapportsComptabilite"
-          //         //Services
-          //       },
-          //       {
-          //         text: "Rapport Recettes/Depenses",
-          //         href: "/admin/RapportsJour_Caisse"
-          //       },
-          //       { //RapportContrat
-          //         text: "Rapports Remuneration Agent",
-          //         href: "/admin/RapportsJour_Personnel",
-          //       },
-          //       {
-          //         text: "Les Services",
-          //         href: "/admin/Services"
-          //       }
-          //     ],
-          //   },
-          // ],
-          // listLogistique: [
-          //   {
-          //     text: "Logistique",
-          //     icon: "mdi-cart",
-          //     items: [                
-          //     {
-          //         text: "Approvisionements",
-          //         href: "/admin/LogEnteteEntree",
-          //       },
-          //       {
-          //         text: "Sortie/Services",
-          //         href: "/admin/LogEnteteSortie",
-          //       },
-          //       {
-          //         text: "Requisitions",
-          //         href: "/admin/LogEnteteRequisition",
-          //       },
-          //       {
-          //         text: "Articles",
-          //         href: "/admin/ProduitLog",
-          //       },
-          //       {
-          //         text: "Fournisseur",
-          //         href: "/admin/Fournisseur",
-          //       },
-          //       {
-          //         text: "Categorie Art.",
-          //         href: "/admin/categorieproduit",
-          //       },
-          //       {
-          //         text: "Rapports",
-          //         href: "/admin/RapportsJour_Logistique",
-          //       }
-
-          //     ],
-          //   },
-          // ],
-
-          // listVehicules: [
-          //   { 
-          //     text: "Véhicules",
-          //     icon: "mdi-car",
-          //     items: [                
-          //       {
-          //         text: "Mouvements des Véhicules",
-          //         href: "/admin/CarEnteteMouvement",
-          //       },
-          //       {
-          //         text: "Rapports",
-          //         href: "/admin/RapportsJour_Vehicule",
-          //       },
-          //       {
-          //         text: "Nos Véhicules",
-          //         href: "/admin/CarVehicule",
-          //       },
-          //       {
-          //         text: "Les Gammes",
-          //         href: "/admin/CarProduit",
-          //       },
-          //       {
-          //         text: "Les Fournisseurs",
-          //         href: "/admin/CarProducteur",
-          //       }
-          //     ],
-          //   },
-          // ],
-          // listSalon: [
-          //   { 
-          //     text: "Salon de Beauté",
-          //     icon: "mdi-car",
-          //     items: [              
-          //        { 
-          //          text: "Salon de Beauté",
-          //          href: "/admin/SalonEnteteVente",
-          //        },
-          //        { 
-          //          text: "Rapports(Salon)",
-          //          href: "/admin/RapportsJour_VenteSalon",
-          //        }
-          //     ],
-          //   },
-          // ],
-          links_systems_mouvement: [
-          ],
-          links_systems_mouvement_2: [
-            // ProfilPatient
-          ],
-          links_systems_mouvement_3: [
-          ],
-
-          admins: [
-            ["Management", ""],
-            ["Settings", ""],
-          ],
-        };
-      }
-      else if (this.userData.id_role == 6) {
-        this.linkAdmin = {
-          links: [
-            // {
-            //   icon: "mdi-microsoft-windows",
-            //   text: "Tableau de bord",
-            //   href: "/admin/dashboard",
-            // },
-            // {
-            //   icon: "mdi-chart-pie",
-            //   text: "Tableau de bord(Ese)",
-            //   href: "/admin/statistique_entreprise",
-            // },
-            // {
-            //   icon: "chat",
-            //   text: "Chat",
-            //   href: "/admin/chat",
-            // },
-          ],
-          links_operation_2: [
-            // {
-            //   icon: "credit_card",
-            //   text: "Carousel",
-            //   href: "/admin/carousel",
-            // },
-            // {
-            //   icon: "credit_card",
-            //   text: "Service",
-            //   href: "/admin/operation_service",
-            // },
-            // {
-            //   icon: "store",
-            //   text: "Galérie",
-            //   href: "/admin/operation_galery",
-            // },
-            // {
-            //   icon: "store",
-            //   text: "Vidéo",
-            //   href: "/admin/operation_video",
-            // },
-            // {
-            //   icon: "store",
-            //   text: "Partenaire",
-            //   href: "/admin/operation_partenaire",
-            // },
-
-            // {
-            //   icon: "store",
-            //   text: "Notre famille",
-            //   href: "/admin/operation_team",
-            // },
-
-          ],
-          links_finance: [
-            // {
-            //   icon: "groups",
-            //   text: "Classes",
-            //   href: "/admin/ClassesFin",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Comptes",
-            //   href: "/admin/CompteFin",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Sous Comptes",
-            //   href: "/admin/SousCompte",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "SSous Comptes",
-            //   href: "/admin/SSousCompte",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Type Compte",
-            //   href: "/admin/TypeCompte",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Config. Taux",
-            //   href: "/admin/TTaux",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Type Position",
-            //   href: "/admin/TypePosition",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Type Opération",
-            //   href: "/admin/TypeOperation",
-            // },
-            // {
-            //   text: "Rubriques",
-            //   href: "/admin/Comptes",
-            // },
-            // {
-            //   text: "Caisse&Banque",
-            //   href: "/admin/Banque",
-            // },
-            // {
-            //   text: "ModePaie",
-            //   href: "/admin/modepaie",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Taux",
-            //   href: "/admin/TTaux",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Services Treseorerie",
-            //   href: "/admin/Provenance",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Cat. Rubriques",
-            //   href: "/admin/CategorieRubrique",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Rubriques Depenses",
-            //   href: "/admin/Rubriques",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Blocs",
-            //   href: "/admin/Blocs",
-            // }
-
-          ],
-          links_vente: [
-            // {
-            //   icon: "groups",
-            //   text: "CatégorieProduit",
-            //   href: "/admin/CategorieProduit",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Emplacements",
-            //   href: "/admin/Emplacements",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Service Logistique",
-            //   href: "/admin/SalonProduit",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "Service Salon",
-            //   href: "/admin/SalonProduit",
-            // },
-            // {
-            //   icon: "groups",
-            //   text: "CatégorieClient",
-            //   href: "/admin/CategorieClient",
-            // }
-          ],
-          links_tresorerie: [
-            // {
-            //   text: "Rubriques Depenses",
-            //   href: "/admin/Comptes",
-            // },
-            // {
-            //   text: "Cat.Rubriques EB",
-            //   href: "/admin/CategorieRubrique",
-            // },
-            // {
-            //   text: "Rubriques EB",
-            //   href: "/admin/Rubriques",
-            // },
-            // {
-            //   text: "Blocs(Finances)",
-            //   href: "/admin/Blocs",
-            // },
-            // {
-            //   text: "Les Services(Finances)",
-            //   href: "/admin/Provenance",
-            // }
-          ],
-          links_hotel: [
-            // {
-            //   text: "ClasseChambre",
-            //   href: "/admin/ClasseChambre",
-            // },
-            // {
-            //   text: "Chambres",
-            //   href: "/admin/Chambre",
-            // },
-            // { //SalonProduit
-            //   text: "Salles",
-            //   href: "/admin/Salle",
-            // },
-            // { //SalonProduit
-            //   text: "Services Salon",
-            //   href: "/admin/SalonProduit",
-            // }
-          ],
-          links_personne: [
-                // {
-                //   text: "Type Agent",
-                //   href: "/admin/TypeAgent",
-                // },
-                // {
-                //   text: "Fonctions",
-                //   href: "/admin/FonctionAgent",
-                // },
-                // {
-                //   text: "Catégorie Agent",
-                //   href: "/admin/CategorieAgent",
-                // },
-                // {
-                //   text: "Type RubriquesPaies",
-                //   href: "/admin/CategorieRubriquePers",
-                // },
-                // {//CategorieCirconstance
-                //   text: "Type Contrat",
-                //   href: "/admin/TypeContrat",
-                // },
-                // {//TypeStage
-                //   text: "Type Stage",
-                //   href: "/admin/TypeStage",
-                // },
-                // {//CategorieCirconstance
-                //   text: "Categorie Circontance",
-                //   href: "/admin/CategorieCirconstance",
-                // },
-                // {
-                //   text: "Type Circonstance",
-                //   href: "/admin/TypeCirconstance",
-                // },
-                // {
-                //   text: "Les Postes",
-                //   href: "/admin/Postes",
-                // },
-                // {
-                //   text: "Les Mutuelles",
-                //   href: "/admin/Mutuelle",
-                // },
-                // {
-                //   text: "Lieu Affectation",
-                //   href: "/admin/LieuAffectation",
-                // },
-                // {
-                //   text: "RubriquesPaies",
-                //   href: "/admin/RubriquePaie",
-                // },
-                // {
-                //   text: "Param. RubriquesPaies",
-                //   href: "/admin/ParametreRubrique",
-                // },
-                // {
-                //   text: "Catégorie Service",
-                //   href: "/admin/CategorieServicePers",
-                // },
-                // {
-                //   text: "Service Pers.",
-                //   href: "/admin/ServicePersonnel",
-                // },
-                // {
-                //   text: "Année Civile",
-                //   href: "/admin/Annee",
-                // },
-                // {
-                //   text: "Mois",
-                //   href: "/admin/Mois",
-                // },
-                // {
-                //   text: "PromotionAcadémique",
-                //   href: "/admin/Promotion",
-                // },
-                // {
-                //   text: "DomaineAcadémique",
-                //   href: "/admin/DomaineStage",
-                // },
-                // {
-                //   text: "OptionAcadémique",
-                //   href: "/admin/OptionStage",
-                // },
-                // {
-                //   text: "AnnéeAcadémique",
-                //   href: "/admin/AnneeStage",
-                // },
-                // {
-                //   text: "InstitutionsAC",
-                //   href: "/admin/Institution",
-                // },
-                // {
-                //   text: "Raison Familliale",
-                //   href: "/admin/RaisonFamilliale",
-                // }
-          ],
-          links_operation: [
-            // {
-            //   icon: "store",
-            //   text: "Pays",
-            //   href: "/admin/pays",
-            // },
-            // {
-            //   icon: "credit_card",
-            //   text: "Provinces",
-            //   href: "/admin/provinces",
-            // },
-
-            // {
-            //   icon: "store",
-            //   text: "Chef lieu",
-            //   href: "/admin/ville",
-            // },
-            // {
-            //   icon: "store",
-            //   text: "Commune",
-            //   href: "/admin/commune",
-            // },
-
-            // {
-            //   icon: "store",
-            //   text: "Quartier",
-            //   href: "/admin/quartier",
-            // },
-
-            // {
-            //   icon: "store",
-            //   text: "Avenue",
-            //   href: "/admin/avenue",
-            // },
-
-            // {
-            //   icon: "store",
-            //   text: "Forme juridique",
-            //   href: "/admin/forme_juridique",
-            // },
-            // {
-            //   text: "Statistique sur les blogs",
-            //   href: "/admin/statistique_entreprise",
-            // },
-            // {
-            //   icon: "store",
-            //   text: "Territoire",
-            //   href: "/admin/territoire",
-            // },
-
-            // {
-            //   icon: "store",
-            //   text: "Envoie SMS",
-            //   href: "/admin/texto",
-            // },
-
-            // {
-            //   icon: "store",
-            //   text: "Statistique sur Les utilisateur",
-            //   href: "/admin/statistique_user",
-            // },
-
-
-            // {
-            //   icon: "api",
-            //   text: "Témoignage",
-            //   href: "/admin/temoignages",
-            // },
-
-            // {
-            //   icon: "api",
-            //   text: "Nos Valeurs",
-            //   href: "/admin/valeur",
-            // },
-
-            // {
-            //   icon: "api",
-            //   text: "Nos Rôles",
-            //   href: "/admin/role_service",
-            // },
-
-            // {
-            //   icon: "api",
-            //   text: "Nos Choix",
-            //   href: "/admin/choix",
-            // },
-
-
-            // {
-            //   icon: "credit_card",
-            //   text: "Services",
-            //   href: "/admin/service",
-            // },
-
-
-            // {
-            //   icon: "api",
-            //   text: "Decisions",
-            //   href: "/admin/decision",
-            // },
-
-            // {
-            //   icon: "api",
-            //   text: "Avantage",
-            //   href: "/admin/avantage",
-            // },
-            // {
-            //   icon: "api",
-            //   text: "Sous services",
-            //   href: "/admin/sous_service",
-            // },
-
-          ],
-          links_systems: [
-            // {
-            //   icon: "people",
-            //   text: "Utilisateurs",
-            //   href: "/admin/Users",
-            // },
-            // {
-            //   icon: "api",
-            //   text: "Entreprise",
-            //   href: "/admin/liste_entreprise",
-            // },
-            // {
-            //   icon: "api",
-            //   text: "Privilège",
-            //   href: "/admin/role",
-            // },
-            // {
-            //   icon: "api",
-            //   text: "Configuration Menu",
-            //   href: "/admin/ListeMenu",
-            // },
-            // {
-            //   icon: "api",
-            //   text: "Historiques Infos.",
-            //   href: "/admin/HistoriqueData",
-            // },
-            // {
-            //   icon: "credit_card",
-            //   text: "Contact pour info",
-            //   href: "/admin/contact_info",
-            // },
-            // {
-            //   icon: "api",
-            //   text: "Configuration basique",
-            //   href: "/admin/configure_basic",
-            // },
-
-            // {
-            //   icon: "api",
-            //   text: "Configuration du site",
-            //   href: "/admin/configure_site",
-            // },
-
-          ],
-          sublinks: [
-            {
-              icon: "book",
-              text: "A propos ",
-              href: "/admin/about_page",
-            },
-          ],
-          listPersonnel: [
-          {
-              text: "RH",
-              icon: "mdi-account-settings",
-              items: [                
-                // {
-                //   text: "Personnels",
-                //   href: "/admin/Agent",
-                // },
-                // {
-                //   text: "Tous les Contrats",
-                //   href: "/admin/AllContrat",
-                // },
-                // {
-                //   text: "Contrats Encours",
-                //   href: "/admin/ContratActif",
-                // },
-                // {
-                //   text: "En Congé",
-                //   href: "/admin/ContratEnconge",
-                // },
-                // {
-                //   text: "Contrats Finis",
-                //   href: "/admin/ContratFini",
-                // },
-                // {
-                //   text: "Stages Encours",
-                //   href: "/admin/StageEncours",
-                // },
-                // { //AllPresenceAgent
-                //   text: "Tous les Stages",
-                //   href: "/admin/AllStages",
-                // },
-                // { //AllPresenceAgent
-                //   text: "Toutes les Présences",
-                //   href: "/admin/AllPresenceAgent",
-                // },
-                {
-                  text: "Paiement Global",
-                  href: "/admin/FichePaieGlobale",
-                },
-                {
-                  text: "Paiement/Agent",
-                  href: "/admin/FichePaie",
-                },
-                // {
-                //   text: "Rapports Contrat",
-                //   href: "/admin/RapportContrat",
-                // },
-                {
-                  text: "Rapports Remuneration Agent",
-                  href: "/admin/RapportsJour_Personnel",
-                },
-                {
-                  text: "Param.SalaireBase",
-                  href: "/admin/ParametreSalairebBase",
-                },
-                //ParametreSalairebBase
-              ],
-            },
-          ],
-          listPresence: [
-            // {
-            //   text: "Présences",
-            //   icon: "mdi-account-settings",
-            //   items: [                
-            //     {
-            //       text: "Aujourd'hui",
-            //       href: "/admin/JourPresences",
-            //     },
-            //     {
-            //       text: "Toutes les Présences",
-            //       href: "/admin/AllPresenceAgent",
-            //     }
-            //   ],
-            // },
-          ],
-          listCorresp: [
-            {
-              text: "Correspondances",
-              icon: "mdi-account-settings",
-              items: [                
-                // {
-                //   text: "Aujourd'hui",
-                //   href: "/admin/JourCorrespondance",
-                // },
-                // {
-                //   text: "Toutes les Corresp.",
-                //   href: "/admin/AllCorrespondance",
-                // },
-                {
-                  text: "Mes Correspondances",
-                  href: "/admin/UserCorrespondance",
-                }
-              ],
-            },
-          ],
-          listTimeSheet: [
-            {
-              text: "Time Sheets",
-              icon: "mdi-account-settings",
-              items: [                
-                // {
-                //   text: "Aujourd'hui",
-                //   href: "/admin/JourTimeSheet",
-                // },
-                // {
-                //   text: "Tous les TimeSheets.",
-                //   href: "/admin/AllTimeSheet",
-                // },
-                {
-                  text: "Mes TimeSheets",
-                  href: "/admin/UserTimeSheet",
-                }
-              ],
-            },
-          ],
-          // listGroup: [
-          //   {
-          //     text: "Article",
-          //     icon: "local_mall",
-          //     items: [
-
-          //       {
-
-          //         text: "Catégorie d'article",
-          //         href: "/admin/operation_catArticle",
-          //       },
-          //       {
-          //         text: "Blog",
-          //         href: "/admin/operation_blog",
-          //       },
-
-          //       {
-          //         icon: "store",
-          //         text: "Mot de la semaine",
-          //         href: "/admin/week",
-          //       },
-
-          //     ],
-          //   },
-          // ],
-          // listVentes: [
-          //   {
-          //     text: "Ventes & Stock",
-          //     icon: "mdi-cart",
-          //     items: [
-          //       {
-          //         text: "Ventes",
-          //         href: "/admin/VenteEnteteVente",
-          //       },
-          //       {
-          //         text: "Clients",
-          //         href: "/admin/ClientVente",
-          //       },
-          //       {
-          //         text: "Approvisionnements",
-          //         href: "/admin/VenteEnteteEntree",
-          //       },
-          //       {
-          //         text: "Etat de Besoin",
-          //         href: "/admin/VenteEnteteCommande",
-          //       },
-          //       {
-          //         text: "Produits",
-          //         href: "/admin/Produits",
-          //       },
-          //       {
-          //         icon: "store",
-          //         text: "Fournisseurs",
-          //         href: "/admin/Fournisseur",
-          //       },
-          //       {
-          //         icon: "store",
-          //         text: "Rapports",
-          //         href: "/admin/RapportsJour_Vente",
-          //       },
-          //     ],
-          //   },
-          // ],
-          listProjets: [
-            // {
-            //   text: "Projets",
-            //   icon: "mdi-projector-screen",
-            //   items: [
-            //     {
-            //       text: "Partenaires",
-            //       href: "/admin/PartenaireProjet",
-            //     },
-            //     {
-            //       text: "Projets",
-            //       href: "/admin/Projets",
-            //     },
-            //     {
-            //       icon: "store",
-            //       text: "Rapports",
-            //       href: "/admin/RapportsJour_Vente",
-            //     },
-            //   ],
-            // },
-          ],
-          listArchivages: [
-          {
-              text: "Archivages",
-              icon: "mdi-email-open",
-              items: [              
-                {
-                  text: "Archivages",
-                  href: "/admin/Archivages", 
-                },
-                // {
-                //   text: "Division",
-                //   href: "/admin/DivisionArchive",
-                // },
-                // {
-                //   text: "CategorieArch.",
-                //   href: "/admin/CategorieArchivage",
-                // },
-                // {
-                //   text: "Services",
-                //   href: "/admin/ServiceArchivage",
-                // }
-              ],
-            },
-          ],
-          // listReservations: [
-          //   {
-          //     text: "Resérvations",
-          //     icon: "mdi-home",
-          //     items: [
-
-          //       {
-          //         text: "Chambres",
-          //         href: "/admin/ClientHotel",
-          //       },
-          //       { 
-          //         text: "Salles",
-          //         href: "/admin/ClientVente",
-          //       },
-          //       { 
-          //         text: "Rapports",
-          //         href: "/admin/RapportsJour_Reservation",
-          //       }
-
-          //     ],
-          //   },
-          // ],
-          // listBillards: [
-          //   {
-          //     text: "Billards",
-          //     icon: "mdi-gamepad",
-          //     items: [                
-          //       {
-          //         text: "Billards",
-          //         href: "/admin/ClientVente",
-          //       }
-          //     ],
-          //   },
-          // ],
-          // listFinances: [
-          //   {
-          //     text: "Finances",
-          //     icon: "mdi-cards",
-          //     items: [                
-          //       {
-          //         text: "Recettes",
-          //         href: "/admin/recette",
-          //       },
-          //       {
-          //         text: "Etat de Besoin",
-          //         href: "/admin/EnteteEtatBesoin",
-          //       },
-          //       {
-          //         text: "Bon d'Engagement",
-          //         href: "/admin/EnteteBonEngagement",
-          //       },
-          //       {
-          //         text: "Cloture de la Caisse",
-          //         href: "/admin/Cloture_Caisse",
-          //       },
-          //       // {
-          //       //   text: "Cloture de la Caisse Hotel",
-          //       //   href: "/admin/Cloture_Caisse_Chambre",
-          //       // },
-          //       // {
-          //       //   text: "Cloture de la Caisse Salle",
-          //       //   href: "/admin/Cloture_Caisse_Salle",
-          //       // },
-          //       // {
-          //       //   text: "Cloture de la Caisse Billards",
-          //       //   href: "/admin/Cloture_Caisse_Billard",
-          //       // },
-          //       { 
-          //         text: "Comptabilité(Opé.)",
-          //         href: "/admin/EnteteOperationComptable",
-          //       },
-          //       { 
-          //         text: "Cloture de la Comptabilité",
-          //         href: "/admin/ClotureComptabilite",
-          //       },
-          //       {
-          //         text: "Rapport Comptabilité",
-          //         href: "/admin/RapportsComptabilite"
-          //         //Services
-          //       },
-          //       {
-          //         text: "Rapport Recettes/Depenses",
-          //         href: "/admin/RapportsJour_Caisse"
-          //       },
-          //       { //RapportContrat
-          //         text: "Rapports Remuneration Agent",
-          //         href: "/admin/RapportsJour_Personnel",
-          //       },
-          //       {
-          //         text: "Les Services",
-          //         href: "/admin/Services"
-          //       }
-          //     ],
-          //   },
-          // ],
-          // listLogistique: [
-          //   {
-          //     text: "Logistique",
-          //     icon: "mdi-cart",
-          //     items: [                
-          //     {
-          //         text: "Approvisionements",
-          //         href: "/admin/LogEnteteEntree",
-          //       },
-          //       {
-          //         text: "Sortie/Services",
-          //         href: "/admin/LogEnteteSortie",
-          //       },
-          //       {
-          //         text: "Requisitions",
-          //         href: "/admin/LogEnteteRequisition",
-          //       },
-          //       {
-          //         text: "Articles",
-          //         href: "/admin/ProduitLog",
-          //       },
-          //       {
-          //         text: "Fournisseur",
-          //         href: "/admin/Fournisseur",
-          //       },
-          //       {
-          //         text: "Categorie Art.",
-          //         href: "/admin/categorieproduit",
-          //       },
-          //       {
-          //         text: "Rapports",
-          //         href: "/admin/RapportsJour_Logistique",
-          //       }
-
-          //     ],
-          //   },
-          // ],
-
-          // listVehicules: [
-          //   { 
-          //     text: "Véhicules",
-          //     icon: "mdi-car",
-          //     items: [                
-          //       {
-          //         text: "Mouvements des Véhicules",
-          //         href: "/admin/CarEnteteMouvement",
-          //       },
-          //       {
-          //         text: "Rapports",
-          //         href: "/admin/RapportsJour_Vehicule",
-          //       },
-          //       {
-          //         text: "Nos Véhicules",
-          //         href: "/admin/CarVehicule",
-          //       },
-          //       {
-          //         text: "Les Gammes",
-          //         href: "/admin/CarProduit",
-          //       },
-          //       {
-          //         text: "Les Fournisseurs",
-          //         href: "/admin/CarProducteur",
-          //       }
-          //     ],
-          //   },
-          // ],
-          // listSalon: [
-          //   { 
-          //     text: "Salon de Beauté",
-          //     icon: "mdi-car",
-          //     items: [              
-          //        { 
-          //          text: "Salon de Beauté",
-          //          href: "/admin/SalonEnteteVente",
-          //        },
-          //        { 
-          //          text: "Rapports(Salon)",
-          //          href: "/admin/RapportsJour_VenteSalon",
-          //        }
-          //     ],
-          //   },
-          // ],
-          links_systems_mouvement: [
-          ],
-          links_systems_mouvement_2: [
-            // ProfilPatient
-          ],
-          links_systems_mouvement_3: [
-          ],
-
-          admins: [
-            ["Management", ""],
-            ["Settings", ""],
-          ],
-        };
-      }
+      //     ],
+      //     links_systems: [
+      //       // {
+      //       //   icon: "people",
+      //       //   text: "Utilisateurs",
+      //       //   href: "/admin/Users",
+      //       // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Entreprise",
+      //       //   href: "/admin/liste_entreprise",
+      //       // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Privilège",
+      //       //   href: "/admin/role",
+      //       // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Configuration Menu",
+      //       //   href: "/admin/ListeMenu",
+      //       // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Historiques Infos.",
+      //       //   href: "/admin/HistoriqueData",
+      //       // },
+      //       // {
+      //       //   icon: "credit_card",
+      //       //   text: "Contact pour info",
+      //       //   href: "/admin/contact_info",
+      //       // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Configuration basique",
+      //       //   href: "/admin/configure_basic",
+      //       // },
+
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Configuration du site",
+      //       //   href: "/admin/configure_site",
+      //       // },
+
+      //     ],
+      //     sublinks: [
+      //       {
+      //         icon: "book",
+      //         text: "A propos ",
+      //         href: "/admin/about_page",
+      //       },
+      //     ],
+      //     listPersonnel: [
+      //     {
+      //         text: "RH",
+      //         icon: "mdi-account-settings",
+      //         items: [                
+      //           // {
+      //           //   text: "Personnels",
+      //           //   href: "/admin/Agent",
+      //           // },
+      //           // {
+      //           //   text: "Tous les Contrats",
+      //           //   href: "/admin/AllContrat",
+      //           // },
+      //           // {
+      //           //   text: "Contrats Encours",
+      //           //   href: "/admin/ContratActif",
+      //           // },
+      //           // {
+      //           //   text: "En Congé",
+      //           //   href: "/admin/ContratEnconge",
+      //           // },
+      //           // {
+      //           //   text: "Contrats Finis",
+      //           //   href: "/admin/ContratFini",
+      //           // },
+      //           // {
+      //           //   text: "Stages Encours",
+      //           //   href: "/admin/StageEncours",
+      //           // },
+      //           // { //AllPresenceAgent
+      //           //   text: "Tous les Stages",
+      //           //   href: "/admin/AllStages",
+      //           // },
+      //           // { //AllPresenceAgent
+      //           //   text: "Toutes les Présences",
+      //           //   href: "/admin/AllPresenceAgent",
+      //           // },
+      //           // {
+      //           //   text: "Paiement Global",
+      //           //   href: "/admin/FichePaieGlobale",
+      //           // },
+      //           // {
+      //           //   text: "Paiement/Agent",
+      //           //   href: "/admin/FichePaie",
+      //           // },
+      //           // {
+      //           //   text: "Rapports Contrat",
+      //           //   href: "/admin/RapportContrat",
+      //           // },
+      //           // {
+      //           //   text: "Rapports Remuneration Agent",
+      //           //   href: "/admin/RapportsJour_Personnel",
+      //           // },
+      //           // {
+      //           //   text: "Param.SalaireBase",
+      //           //   href: "/admin/ParametreSalairebBase",
+      //           // },
+      //           //ParametreSalairebBase
+      //         ],
+      //       },
+      //     ],
+      //     listPresence: [
+      //       {
+      //         text: "Présences",
+      //         icon: "mdi-account-settings",
+      //         items: [                
+      //           // {
+      //           //   text: "Aujourd'hui",
+      //           //   href: "/admin/JourPresences",
+      //           // },
+      //           // {
+      //           //   text: "Toutes les Présences",
+      //           //   href: "/admin/AllPresenceAgent",
+      //           // }
+      //         ],
+      //       },
+      //     ],
+      //     listCorresp: [
+      //       {
+      //         text: "Correspondances",
+      //         icon: "mdi-account-settings",
+      //         items: [                
+      //           // {
+      //           //   text: "Aujourd'hui",
+      //           //   href: "/admin/JourCorrespondance",
+      //           // },
+      //           // {
+      //           //   text: "Toutes les Corresp.",
+      //           //   href: "/admin/AllCorrespondance",
+      //           // },
+      //           {
+      //             text: "Mes Correspondances",
+      //             href: "/admin/UserCorrespondance",
+      //           }
+      //         ],
+      //       },
+      //     ],
+      //     listTimeSheet: [
+      //       {
+      //         text: "Time Sheets",
+      //         icon: "mdi-account-settings",
+      //         items: [                
+      //           // {
+      //           //   text: "Aujourd'hui",
+      //           //   href: "/admin/JourTimeSheet",
+      //           // },
+      //           // {
+      //           //   text: "Tous les TimeSheets.",
+      //           //   href: "/admin/AllTimeSheet",
+      //           // },
+      //           {
+      //             text: "Mes TimeSheets",
+      //             href: "/admin/UserTimeSheet",
+      //           }
+      //         ],
+      //       },
+      //     ],
+      //     // listGroup: [
+      //     //   {
+      //     //     text: "Article",
+      //     //     icon: "local_mall",
+      //     //     items: [
+      //     //       {
+      //     //         text: "Catégorie d'article",
+      //     //         href: "/admin/operation_catArticle",
+      //     //       },
+      //     //       {
+      //     //         text: "Blog",
+      //     //         href: "/admin/operation_blog",
+      //     //       },
+
+      //     //       {
+      //     //         icon: "store",
+      //     //         text: "Mot de la semaine",
+      //     //         href: "/admin/week",
+      //     //       },
+
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     // listVentes: [
+      //     //   {
+      //     //     text: "Ventes & Stock",
+      //     //     icon: "mdi-cart",
+      //     //     items: [
+      //     //       {
+      //     //         text: "Ventes",
+      //     //         href: "/admin/VenteEnteteVente",
+      //     //       },
+      //     //       {
+      //     //         text: "Clients",
+      //     //         href: "/admin/ClientVente",
+      //     //       },
+      //     //       {
+      //     //         text: "Approvisionnements",
+      //     //         href: "/admin/VenteEnteteEntree",
+      //     //       },
+      //     //       {
+      //     //         text: "Etat de Besoin",
+      //     //         href: "/admin/VenteEnteteCommande",
+      //     //       },
+      //     //       {
+      //     //         text: "Produits",
+      //     //         href: "/admin/Produits",
+      //     //       },
+      //     //       {
+      //     //         icon: "store",
+      //     //         text: "Fournisseurs",
+      //     //         href: "/admin/Fournisseur",
+      //     //       },
+      //     //       {
+      //     //         icon: "store",
+      //     //         text: "Rapports",
+      //     //         href: "/admin/RapportsJour_Vente",
+      //     //       },
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     listProjets: [
+      //       {
+      //         text: "Projets",
+      //         icon: "mdi-projector-screen",
+      //         items: [
+      //           {
+      //             text: "Partenaires",
+      //             href: "/admin/PartenaireProjet",
+      //           },
+      //           {
+      //             text: "Projets",
+      //             href: "/admin/Projets",
+      //           },
+      //           // {
+      //           //   icon: "store",
+      //           //   text: "Rapports",
+      //           //   href: "/admin/RapportsJour_Vente",
+      //           // },
+      //         ],
+      //       },
+      //     ],
+      //     listArchivages: [
+      //     {
+      //         text: "Archivages",
+      //         icon: "mdi-email-open",
+      //         items: [              
+      //           {
+      //             text: "Archivages",
+      //             href: "/admin/Archivages", 
+      //           },
+      //           // {
+      //           //   text: "Division",
+      //           //   href: "/admin/DivisionArchive",
+      //           // },
+      //           // {
+      //           //   text: "CategorieArch.",
+      //           //   href: "/admin/CategorieArchivage",
+      //           // },
+      //           // {
+      //           //   text: "Services",
+      //           //   href: "/admin/ServiceArchivage",
+      //           // }
+      //         ],
+      //       },
+      //     ],
+      //     // listReservations: [
+      //     //   {
+      //     //     text: "Resérvations",
+      //     //     icon: "mdi-home",
+      //     //     items: [
+
+      //     //       {
+      //     //         text: "Chambres",
+      //     //         href: "/admin/ClientHotel",
+      //     //       },
+      //     //       { 
+      //     //         text: "Salles",
+      //     //         href: "/admin/ClientVente",
+      //     //       },
+      //     //       { 
+      //     //         text: "Rapports",
+      //     //         href: "/admin/RapportsJour_Reservation",
+      //     //       }
+
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     // listBillards: [
+      //     //   {
+      //     //     text: "Billards",
+      //     //     icon: "mdi-gamepad",
+      //     //     items: [                
+      //     //       {
+      //     //         text: "Billards",
+      //     //         href: "/admin/ClientVente",
+      //     //       }
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     // listFinances: [
+      //     //   {
+      //     //     text: "Finances",
+      //     //     icon: "mdi-cards",
+      //     //     items: [                
+      //     //       {
+      //     //         text: "Recettes",
+      //     //         href: "/admin/recette",
+      //     //       },
+      //     //       {
+      //     //         text: "Etat de Besoin",
+      //     //         href: "/admin/EnteteEtatBesoin",
+      //     //       },
+      //     //       {
+      //     //         text: "Bon d'Engagement",
+      //     //         href: "/admin/EnteteBonEngagement",
+      //     //       },
+      //     //       {
+      //     //         text: "Cloture de la Caisse",
+      //     //         href: "/admin/Cloture_Caisse",
+      //     //       },
+      //     //       // {
+      //     //       //   text: "Cloture de la Caisse Hotel",
+      //     //       //   href: "/admin/Cloture_Caisse_Chambre",
+      //     //       // },
+      //     //       // {
+      //     //       //   text: "Cloture de la Caisse Salle",
+      //     //       //   href: "/admin/Cloture_Caisse_Salle",
+      //     //       // },
+      //     //       // {
+      //     //       //   text: "Cloture de la Caisse Billards",
+      //     //       //   href: "/admin/Cloture_Caisse_Billard",
+      //     //       // },
+      //     //       { 
+      //     //         text: "Comptabilité(Opé.)",
+      //     //         href: "/admin/EnteteOperationComptable",
+      //     //       },
+      //     //       { 
+      //     //         text: "Cloture de la Comptabilité",
+      //     //         href: "/admin/ClotureComptabilite",
+      //     //       },
+      //     //       {
+      //     //         text: "Rapport Comptabilité",
+      //     //         href: "/admin/RapportsComptabilite"
+      //     //         //Services
+      //     //       },
+      //     //       {
+      //     //         text: "Rapport Recettes/Depenses",
+      //     //         href: "/admin/RapportsJour_Caisse"
+      //     //       },
+      //     //       { //RapportContrat
+      //     //         text: "Rapports Remuneration Agent",
+      //     //         href: "/admin/RapportsJour_Personnel",
+      //     //       },
+      //     //       {
+      //     //         text: "Les Services",
+      //     //         href: "/admin/Services"
+      //     //       }
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     // listLogistique: [
+      //     //   {
+      //     //     text: "Logistique",
+      //     //     icon: "mdi-cart",
+      //     //     items: [                
+      //     //     {
+      //     //         text: "Approvisionements",
+      //     //         href: "/admin/LogEnteteEntree",
+      //     //       },
+      //     //       {
+      //     //         text: "Sortie/Services",
+      //     //         href: "/admin/LogEnteteSortie",
+      //     //       },
+      //     //       {
+      //     //         text: "Requisitions",
+      //     //         href: "/admin/LogEnteteRequisition",
+      //     //       },
+      //     //       {
+      //     //         text: "Articles",
+      //     //         href: "/admin/ProduitLog",
+      //     //       },
+      //     //       {
+      //     //         text: "Fournisseur",
+      //     //         href: "/admin/Fournisseur",
+      //     //       },
+      //     //       {
+      //     //         text: "Categorie Art.",
+      //     //         href: "/admin/categorieproduit",
+      //     //       },
+      //     //       {
+      //     //         text: "Rapports",
+      //     //         href: "/admin/RapportsJour_Logistique",
+      //     //       }
+
+      //     //     ],
+      //     //   },
+      //     // ],
+
+      //     // listVehicules: [
+      //     //   { 
+      //     //     text: "Véhicules",
+      //     //     icon: "mdi-car",
+      //     //     items: [                
+      //     //       {
+      //     //         text: "Mouvements des Véhicules",
+      //     //         href: "/admin/CarEnteteMouvement",
+      //     //       },
+      //     //       {
+      //     //         text: "Rapports",
+      //     //         href: "/admin/RapportsJour_Vehicule",
+      //     //       },
+      //     //       {
+      //     //         text: "Nos Véhicules",
+      //     //         href: "/admin/CarVehicule",
+      //     //       },
+      //     //       {
+      //     //         text: "Les Gammes",
+      //     //         href: "/admin/CarProduit",
+      //     //       },
+      //     //       {
+      //     //         text: "Les Fournisseurs",
+      //     //         href: "/admin/CarProducteur",
+      //     //       }
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     // listSalon: [
+      //     //   { 
+      //     //     text: "Salon de Beauté",
+      //     //     icon: "mdi-car",
+      //     //     items: [              
+      //     //        { 
+      //     //          text: "Salon de Beauté",
+      //     //          href: "/admin/SalonEnteteVente",
+      //     //        },
+      //     //        { 
+      //     //          text: "Rapports(Salon)",
+      //     //          href: "/admin/RapportsJour_VenteSalon",
+      //     //        }
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     links_systems_mouvement: [
+      //     ],
+      //     links_systems_mouvement_2: [
+      //       // ProfilPatient
+      //     ],
+      //     links_systems_mouvement_3: [
+      //     ],
+
+      //     admins: [
+      //       ["Management", ""],
+      //       ["Settings", ""],
+      //     ],
+      //   };
+      // }
+      // else if (this.userData.id_role == 5) {
+      //   this.linkAdmin = {
+      //     links: [
+      //       // {
+      //       //   icon: "mdi-microsoft-windows",
+      //       //   text: "Tableau de bord",
+      //       //   href: "/admin/dashboard",
+      //       // },
+      //       // {
+      //       //   icon: "mdi-chart-pie",
+      //       //   text: "Tableau de bord(Ese)",
+      //       //   href: "/admin/statistique_entreprise",
+      //       // },
+      //       // {
+      //       //   icon: "chat",
+      //       //   text: "Chat",
+      //       //   href: "/admin/chat",
+      //       // },
+      //     ],
+      //     links_operation_2: [
+      //       // {
+      //       //   icon: "credit_card",
+      //       //   text: "Carousel",
+      //       //   href: "/admin/carousel",
+      //       // },
+      //       // {
+      //       //   icon: "credit_card",
+      //       //   text: "Service",
+      //       //   href: "/admin/operation_service",
+      //       // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Galérie",
+      //       //   href: "/admin/operation_galery",
+      //       // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Vidéo",
+      //       //   href: "/admin/operation_video",
+      //       // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Partenaire",
+      //       //   href: "/admin/operation_partenaire",
+      //       // },
+
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Notre famille",
+      //       //   href: "/admin/operation_team",
+      //       // },
+
+      //     ],
+      //     links_finance: [
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Classes",
+      //       //   href: "/admin/ClassesFin",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Comptes",
+      //       //   href: "/admin/CompteFin",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Sous Comptes",
+      //       //   href: "/admin/SousCompte",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "SSous Comptes",
+      //       //   href: "/admin/SSousCompte",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Type Compte",
+      //       //   href: "/admin/TypeCompte",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Config. Taux",
+      //       //   href: "/admin/TTaux",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Type Position",
+      //       //   href: "/admin/TypePosition",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Type Opération",
+      //       //   href: "/admin/TypeOperation",
+      //       // },
+      //       // {
+      //       //   text: "Rubriques",
+      //       //   href: "/admin/Comptes",
+      //       // },
+      //       // {
+      //       //   text: "Caisse&Banque",
+      //       //   href: "/admin/Banque",
+      //       // },
+      //       // {
+      //       //   text: "ModePaie",
+      //       //   href: "/admin/modepaie",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Taux",
+      //       //   href: "/admin/TTaux",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Services Treseorerie",
+      //       //   href: "/admin/Provenance",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Cat. Rubriques",
+      //       //   href: "/admin/CategorieRubrique",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Rubriques Depenses",
+      //       //   href: "/admin/Rubriques",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Blocs",
+      //       //   href: "/admin/Blocs",
+      //       // }
+
+      //     ],
+      //     links_vente: [
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "CatégorieProduit",
+      //       //   href: "/admin/CategorieProduit",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Emplacements",
+      //       //   href: "/admin/Emplacements",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Service Logistique",
+      //       //   href: "/admin/SalonProduit",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Service Salon",
+      //       //   href: "/admin/SalonProduit",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "CatégorieClient",
+      //       //   href: "/admin/CategorieClient",
+      //       // }
+      //     ],
+      //     links_tresorerie: [
+      //       // {
+      //       //   text: "Rubriques Depenses",
+      //       //   href: "/admin/Comptes",
+      //       // },
+      //       // {
+      //       //   text: "Cat.Rubriques EB",
+      //       //   href: "/admin/CategorieRubrique",
+      //       // },
+      //       // {
+      //       //   text: "Rubriques EB",
+      //       //   href: "/admin/Rubriques",
+      //       // },
+      //       // {
+      //       //   text: "Blocs(Finances)",
+      //       //   href: "/admin/Blocs",
+      //       // },
+      //       // {
+      //       //   text: "Les Services(Finances)",
+      //       //   href: "/admin/Provenance",
+      //       // }
+      //     ],
+      //     links_hotel: [
+      //       // {
+      //       //   text: "ClasseChambre",
+      //       //   href: "/admin/ClasseChambre",
+      //       // },
+      //       // {
+      //       //   text: "Chambres",
+      //       //   href: "/admin/Chambre",
+      //       // },
+      //       // { //SalonProduit
+      //       //   text: "Salles",
+      //       //   href: "/admin/Salle",
+      //       // },
+      //       // { //SalonProduit
+      //       //   text: "Services Salon",
+      //       //   href: "/admin/SalonProduit",
+      //       // }
+      //     ],
+      //     links_personne: [
+      //           // {
+      //           //   text: "Type Agent",
+      //           //   href: "/admin/TypeAgent",
+      //           // },
+      //           // {
+      //           //   text: "Fonctions",
+      //           //   href: "/admin/FonctionAgent",
+      //           // },
+      //           // {
+      //           //   text: "Catégorie Agent",
+      //           //   href: "/admin/CategorieAgent",
+      //           // },
+      //           // {
+      //           //   text: "Type RubriquesPaies",
+      //           //   href: "/admin/CategorieRubriquePers",
+      //           // },
+      //           // {//CategorieCirconstance
+      //           //   text: "Type Contrat",
+      //           //   href: "/admin/TypeContrat",
+      //           // },
+      //           // {//TypeStage
+      //           //   text: "Type Stage",
+      //           //   href: "/admin/TypeStage",
+      //           // },
+      //           // {//CategorieCirconstance
+      //           //   text: "Categorie Circontance",
+      //           //   href: "/admin/CategorieCirconstance",
+      //           // },
+      //           // {
+      //           //   text: "Type Circonstance",
+      //           //   href: "/admin/TypeCirconstance",
+      //           // },
+      //           // {
+      //           //   text: "Les Postes",
+      //           //   href: "/admin/Postes",
+      //           // },
+      //           // {
+      //           //   text: "Les Mutuelles",
+      //           //   href: "/admin/Mutuelle",
+      //           // },
+      //           // {
+      //           //   text: "Lieu Affectation",
+      //           //   href: "/admin/LieuAffectation",
+      //           // },
+      //           // {
+      //           //   text: "RubriquesPaies",
+      //           //   href: "/admin/RubriquePaie",
+      //           // },
+      //           // {
+      //           //   text: "Param. RubriquesPaies",
+      //           //   href: "/admin/ParametreRubrique",
+      //           // },
+      //           // {
+      //           //   text: "Catégorie Service",
+      //           //   href: "/admin/CategorieServicePers",
+      //           // },
+      //           // {
+      //           //   text: "Service Pers.",
+      //           //   href: "/admin/ServicePersonnel",
+      //           // },
+      //           // {
+      //           //   text: "Année Civile",
+      //           //   href: "/admin/Annee",
+      //           // },
+      //           // {
+      //           //   text: "Mois",
+      //           //   href: "/admin/Mois",
+      //           // },
+      //           // {
+      //           //   text: "PromotionAcadémique",
+      //           //   href: "/admin/Promotion",
+      //           // },
+      //           // {
+      //           //   text: "DomaineAcadémique",
+      //           //   href: "/admin/DomaineStage",
+      //           // },
+      //           // {
+      //           //   text: "OptionAcadémique",
+      //           //   href: "/admin/OptionStage",
+      //           // },
+      //           // {
+      //           //   text: "AnnéeAcadémique",
+      //           //   href: "/admin/AnneeStage",
+      //           // },
+      //           // {
+      //           //   text: "InstitutionsAC",
+      //           //   href: "/admin/Institution",
+      //           // },
+      //           // {
+      //           //   text: "Raison Familliale",
+      //           //   href: "/admin/RaisonFamilliale",
+      //           // }
+      //     ],
+      //     links_operation: [
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Pays",
+      //       //   href: "/admin/pays",
+      //       // },
+      //       // {
+      //       //   icon: "credit_card",
+      //       //   text: "Provinces",
+      //       //   href: "/admin/provinces",
+      //       // },
+
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Chef lieu",
+      //       //   href: "/admin/ville",
+      //       // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Commune",
+      //       //   href: "/admin/commune",
+      //       // },
+
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Quartier",
+      //       //   href: "/admin/quartier",
+      //       // },
+
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Avenue",
+      //       //   href: "/admin/avenue",
+      //       // },
+
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Forme juridique",
+      //       //   href: "/admin/forme_juridique",
+      //       // },
+      //       // {
+      //       //   text: "Statistique sur les blogs",
+      //       //   href: "/admin/statistique_entreprise",
+      //       // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Territoire",
+      //       //   href: "/admin/territoire",
+      //       // },
+
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Envoie SMS",
+      //       //   href: "/admin/texto",
+      //       // },
+
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Statistique sur Les utilisateur",
+      //       //   href: "/admin/statistique_user",
+      //       // },
+
+
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Témoignage",
+      //       //   href: "/admin/temoignages",
+      //       // },
+
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Nos Valeurs",
+      //       //   href: "/admin/valeur",
+      //       // },
+
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Nos Rôles",
+      //       //   href: "/admin/role_service",
+      //       // },
+
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Nos Choix",
+      //       //   href: "/admin/choix",
+      //       // },
+
+
+      //       // {
+      //       //   icon: "credit_card",
+      //       //   text: "Services",
+      //       //   href: "/admin/service",
+      //       // },
+
+
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Decisions",
+      //       //   href: "/admin/decision",
+      //       // },
+
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Avantage",
+      //       //   href: "/admin/avantage",
+      //       // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Sous services",
+      //       //   href: "/admin/sous_service",
+      //       // },
+
+
+
+
+
+
+      //     ],
+      //     links_systems: [
+      //       // {
+      //       //   icon: "people",
+      //       //   text: "Utilisateurs",
+      //       //   href: "/admin/Users",
+      //       // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Entreprise",
+      //       //   href: "/admin/liste_entreprise",
+      //       // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Privilège",
+      //       //   href: "/admin/role",
+      //       // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Configuration Menu",
+      //       //   href: "/admin/ListeMenu",
+      //       // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Historiques Infos.",
+      //       //   href: "/admin/HistoriqueData",
+      //       // },
+      //       // {
+      //       //   icon: "credit_card",
+      //       //   text: "Contact pour info",
+      //       //   href: "/admin/contact_info",
+      //       // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Configuration basique",
+      //       //   href: "/admin/configure_basic",
+      //       // },
+
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Configuration du site",
+      //       //   href: "/admin/configure_site",
+      //       // },
+
+      //     ],
+      //     sublinks: [
+      //       {
+      //         icon: "book",
+      //         text: "A propos ",
+      //         href: "/admin/about_page",
+      //       },
+      //     ],
+      //     listPersonnel: [
+      //     // {
+      //     //     text: "RH",
+      //     //     icon: "mdi-account-settings",
+      //     //     items: [                
+      //     //       {
+      //     //         text: "Personnels",
+      //     //         href: "/admin/Agent",
+      //     //       },
+      //     //       {
+      //     //         text: "Tous les Contrats",
+      //     //         href: "/admin/AllContrat",
+      //     //       },
+      //     //       {
+      //     //         text: "Contrats Encours",
+      //     //         href: "/admin/ContratActif",
+      //     //       },
+      //     //       {
+      //     //         text: "En Congé",
+      //     //         href: "/admin/ContratEnconge",
+      //     //       },
+      //     //       {
+      //     //         text: "Contrats Finis",
+      //     //         href: "/admin/ContratFini",
+      //     //       },
+      //     //       {
+      //     //         text: "Stages Encours",
+      //     //         href: "/admin/StageEncours",
+      //     //       },
+      //     //       { //AllPresenceAgent
+      //     //         text: "Tous les Stages",
+      //     //         href: "/admin/AllStages",
+      //     //       },
+      //     //       { //AllPresenceAgent
+      //     //         text: "Toutes les Présences",
+      //     //         href: "/admin/AllPresenceAgent",
+      //     //       },
+      //     //       {
+      //     //         text: "Paiement Global",
+      //     //         href: "/admin/FichePaieGlobale",
+      //     //       },
+      //     //       {
+      //     //         text: "Paiement/Agent",
+      //     //         href: "/admin/FichePaie",
+      //     //       },
+      //     //       {
+      //     //         text: "Rapports Contrat",
+      //     //         href: "/admin/RapportContrat",
+      //     //       },
+      //     //       {
+      //     //         text: "Rapports Remuneration Agent",
+      //     //         href: "/admin/RapportsJour_Personnel",
+      //     //       },
+      //     //       {
+      //     //         text: "Param.SalaireBase",
+      //     //         href: "/admin/ParametreSalairebBase",
+      //     //       },
+      //     //       //ParametreSalairebBase
+      //     //     ],
+      //     //   },
+      //     ],
+      //     listPresence: [
+      //       // {
+      //       //   text: "Présences",
+      //       //   icon: "mdi-account-settings",
+      //       //   items: [                
+      //       //     {
+      //       //       text: "Aujourd'hui",
+      //       //       href: "/admin/JourPresences",
+      //       //     },
+      //       //     {
+      //       //       text: "Toutes les Présences",
+      //       //       href: "/admin/AllPresenceAgent",
+      //       //     }
+      //       //   ],
+      //       // },
+      //     ],
+      //     listCorresp: [
+      //       {
+      //         text: "Correspondances",
+      //         icon: "mdi-account-settings",
+      //         items: [                
+      //           // {
+      //           //   text: "Aujourd'hui",
+      //           //   href: "/admin/JourCorrespondance",
+      //           // },
+      //           // {
+      //           //   text: "Toutes les Corresp.",
+      //           //   href: "/admin/AllCorrespondance",
+      //           // },
+      //           {
+      //             text: "Mes Correspondances",
+      //             href: "/admin/UserCorrespondance",
+      //           }
+      //         ],
+      //       },
+      //     ],
+      //     listTimeSheet: [
+      //       {
+      //         text: "Time Sheets",
+      //         icon: "mdi-account-settings",
+      //         items: [                
+      //           // {
+      //           //   text: "Aujourd'hui",
+      //           //   href: "/admin/JourTimeSheet",
+      //           // },
+      //           // {
+      //           //   text: "Tous les TimeSheets.",
+      //           //   href: "/admin/AllTimeSheet",
+      //           // },
+      //           {
+      //             text: "Mes TimeSheets",
+      //             href: "/admin/UserTimeSheet",
+      //           }
+      //         ],
+      //       },
+      //     ],
+      //     // listGroup: [
+      //     //   {
+      //     //     text: "Article",
+      //     //     icon: "local_mall",
+      //     //     items: [
+
+      //     //       {
+
+      //     //         text: "Catégorie d'article",
+      //     //         href: "/admin/operation_catArticle",
+      //     //       },
+      //     //       {
+      //     //         text: "Blog",
+      //     //         href: "/admin/operation_blog",
+      //     //       },
+
+      //     //       {
+      //     //         icon: "store",
+      //     //         text: "Mot de la semaine",
+      //     //         href: "/admin/week",
+      //     //       },
+
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     // listVentes: [
+      //     //   {
+      //     //     text: "Ventes & Stock",
+      //     //     icon: "mdi-cart",
+      //     //     items: [
+      //     //       {
+      //     //         text: "Ventes",
+      //     //         href: "/admin/VenteEnteteVente",
+      //     //       },
+      //     //       {
+      //     //         text: "Clients",
+      //     //         href: "/admin/ClientVente",
+      //     //       },
+      //     //       {
+      //     //         text: "Approvisionnements",
+      //     //         href: "/admin/VenteEnteteEntree",
+      //     //       },
+      //     //       {
+      //     //         text: "Etat de Besoin",
+      //     //         href: "/admin/VenteEnteteCommande",
+      //     //       },
+      //     //       {
+      //     //         text: "Produits",
+      //     //         href: "/admin/Produits",
+      //     //       },
+      //     //       {
+      //     //         icon: "store",
+      //     //         text: "Fournisseurs",
+      //     //         href: "/admin/Fournisseur",
+      //     //       },
+      //     //       {
+      //     //         icon: "store",
+      //     //         text: "Rapports",
+      //     //         href: "/admin/RapportsJour_Vente",
+      //     //       },
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     listProjets: [
+      //       // {
+      //       //   text: "Projets",
+      //       //   icon: "mdi-projector-screen",
+      //       //   items: [
+      //       //     {
+      //       //       text: "Partenaires",
+      //       //       href: "/admin/PartenaireProjet",
+      //       //     },
+      //       //     {
+      //       //       text: "Projets",
+      //       //       href: "/admin/Projets",
+      //       //     },
+      //       //     {
+      //       //       icon: "store",
+      //       //       text: "Rapports",
+      //       //       href: "/admin/RapportsJour_Vente",
+      //       //     },
+      //       //   ],
+      //       // },
+      //     ],
+      //     listArchivages: [
+      //     // {
+      //     //     text: "Archivages",
+      //     //     icon: "mdi-email-open",
+      //     //     items: [              
+      //     //       {
+      //     //         text: "Archivages",
+      //     //         href: "/admin/Archivages", 
+      //     //       },
+      //     //       {
+      //     //         text: "Division",
+      //     //         href: "/admin/DivisionArchive",
+      //     //       },
+      //     //       {
+      //     //         text: "CategorieArch.",
+      //     //         href: "/admin/CategorieArchivage",
+      //     //       },
+      //     //       {
+      //     //         text: "Services",
+      //     //         href: "/admin/ServiceArchivage",
+      //     //       }
+      //     //     ],
+      //     //   },
+      //     ],
+      //     // listReservations: [
+      //     //   {
+      //     //     text: "Resérvations",
+      //     //     icon: "mdi-home",
+      //     //     items: [
+
+      //     //       {
+      //     //         text: "Chambres",
+      //     //         href: "/admin/ClientHotel",
+      //     //       },
+      //     //       { 
+      //     //         text: "Salles",
+      //     //         href: "/admin/ClientVente",
+      //     //       },
+      //     //       { 
+      //     //         text: "Rapports",
+      //     //         href: "/admin/RapportsJour_Reservation",
+      //     //       }
+
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     // listBillards: [
+      //     //   {
+      //     //     text: "Billards",
+      //     //     icon: "mdi-gamepad",
+      //     //     items: [                
+      //     //       {
+      //     //         text: "Billards",
+      //     //         href: "/admin/ClientVente",
+      //     //       }
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     // listFinances: [
+      //     //   {
+      //     //     text: "Finances",
+      //     //     icon: "mdi-cards",
+      //     //     items: [                
+      //     //       {
+      //     //         text: "Recettes",
+      //     //         href: "/admin/recette",
+      //     //       },
+      //     //       {
+      //     //         text: "Etat de Besoin",
+      //     //         href: "/admin/EnteteEtatBesoin",
+      //     //       },
+      //     //       {
+      //     //         text: "Bon d'Engagement",
+      //     //         href: "/admin/EnteteBonEngagement",
+      //     //       },
+      //     //       {
+      //     //         text: "Cloture de la Caisse",
+      //     //         href: "/admin/Cloture_Caisse",
+      //     //       },
+      //     //       // {
+      //     //       //   text: "Cloture de la Caisse Hotel",
+      //     //       //   href: "/admin/Cloture_Caisse_Chambre",
+      //     //       // },
+      //     //       // {
+      //     //       //   text: "Cloture de la Caisse Salle",
+      //     //       //   href: "/admin/Cloture_Caisse_Salle",
+      //     //       // },
+      //     //       // {
+      //     //       //   text: "Cloture de la Caisse Billards",
+      //     //       //   href: "/admin/Cloture_Caisse_Billard",
+      //     //       // },
+      //     //       { 
+      //     //         text: "Comptabilité(Opé.)",
+      //     //         href: "/admin/EnteteOperationComptable",
+      //     //       },
+      //     //       { 
+      //     //         text: "Cloture de la Comptabilité",
+      //     //         href: "/admin/ClotureComptabilite",
+      //     //       },
+      //     //       {
+      //     //         text: "Rapport Comptabilité",
+      //     //         href: "/admin/RapportsComptabilite"
+      //     //         //Services
+      //     //       },
+      //     //       {
+      //     //         text: "Rapport Recettes/Depenses",
+      //     //         href: "/admin/RapportsJour_Caisse"
+      //     //       },
+      //     //       { //RapportContrat
+      //     //         text: "Rapports Remuneration Agent",
+      //     //         href: "/admin/RapportsJour_Personnel",
+      //     //       },
+      //     //       {
+      //     //         text: "Les Services",
+      //     //         href: "/admin/Services"
+      //     //       }
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     // listLogistique: [
+      //     //   {
+      //     //     text: "Logistique",
+      //     //     icon: "mdi-cart",
+      //     //     items: [                
+      //     //     {
+      //     //         text: "Approvisionements",
+      //     //         href: "/admin/LogEnteteEntree",
+      //     //       },
+      //     //       {
+      //     //         text: "Sortie/Services",
+      //     //         href: "/admin/LogEnteteSortie",
+      //     //       },
+      //     //       {
+      //     //         text: "Requisitions",
+      //     //         href: "/admin/LogEnteteRequisition",
+      //     //       },
+      //     //       {
+      //     //         text: "Articles",
+      //     //         href: "/admin/ProduitLog",
+      //     //       },
+      //     //       {
+      //     //         text: "Fournisseur",
+      //     //         href: "/admin/Fournisseur",
+      //     //       },
+      //     //       {
+      //     //         text: "Categorie Art.",
+      //     //         href: "/admin/categorieproduit",
+      //     //       },
+      //     //       {
+      //     //         text: "Rapports",
+      //     //         href: "/admin/RapportsJour_Logistique",
+      //     //       }
+
+      //     //     ],
+      //     //   },
+      //     // ],
+
+      //     // listVehicules: [
+      //     //   { 
+      //     //     text: "Véhicules",
+      //     //     icon: "mdi-car",
+      //     //     items: [                
+      //     //       {
+      //     //         text: "Mouvements des Véhicules",
+      //     //         href: "/admin/CarEnteteMouvement",
+      //     //       },
+      //     //       {
+      //     //         text: "Rapports",
+      //     //         href: "/admin/RapportsJour_Vehicule",
+      //     //       },
+      //     //       {
+      //     //         text: "Nos Véhicules",
+      //     //         href: "/admin/CarVehicule",
+      //     //       },
+      //     //       {
+      //     //         text: "Les Gammes",
+      //     //         href: "/admin/CarProduit",
+      //     //       },
+      //     //       {
+      //     //         text: "Les Fournisseurs",
+      //     //         href: "/admin/CarProducteur",
+      //     //       }
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     // listSalon: [
+      //     //   { 
+      //     //     text: "Salon de Beauté",
+      //     //     icon: "mdi-car",
+      //     //     items: [              
+      //     //        { 
+      //     //          text: "Salon de Beauté",
+      //     //          href: "/admin/SalonEnteteVente",
+      //     //        },
+      //     //        { 
+      //     //          text: "Rapports(Salon)",
+      //     //          href: "/admin/RapportsJour_VenteSalon",
+      //     //        }
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     links_systems_mouvement: [
+      //     ],
+      //     links_systems_mouvement_2: [
+      //       // ProfilPatient
+      //     ],
+      //     links_systems_mouvement_3: [
+      //     ],
+
+      //     admins: [
+      //       ["Management", ""],
+      //       ["Settings", ""],
+      //     ],
+      //   };
+      // }
+      // else if (this.userData.id_role == 6) {
+      //   this.linkAdmin = {
+      //     links: [
+      //       // {
+      //       //   icon: "mdi-microsoft-windows",
+      //       //   text: "Tableau de bord",
+      //       //   href: "/admin/dashboard",
+      //       // },
+      //       // {
+      //       //   icon: "mdi-chart-pie",
+      //       //   text: "Tableau de bord(Ese)",
+      //       //   href: "/admin/statistique_entreprise",
+      //       // },
+      //       // {
+      //       //   icon: "chat",
+      //       //   text: "Chat",
+      //       //   href: "/admin/chat",
+      //       // },
+      //     ],
+      //     links_operation_2: [
+      //       // {
+      //       //   icon: "credit_card",
+      //       //   text: "Carousel",
+      //       //   href: "/admin/carousel",
+      //       // },
+      //       // {
+      //       //   icon: "credit_card",
+      //       //   text: "Service",
+      //       //   href: "/admin/operation_service",
+      //       // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Galérie",
+      //       //   href: "/admin/operation_galery",
+      //       // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Vidéo",
+      //       //   href: "/admin/operation_video",
+      //       // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Partenaire",
+      //       //   href: "/admin/operation_partenaire",
+      //       // },
+
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Notre famille",
+      //       //   href: "/admin/operation_team",
+      //       // },
+
+      //     ],
+      //     links_finance: [
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Classes",
+      //       //   href: "/admin/ClassesFin",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Comptes",
+      //       //   href: "/admin/CompteFin",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Sous Comptes",
+      //       //   href: "/admin/SousCompte",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "SSous Comptes",
+      //       //   href: "/admin/SSousCompte",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Type Compte",
+      //       //   href: "/admin/TypeCompte",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Config. Taux",
+      //       //   href: "/admin/TTaux",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Type Position",
+      //       //   href: "/admin/TypePosition",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Type Opération",
+      //       //   href: "/admin/TypeOperation",
+      //       // },
+      //       // {
+      //       //   text: "Rubriques",
+      //       //   href: "/admin/Comptes",
+      //       // },
+      //       // {
+      //       //   text: "Caisse&Banque",
+      //       //   href: "/admin/Banque",
+      //       // },
+      //       // {
+      //       //   text: "ModePaie",
+      //       //   href: "/admin/modepaie",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Taux",
+      //       //   href: "/admin/TTaux",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Services Treseorerie",
+      //       //   href: "/admin/Provenance",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Cat. Rubriques",
+      //       //   href: "/admin/CategorieRubrique",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Rubriques Depenses",
+      //       //   href: "/admin/Rubriques",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Blocs",
+      //       //   href: "/admin/Blocs",
+      //       // }
+
+      //     ],
+      //     links_vente: [
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "CatégorieProduit",
+      //       //   href: "/admin/CategorieProduit",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Emplacements",
+      //       //   href: "/admin/Emplacements",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Service Logistique",
+      //       //   href: "/admin/SalonProduit",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "Service Salon",
+      //       //   href: "/admin/SalonProduit",
+      //       // },
+      //       // {
+      //       //   icon: "groups",
+      //       //   text: "CatégorieClient",
+      //       //   href: "/admin/CategorieClient",
+      //       // }
+      //     ],
+      //     links_tresorerie: [
+      //       // {
+      //       //   text: "Rubriques Depenses",
+      //       //   href: "/admin/Comptes",
+      //       // },
+      //       // {
+      //       //   text: "Cat.Rubriques EB",
+      //       //   href: "/admin/CategorieRubrique",
+      //       // },
+      //       // {
+      //       //   text: "Rubriques EB",
+      //       //   href: "/admin/Rubriques",
+      //       // },
+      //       // {
+      //       //   text: "Blocs(Finances)",
+      //       //   href: "/admin/Blocs",
+      //       // },
+      //       // {
+      //       //   text: "Les Services(Finances)",
+      //       //   href: "/admin/Provenance",
+      //       // }
+      //     ],
+      //     links_hotel: [
+      //       // {
+      //       //   text: "ClasseChambre",
+      //       //   href: "/admin/ClasseChambre",
+      //       // },
+      //       // {
+      //       //   text: "Chambres",
+      //       //   href: "/admin/Chambre",
+      //       // },
+      //       // { //SalonProduit
+      //       //   text: "Salles",
+      //       //   href: "/admin/Salle",
+      //       // },
+      //       // { //SalonProduit
+      //       //   text: "Services Salon",
+      //       //   href: "/admin/SalonProduit",
+      //       // }
+      //     ],
+      //     links_personne: [
+      //           // {
+      //           //   text: "Type Agent",
+      //           //   href: "/admin/TypeAgent",
+      //           // },
+      //           // {
+      //           //   text: "Fonctions",
+      //           //   href: "/admin/FonctionAgent",
+      //           // },
+      //           // {
+      //           //   text: "Catégorie Agent",
+      //           //   href: "/admin/CategorieAgent",
+      //           // },
+      //           // {
+      //           //   text: "Type RubriquesPaies",
+      //           //   href: "/admin/CategorieRubriquePers",
+      //           // },
+      //           // {//CategorieCirconstance
+      //           //   text: "Type Contrat",
+      //           //   href: "/admin/TypeContrat",
+      //           // },
+      //           // {//TypeStage
+      //           //   text: "Type Stage",
+      //           //   href: "/admin/TypeStage",
+      //           // },
+      //           // {//CategorieCirconstance
+      //           //   text: "Categorie Circontance",
+      //           //   href: "/admin/CategorieCirconstance",
+      //           // },
+      //           // {
+      //           //   text: "Type Circonstance",
+      //           //   href: "/admin/TypeCirconstance",
+      //           // },
+      //           // {
+      //           //   text: "Les Postes",
+      //           //   href: "/admin/Postes",
+      //           // },
+      //           // {
+      //           //   text: "Les Mutuelles",
+      //           //   href: "/admin/Mutuelle",
+      //           // },
+      //           // {
+      //           //   text: "Lieu Affectation",
+      //           //   href: "/admin/LieuAffectation",
+      //           // },
+      //           // {
+      //           //   text: "RubriquesPaies",
+      //           //   href: "/admin/RubriquePaie",
+      //           // },
+      //           // {
+      //           //   text: "Param. RubriquesPaies",
+      //           //   href: "/admin/ParametreRubrique",
+      //           // },
+      //           // {
+      //           //   text: "Catégorie Service",
+      //           //   href: "/admin/CategorieServicePers",
+      //           // },
+      //           // {
+      //           //   text: "Service Pers.",
+      //           //   href: "/admin/ServicePersonnel",
+      //           // },
+      //           // {
+      //           //   text: "Année Civile",
+      //           //   href: "/admin/Annee",
+      //           // },
+      //           // {
+      //           //   text: "Mois",
+      //           //   href: "/admin/Mois",
+      //           // },
+      //           // {
+      //           //   text: "PromotionAcadémique",
+      //           //   href: "/admin/Promotion",
+      //           // },
+      //           // {
+      //           //   text: "DomaineAcadémique",
+      //           //   href: "/admin/DomaineStage",
+      //           // },
+      //           // {
+      //           //   text: "OptionAcadémique",
+      //           //   href: "/admin/OptionStage",
+      //           // },
+      //           // {
+      //           //   text: "AnnéeAcadémique",
+      //           //   href: "/admin/AnneeStage",
+      //           // },
+      //           // {
+      //           //   text: "InstitutionsAC",
+      //           //   href: "/admin/Institution",
+      //           // },
+      //           // {
+      //           //   text: "Raison Familliale",
+      //           //   href: "/admin/RaisonFamilliale",
+      //           // }
+      //     ],
+      //     links_operation: [
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Pays",
+      //       //   href: "/admin/pays",
+      //       // },
+      //       // {
+      //       //   icon: "credit_card",
+      //       //   text: "Provinces",
+      //       //   href: "/admin/provinces",
+      //       // },
+
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Chef lieu",
+      //       //   href: "/admin/ville",
+      //       // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Commune",
+      //       //   href: "/admin/commune",
+      //       // },
+
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Quartier",
+      //       //   href: "/admin/quartier",
+      //       // },
+
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Avenue",
+      //       //   href: "/admin/avenue",
+      //       // },
+
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Forme juridique",
+      //       //   href: "/admin/forme_juridique",
+      //       // },
+      //       // {
+      //       //   text: "Statistique sur les blogs",
+      //       //   href: "/admin/statistique_entreprise",
+      //       // },
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Territoire",
+      //       //   href: "/admin/territoire",
+      //       // },
+
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Envoie SMS",
+      //       //   href: "/admin/texto",
+      //       // },
+
+      //       // {
+      //       //   icon: "store",
+      //       //   text: "Statistique sur Les utilisateur",
+      //       //   href: "/admin/statistique_user",
+      //       // },
+
+
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Témoignage",
+      //       //   href: "/admin/temoignages",
+      //       // },
+
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Nos Valeurs",
+      //       //   href: "/admin/valeur",
+      //       // },
+
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Nos Rôles",
+      //       //   href: "/admin/role_service",
+      //       // },
+
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Nos Choix",
+      //       //   href: "/admin/choix",
+      //       // },
+
+
+      //       // {
+      //       //   icon: "credit_card",
+      //       //   text: "Services",
+      //       //   href: "/admin/service",
+      //       // },
+
+
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Decisions",
+      //       //   href: "/admin/decision",
+      //       // },
+
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Avantage",
+      //       //   href: "/admin/avantage",
+      //       // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Sous services",
+      //       //   href: "/admin/sous_service",
+      //       // },
+
+      //     ],
+      //     links_systems: [
+      //       // {
+      //       //   icon: "people",
+      //       //   text: "Utilisateurs",
+      //       //   href: "/admin/Users",
+      //       // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Entreprise",
+      //       //   href: "/admin/liste_entreprise",
+      //       // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Privilège",
+      //       //   href: "/admin/role",
+      //       // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Configuration Menu",
+      //       //   href: "/admin/ListeMenu",
+      //       // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Historiques Infos.",
+      //       //   href: "/admin/HistoriqueData",
+      //       // },
+      //       // {
+      //       //   icon: "credit_card",
+      //       //   text: "Contact pour info",
+      //       //   href: "/admin/contact_info",
+      //       // },
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Configuration basique",
+      //       //   href: "/admin/configure_basic",
+      //       // },
+
+      //       // {
+      //       //   icon: "api",
+      //       //   text: "Configuration du site",
+      //       //   href: "/admin/configure_site",
+      //       // },
+
+      //     ],
+      //     sublinks: [
+      //       {
+      //         icon: "book",
+      //         text: "A propos ",
+      //         href: "/admin/about_page",
+      //       },
+      //     ],
+      //     listPersonnel: [
+      //     {
+      //         text: "RH",
+      //         icon: "mdi-account-settings",
+      //         items: [                
+      //           // {
+      //           //   text: "Personnels",
+      //           //   href: "/admin/Agent",
+      //           // },
+      //           // {
+      //           //   text: "Tous les Contrats",
+      //           //   href: "/admin/AllContrat",
+      //           // },
+      //           // {
+      //           //   text: "Contrats Encours",
+      //           //   href: "/admin/ContratActif",
+      //           // },
+      //           // {
+      //           //   text: "En Congé",
+      //           //   href: "/admin/ContratEnconge",
+      //           // },
+      //           // {
+      //           //   text: "Contrats Finis",
+      //           //   href: "/admin/ContratFini",
+      //           // },
+      //           // {
+      //           //   text: "Stages Encours",
+      //           //   href: "/admin/StageEncours",
+      //           // },
+      //           // { //AllPresenceAgent
+      //           //   text: "Tous les Stages",
+      //           //   href: "/admin/AllStages",
+      //           // },
+      //           // { //AllPresenceAgent
+      //           //   text: "Toutes les Présences",
+      //           //   href: "/admin/AllPresenceAgent",
+      //           // },
+      //           {
+      //             text: "Paiement Global",
+      //             href: "/admin/FichePaieGlobale",
+      //           },
+      //           {
+      //             text: "Paiement/Agent",
+      //             href: "/admin/FichePaie",
+      //           },
+      //           // {
+      //           //   text: "Rapports Contrat",
+      //           //   href: "/admin/RapportContrat",
+      //           // },
+      //           {
+      //             text: "Rapports Remuneration Agent",
+      //             href: "/admin/RapportsJour_Personnel",
+      //           },
+      //           {
+      //             text: "Param.SalaireBase",
+      //             href: "/admin/ParametreSalairebBase",
+      //           },
+      //           //ParametreSalairebBase
+      //         ],
+      //       },
+      //     ],
+      //     listPresence: [
+      //       // {
+      //       //   text: "Présences",
+      //       //   icon: "mdi-account-settings",
+      //       //   items: [                
+      //       //     {
+      //       //       text: "Aujourd'hui",
+      //       //       href: "/admin/JourPresences",
+      //       //     },
+      //       //     {
+      //       //       text: "Toutes les Présences",
+      //       //       href: "/admin/AllPresenceAgent",
+      //       //     }
+      //       //   ],
+      //       // },
+      //     ],
+      //     listCorresp: [
+      //       {
+      //         text: "Correspondances",
+      //         icon: "mdi-account-settings",
+      //         items: [                
+      //           // {
+      //           //   text: "Aujourd'hui",
+      //           //   href: "/admin/JourCorrespondance",
+      //           // },
+      //           // {
+      //           //   text: "Toutes les Corresp.",
+      //           //   href: "/admin/AllCorrespondance",
+      //           // },
+      //           {
+      //             text: "Mes Correspondances",
+      //             href: "/admin/UserCorrespondance",
+      //           }
+      //         ],
+      //       },
+      //     ],
+      //     listTimeSheet: [
+      //       {
+      //         text: "Time Sheets",
+      //         icon: "mdi-account-settings",
+      //         items: [                
+      //           // {
+      //           //   text: "Aujourd'hui",
+      //           //   href: "/admin/JourTimeSheet",
+      //           // },
+      //           // {
+      //           //   text: "Tous les TimeSheets.",
+      //           //   href: "/admin/AllTimeSheet",
+      //           // },
+      //           {
+      //             text: "Mes TimeSheets",
+      //             href: "/admin/UserTimeSheet",
+      //           }
+      //         ],
+      //       },
+      //     ],
+      //     // listGroup: [
+      //     //   {
+      //     //     text: "Article",
+      //     //     icon: "local_mall",
+      //     //     items: [
+
+      //     //       {
+
+      //     //         text: "Catégorie d'article",
+      //     //         href: "/admin/operation_catArticle",
+      //     //       },
+      //     //       {
+      //     //         text: "Blog",
+      //     //         href: "/admin/operation_blog",
+      //     //       },
+
+      //     //       {
+      //     //         icon: "store",
+      //     //         text: "Mot de la semaine",
+      //     //         href: "/admin/week",
+      //     //       },
+
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     // listVentes: [
+      //     //   {
+      //     //     text: "Ventes & Stock",
+      //     //     icon: "mdi-cart",
+      //     //     items: [
+      //     //       {
+      //     //         text: "Ventes",
+      //     //         href: "/admin/VenteEnteteVente",
+      //     //       },
+      //     //       {
+      //     //         text: "Clients",
+      //     //         href: "/admin/ClientVente",
+      //     //       },
+      //     //       {
+      //     //         text: "Approvisionnements",
+      //     //         href: "/admin/VenteEnteteEntree",
+      //     //       },
+      //     //       {
+      //     //         text: "Etat de Besoin",
+      //     //         href: "/admin/VenteEnteteCommande",
+      //     //       },
+      //     //       {
+      //     //         text: "Produits",
+      //     //         href: "/admin/Produits",
+      //     //       },
+      //     //       {
+      //     //         icon: "store",
+      //     //         text: "Fournisseurs",
+      //     //         href: "/admin/Fournisseur",
+      //     //       },
+      //     //       {
+      //     //         icon: "store",
+      //     //         text: "Rapports",
+      //     //         href: "/admin/RapportsJour_Vente",
+      //     //       },
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     listProjets: [
+      //       // {
+      //       //   text: "Projets",
+      //       //   icon: "mdi-projector-screen",
+      //       //   items: [
+      //       //     {
+      //       //       text: "Partenaires",
+      //       //       href: "/admin/PartenaireProjet",
+      //       //     },
+      //       //     {
+      //       //       text: "Projets",
+      //       //       href: "/admin/Projets",
+      //       //     },
+      //       //     {
+      //       //       icon: "store",
+      //       //       text: "Rapports",
+      //       //       href: "/admin/RapportsJour_Vente",
+      //       //     },
+      //       //   ],
+      //       // },
+      //     ],
+      //     listArchivages: [
+      //     {
+      //         text: "Archivages",
+      //         icon: "mdi-email-open",
+      //         items: [              
+      //           {
+      //             text: "Archivages",
+      //             href: "/admin/Archivages", 
+      //           },
+      //           // {
+      //           //   text: "Division",
+      //           //   href: "/admin/DivisionArchive",
+      //           // },
+      //           // {
+      //           //   text: "CategorieArch.",
+      //           //   href: "/admin/CategorieArchivage",
+      //           // },
+      //           // {
+      //           //   text: "Services",
+      //           //   href: "/admin/ServiceArchivage",
+      //           // }
+      //         ],
+      //       },
+      //     ],
+      //     // listReservations: [
+      //     //   {
+      //     //     text: "Resérvations",
+      //     //     icon: "mdi-home",
+      //     //     items: [
+
+      //     //       {
+      //     //         text: "Chambres",
+      //     //         href: "/admin/ClientHotel",
+      //     //       },
+      //     //       { 
+      //     //         text: "Salles",
+      //     //         href: "/admin/ClientVente",
+      //     //       },
+      //     //       { 
+      //     //         text: "Rapports",
+      //     //         href: "/admin/RapportsJour_Reservation",
+      //     //       }
+
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     // listBillards: [
+      //     //   {
+      //     //     text: "Billards",
+      //     //     icon: "mdi-gamepad",
+      //     //     items: [                
+      //     //       {
+      //     //         text: "Billards",
+      //     //         href: "/admin/ClientVente",
+      //     //       }
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     // listFinances: [
+      //     //   {
+      //     //     text: "Finances",
+      //     //     icon: "mdi-cards",
+      //     //     items: [                
+      //     //       {
+      //     //         text: "Recettes",
+      //     //         href: "/admin/recette",
+      //     //       },
+      //     //       {
+      //     //         text: "Etat de Besoin",
+      //     //         href: "/admin/EnteteEtatBesoin",
+      //     //       },
+      //     //       {
+      //     //         text: "Bon d'Engagement",
+      //     //         href: "/admin/EnteteBonEngagement",
+      //     //       },
+      //     //       {
+      //     //         text: "Cloture de la Caisse",
+      //     //         href: "/admin/Cloture_Caisse",
+      //     //       },
+      //     //       // {
+      //     //       //   text: "Cloture de la Caisse Hotel",
+      //     //       //   href: "/admin/Cloture_Caisse_Chambre",
+      //     //       // },
+      //     //       // {
+      //     //       //   text: "Cloture de la Caisse Salle",
+      //     //       //   href: "/admin/Cloture_Caisse_Salle",
+      //     //       // },
+      //     //       // {
+      //     //       //   text: "Cloture de la Caisse Billards",
+      //     //       //   href: "/admin/Cloture_Caisse_Billard",
+      //     //       // },
+      //     //       { 
+      //     //         text: "Comptabilité(Opé.)",
+      //     //         href: "/admin/EnteteOperationComptable",
+      //     //       },
+      //     //       { 
+      //     //         text: "Cloture de la Comptabilité",
+      //     //         href: "/admin/ClotureComptabilite",
+      //     //       },
+      //     //       {
+      //     //         text: "Rapport Comptabilité",
+      //     //         href: "/admin/RapportsComptabilite"
+      //     //         //Services
+      //     //       },
+      //     //       {
+      //     //         text: "Rapport Recettes/Depenses",
+      //     //         href: "/admin/RapportsJour_Caisse"
+      //     //       },
+      //     //       { //RapportContrat
+      //     //         text: "Rapports Remuneration Agent",
+      //     //         href: "/admin/RapportsJour_Personnel",
+      //     //       },
+      //     //       {
+      //     //         text: "Les Services",
+      //     //         href: "/admin/Services"
+      //     //       }
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     // listLogistique: [
+      //     //   {
+      //     //     text: "Logistique",
+      //     //     icon: "mdi-cart",
+      //     //     items: [                
+      //     //     {
+      //     //         text: "Approvisionements",
+      //     //         href: "/admin/LogEnteteEntree",
+      //     //       },
+      //     //       {
+      //     //         text: "Sortie/Services",
+      //     //         href: "/admin/LogEnteteSortie",
+      //     //       },
+      //     //       {
+      //     //         text: "Requisitions",
+      //     //         href: "/admin/LogEnteteRequisition",
+      //     //       },
+      //     //       {
+      //     //         text: "Articles",
+      //     //         href: "/admin/ProduitLog",
+      //     //       },
+      //     //       {
+      //     //         text: "Fournisseur",
+      //     //         href: "/admin/Fournisseur",
+      //     //       },
+      //     //       {
+      //     //         text: "Categorie Art.",
+      //     //         href: "/admin/categorieproduit",
+      //     //       },
+      //     //       {
+      //     //         text: "Rapports",
+      //     //         href: "/admin/RapportsJour_Logistique",
+      //     //       }
+
+      //     //     ],
+      //     //   },
+      //     // ],
+
+      //     // listVehicules: [
+      //     //   { 
+      //     //     text: "Véhicules",
+      //     //     icon: "mdi-car",
+      //     //     items: [                
+      //     //       {
+      //     //         text: "Mouvements des Véhicules",
+      //     //         href: "/admin/CarEnteteMouvement",
+      //     //       },
+      //     //       {
+      //     //         text: "Rapports",
+      //     //         href: "/admin/RapportsJour_Vehicule",
+      //     //       },
+      //     //       {
+      //     //         text: "Nos Véhicules",
+      //     //         href: "/admin/CarVehicule",
+      //     //       },
+      //     //       {
+      //     //         text: "Les Gammes",
+      //     //         href: "/admin/CarProduit",
+      //     //       },
+      //     //       {
+      //     //         text: "Les Fournisseurs",
+      //     //         href: "/admin/CarProducteur",
+      //     //       }
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     // listSalon: [
+      //     //   { 
+      //     //     text: "Salon de Beauté",
+      //     //     icon: "mdi-car",
+      //     //     items: [              
+      //     //        { 
+      //     //          text: "Salon de Beauté",
+      //     //          href: "/admin/SalonEnteteVente",
+      //     //        },
+      //     //        { 
+      //     //          text: "Rapports(Salon)",
+      //     //          href: "/admin/RapportsJour_VenteSalon",
+      //     //        }
+      //     //     ],
+      //     //   },
+      //     // ],
+      //     links_systems_mouvement: [
+      //     ],
+      //     links_systems_mouvement_2: [
+      //       // ProfilPatient
+      //     ],
+      //     links_systems_mouvement_3: [
+      //     ],
+
+      //     admins: [
+      //       ["Management", ""],
+      //       ["Settings", ""],
+      //     ],
+      //   };
+      // }
       else {
       }
     },

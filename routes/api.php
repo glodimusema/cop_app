@@ -53,6 +53,10 @@ use App\Http\Controllers\Personnel\tperso_presences_agentController;
 use App\Http\Controllers\Personnel\tperso_timesheetController;
 use App\Http\Controllers\Personnel\tperso_correspondanceController;
 
+use App\Http\Controllers\Personnel\tperso_secteur_mineraisController;
+use App\Http\Controllers\Personnel\tperso_cooperative_mineraisController;
+use App\Http\Controllers\Personnel\tperso_paramettre_secteurController;
+
 use App\Http\Controllers\Personnel\categorieRubriqueController;
 use App\Http\Controllers\Personnel\tperso_anneeController;
 use App\Http\Controllers\Personnel\tperso_divisionController;
@@ -1930,7 +1934,29 @@ Route::get("fetch_rapport_time_sheet_date",[Pdf_ContratController::class, 'fetch
 
 
 
+//=====================categorieAgent===================================
+Route::get("fetch_all_secteur_minerais",[tperso_secteur_mineraisController::class, 'index']);
+Route::get("fetch_dopdown_secteur_minerais",[tperso_secteur_mineraisController::class,'fetch_dropdown_2']);
+Route::get("fetch_single_secteur_minerais/{id}",[tperso_secteur_mineraisController::class,'edit']);
+Route::post('insert_secteur_minerais',[tperso_secteur_mineraisController::class, 'store']);
+Route::post('update_secteur_minerais/{id}', [tperso_secteur_mineraisController::class, 'store']);
+Route::get("delete_secteur_minerais/{id}", [tperso_secteur_mineraisController::class, 'destroy']);
 
+//=====================categorieAgent===================================
+Route::get("fetch_all_cooperative_minerais",[tperso_cooperative_mineraisController::class, 'index']);
+Route::get("fetch_dopdown_cooperative_minerais",[tperso_cooperative_mineraisController::class,'fetch_dropdown_2']);
+Route::get("fetch_single_cooperative_minerais/{id}",[tperso_cooperative_mineraisController::class,'edit']);
+Route::post('insert_cooperative_minerais',[tperso_cooperative_mineraisController::class, 'store']);
+Route::post('update_cooperative_minerais/{id}', [tperso_cooperative_mineraisController::class, 'store']);
+Route::get("delete_cooperative_minerais/{id}", [tperso_cooperative_mineraisController::class, 'destroy']);
+
+//=====================categorieAgent===================================
+Route::get("fetch_all_paramettre_secteur",[tperso_paramettre_secteurController::class, 'index']);
+Route::get("fetch_dopdown_paramettre_secteur",[tperso_paramettre_secteurController::class,'fetch_dropdown_2']);
+Route::get("fetch_single_paramettre_secteur/{id}",[tperso_paramettre_secteurController::class,'edit']);
+Route::post('insert_paramettre_secteur',[tperso_paramettre_secteurController::class, 'store']);
+Route::post('update_paramettre_secteur/{id}', [tperso_paramettre_secteurController::class, 'store']);
+Route::get("delete_paramettre_secteur/{id}", [tperso_paramettre_secteurController::class, 'destroy']);
 
 
 

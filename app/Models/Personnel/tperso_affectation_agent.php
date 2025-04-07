@@ -12,7 +12,7 @@ class tperso_affectation_agent extends Model
     'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','dateAffectation','dureecontrat','dureeLettre','dateFin','dateDebutEssaie',
     'dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2','TempsPause','nbrConge','nbrCongeLettre',
     'nomOffice','postnomOffice','qualifieOffice','codeAgent','directeur','numCNSS','numImpot','numcpteBanque',
-    'BanqueAgant','autresDetail','conge','etat_contrat','author'];
+    'BanqueAgant','autresDetail','conge','etat_contrat','param_secteur_id','author'];
     protected $table = 'tperso_affectation_agent';
 }
 

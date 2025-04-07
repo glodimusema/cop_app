@@ -35,6 +35,9 @@ class tperso_affectation_agentController extends Controller
             $data = DB::table('tperso_affectation_agent')
             ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
             ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
+            ->join('tperso_paramettre_secteur','tperso_paramettre_secteur.id','=','tperso_affectation_agent.param_secteur_id')
+            ->join('tperso_secteur_minerais','tperso_secteur_minerais.id','=','tperso_paramettre_secteur.refSecteur')
+            ->join('tperso_cooperative_minerais','tperso_cooperative_minerais.id','=','tperso_paramettre_secteur.refCooperative')
             ->select("tperso_affectation_agent.id",'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
             'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre','dateDebutEssaie',
             'dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2','TempsPause','nbrConge','nbrCongeLettre',
@@ -45,7 +48,12 @@ class tperso_affectation_agentController extends Controller
             "specialite_agent","Categorie_agent","niveauEtude_agent","anneeFinEtude_agent","Ecole_agent","tagent.photo as photo_agent",
             "tagent.slug as slug_agent",'fammiliale','logement','tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
             'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
-            'param_secteur_id')
+            'param_secteur_id'
+            
+            ,'refCooperative','refSecteur','active_param',"tperso_cooperative_minerais.nom_coop",
+            'responsable_coop','contact_respo_coop','description_coop',
+            "tperso_secteur_minerais.nom_secteur",'description_secteur'
+            )
             ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')   
             ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante')
             ->selectRaw('DATE_SUB(dateFin, INTERVAL 1 DAY) as dateFin')
@@ -62,6 +70,9 @@ class tperso_affectation_agentController extends Controller
             $data = DB::table('tperso_affectation_agent')
             ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
             ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
+            ->join('tperso_paramettre_secteur','tperso_paramettre_secteur.id','=','tperso_affectation_agent.param_secteur_id')
+            ->join('tperso_secteur_minerais','tperso_secteur_minerais.id','=','tperso_paramettre_secteur.refSecteur')
+            ->join('tperso_cooperative_minerais','tperso_cooperative_minerais.id','=','tperso_paramettre_secteur.refCooperative')
             ->select("tperso_affectation_agent.id",'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
             'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre','dateDebutEssaie',
             'dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2','TempsPause','nbrConge','nbrCongeLettre',
@@ -72,7 +83,12 @@ class tperso_affectation_agentController extends Controller
             "specialite_agent","Categorie_agent","niveauEtude_agent","anneeFinEtude_agent","Ecole_agent","tagent.photo as photo_agent",
             "tagent.slug as slug_agent",'fammiliale','logement','tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
             'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat'
-            ,'param_secteur_id')
+            ,'param_secteur_id'
+            
+            ,'refCooperative','refSecteur','active_param',"tperso_cooperative_minerais.nom_coop",
+            'responsable_coop','contact_respo_coop','description_coop',
+            "tperso_secteur_minerais.nom_secteur",'description_secteur'
+            )
             ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')   
             ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante')
             ->selectRaw('DATE_SUB(dateFin, INTERVAL 1 DAY) as dateFin')
@@ -347,6 +363,9 @@ class tperso_affectation_agentController extends Controller
             # code...
             $query = $this->Gquery($request);
             $data = DB::table('tperso_affectation_agent')
+            ->join('tperso_paramettre_secteur','tperso_paramettre_secteur.id','=','tperso_affectation_agent.param_secteur_id')
+            ->join('tperso_secteur_minerais','tperso_secteur_minerais.id','=','tperso_paramettre_secteur.refSecteur')
+            ->join('tperso_cooperative_minerais','tperso_cooperative_minerais.id','=','tperso_paramettre_secteur.refCooperative')
             ->join('tperso_parametre_salairebase','tperso_parametre_salairebase.id','=','tperso_affectation_agent.param_salaire_id')
             ->join('tperso_projets','tperso_projets.id','=','tperso_parametre_salairebase.projet_id')
             ->join('tperso_partenaire','tperso_partenaire.id','=','tperso_projets.partenaire_id')
@@ -377,10 +396,16 @@ class tperso_affectation_agentController extends Controller
             'nom_contrat','code_contrat','param_salaire_id','fammiliale','logement','tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
             'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission',"categorie_id","projet_id","salaire_base",
             "partenaire_id","description_projet","chef_projet","date_debut_projet","date_fin_projet","nom_org",
-            "adresse_org","contact_org","rccm_org", "idnat_org","etat_contrat","salaire_prevu",'param_secteur_id')
+            "adresse_org","contact_org","rccm_org", "idnat_org","etat_contrat","salaire_prevu",'param_secteur_id'
+            
+            ,'refCooperative','refSecteur','active_param',"tperso_cooperative_minerais.nom_coop",
+            'responsable_coop','contact_respo_coop','description_coop',
+            "tperso_secteur_minerais.nom_secteur",'description_secteur'
+            )
             ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')
             ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante')
             ->selectRaw('DATE_SUB(dateFin, INTERVAL 1 DAY) as dateFin')
+            ->selectRaw('CONCAT(nom_coop, " - ", nom_secteur) as date_param_secteur')
             //->selectRaw('((salaire_base +fammiliale + logement + tperso_affectation_agent.transport) - inss_qpo - ipr) as netPaie')
             ->where([
                 ['noms_agent', 'like', '%'.$query.'%'],
@@ -395,6 +420,9 @@ class tperso_affectation_agentController extends Controller
         else{
       
             $data = DB::table('tperso_affectation_agent')
+            ->join('tperso_paramettre_secteur','tperso_paramettre_secteur.id','=','tperso_affectation_agent.param_secteur_id')
+            ->join('tperso_secteur_minerais','tperso_secteur_minerais.id','=','tperso_paramettre_secteur.refSecteur')
+            ->join('tperso_cooperative_minerais','tperso_cooperative_minerais.id','=','tperso_paramettre_secteur.refCooperative')
             ->join('tperso_parametre_salairebase','tperso_parametre_salairebase.id','=','tperso_affectation_agent.param_salaire_id')
             ->join('tperso_projets','tperso_projets.id','=','tperso_parametre_salairebase.projet_id')
             ->join('tperso_partenaire','tperso_partenaire.id','=','tperso_projets.partenaire_id')
@@ -425,10 +453,16 @@ class tperso_affectation_agentController extends Controller
             'nom_contrat','code_contrat','param_salaire_id','fammiliale','logement','tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
             'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission',"categorie_id","projet_id","salaire_base",
             "partenaire_id","description_projet","chef_projet","date_debut_projet","date_fin_projet","nom_org",
-            "adresse_org","contact_org","rccm_org", "idnat_org","etat_contrat","salaire_prevu",'param_secteur_id')
+            "adresse_org","contact_org","rccm_org", "idnat_org","etat_contrat","salaire_prevu",'param_secteur_id'
+            
+            ,'refCooperative','refSecteur','active_param',"tperso_cooperative_minerais.nom_coop",
+            'responsable_coop','contact_respo_coop','description_coop',
+            "tperso_secteur_minerais.nom_secteur",'description_secteur'
+            )
             ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')   
             ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante')
             ->selectRaw('DATE_SUB(dateFin, INTERVAL 1 DAY) as dateFin')
+            ->selectRaw('CONCAT(nom_coop, " - ", nom_secteur) as date_param_secteur')
             //->selectRaw('((salaire_base +fammiliale + logement + tperso_affectation_agent.transport) - inss_qpo - ipr) as netPaie')
             ->Where('refAgent',$refAgent)    
             ->orderBy("tperso_affectation_agent.id", "desc")

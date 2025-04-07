@@ -1036,7 +1036,9 @@ export default {
           this.$refs.AffectationAgent.fetchListLieuAffectation();
           this.$refs.AffectationAgent.fetchListContrat();
           this.$refs.AffectationAgent.get_Banque();
+          this.$refs.AffectationAgent.fetchListParametreSecteur();
           this.$refs.AffectationAgent.fetchListAgent();
+
           this.onPageChange();
           
           this.$refs.AffectationAgent.$data.titleComponent =

@@ -31,7 +31,7 @@
             <v-layout>
 
               <v-flex md12>
-                <v-dialog v-model="dialog" max-width="700px" persistent>
+                <v-dialog v-model="dialog" max-width="900px" persistent>
                   <v-card :loading="loading">
                     <v-form ref="form" lazy-validation>
                       <v-card-title>
@@ -412,6 +412,16 @@
                             </div>
                           </v-flex>
 
+                          <v-flex xs12 sm12 md6 lg6>
+                            <div class="mr-1">
+                              <v-autocomplete label="Sélectionnez le secteur minier" prepend-inner-icon="mdi-map"
+                                :rules="[(v) => !!v || 'Ce champ est requis']" :items="ParametreSecteurList"
+                                item-text="date_param_secteur" item-value="id" dense outlined v-model="svData.param_secteur_id"
+                                chips clearable>
+                              </v-autocomplete>
+                            </div>
+                          </v-flex>
+
                         </v-layout>
                         
                       </v-card-text>
@@ -460,8 +470,10 @@
                         <v-simple-table>
                           <template v-slot:default>
                             <thead>
+                              <!-- date_param_secteur -->
                               <tr>
                                 <th class="text-left">Agent</th>
+                                <th class="text-left">SecteurMinier</th>
                                 <th class="text-left">TrypeContrat</th>
                                 <th class="text-left">Poste</th>
                                 <th class="text-left">LieuAffect</th>
@@ -481,6 +493,7 @@
                             <tbody>
                               <tr v-for="item in fetchData" :key="item.id">
                                 <td>{{ item.noms_agent }}</td>
+                                <td>{{ item.date_param_secteur }}</td>
                                 <td>{{ item.nom_contrat }}</td>
                                 <td>{{ item.nom_poste }}</td>
                                 <td>{{ item.nom_lieu }}</td>
@@ -764,6 +777,7 @@ export default {
         BanqueAgant: '',
         autresDetail: '',
         etat_contrat:'',
+        param_secteur_id: 0,
         author: "Admin",
       },
       fetchData: [],
@@ -777,6 +791,7 @@ export default {
       categorieList: [],
       mutuelleList: [],
       contratList: [],
+      ParametreSecteurList: [],
 
       BanqueList: [],
       don: [],
@@ -800,6 +815,7 @@ export default {
     // this.fetchListContrat();
     // this.fetchListAgent();
     // this.get_Banque();
+    // this.fetchListParametreSecteur();
   },
   computed: {
     ...mapGetters(["categoryList", "isloading"]),
@@ -932,10 +948,19 @@ export default {
       );
     },
     fetchListMutuelle() {
+      //ParametreSecteurList
       this.editOrFetch(`${this.apiBaseURL}/fetch_dopdown_mutuelle_pers`).then(
         ({ data }) => {
           var donnees = data.data;
           this.mutuelleList = donnees;
+        }
+      );
+    },
+    fetchListParametreSecteur() {
+      this.editOrFetch(`${this.apiBaseURL}/fetch_dopdown_paramettre_secteur`).then(
+        ({ data }) => {
+          var donnees = data.data;
+          this.ParametreSecteurList = donnees;
         }
       );
     },
