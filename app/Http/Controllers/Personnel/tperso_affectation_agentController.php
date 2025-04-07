@@ -44,7 +44,8 @@ class tperso_affectation_agentController extends Controller
             "etatcivil_agent","refAvenue_agent","contact_agent","mail_agent","grade_agent","fonction_agent",
             "specialite_agent","Categorie_agent","niveauEtude_agent","anneeFinEtude_agent","Ecole_agent","tagent.photo as photo_agent",
             "tagent.slug as slug_agent",'fammiliale','logement','tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
-            'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat')
+            'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+            'param_secteur_id')
             ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')   
             ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante')
             ->selectRaw('DATE_SUB(dateFin, INTERVAL 1 DAY) as dateFin')
@@ -70,7 +71,8 @@ class tperso_affectation_agentController extends Controller
             "etatcivil_agent","refAvenue_agent","contact_agent","mail_agent","grade_agent","fonction_agent",
             "specialite_agent","Categorie_agent","niveauEtude_agent","anneeFinEtude_agent","Ecole_agent","tagent.photo as photo_agent",
             "tagent.slug as slug_agent",'fammiliale','logement','tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
-            'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat')
+            'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat'
+            ,'param_secteur_id')
             ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')   
             ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante')
             ->selectRaw('DATE_SUB(dateFin, INTERVAL 1 DAY) as dateFin')
@@ -102,7 +104,7 @@ class tperso_affectation_agentController extends Controller
             "etatcivil_agent","refAvenue_agent","contact_agent","mail_agent","grade_agent","fonction_agent",
             "specialite_agent","Categorie_agent","niveauEtude_agent","anneeFinEtude_agent","Ecole_agent","tagent.photo as photo_agent",
             "tagent.slug as slug_agent",'fammiliale','logement','tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
-            'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat')
+            'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat', 'param_secteur_id')
             ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')   
             ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante')
             ->selectRaw('DATE_SUB(dateFin, INTERVAL 1 DAY) as dateFin')
@@ -129,7 +131,7 @@ class tperso_affectation_agentController extends Controller
             "etatcivil_agent","refAvenue_agent","contact_agent","mail_agent","grade_agent","fonction_agent",
             "specialite_agent","Categorie_agent","niveauEtude_agent","anneeFinEtude_agent","Ecole_agent","tagent.photo as photo_agent",
             "tagent.slug as slug_agent",'fammiliale','logement','tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
-            'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat')
+            'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat', 'param_secteur_id')
             ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')   
             ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante')
             ->selectRaw('DATE_SUB(dateFin, INTERVAL 1 DAY) as dateFin')
@@ -165,7 +167,7 @@ class tperso_affectation_agentController extends Controller
             "etatcivil_agent","refAvenue_agent","contact_agent","mail_agent","grade_agent","fonction_agent",
             "specialite_agent","Categorie_agent","niveauEtude_agent","anneeFinEtude_agent","Ecole_agent","tagent.photo as photo_agent",
             "tagent.slug as slug_agent",'fammiliale','logement','tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
-            'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat')
+            'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat', 'param_secteur_id')
             ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')   
             ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante')
             ->selectRaw('DATE_SUB(dateFin, INTERVAL 1 DAY) as dateFin')
@@ -193,7 +195,7 @@ class tperso_affectation_agentController extends Controller
             "etatcivil_agent","refAvenue_agent","contact_agent","mail_agent","grade_agent","fonction_agent",
             "specialite_agent","Categorie_agent","niveauEtude_agent","anneeFinEtude_agent","Ecole_agent","tagent.photo as photo_agent",
             "tagent.slug as slug_agent",'fammiliale','logement','tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
-            'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat')
+            'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat', 'param_secteur_id')
             ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')   
             ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante')
             ->selectRaw('DATE_SUB(dateFin, INTERVAL 1 DAY) as dateFin')
@@ -229,7 +231,7 @@ class tperso_affectation_agentController extends Controller
             "etatcivil_agent","refAvenue_agent","contact_agent","mail_agent","grade_agent","fonction_agent",
             "specialite_agent","Categorie_agent","niveauEtude_agent","anneeFinEtude_agent","Ecole_agent","tagent.photo as photo_agent",
             "tagent.slug as slug_agent",'fammiliale','logement','tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
-            'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat')
+            'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat', 'param_secteur_id')
             ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')   
             ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante')
             ->selectRaw('DATE_SUB(dateFin, INTERVAL 1 DAY) as dateFin')
@@ -257,7 +259,7 @@ class tperso_affectation_agentController extends Controller
             "etatcivil_agent","refAvenue_agent","contact_agent","mail_agent","grade_agent","fonction_agent",
             "specialite_agent","Categorie_agent","niveauEtude_agent","anneeFinEtude_agent","Ecole_agent","tagent.photo as photo_agent",
             "tagent.slug as slug_agent",'fammiliale','logement','tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
-            'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat')
+            'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat', 'param_secteur_id')
             ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')   
             ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante')
             ->selectRaw('DATE_SUB(dateFin, INTERVAL 1 DAY) as dateFin')
@@ -294,7 +296,7 @@ class tperso_affectation_agentController extends Controller
             "etatcivil_agent","refAvenue_agent","contact_agent","mail_agent","grade_agent","fonction_agent",
             "specialite_agent","Categorie_agent","niveauEtude_agent","anneeFinEtude_agent","Ecole_agent","tagent.photo as photo_agent",
             "tagent.slug as slug_agent",'fammiliale','logement','tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
-            'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat')
+            'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat', 'param_secteur_id')
             ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')   
             ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante')
             ->selectRaw('DATE_SUB(dateFin, INTERVAL 1 DAY) as dateFin')
@@ -321,7 +323,7 @@ class tperso_affectation_agentController extends Controller
             "etatcivil_agent","refAvenue_agent","contact_agent","mail_agent","grade_agent","fonction_agent",
             "specialite_agent","Categorie_agent","niveauEtude_agent","anneeFinEtude_agent","Ecole_agent","tagent.photo as photo_agent",
             "tagent.slug as slug_agent",'fammiliale','logement','tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
-            'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat')
+            'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat', 'param_secteur_id')
             ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')   
             ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante')
             ->selectRaw('DATE_SUB(dateFin, INTERVAL 1 DAY) as dateFin')
@@ -375,7 +377,7 @@ class tperso_affectation_agentController extends Controller
             'nom_contrat','code_contrat','param_salaire_id','fammiliale','logement','tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
             'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission',"categorie_id","projet_id","salaire_base",
             "partenaire_id","description_projet","chef_projet","date_debut_projet","date_fin_projet","nom_org",
-            "adresse_org","contact_org","rccm_org", "idnat_org","etat_contrat","salaire_prevu")
+            "adresse_org","contact_org","rccm_org", "idnat_org","etat_contrat","salaire_prevu",'param_secteur_id')
             ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')
             ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante')
             ->selectRaw('DATE_SUB(dateFin, INTERVAL 1 DAY) as dateFin')
@@ -423,7 +425,7 @@ class tperso_affectation_agentController extends Controller
             'nom_contrat','code_contrat','param_salaire_id','fammiliale','logement','tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
             'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission',"categorie_id","projet_id","salaire_base",
             "partenaire_id","description_projet","chef_projet","date_debut_projet","date_fin_projet","nom_org",
-            "adresse_org","contact_org","rccm_org", "idnat_org","etat_contrat","salaire_prevu")
+            "adresse_org","contact_org","rccm_org", "idnat_org","etat_contrat","salaire_prevu",'param_secteur_id')
             ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')   
             ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante')
             ->selectRaw('DATE_SUB(dateFin, INTERVAL 1 DAY) as dateFin')
@@ -475,7 +477,7 @@ class tperso_affectation_agentController extends Controller
         'nom_contrat','code_contrat','param_salaire_id','fammiliale','logement','tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
         'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission',"categorie_id","projet_id","salaire_base",
         "partenaire_id","description_projet","chef_projet","date_debut_projet","date_fin_projet","nom_org",
-        "adresse_org","contact_org","rccm_org", "idnat_org","etat_contrat","salaire_prevu")
+        "adresse_org","contact_org","rccm_org", "idnat_org","etat_contrat","salaire_prevu", 'param_secteur_id')
         ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')  
         ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante')
         ->selectRaw('DATE_SUB(dateFin, INTERVAL 1 DAY) as dateFin')
@@ -523,7 +525,7 @@ class tperso_affectation_agentController extends Controller
         'nom_contrat','code_contrat','param_salaire_id','fammiliale','logement','tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
         'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission',"categorie_id","projet_id","salaire_base",
         "partenaire_id","description_projet","chef_projet","nom_org",
-        "adresse_org","contact_org","rccm_org", "idnat_org","etat_contrat","salaire_prevu")
+        "adresse_org","contact_org","rccm_org", "idnat_org","etat_contrat","salaire_prevu", 'param_secteur_id')
         ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')
         ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante') 
         ->selectRaw("DATE_FORMAT(DATE_SUB(dateFin, INTERVAL 1 DAY),'%d/%M/%Y') as dateFin")
@@ -691,11 +693,12 @@ class tperso_affectation_agentController extends Controller
             'autresDetail'       =>  $request->autresDetail,
             'conge'       =>  'NON',
             'etat_contrat'       =>  'Encours',
+            'param_secteur_id'       =>  $request->param_secteur_id,
             'author'       =>  $request->author,
         ]);
         return $this->msgJson('Information ajoutée avec succès');
     }
-//etat_contrat
+//, 'param_secteur_id'
 
     function update_data(Request $request, $id)
     {
@@ -831,6 +834,7 @@ class tperso_affectation_agentController extends Controller
             'BanqueAgant'    =>  $request->BanqueAgant,       
             'autresDetail'       =>  $request->autresDetail,
             'etat_contrat'       =>  $request->etat_contrat,
+            'param_secteur_id'       =>  $request->param_secteur_id,
             'author'       =>  $request->author,
         ]);
         return $this->msgJson('Information ajoutée avec succès');

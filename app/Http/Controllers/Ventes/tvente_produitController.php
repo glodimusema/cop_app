@@ -53,7 +53,9 @@ class tvente_produitController extends Controller
         ,'comptedestockage.refSousCompte as refSousCompteDestockage','comptedestockage.nom_ssouscompte as nom_ssouscompteDestockage',
         'comptedestockage.numero_ssouscompte as numero_ssouscompteDestockage'
         ,'comptestockage.refSousCompte as refSousCompteStockage','comptestockage.nom_ssouscompte as nom_ssouscompteStockage',
-        'comptestockage.numero_ssouscompte as numero_ssouscompteStockage');
+        'comptestockage.numero_ssouscompte as numero_ssouscompteStockage'
+        ,'pourcent_tva','pourcent_impot','pourcent_cooperative','pourcent_autre'
+        );
 
         if (!is_null($request->get('query'))) {
             # code...
@@ -99,7 +101,9 @@ class tvente_produitController extends Controller
          ,'comptedestockage.refSousCompte as refSousCompteDestockage','comptedestockage.nom_ssouscompte as nom_ssouscompteDestockage',
          'comptedestockage.numero_ssouscompte as numero_ssouscompteDestockage'
          ,'comptestockage.refSousCompte as refSousCompteStockage','comptestockage.nom_ssouscompte as nom_ssouscompteStockage',
-         'comptestockage.numero_ssouscompte as numero_ssouscompteStockage')
+         'comptestockage.numero_ssouscompte as numero_ssouscompteStockage'
+         ,'pourcent_tva','pourcent_impot','pourcent_cooperative','pourcent_autre'
+         )
         ->get();
         
         return response()->json(['data' => $data]);
@@ -165,6 +169,7 @@ class tvente_produitController extends Controller
 
             # code...
             // update stock_alerte
+            //,'pourcent_tva','pourcent_impot','pourcent_cooperative','pourcent_autre'
             $data = tvente_produit::where("id", $request->id)->update([
                 'designation'       =>  $request->designation,
                 'pu'    =>  $montants,                
@@ -178,6 +183,10 @@ class tvente_produitController extends Controller
                 'tvaapplique'    =>  $request->tvaapplique,
                 'estvendable'    =>  $request->estvendable,
                 'stock_alerte'    =>  $request->stock_alerte,
+                'pourcent_tva'    =>  $request->pourcent_tva,
+                'pourcent_impot'    =>  $request->pourcent_impot,
+                'pourcent_cooperative'    =>  $request->pourcent_cooperative,
+                'pourcent_autre'    =>  $request->pourcent_autre,
                 'author'    =>  $request->author,
                 'refUser'    =>  $request->refUser                
             ]);
@@ -219,6 +228,10 @@ class tvente_produitController extends Controller
                 'tvaapplique'    =>  $request->tvaapplique,
                 'estvendable'    =>  $request->estvendable,
                 'stock_alerte'    =>  $request->stock_alerte,
+                'pourcent_tva'    =>  $request->pourcent_tva,
+                'pourcent_impot'    =>  $request->pourcent_impot,
+                'pourcent_cooperative'    =>  $request->pourcent_cooperative,
+                'pourcent_autre'    =>  $request->pourcent_autre,
                 'author'    =>  $request->author,
                 'refUser'    =>  $request->refUser  
             ]);

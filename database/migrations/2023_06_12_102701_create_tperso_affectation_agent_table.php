@@ -23,6 +23,7 @@ class CreateTpersoAffectationAgentTable extends Migration
             $table->foreignId('refMutuelle')->constrained('tperso_mutuelle')->restrictOnUpdate()->restrictOnDelete();
             $table->foreignId('refTypeContrat')->constrained('tperso_typecontrat')->restrictOnUpdate()->restrictOnDelete();
             $table->foreignId('param_salaire_id')->constrained('tperso_parametre_salairebase')->restrictOnUpdate()->restrictOnDelete();
+            $table->foreignId('param_secteur_id')->constrained('tperso_paramettre_secteur')->restrictOnUpdate()->restrictOnDelete();
             $table->double('fammiliale')->default(0);
             $table->double('logement')->default(0);
             $table->double('transport')->default(0);

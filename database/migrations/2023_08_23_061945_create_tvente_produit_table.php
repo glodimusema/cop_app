@@ -29,6 +29,10 @@ class CreateTventeProduitTable extends Migration
             $table->string('Newcode',100)->default('0000');            
             $table->string('tvaapplique',5)->default('OUI');
             $table->string('estvendable',5)->default('OUI');
+            $table->double('pourcent_tva')->default(0);
+            $table->double('pourcent_impot')->default(0);
+            $table->double('pourcent_cooperative')->default(0);
+            $table->double('pourcent_autre')->default(0);
             $table->string('author',100);  
             $table->foreignId('refUser')->constrained('users')->restrictOnUpdate()->restrictOnDelete();
             $table->timestamps();

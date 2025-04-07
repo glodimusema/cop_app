@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class tvente_produit extends Model
 {
     protected $fillable=['id','designation','refCategorie','refUniteBase','uniteBase','pu','qte',
-    'cmup','stock_alerte','devise','taux','Oldcode','Newcode','tvaapplique','estvendable','author','refUser'];
+    'cmup','stock_alerte','devise','taux','Oldcode','Newcode','tvaapplique','estvendable'
+    ,'pourcent_tva','pourcent_impot','pourcent_cooperative','pourcent_autre','author','refUser'];
     protected $table = 'tvente_produit';    
 
 

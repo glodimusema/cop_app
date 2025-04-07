@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title>IHUSI-GROUP</title>
+  <title>COOPERATIVE</title>
   {{-- <title>HOTEL</title> --}}
   <meta name="description" content="" />
 
