@@ -24,7 +24,6 @@ class tperso_affectation_agentController extends Controller
       return str_replace(" ", "%", $request->get('query'));
       // return $request->get('query');
     }
-// 
     public function all(Request $request)
     { 
         $current = Carbon::now(); 
@@ -540,12 +539,12 @@ class tperso_affectation_agentController extends Controller
         ->join('tperso_service_personnel','tperso_service_personnel.id','=','tperso_affectation_agent.refServicePerso')
         ->join('tperso_categorie_service','tperso_categorie_service.id','=','tperso_service_personnel.refCatService')
         ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
-        ->join('avenues' , 'avenues.id','=','tagent.refAvenue_agent')
-        ->join('quartiers' , 'quartiers.id','=','avenues.idQuartier')
-        ->join('communes' , 'communes.id','=','quartiers.idCommune')
-        ->join('villes' , 'villes.id','=','communes.idVille')
-        ->join('provinces' , 'provinces.id','=','villes.idProvince')
-        ->join('pays' , 'pays.id','=','provinces.idPays')
+        // ->join('avenues' , 'avenues.id','=','tagent.refAvenue_agent')
+        // ->join('quartiers' , 'quartiers.id','=','avenues.idQuartier')
+        // ->join('communes' , 'communes.id','=','quartiers.idCommune')
+        // ->join('villes' , 'villes.id','=','communes.idVille')
+        // ->join('provinces' , 'provinces.id','=','villes.idProvince')
+        // ->join('pays' , 'pays.id','=','provinces.idPays')
         ->select("tperso_affectation_agent.id",'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
         'refMutuelle','refTypeContrat','dureecontrat','dureeLettre',
         'JourTrail1','JourTrail2','heureTrail1','heureTrail2','TempsPause','nbrConge','nbrCongeLettre',
@@ -577,18 +576,6 @@ class tperso_affectation_agentController extends Controller
             'data'  => $data
         ]);
     }
-
-    // ,"numcpteBanque","numImpot","BanqueAgant"
-    // id,refAgent,refServicePerso,refCategorieAgent,dateAffectation,codeAgent,numCNSS,autresDetail,author
-
-    // ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
-    // 'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre','dateFin','dateDebutEssaie',
-    // 'dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2','TempsPause','nbrConge','nbrCongeLettre',
-    // 'nomOffice','postnomOffice','qualifieOffice','codeAgent','directeur','numCNSS','numImpot','numcpteBanque',
-    // 'BanqueAgant','autresDetail','conge'
-
-    //,'param_salaire_id','fammiliale','logement','transport','sal_brut','sal_brut_imposable',
-     //   'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission'
 
     function insert_data(Request $request)
     {
@@ -630,17 +617,6 @@ class tperso_affectation_agentController extends Controller
         {                                
            $nombre_enfant=$row->nbrEnfant;
         }
-
-
-        // $data4 =  DB::table('tperso_poste')       
-        // ->select("tperso_poste.id","tperso_poste.transport")
-        // ->where('tperso_poste.id', '=', $poste_id) 
-        // ->get(); 
-        // $output='';
-        // foreach ($data4 as $row) 
-        // {  
-        //     $transport=$row->transport;                  
-        // }
 
         $transport=$request->transport;
         // $fammiliale = (int)$nombre_enfant * 5;

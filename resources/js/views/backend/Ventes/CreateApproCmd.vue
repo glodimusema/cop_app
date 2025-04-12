@@ -650,7 +650,7 @@ export default {
             });
         },
         fetchListFournisseur() {
-            this.editOrFetch(`${this.apiBaseURL}/fetch_list_fournisseur`).then(
+            this.editOrFetch(`${this.apiBaseURL}/fetch_affectation_agent`).then(
                 ({ data }) => {
                     var donnees = data.data;
                     this.fournisseurList = donnees;

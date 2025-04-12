@@ -238,7 +238,7 @@
 
               <v-flex md6>
                 <v-autocomplete label="Selectionnez le Fournisseur" prepend-inner-icon="mdi-map"
-                            :rules="[(v) => !!v || 'Ce champ est requis']" :items="fournisseurList" item-text="noms"
+                            :rules="[(v) => !!v || 'Ce champ est requis']" :items="fournisseurList" item-text="noms_agent"
                             item-value="id" outlined dense v-model="svData.refFournisseur">
                         </v-autocomplete>
               </v-flex> 
@@ -573,7 +573,7 @@
           );
         },  
         fetchListFournisseur() {
-          this.editOrFetch(`${this.apiBaseURL}/fetch_list_fournisseur`).then(
+          this.editOrFetch(`${this.apiBaseURL}/fetch_affectation_agent`).then(
                 ({ data }) => {
                     var donnees = data.data;
                     this.fournisseurList = donnees;

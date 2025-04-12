@@ -347,7 +347,7 @@
                             <br>
 
                             <v-autocomplete label="Selectionnez le Fournisseur" prepend-inner-icon="mdi-map"
-                                    :rules="[(v) => !!v || 'Ce champ est requis']" :items="fournisseurList" item-text="noms" item-value="id"
+                                    :rules="[(v) => !!v || 'Ce champ est requis']" :items="fournisseurList" item-text="noms_agent" item-value="id"
                                     outlined dense v-model="svData.refFournisseur">
                             </v-autocomplete>
 
@@ -593,7 +593,7 @@ export default {
             
         },
     fetchListFournisseur() {
-      this.editOrFetch(`${this.apiBaseURL}/fetch_list_fournisseur`).then(
+      this.editOrFetch(`${this.apiBaseURL}/fetch_affectation_agent`).then(
         ({ data }) => {
           var donnees = data.data;
           this.fournisseurList = donnees;

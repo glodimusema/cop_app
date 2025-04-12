@@ -716,7 +716,7 @@ Route::group(['namespace'   =>  "Ventes"], function(){
     Route::get("delete_fournisseur/{id}", 'tvente_fournisseurController@destroy');
     Route::post("insert_fournisseur", 'tvente_fournisseurController@store');
     Route::get("fetch_list_fournisseur", 'tvente_fournisseurController@fetch_list_fournisseur');
-
+    
     Route::get("fetch_produit", 'tvente_produitController@index');
     Route::get("fetch_single_produit/{id}", 'tvente_produitController@edit');
     Route::get("delete_produit/{id}", 'tvente_produitController@destroy');
