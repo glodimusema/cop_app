@@ -36,7 +36,10 @@ class tvente_detail_entreeController extends Controller
 
         ->join('tvente_entete_entree','tvente_entete_entree.id','=','tvente_detail_entree.refEnteteEntree')
         ->join('tvente_module','tvente_module.id','=','tvente_entete_entree.module_id')
-        ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_entree.refFournisseur')
+
+        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+        ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+        ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
 
         ->join('tvente_services','tvente_services.id','=','tvente_entete_entree.refService')
         ->join('tvente_produit','tvente_produit.id','=','tvente_detail_entree.refProduit')
@@ -56,7 +59,7 @@ class tvente_detail_entreeController extends Controller
         'tvente_detail_entree.refUser','tvente_detail_entree.created_at','tvente_detail_entree.devise',
         'tvente_detail_entree.taux'
 
-        ,'noms','contact','mail','adresse','tvente_entete_entree.code','tvente_entete_entree.refFournisseur',
+        ,'tvente_entete_entree.code','tvente_entete_entree.refFournisseur',
         'tvente_entete_entree.refRecquisition','tvente_entete_entree.module_id','dateEntree',
         'tvente_entete_entree.libelle','transporteur','niveau1','niveaumax',"tvente_module.nom_module"
 
@@ -73,7 +76,26 @@ class tvente_detail_entreeController extends Controller
         'compteproduit.numero_ssouscompte as numero_ssouscompteProduit'
         ,'comptestockage.refSousCompte as refSousCompteStockage','comptestockage.nom_ssouscompte as nom_ssouscompteStockage',
         'comptestockage.numero_ssouscompte as numero_ssouscompteStockage' 
-        )
+        
+        
+        ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
+        'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
+        'dateDebutEssaie','dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2',
+        'TempsPause','nbrConge','nbrCongeLettre','nomOffice','postnomOffice','qualifieOffice',
+        'codeAgent','directeur','numCNSS','numImpot','numcpteBanque','BanqueAgant','autresDetail',
+        'conge',"tperso_affectation_agent.author","matricule_agent","nummaison_agent",
+        "noms_agent as noms","sexe_agent","datenaissance_agent","lieunaissnce_agent",
+        "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent as contact",
+        "mail_agent as mail","grade_agent","fonction_agent","specialite_agent","Categorie_agent",
+        "niveauEtude_agent","anneeFinEtude_agent","Ecole_agent",
+        "tagent.photo as photo_agent","tagent.slug as slug_agent",'fammiliale','logement',
+        'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+        'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+         'param_secteur_id')
+        ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')   
+        ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante')
+        ->selectRaw('DATE_SUB(dateFin, INTERVAL 1 DAY) as dateFin')
+
         ->selectRaw('((qteEntree) * (puEntree)) as PTEntree')
         ->selectRaw('(((qteEntree) * (puEntree))/tvente_detail_entree.taux) as PTEntreeFC')
         ->selectRaw('(qteBase*puBase) as PTBase')
@@ -102,7 +124,10 @@ class tvente_detail_entreeController extends Controller
 
         ->join('tvente_entete_entree','tvente_entete_entree.id','=','tvente_detail_entree.refEnteteEntree')
         ->join('tvente_module','tvente_module.id','=','tvente_entete_entree.module_id')
-        ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_entree.refFournisseur')
+
+        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+        ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+        ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
 
         ->join('tvente_services','tvente_services.id','=','tvente_entete_entree.refService')
         ->join('tvente_produit','tvente_produit.id','=','tvente_detail_entree.refProduit')
@@ -122,7 +147,7 @@ class tvente_detail_entreeController extends Controller
         'tvente_detail_entree.refUser','tvente_detail_entree.created_at','tvente_detail_entree.devise',
         'tvente_detail_entree.taux'
 
-        ,'noms','contact','mail','adresse','tvente_entete_entree.code','tvente_entete_entree.refFournisseur',
+        ,'tvente_entete_entree.code','tvente_entete_entree.refFournisseur',
         'tvente_entete_entree.refRecquisition','tvente_entete_entree.module_id','dateEntree',
         'tvente_entete_entree.libelle','transporteur','niveau1','niveaumax',"tvente_module.nom_module"
 
@@ -139,7 +164,26 @@ class tvente_detail_entreeController extends Controller
         'compteproduit.numero_ssouscompte as numero_ssouscompteProduit'
         ,'comptestockage.refSousCompte as refSousCompteStockage','comptestockage.nom_ssouscompte as nom_ssouscompteStockage',
         'comptestockage.numero_ssouscompte as numero_ssouscompteStockage' 
-        )
+        
+        
+        ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
+        'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
+        'dateDebutEssaie','dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2',
+        'TempsPause','nbrConge','nbrCongeLettre','nomOffice','postnomOffice','qualifieOffice',
+        'codeAgent','directeur','numCNSS','numImpot','numcpteBanque','BanqueAgant','autresDetail',
+        'conge',"tperso_affectation_agent.author","matricule_agent","nummaison_agent",
+        "noms_agent as noms","sexe_agent","datenaissance_agent","lieunaissnce_agent",
+        "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent as contact",
+        "mail_agent as mail","grade_agent","fonction_agent","specialite_agent","Categorie_agent",
+        "niveauEtude_agent","anneeFinEtude_agent","Ecole_agent",
+        "tagent.photo as photo_agent","tagent.slug as slug_agent",'fammiliale','logement',
+        'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+        'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+         'param_secteur_id')
+        ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')   
+        ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante')
+        ->selectRaw('DATE_SUB(dateFin, INTERVAL 1 DAY) as dateFin')
+        
         ->selectRaw('((qteEntree) * (puEntree)) as PTEntree')
         ->selectRaw('(((qteEntree) * (puEntree))/tvente_detail_entree.taux) as PTEntreeFC')
         ->selectRaw('(qteBase*puBase) as PTBase')
@@ -149,7 +193,7 @@ class tvente_detail_entreeController extends Controller
             # code...
             $query = $this->Gquery($request);
 
-            $data ->where('noms', 'like', '%'.$query.'%')          
+            $data ->where('tvente_produit.designation', 'like', '%'.$query.'%')          
             ->orderBy("tvente_detail_entree.created_at", "desc");
             return $this->apiData($data->paginate(10));         
 
@@ -164,7 +208,10 @@ class tvente_detail_entreeController extends Controller
 
         ->join('tvente_entete_entree','tvente_entete_entree.id','=','tvente_detail_entree.refEnteteEntree')
         ->join('tvente_module','tvente_module.id','=','tvente_entete_entree.module_id')
-        ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_entree.refFournisseur')
+
+        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+        ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+        ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
 
         ->join('tvente_services','tvente_services.id','=','tvente_entete_entree.refService')
         ->join('tvente_produit','tvente_produit.id','=','tvente_detail_entree.refProduit')
@@ -184,8 +231,8 @@ class tvente_detail_entreeController extends Controller
         'tvente_detail_entree.refUser','tvente_detail_entree.created_at','tvente_detail_entree.devise',
         'tvente_detail_entree.taux'
 
-        ,'noms','contact','mail','adresse','tvente_entete_entree.code','tvente_entete_entree.refFournisseur',
-        'tvente_entete_entree.refRecquisition','tvente_entete_entree.module_id',
+        ,'tvente_entete_entree.code','tvente_entete_entree.refFournisseur',
+        'tvente_entete_entree.refRecquisition','tvente_entete_entree.module_id','dateEntree',
         'tvente_entete_entree.libelle','transporteur','niveau1','niveaumax',"tvente_module.nom_module"
 
         ,'nom_service'
@@ -201,7 +248,26 @@ class tvente_detail_entreeController extends Controller
         'compteproduit.numero_ssouscompte as numero_ssouscompteProduit'
         ,'comptestockage.refSousCompte as refSousCompteStockage','comptestockage.nom_ssouscompte as nom_ssouscompteStockage',
         'comptestockage.numero_ssouscompte as numero_ssouscompteStockage' 
-        )
+        
+        
+        ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
+        'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
+        'dateDebutEssaie','dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2',
+        'TempsPause','nbrConge','nbrCongeLettre','nomOffice','postnomOffice','qualifieOffice',
+        'codeAgent','directeur','numCNSS','numImpot','numcpteBanque','BanqueAgant','autresDetail',
+        'conge',"tperso_affectation_agent.author","matricule_agent","nummaison_agent",
+        "noms_agent as noms","sexe_agent","datenaissance_agent","lieunaissnce_agent",
+        "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent as contact",
+        "mail_agent as mail","grade_agent","fonction_agent","specialite_agent","Categorie_agent",
+        "niveauEtude_agent","anneeFinEtude_agent","Ecole_agent",
+        "tagent.photo as photo_agent","tagent.slug as slug_agent",'fammiliale','logement',
+        'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+        'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+         'param_secteur_id')
+        ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')   
+        ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante')
+        ->selectRaw('DATE_SUB(dateFin, INTERVAL 1 DAY) as dateFin')
+        
         ->selectRaw('((qteEntree) * (puEntree)) as PTEntree')
         ->selectRaw('(((qteEntree) * (puEntree))/tvente_detail_entree.taux) as PTEntreeFC')
         ->selectRaw('(qteBase*puBase) as PTBase')
@@ -224,7 +290,10 @@ class tvente_detail_entreeController extends Controller
 
         ->join('tvente_entete_entree','tvente_entete_entree.id','=','tvente_detail_entree.refEnteteEntree')
         ->join('tvente_module','tvente_module.id','=','tvente_entete_entree.module_id')
-        ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_entree.refFournisseur')
+
+        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+        ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+        ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
 
         ->join('tvente_services','tvente_services.id','=','tvente_entete_entree.refService')
         ->join('tvente_produit','tvente_produit.id','=','tvente_detail_entree.refProduit')
@@ -244,7 +313,7 @@ class tvente_detail_entreeController extends Controller
         'tvente_detail_entree.refUser','tvente_detail_entree.created_at','tvente_detail_entree.devise',
         'tvente_detail_entree.taux'
 
-        ,'noms','contact','mail','adresse','tvente_entete_entree.code','tvente_entete_entree.refFournisseur',
+        ,'tvente_entete_entree.code','tvente_entete_entree.refFournisseur',
         'tvente_entete_entree.refRecquisition','tvente_entete_entree.module_id','dateEntree',
         'tvente_entete_entree.libelle','transporteur','niveau1','niveaumax',"tvente_module.nom_module"
 
@@ -261,7 +330,26 @@ class tvente_detail_entreeController extends Controller
         'compteproduit.numero_ssouscompte as numero_ssouscompteProduit'
         ,'comptestockage.refSousCompte as refSousCompteStockage','comptestockage.nom_ssouscompte as nom_ssouscompteStockage',
         'comptestockage.numero_ssouscompte as numero_ssouscompteStockage' 
-        )
+        
+        
+        ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
+        'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
+        'dateDebutEssaie','dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2',
+        'TempsPause','nbrConge','nbrCongeLettre','nomOffice','postnomOffice','qualifieOffice',
+        'codeAgent','directeur','numCNSS','numImpot','numcpteBanque','BanqueAgant','autresDetail',
+        'conge',"tperso_affectation_agent.author","matricule_agent","nummaison_agent",
+        "noms_agent as noms","sexe_agent","datenaissance_agent","lieunaissnce_agent",
+        "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent as contact",
+        "mail_agent as mail","grade_agent","fonction_agent","specialite_agent","Categorie_agent",
+        "niveauEtude_agent","anneeFinEtude_agent","Ecole_agent",
+        "tagent.photo as photo_agent","tagent.slug as slug_agent",'fammiliale','logement',
+        'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+        'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+         'param_secteur_id')
+        ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')   
+        ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante')
+        ->selectRaw('DATE_SUB(dateFin, INTERVAL 1 DAY) as dateFin')
+        
         ->selectRaw('((qteEntree) * (puEntree)) as PTEntree')
         ->selectRaw('(((qteEntree) * (puEntree))/tvente_detail_entree.taux) as PTEntreeFC')
         ->selectRaw('(qteBase*puBase) as PTBase')
@@ -749,6 +837,8 @@ class tvente_detail_entreeController extends Controller
         $montantreduction=0;
         $montanttva=0;
         $idStockService=0;
+        $qteEntree = 0;
+        $qteBase = 0;
 
         $deleteds = DB::table('tvente_detail_entree')->Where('id',$id)->first(); 
         if ($deleteds) {
@@ -759,8 +849,10 @@ class tvente_detail_entreeController extends Controller
             $montantreduction = $deleteds->montantreduction;
             $montanttva = $deleteds->montanttva;
             $idStockService = $deleteds->idStockService;
+            $qteBase = $deleteds->qteBase;
         }
 
+        $qteEntree = floatval($qte) * floatval($qteBase);
         $refService=0;
 
         $idCommande=0;
@@ -798,7 +890,7 @@ class tvente_detail_entreeController extends Controller
 
         $data2 = DB::update(
             'update tvente_stock_service set qte = qte - :qteEntree where refProduit = :refProduit and refService = :refService',
-            ['qteEntree' => $qte,'refProduit' => $idProduit,'refService' => $refService]
+            ['qteEntree' => $qteEntree,'refProduit' => $idProduit,'refService' => $refService]
         );
 
         $data3 = DB::update(

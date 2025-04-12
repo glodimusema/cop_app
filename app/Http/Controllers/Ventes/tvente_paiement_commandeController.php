@@ -37,9 +37,11 @@ class tvente_paiement_commandeController extends Controller
         ->join('tvente_entete_paiecommande','tvente_entete_paiecommande.id','=','tvente_paiement_commande.refEntetepaie')
         ->join('tvente_module','tvente_module.id','=','tvente_entete_requisition.module_id')
         ->join('tvente_services','tvente_services.id','=','tvente_entete_requisition.refService')
-        ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_requisition.refFournisseur')
-        ->join('tvente_categorie_fournisseur','tvente_categorie_fournisseur.id','=','tvente_fournisseur.refCategorieFss')
-        ->join('tfin_ssouscompte as comptefss','comptefss.id','=','tvente_categorie_fournisseur.compte_fss_bl')
+        
+        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+        ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+        ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
+
         ->join('tconf_banque' , 'tconf_banque.id','=','tvente_paiement_commande.refBanque')
         ->join('tfin_ssouscompte as compteBanque','compteBanque.id','=','tconf_banque.refSscompte')
 
@@ -52,10 +54,7 @@ class tvente_paiement_commandeController extends Controller
 
         'refFournisseur','tvente_entete_paiecommande.module_id as module_idPaie',
         'tvente_entete_paiecommande.refService as refServicePaie','dateCmd','libelle','niveau1','niveaumax',
-        'montant','paie',"tvente_fournisseur.noms","tvente_fournisseur.contact","tvente_fournisseur.mail",
-        "tvente_fournisseur.adresse",'refCategorieFss',"tvente_categorie_fournisseur.nom_categoriefss",
-        "compte_fss_bl",'comptefss.refSousCompte as refSousCompteFss',
-        'comptefss.nom_ssouscompte as nom_ssouscompteFss','comptefss.numero_ssouscompte as numero_ssouscompteFss',
+        'montant','paie',
 
         'date_entete_paie',
         
@@ -63,14 +62,31 @@ class tvente_paiement_commandeController extends Controller
         "tconf_banque.refSscompte as refSscompteBanque"
         ,'compteBanque.refSousCompte as refSousCompteBanque',
         'compteBanque.nom_ssouscompte as nom_ssouscompteBanque',
-        'compteBanque.numero_ssouscompte as numero_ssouscompteBanque')
+        'compteBanque.numero_ssouscompte as numero_ssouscompteBanque'
+        
+        ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
+        'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
+        'dateDebutEssaie','dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2',
+        'TempsPause','nbrConge','nbrCongeLettre','nomOffice','postnomOffice','qualifieOffice',
+        'codeAgent','directeur','numCNSS','numImpot','numcpteBanque','BanqueAgant','autresDetail',
+        'conge',"tperso_affectation_agent.author","matricule_agent","nummaison_agent",
+        "noms_agent as noms","sexe_agent","datenaissance_agent","lieunaissnce_agent",
+        "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent as contact",
+        "mail_agent as mail","grade_agent","fonction_agent","specialite_agent","Categorie_agent",
+        "niveauEtude_agent","anneeFinEtude_agent","Ecole_agent",
+        "tagent.photo as photo_agent","tagent.slug as slug_agent",'fammiliale','logement',
+        'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+        'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+         'param_secteur_id'
+        
+        )
         ->selectRaw('((montant_paie)/tvente_paiement_commande.taux) as montant_paieFC')
         ->selectRaw('CONCAT("R",YEAR(date_paie),"",MONTH(date_paie),"00",tvente_paiement_commande.id) as codeRecu');
         if (!is_null($request->get('query'))) {
             # code...
             $query = $this->Gquery($request);
 
-            $data->where('noms', 'like', '%'.$query.'%')          
+            $data->where('noms_agent', 'like', '%'.$query.'%')          
             ->orderBy("tvente_paiement_commande.created_at", "asc");
 
             return $this->apiData($data->paginate(10));
@@ -91,9 +107,11 @@ class tvente_paiement_commandeController extends Controller
         ->join('tvente_entete_paiecommande','tvente_entete_paiecommande.id','=','tvente_paiement_commande.refEntetepaie')
         ->join('tvente_module','tvente_module.id','=','tvente_entete_requisition.module_id')
         ->join('tvente_services','tvente_services.id','=','tvente_entete_requisition.refService')
-        ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_requisition.refFournisseur')
-        ->join('tvente_categorie_fournisseur','tvente_categorie_fournisseur.id','=','tvente_fournisseur.refCategorieFss')
-        ->join('tfin_ssouscompte as comptefss','comptefss.id','=','tvente_categorie_fournisseur.compte_fss_bl')
+        
+        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+        ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+        ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
+
         ->join('tconf_banque' , 'tconf_banque.id','=','tvente_paiement_commande.refBanque')
         ->join('tfin_ssouscompte as compteBanque','compteBanque.id','=','tconf_banque.refSscompte')
 
@@ -106,10 +124,7 @@ class tvente_paiement_commandeController extends Controller
 
         'refFournisseur','tvente_entete_paiecommande.module_id as module_idPaie',
         'tvente_entete_paiecommande.refService as refServicePaie','dateCmd','libelle','niveau1','niveaumax',
-        'montant','paie',"tvente_fournisseur.noms","tvente_fournisseur.contact","tvente_fournisseur.mail",
-        "tvente_fournisseur.adresse",'refCategorieFss',"tvente_categorie_fournisseur.nom_categoriefss",
-        "compte_fss_bl",'comptefss.refSousCompte as refSousCompteFss',
-        'comptefss.nom_ssouscompte as nom_ssouscompteFss','comptefss.numero_ssouscompte as numero_ssouscompteFss',
+        'montant','paie',
 
         'date_entete_paie',
         
@@ -117,7 +132,23 @@ class tvente_paiement_commandeController extends Controller
         "tconf_banque.refSscompte as refSscompteBanque"
         ,'compteBanque.refSousCompte as refSousCompteBanque',
         'compteBanque.nom_ssouscompte as nom_ssouscompteBanque',
-        'compteBanque.numero_ssouscompte as numero_ssouscompteBanque')
+        'compteBanque.numero_ssouscompte as numero_ssouscompteBanque'
+        
+        ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
+        'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
+        'dateDebutEssaie','dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2',
+        'TempsPause','nbrConge','nbrCongeLettre','nomOffice','postnomOffice','qualifieOffice',
+        'codeAgent','directeur','numCNSS','numImpot','numcpteBanque','BanqueAgant','autresDetail',
+        'conge',"tperso_affectation_agent.author","matricule_agent","nummaison_agent",
+        "noms_agent as noms","sexe_agent","datenaissance_agent","lieunaissnce_agent",
+        "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent as contact",
+        "mail_agent as mail","grade_agent","fonction_agent","specialite_agent","Categorie_agent",
+        "niveauEtude_agent","anneeFinEtude_agent","Ecole_agent",
+        "tagent.photo as photo_agent","tagent.slug as slug_agent",'fammiliale','logement',
+        'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+        'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+         'param_secteur_id'        
+        )
         ->selectRaw('((montant_paie)/tvente_paiement_commande.taux) as montant_paieFC')
         ->selectRaw('CONCAT("R",YEAR(date_paie),"",MONTH(date_paie),"00",tvente_paiement_commande.id) as codeRecu')
         ->Where('refEntetepaie',$refEntete);
@@ -125,7 +156,7 @@ class tvente_paiement_commandeController extends Controller
             # code...
             $query = $this->Gquery($request);
 
-            $data ->where('noms', 'like', '%'.$query.'%')          
+            $data ->where('noms_agent', 'like', '%'.$query.'%')          
             ->orderBy("tvente_paiement_commande.created_at", "desc");
             return $this->apiData($data->paginate(10));         
 
@@ -142,9 +173,11 @@ class tvente_paiement_commandeController extends Controller
         ->join('tvente_entete_paiecommande','tvente_entete_paiecommande.id','=','tvente_paiement_commande.refEntetepaie')
         ->join('tvente_module','tvente_module.id','=','tvente_entete_requisition.module_id')
         ->join('tvente_services','tvente_services.id','=','tvente_entete_requisition.refService')
-        ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_requisition.refFournisseur')
-        ->join('tvente_categorie_fournisseur','tvente_categorie_fournisseur.id','=','tvente_fournisseur.refCategorieFss')
-        ->join('tfin_ssouscompte as comptefss','comptefss.id','=','tvente_categorie_fournisseur.compte_fss_bl')
+        
+        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+        ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+        ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
+
         ->join('tconf_banque' , 'tconf_banque.id','=','tvente_paiement_commande.refBanque')
         ->join('tfin_ssouscompte as compteBanque','compteBanque.id','=','tconf_banque.refSscompte')
 
@@ -157,10 +190,7 @@ class tvente_paiement_commandeController extends Controller
 
         'refFournisseur','tvente_entete_paiecommande.module_id as module_idPaie',
         'tvente_entete_paiecommande.refService as refServicePaie','dateCmd','libelle','niveau1','niveaumax',
-        'montant','paie',"tvente_fournisseur.noms","tvente_fournisseur.contact","tvente_fournisseur.mail",
-        "tvente_fournisseur.adresse",'refCategorieFss',"tvente_categorie_fournisseur.nom_categoriefss",
-        "compte_fss_bl",'comptefss.refSousCompte as refSousCompteFss',
-        'comptefss.nom_ssouscompte as nom_ssouscompteFss','comptefss.numero_ssouscompte as numero_ssouscompteFss',
+        'montant','paie',
 
         'date_entete_paie',
         
@@ -168,7 +198,23 @@ class tvente_paiement_commandeController extends Controller
         "tconf_banque.refSscompte as refSscompteBanque"
         ,'compteBanque.refSousCompte as refSousCompteBanque',
         'compteBanque.nom_ssouscompte as nom_ssouscompteBanque',
-        'compteBanque.numero_ssouscompte as numero_ssouscompteBanque')
+        'compteBanque.numero_ssouscompte as numero_ssouscompteBanque'
+        
+        ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
+        'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
+        'dateDebutEssaie','dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2',
+        'TempsPause','nbrConge','nbrCongeLettre','nomOffice','postnomOffice','qualifieOffice',
+        'codeAgent','directeur','numCNSS','numImpot','numcpteBanque','BanqueAgant','autresDetail',
+        'conge',"tperso_affectation_agent.author","matricule_agent","nummaison_agent",
+        "noms_agent as noms","sexe_agent","datenaissance_agent","lieunaissnce_agent",
+        "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent as contact",
+        "mail_agent as mail","grade_agent","fonction_agent","specialite_agent","Categorie_agent",
+        "niveauEtude_agent","anneeFinEtude_agent","Ecole_agent",
+        "tagent.photo as photo_agent","tagent.slug as slug_agent",'fammiliale','logement',
+        'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+        'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+         'param_secteur_id'        
+        )
         ->selectRaw('((montant_paie)/tvente_paiement_commande.taux) as montant_paieFC')
         ->selectRaw('CONCAT("R",YEAR(date_paie),"",MONTH(date_paie),"00",tvente_paiement_commande.id) as codeRecu')
         ->Where('refCommande',$refEntete);
@@ -176,7 +222,7 @@ class tvente_paiement_commandeController extends Controller
             # code...
             $query = $this->Gquery($request);
 
-            $data ->where('noms', 'like', '%'.$query.'%')          
+            $data ->where('noms_agent', 'like', '%'.$query.'%')          
             ->orderBy("tvente_paiement_commande.created_at", "desc");
             return $this->apiData($data->paginate(10));         
 
@@ -192,9 +238,11 @@ class tvente_paiement_commandeController extends Controller
         ->join('tvente_entete_paiecommande','tvente_entete_paiecommande.id','=','tvente_paiement_commande.refEntetepaie')
         ->join('tvente_module','tvente_module.id','=','tvente_entete_requisition.module_id')
         ->join('tvente_services','tvente_services.id','=','tvente_entete_requisition.refService')
-        ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_requisition.refFournisseur')
-        ->join('tvente_categorie_fournisseur','tvente_categorie_fournisseur.id','=','tvente_fournisseur.refCategorieFss')
-        ->join('tfin_ssouscompte as comptefss','comptefss.id','=','tvente_categorie_fournisseur.compte_fss_bl')
+        
+        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+        ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+        ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
+
         ->join('tconf_banque' , 'tconf_banque.id','=','tvente_paiement_commande.refBanque')
         ->join('tfin_ssouscompte as compteBanque','compteBanque.id','=','tconf_banque.refSscompte')
 
@@ -207,10 +255,7 @@ class tvente_paiement_commandeController extends Controller
 
         'refFournisseur','tvente_entete_paiecommande.module_id as module_idPaie',
         'tvente_entete_paiecommande.refService as refServicePaie','dateCmd','libelle','niveau1','niveaumax',
-        'montant','paie',"tvente_fournisseur.noms","tvente_fournisseur.contact","tvente_fournisseur.mail",
-        "tvente_fournisseur.adresse",'refCategorieFss',"tvente_categorie_fournisseur.nom_categoriefss",
-        "compte_fss_bl",'comptefss.refSousCompte as refSousCompteFss',
-        'comptefss.nom_ssouscompte as nom_ssouscompteFss','comptefss.numero_ssouscompte as numero_ssouscompteFss',
+        'montant','paie',
 
         'date_entete_paie',
         
@@ -218,7 +263,23 @@ class tvente_paiement_commandeController extends Controller
         "tconf_banque.refSscompte as refSscompteBanque"
         ,'compteBanque.refSousCompte as refSousCompteBanque',
         'compteBanque.nom_ssouscompte as nom_ssouscompteBanque',
-        'compteBanque.numero_ssouscompte as numero_ssouscompteBanque')
+        'compteBanque.numero_ssouscompte as numero_ssouscompteBanque'
+        
+        ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
+        'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
+        'dateDebutEssaie','dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2',
+        'TempsPause','nbrConge','nbrCongeLettre','nomOffice','postnomOffice','qualifieOffice',
+        'codeAgent','directeur','numCNSS','numImpot','numcpteBanque','BanqueAgant','autresDetail',
+        'conge',"tperso_affectation_agent.author","matricule_agent","nummaison_agent",
+        "noms_agent as noms","sexe_agent","datenaissance_agent","lieunaissnce_agent",
+        "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent as contact",
+        "mail_agent as mail","grade_agent","fonction_agent","specialite_agent","Categorie_agent",
+        "niveauEtude_agent","anneeFinEtude_agent","Ecole_agent",
+        "tagent.photo as photo_agent","tagent.slug as slug_agent",'fammiliale','logement',
+        'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+        'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+         'param_secteur_id'        
+        )
         ->selectRaw('((montant_paie)/tvente_paiement_commande.taux) as montant_paieFC')
         ->selectRaw('CONCAT("R",YEAR(date_paie),"",MONTH(date_paie),"00",tvente_paiement_commande.id) as codeRecu')
         ->where('tvente_paiement_commande.id', $id)

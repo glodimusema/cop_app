@@ -16,7 +16,7 @@ class CreateTventeEnteteRequisitionTable extends Migration
         Schema::create('tvente_entete_requisition', function (Blueprint $table) {
             $table->id();
             $table->string('code',225);
-            $table->foreignId('refFournisseur')->constrained('tvente_fournisseur')->restrictOnUpdate()->restrictOnDelete();
+            $table->foreignId('refFournisseur')->constrained('tperso_affectation_agent')->restrictOnUpdate()->restrictOnDelete();
             $table->foreignId('module_id')->constrained('tvente_module')->restrictOnUpdate()->restrictOnDelete();
             $table->foreignId('refService')->constrained('tvente_services')->restrictOnUpdate()->restrictOnDelete();
             $table->date('dateCmd');

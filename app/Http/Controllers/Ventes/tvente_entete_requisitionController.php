@@ -34,28 +34,43 @@ class tvente_entete_requisitionController extends Controller
         $data = DB::table('tvente_entete_requisition')
         ->join('tvente_module','tvente_module.id','=','tvente_entete_requisition.module_id')
         ->join('tvente_services','tvente_services.id','=','tvente_entete_requisition.refService')
-        ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_requisition.refFournisseur')
-        ->join('tvente_categorie_fournisseur','tvente_categorie_fournisseur.id','=','tvente_fournisseur.refCategorieFss')
-        ->join('tfin_ssouscompte','tfin_ssouscompte.id','=','tvente_categorie_fournisseur.compte_fss_bl')
-        ->join('tfin_souscompte','tfin_souscompte.id','=','tfin_ssouscompte.refSousCompte')
-        ->join('tfin_compte','tfin_compte.id','=','tfin_souscompte.refCompte')
-        ->join('tfin_classe','tfin_classe.id','=','tfin_compte.refClasse')
-        ->join('tfin_typecompte','tfin_typecompte.id','=','tfin_compte.refTypecompte')
-        ->join('tfin_typeposition','tfin_typeposition.id','=','tfin_compte.refPosition')
+       
+        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+        ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+        ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
+
         ->select('tvente_entete_requisition.id','tvente_entete_requisition.code','refFournisseur','module_id',
         'refService','dateCmd','libelle','cloture',
         'niveau1','niveaumax','tvente_entete_requisition.active','montant','paie','tvente_entete_requisition.author','tvente_entete_requisition.refUser',
-        'tvente_entete_requisition.created_at',"tvente_fournisseur.noms","tvente_fournisseur.contact",
-        "tvente_fournisseur.mail","tvente_fournisseur.adresse",'refCategorieFss', "tvente_categorie_fournisseur.nom_categoriefss",
+        'tvente_entete_requisition.created_at', "tvente_categorie_fournisseur.nom_categoriefss",
         "compte_fss_bl",'refSousCompte','nom_ssouscompte','numero_ssouscompte','nom_souscompte','numero_souscompte','refCompte','nom_compte',
         'numero_compte','refClasse','refTypecompte','refPosition','nom_classe','numero_classe','nom_typeposition',"nom_typecompte"
-        ,"tvente_module.nom_module","tvente_services.nom_service")
+        ,"tvente_module.nom_module","tvente_services.nom_service"
+        
+        ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
+        'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
+        'dateDebutEssaie','dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2',
+        'TempsPause','nbrConge','nbrCongeLettre','nomOffice','postnomOffice','qualifieOffice',
+        'codeAgent','directeur','numCNSS','numImpot','numcpteBanque','BanqueAgant','autresDetail',
+        'conge',"tperso_affectation_agent.author","matricule_agent","nummaison_agent",
+        "noms_agent as noms","sexe_agent","datenaissance_agent","lieunaissnce_agent",
+        "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent as contact",
+        "mail_agent as mail","grade_agent","fonction_agent","specialite_agent","Categorie_agent",
+        "niveauEtude_agent","anneeFinEtude_agent","Ecole_agent",
+        "tagent.photo as photo_agent","tagent.slug as slug_agent",'fammiliale','logement',
+        'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+        'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+         'param_secteur_id')
+        ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')   
+        ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante')
+        ->selectRaw('DATE_SUB(dateFin, INTERVAL 1 DAY) as dateFin')
+
         ->selectRaw('(montant - paie) as Reste');
         if (!is_null($request->get('query'))) {
             # code...
             $query = $this->Gquery($request);
             //dateCmd
-            $data->where('noms', 'like', '%'.$query.'%')          
+            $data->where('noms_agent', 'like', '%'.$query.'%')          
             ->orderBy("tvente_entete_requisition.dateCmd", "desc");
 
             return $this->apiData($data->paginate(100));
@@ -80,25 +95,39 @@ class tvente_entete_requisitionController extends Controller
                 $data = DB::table('tvente_entete_requisition')
                 ->join('tvente_module','tvente_module.id','=','tvente_entete_requisition.module_id')
                 ->join('tvente_services','tvente_services.id','=','tvente_entete_requisition.refService')
-                ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_requisition.refFournisseur')
-                ->join('tvente_categorie_fournisseur','tvente_categorie_fournisseur.id','=','tvente_fournisseur.refCategorieFss')
-                ->join('tfin_ssouscompte','tfin_ssouscompte.id','=','tvente_categorie_fournisseur.compte_fss_bl')
-                ->join('tfin_souscompte','tfin_souscompte.id','=','tfin_ssouscompte.refSousCompte')
-                ->join('tfin_compte','tfin_compte.id','=','tfin_souscompte.refCompte')
-                ->join('tfin_classe','tfin_classe.id','=','tfin_compte.refClasse')
-                ->join('tfin_typecompte','tfin_typecompte.id','=','tfin_compte.refTypecompte')
-                ->join('tfin_typeposition','tfin_typeposition.id','=','tfin_compte.refPosition')
+               
+                ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+                ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+                ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
+        
                 ->select('tvente_entete_requisition.id','tvente_entete_requisition.code','refFournisseur','module_id',
                 'refService','dateCmd','libelle','cloture',
                 'niveau1','niveaumax','tvente_entete_requisition.active','montant','paie','tvente_entete_requisition.author','tvente_entete_requisition.refUser',
-                'tvente_entete_requisition.created_at',"tvente_fournisseur.noms","tvente_fournisseur.contact",
-                "tvente_fournisseur.mail","tvente_fournisseur.adresse",'refCategorieFss', "tvente_categorie_fournisseur.nom_categoriefss",
+                'tvente_entete_requisition.created_at', "tvente_categorie_fournisseur.nom_categoriefss",
                 "compte_fss_bl",'refSousCompte','nom_ssouscompte','numero_ssouscompte','nom_souscompte','numero_souscompte','refCompte','nom_compte',
                 'numero_compte','refClasse','refTypecompte','refPosition','nom_classe','numero_classe','nom_typeposition',"nom_typecompte"
-                ,"tvente_module.nom_module","tvente_services.nom_service")
+                ,"tvente_module.nom_module","tvente_services.nom_service"
+                
+                ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
+                'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
+                'dateDebutEssaie','dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2',
+                'TempsPause','nbrConge','nbrCongeLettre','nomOffice','postnomOffice','qualifieOffice',
+                'codeAgent','directeur','numCNSS','numImpot','numcpteBanque','BanqueAgant','autresDetail',
+                'conge',"tperso_affectation_agent.author","matricule_agent","nummaison_agent",
+                "noms_agent as noms","sexe_agent","datenaissance_agent","lieunaissnce_agent",
+                "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent as contact",
+                "mail_agent as mail","grade_agent","fonction_agent","specialite_agent","Categorie_agent",
+                "niveauEtude_agent","anneeFinEtude_agent","Ecole_agent",
+                "tagent.photo as photo_agent","tagent.slug as slug_agent",'fammiliale','logement',
+                'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+                'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+                 'param_secteur_id')
+                ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')   
+                ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante')
+                ->selectRaw('DATE_SUB(dateFin, INTERVAL 1 DAY) as dateFin')
                 ->selectRaw('(montant - paie) as Reste')   
                 ->where([
-                    ['noms', 'like', '%'.$query.'%'],
+                    ['noms_agent', 'like', '%'.$query.'%'],
                     ['tvente_entete_requisition.dateCmd','>=', $date1],
                     ['tvente_entete_requisition.dateCmd','<=', $date2],
                 ])               
@@ -110,22 +139,36 @@ class tvente_entete_requisitionController extends Controller
                 $data = DB::table('tvente_entete_requisition')
                 ->join('tvente_module','tvente_module.id','=','tvente_entete_requisition.module_id')
                 ->join('tvente_services','tvente_services.id','=','tvente_entete_requisition.refService')
-                ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_requisition.refFournisseur')
-                ->join('tvente_categorie_fournisseur','tvente_categorie_fournisseur.id','=','tvente_fournisseur.refCategorieFss')
-                ->join('tfin_ssouscompte','tfin_ssouscompte.id','=','tvente_categorie_fournisseur.compte_fss_bl')
-                ->join('tfin_souscompte','tfin_souscompte.id','=','tfin_ssouscompte.refSousCompte')
-                ->join('tfin_compte','tfin_compte.id','=','tfin_souscompte.refCompte')
-                ->join('tfin_classe','tfin_classe.id','=','tfin_compte.refClasse')
-                ->join('tfin_typecompte','tfin_typecompte.id','=','tfin_compte.refTypecompte')
-                ->join('tfin_typeposition','tfin_typeposition.id','=','tfin_compte.refPosition')
+               
+                ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+                ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+                ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
+        
                 ->select('tvente_entete_requisition.id','tvente_entete_requisition.code','refFournisseur','module_id',
                 'refService','dateCmd','libelle','cloture',
                 'niveau1','niveaumax','tvente_entete_requisition.active','montant','paie','tvente_entete_requisition.author','tvente_entete_requisition.refUser',
-                'tvente_entete_requisition.created_at',"tvente_fournisseur.noms","tvente_fournisseur.contact",
-                "tvente_fournisseur.mail","tvente_fournisseur.adresse",'refCategorieFss', "tvente_categorie_fournisseur.nom_categoriefss",
+                'tvente_entete_requisition.created_at', "tvente_categorie_fournisseur.nom_categoriefss",
                 "compte_fss_bl",'refSousCompte','nom_ssouscompte','numero_ssouscompte','nom_souscompte','numero_souscompte','refCompte','nom_compte',
                 'numero_compte','refClasse','refTypecompte','refPosition','nom_classe','numero_classe','nom_typeposition',"nom_typecompte"
-                ,"tvente_module.nom_module","tvente_services.nom_service")
+                ,"tvente_module.nom_module","tvente_services.nom_service"
+                
+                ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
+                'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
+                'dateDebutEssaie','dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2',
+                'TempsPause','nbrConge','nbrCongeLettre','nomOffice','postnomOffice','qualifieOffice',
+                'codeAgent','directeur','numCNSS','numImpot','numcpteBanque','BanqueAgant','autresDetail',
+                'conge',"tperso_affectation_agent.author","matricule_agent","nummaison_agent",
+                "noms_agent as noms","sexe_agent","datenaissance_agent","lieunaissnce_agent",
+                "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent as contact",
+                "mail_agent as mail","grade_agent","fonction_agent","specialite_agent","Categorie_agent",
+                "niveauEtude_agent","anneeFinEtude_agent","Ecole_agent",
+                "tagent.photo as photo_agent","tagent.slug as slug_agent",'fammiliale','logement',
+                'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+                'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+                 'param_secteur_id')
+                ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')   
+                ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante')
+                ->selectRaw('DATE_SUB(dateFin, INTERVAL 1 DAY) as dateFin')
                 ->selectRaw('(montant - paie) as Reste')  
                 ->where([
                     ['tvente_entete_requisition.dateCmd','>=', $date1],
@@ -158,25 +201,39 @@ class tvente_entete_requisitionController extends Controller
                 $data = DB::table('tvente_entete_requisition')
                 ->join('tvente_module','tvente_module.id','=','tvente_entete_requisition.module_id')
                 ->join('tvente_services','tvente_services.id','=','tvente_entete_requisition.refService')
-                ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_requisition.refFournisseur')
-                ->join('tvente_categorie_fournisseur','tvente_categorie_fournisseur.id','=','tvente_fournisseur.refCategorieFss')
-                ->join('tfin_ssouscompte','tfin_ssouscompte.id','=','tvente_categorie_fournisseur.compte_fss_bl')
-                ->join('tfin_souscompte','tfin_souscompte.id','=','tfin_ssouscompte.refSousCompte')
-                ->join('tfin_compte','tfin_compte.id','=','tfin_souscompte.refCompte')
-                ->join('tfin_classe','tfin_classe.id','=','tfin_compte.refClasse')
-                ->join('tfin_typecompte','tfin_typecompte.id','=','tfin_compte.refTypecompte')
-                ->join('tfin_typeposition','tfin_typeposition.id','=','tfin_compte.refPosition')
+               
+                ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+                ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+                ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
+        
                 ->select('tvente_entete_requisition.id','tvente_entete_requisition.code','refFournisseur','module_id',
                 'refService','dateCmd','libelle','cloture',
                 'niveau1','niveaumax','tvente_entete_requisition.active','montant','paie','tvente_entete_requisition.author','tvente_entete_requisition.refUser',
-                'tvente_entete_requisition.created_at',"tvente_fournisseur.noms","tvente_fournisseur.contact",
-                "tvente_fournisseur.mail","tvente_fournisseur.adresse",'refCategorieFss', "tvente_categorie_fournisseur.nom_categoriefss",
+                'tvente_entete_requisition.created_at', "tvente_categorie_fournisseur.nom_categoriefss",
                 "compte_fss_bl",'refSousCompte','nom_ssouscompte','numero_ssouscompte','nom_souscompte','numero_souscompte','refCompte','nom_compte',
                 'numero_compte','refClasse','refTypecompte','refPosition','nom_classe','numero_classe','nom_typeposition',"nom_typecompte"
-                ,"tvente_module.nom_module","tvente_services.nom_service")
+                ,"tvente_module.nom_module","tvente_services.nom_service"
+                
+                ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
+                'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
+                'dateDebutEssaie','dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2',
+                'TempsPause','nbrConge','nbrCongeLettre','nomOffice','postnomOffice','qualifieOffice',
+                'codeAgent','directeur','numCNSS','numImpot','numcpteBanque','BanqueAgant','autresDetail',
+                'conge',"tperso_affectation_agent.author","matricule_agent","nummaison_agent",
+                "noms_agent as noms","sexe_agent","datenaissance_agent","lieunaissnce_agent",
+                "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent as contact",
+                "mail_agent as mail","grade_agent","fonction_agent","specialite_agent","Categorie_agent",
+                "niveauEtude_agent","anneeFinEtude_agent","Ecole_agent",
+                "tagent.photo as photo_agent","tagent.slug as slug_agent",'fammiliale','logement',
+                'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+                'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+                 'param_secteur_id')
+                ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')   
+                ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante')
+                ->selectRaw('DATE_SUB(dateFin, INTERVAL 1 DAY) as dateFin')
                 ->selectRaw('(montant - paie) as Reste')   
                 ->where([
-                    ['noms', 'like', '%'.$query.'%'],
+                    ['noms_agent', 'like', '%'.$query.'%'],
                     ['tvente_entete_requisition.dateCmd','>=', $date1],
                     ['tvente_entete_requisition.dateCmd','<=', $date2],
                     ['tvente_entete_requisition.refFournisseur','=', $refFournisseur],
@@ -189,22 +246,36 @@ class tvente_entete_requisitionController extends Controller
                 $data = DB::table('tvente_entete_requisition')
                 ->join('tvente_module','tvente_module.id','=','tvente_entete_requisition.module_id')
                 ->join('tvente_services','tvente_services.id','=','tvente_entete_requisition.refService')
-                ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_requisition.refFournisseur')
-                ->join('tvente_categorie_fournisseur','tvente_categorie_fournisseur.id','=','tvente_fournisseur.refCategorieFss')
-                ->join('tfin_ssouscompte','tfin_ssouscompte.id','=','tvente_categorie_fournisseur.compte_fss_bl')
-                ->join('tfin_souscompte','tfin_souscompte.id','=','tfin_ssouscompte.refSousCompte')
-                ->join('tfin_compte','tfin_compte.id','=','tfin_souscompte.refCompte')
-                ->join('tfin_classe','tfin_classe.id','=','tfin_compte.refClasse')
-                ->join('tfin_typecompte','tfin_typecompte.id','=','tfin_compte.refTypecompte')
-                ->join('tfin_typeposition','tfin_typeposition.id','=','tfin_compte.refPosition')
+               
+                ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+                ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+                ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
+        
                 ->select('tvente_entete_requisition.id','tvente_entete_requisition.code','refFournisseur','module_id',
                 'refService','dateCmd','libelle','cloture',
                 'niveau1','niveaumax','tvente_entete_requisition.active','montant','paie','tvente_entete_requisition.author','tvente_entete_requisition.refUser',
-                'tvente_entete_requisition.created_at',"tvente_fournisseur.noms","tvente_fournisseur.contact",
-                "tvente_fournisseur.mail","tvente_fournisseur.adresse",'refCategorieFss', "tvente_categorie_fournisseur.nom_categoriefss",
+                'tvente_entete_requisition.created_at', "tvente_categorie_fournisseur.nom_categoriefss",
                 "compte_fss_bl",'refSousCompte','nom_ssouscompte','numero_ssouscompte','nom_souscompte','numero_souscompte','refCompte','nom_compte',
                 'numero_compte','refClasse','refTypecompte','refPosition','nom_classe','numero_classe','nom_typeposition',"nom_typecompte"
-                ,"tvente_module.nom_module","tvente_services.nom_service")
+                ,"tvente_module.nom_module","tvente_services.nom_service"
+                
+                ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
+                'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
+                'dateDebutEssaie','dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2',
+                'TempsPause','nbrConge','nbrCongeLettre','nomOffice','postnomOffice','qualifieOffice',
+                'codeAgent','directeur','numCNSS','numImpot','numcpteBanque','BanqueAgant','autresDetail',
+                'conge',"tperso_affectation_agent.author","matricule_agent","nummaison_agent",
+                "noms_agent as noms","sexe_agent","datenaissance_agent","lieunaissnce_agent",
+                "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent as contact",
+                "mail_agent as mail","grade_agent","fonction_agent","specialite_agent","Categorie_agent",
+                "niveauEtude_agent","anneeFinEtude_agent","Ecole_agent",
+                "tagent.photo as photo_agent","tagent.slug as slug_agent",'fammiliale','logement',
+                'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+                'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+                 'param_secteur_id')
+                ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')   
+                ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante')
+                ->selectRaw('DATE_SUB(dateFin, INTERVAL 1 DAY) as dateFin')
                 ->selectRaw('(montant - paie) as Reste')  
                 ->where([
                     ['tvente_entete_requisition.dateCmd','>=', $date1],
@@ -230,29 +301,43 @@ class tvente_entete_requisitionController extends Controller
         $data = DB::table('tvente_entete_requisition')
         ->join('tvente_module','tvente_module.id','=','tvente_entete_requisition.module_id')
         ->join('tvente_services','tvente_services.id','=','tvente_entete_requisition.refService')
-        ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_requisition.refFournisseur')
-        ->join('tvente_categorie_fournisseur','tvente_categorie_fournisseur.id','=','tvente_fournisseur.refCategorieFss')
-        ->join('tfin_ssouscompte','tfin_ssouscompte.id','=','tvente_categorie_fournisseur.compte_fss_bl')
-        ->join('tfin_souscompte','tfin_souscompte.id','=','tfin_ssouscompte.refSousCompte')
-        ->join('tfin_compte','tfin_compte.id','=','tfin_souscompte.refCompte')
-        ->join('tfin_classe','tfin_classe.id','=','tfin_compte.refClasse')
-        ->join('tfin_typecompte','tfin_typecompte.id','=','tfin_compte.refTypecompte')
-        ->join('tfin_typeposition','tfin_typeposition.id','=','tfin_compte.refPosition')
+       
+        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+        ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+        ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
+
         ->select('tvente_entete_requisition.id','tvente_entete_requisition.code','refFournisseur','module_id',
         'refService','dateCmd','libelle','cloture',
         'niveau1','niveaumax','tvente_entete_requisition.active','montant','paie','tvente_entete_requisition.author','tvente_entete_requisition.refUser',
-        'tvente_entete_requisition.created_at',"tvente_fournisseur.noms","tvente_fournisseur.contact",
-        "tvente_fournisseur.mail","tvente_fournisseur.adresse",'refCategorieFss', "tvente_categorie_fournisseur.nom_categoriefss",
+        'tvente_entete_requisition.created_at', "tvente_categorie_fournisseur.nom_categoriefss",
         "compte_fss_bl",'refSousCompte','nom_ssouscompte','numero_ssouscompte','nom_souscompte','numero_souscompte','refCompte','nom_compte',
         'numero_compte','refClasse','refTypecompte','refPosition','nom_classe','numero_classe','nom_typeposition',"nom_typecompte"
-        ,"tvente_module.nom_module","tvente_services.nom_service")
+        ,"tvente_module.nom_module","tvente_services.nom_service"
+        
+        ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
+        'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
+        'dateDebutEssaie','dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2',
+        'TempsPause','nbrConge','nbrCongeLettre','nomOffice','postnomOffice','qualifieOffice',
+        'codeAgent','directeur','numCNSS','numImpot','numcpteBanque','BanqueAgant','autresDetail',
+        'conge',"tperso_affectation_agent.author","matricule_agent","nummaison_agent",
+        "noms_agent as noms","sexe_agent","datenaissance_agent","lieunaissnce_agent",
+        "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent as contact",
+        "mail_agent as mail","grade_agent","fonction_agent","specialite_agent","Categorie_agent",
+        "niveauEtude_agent","anneeFinEtude_agent","Ecole_agent",
+        "tagent.photo as photo_agent","tagent.slug as slug_agent",'fammiliale','logement',
+        'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+        'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+         'param_secteur_id')
+        ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')   
+        ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante')
+        ->selectRaw('DATE_SUB(dateFin, INTERVAL 1 DAY) as dateFin')
         ->selectRaw('(montant - paie) as Reste')
         ->Where('refFournisseur',$refEntete);
         if (!is_null($request->get('query'))) {
             # code...
             $query = $this->Gquery($request);
 
-            $data ->where('noms', 'like', '%'.$query.'%')          
+            $data ->where('noms_agent', 'like', '%'.$query.'%')          
             ->orderBy("tvente_entete_requisition.dateCmd", "desc");
             return $this->apiData($data->paginate(10));         
 
@@ -268,22 +353,36 @@ class tvente_entete_requisitionController extends Controller
         $data = DB::table('tvente_entete_requisition')
         ->join('tvente_module','tvente_module.id','=','tvente_entete_requisition.module_id')
         ->join('tvente_services','tvente_services.id','=','tvente_entete_requisition.refService')
-        ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_requisition.refFournisseur')
-        ->join('tvente_categorie_fournisseur','tvente_categorie_fournisseur.id','=','tvente_fournisseur.refCategorieFss')
-        ->join('tfin_ssouscompte','tfin_ssouscompte.id','=','tvente_categorie_fournisseur.compte_fss_bl')
-        ->join('tfin_souscompte','tfin_souscompte.id','=','tfin_ssouscompte.refSousCompte')
-        ->join('tfin_compte','tfin_compte.id','=','tfin_souscompte.refCompte')
-        ->join('tfin_classe','tfin_classe.id','=','tfin_compte.refClasse')
-        ->join('tfin_typecompte','tfin_typecompte.id','=','tfin_compte.refTypecompte')
-        ->join('tfin_typeposition','tfin_typeposition.id','=','tfin_compte.refPosition')
+       
+        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+        ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+        ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
+
         ->select('tvente_entete_requisition.id','tvente_entete_requisition.code','refFournisseur','module_id',
         'refService','dateCmd','libelle','cloture',
         'niveau1','niveaumax','tvente_entete_requisition.active','montant','paie','tvente_entete_requisition.author','tvente_entete_requisition.refUser',
-        'tvente_entete_requisition.created_at',"tvente_fournisseur.noms","tvente_fournisseur.contact",
-        "tvente_fournisseur.mail","tvente_fournisseur.adresse",'refCategorieFss', "tvente_categorie_fournisseur.nom_categoriefss",
+        'tvente_entete_requisition.created_at', "tvente_categorie_fournisseur.nom_categoriefss",
         "compte_fss_bl",'refSousCompte','nom_ssouscompte','numero_ssouscompte','nom_souscompte','numero_souscompte','refCompte','nom_compte',
         'numero_compte','refClasse','refTypecompte','refPosition','nom_classe','numero_classe','nom_typeposition',"nom_typecompte"
-        ,"tvente_module.nom_module","tvente_services.nom_service")
+        ,"tvente_module.nom_module","tvente_services.nom_service"
+        
+        ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
+        'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
+        'dateDebutEssaie','dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2',
+        'TempsPause','nbrConge','nbrCongeLettre','nomOffice','postnomOffice','qualifieOffice',
+        'codeAgent','directeur','numCNSS','numImpot','numcpteBanque','BanqueAgant','autresDetail',
+        'conge',"tperso_affectation_agent.author","matricule_agent","nummaison_agent",
+        "noms_agent as noms","sexe_agent","datenaissance_agent","lieunaissnce_agent",
+        "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent as contact",
+        "mail_agent as mail","grade_agent","fonction_agent","specialite_agent","Categorie_agent",
+        "niveauEtude_agent","anneeFinEtude_agent","Ecole_agent",
+        "tagent.photo as photo_agent","tagent.slug as slug_agent",'fammiliale','logement',
+        'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+        'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+         'param_secteur_id')
+        ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')   
+        ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante')
+        ->selectRaw('DATE_SUB(dateFin, INTERVAL 1 DAY) as dateFin')
         ->selectRaw('(montant - paie) as Reste')
         ->Where('tvente_entete_requisition.cloture','NON');
         if (!is_null($request->get('query'))) {
@@ -291,7 +390,7 @@ class tvente_entete_requisitionController extends Controller
             $query = $this->Gquery($request);
 
             $data->where(function ($queryBuilder) use ($query) {
-                $queryBuilder->where('noms', 'like', '%' . $query . '%')
+                $queryBuilder->where('noms_agent', 'like', '%' . $query . '%')
                              ->orWhere('dateCmd', 'like', '%' . $query . '%');
             })          
             ->orderBy("tvente_entete_requisition.dateCmd", "desc");
@@ -310,23 +409,37 @@ class tvente_entete_requisitionController extends Controller
         $data = DB::table('tvente_entete_requisition')
         ->join('tvente_module','tvente_module.id','=','tvente_entete_requisition.module_id')
         ->join('tvente_services','tvente_services.id','=','tvente_entete_requisition.refService')
-        ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_requisition.refFournisseur')
-        ->join('tvente_categorie_fournisseur','tvente_categorie_fournisseur.id','=','tvente_fournisseur.refCategorieFss')
-        ->join('tfin_ssouscompte','tfin_ssouscompte.id','=','tvente_categorie_fournisseur.compte_fss_bl')
-        ->join('tfin_souscompte','tfin_souscompte.id','=','tfin_ssouscompte.refSousCompte')
-        ->join('tfin_compte','tfin_compte.id','=','tfin_souscompte.refCompte')
-        ->join('tfin_classe','tfin_classe.id','=','tfin_compte.refClasse')
-        ->join('tfin_typecompte','tfin_typecompte.id','=','tfin_compte.refTypecompte')
-        ->join('tfin_typeposition','tfin_typeposition.id','=','tfin_compte.refPosition')
+       
+        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+        ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+        ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
+
         ->select('tvente_entete_requisition.id','tvente_entete_requisition.code','refFournisseur','module_id',
         'refService','dateCmd','libelle','cloture',
         'niveau1','niveaumax','tvente_entete_requisition.active','montant','paie','tvente_entete_requisition.author','tvente_entete_requisition.refUser',
-        'tvente_entete_requisition.created_at',"tvente_fournisseur.noms","tvente_fournisseur.contact",
-        "tvente_fournisseur.mail","tvente_fournisseur.adresse",'refCategorieFss', "tvente_categorie_fournisseur.nom_categoriefss",
+        'tvente_entete_requisition.created_at', "tvente_categorie_fournisseur.nom_categoriefss",
         "compte_fss_bl",'refSousCompte','nom_ssouscompte','numero_ssouscompte','nom_souscompte','numero_souscompte','refCompte','nom_compte',
         'numero_compte','refClasse','refTypecompte','refPosition','nom_classe','numero_classe','nom_typeposition',"nom_typecompte"
-        ,"tvente_module.nom_module","tvente_services.nom_service")
-        ->selectRaw('(CONCAT(tvente_fournisseur.noms," - ",tvente_entete_requisition.dateCmd, " - N° : ",tvente_entete_requisition.id )) as designationCommande')
+        ,"tvente_module.nom_module","tvente_services.nom_service"
+        
+        ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
+        'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
+        'dateDebutEssaie','dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2',
+        'TempsPause','nbrConge','nbrCongeLettre','nomOffice','postnomOffice','qualifieOffice',
+        'codeAgent','directeur','numCNSS','numImpot','numcpteBanque','BanqueAgant','autresDetail',
+        'conge',"tperso_affectation_agent.author","matricule_agent","nummaison_agent",
+        "noms_agent as noms","sexe_agent","datenaissance_agent","lieunaissnce_agent",
+        "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent as contact",
+        "mail_agent as mail","grade_agent","fonction_agent","specialite_agent","Categorie_agent",
+        "niveauEtude_agent","anneeFinEtude_agent","Ecole_agent",
+        "tagent.photo as photo_agent","tagent.slug as slug_agent",'fammiliale','logement',
+        'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+        'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+         'param_secteur_id')
+        ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')   
+        ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante')
+        ->selectRaw('DATE_SUB(dateFin, INTERVAL 1 DAY) as dateFin')
+        ->selectRaw('(CONCAT(noms_agent," - ",tvente_entete_requisition.dateCmd, " - N° : ",tvente_entete_requisition.id )) as designationCommande')
         ->selectRaw('(montant - paie) as Reste')
         ->where('tvente_entete_requisition.refFournisseur', $refFournisseur)
         ->get();
@@ -341,22 +454,36 @@ class tvente_entete_requisitionController extends Controller
         $data = DB::table('tvente_entete_requisition')
         ->join('tvente_module','tvente_module.id','=','tvente_entete_requisition.module_id')
         ->join('tvente_services','tvente_services.id','=','tvente_entete_requisition.refService')
-        ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_requisition.refFournisseur')
-        ->join('tvente_categorie_fournisseur','tvente_categorie_fournisseur.id','=','tvente_fournisseur.refCategorieFss')
-        ->join('tfin_ssouscompte','tfin_ssouscompte.id','=','tvente_categorie_fournisseur.compte_fss_bl')
-        ->join('tfin_souscompte','tfin_souscompte.id','=','tfin_ssouscompte.refSousCompte')
-        ->join('tfin_compte','tfin_compte.id','=','tfin_souscompte.refCompte')
-        ->join('tfin_classe','tfin_classe.id','=','tfin_compte.refClasse')
-        ->join('tfin_typecompte','tfin_typecompte.id','=','tfin_compte.refTypecompte')
-        ->join('tfin_typeposition','tfin_typeposition.id','=','tfin_compte.refPosition')
+       
+        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+        ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+        ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
+
         ->select('tvente_entete_requisition.id','tvente_entete_requisition.code','refFournisseur','module_id',
         'refService','dateCmd','libelle','cloture',
         'niveau1','niveaumax','tvente_entete_requisition.active','montant','paie','tvente_entete_requisition.author','tvente_entete_requisition.refUser',
-        'tvente_entete_requisition.created_at',"tvente_fournisseur.noms","tvente_fournisseur.contact",
-        "tvente_fournisseur.mail","tvente_fournisseur.adresse",'refCategorieFss', "tvente_categorie_fournisseur.nom_categoriefss",
+        'tvente_entete_requisition.created_at', "tvente_categorie_fournisseur.nom_categoriefss",
         "compte_fss_bl",'refSousCompte','nom_ssouscompte','numero_ssouscompte','nom_souscompte','numero_souscompte','refCompte','nom_compte',
         'numero_compte','refClasse','refTypecompte','refPosition','nom_classe','numero_classe','nom_typeposition',"nom_typecompte"
-        ,"tvente_module.nom_module","tvente_services.nom_service")
+        ,"tvente_module.nom_module","tvente_services.nom_service"
+        
+        ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
+        'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
+        'dateDebutEssaie','dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2',
+        'TempsPause','nbrConge','nbrCongeLettre','nomOffice','postnomOffice','qualifieOffice',
+        'codeAgent','directeur','numCNSS','numImpot','numcpteBanque','BanqueAgant','autresDetail',
+        'conge',"tperso_affectation_agent.author","matricule_agent","nummaison_agent",
+        "noms_agent as noms","sexe_agent","datenaissance_agent","lieunaissnce_agent",
+        "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent as contact",
+        "mail_agent as mail","grade_agent","fonction_agent","specialite_agent","Categorie_agent",
+        "niveauEtude_agent","anneeFinEtude_agent","Ecole_agent",
+        "tagent.photo as photo_agent","tagent.slug as slug_agent",'fammiliale','logement',
+        'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+        'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+         'param_secteur_id')
+        ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')   
+        ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante')
+        ->selectRaw('DATE_SUB(dateFin, INTERVAL 1 DAY) as dateFin')
         ->selectRaw('(montant - paie) as Reste')
         ->where('tvente_entete_requisition.id', $id)
         ->get();
@@ -372,23 +499,37 @@ class tvente_entete_requisitionController extends Controller
         $data = DB::table('tvente_entete_requisition')
         ->join('tvente_module','tvente_module.id','=','tvente_entete_requisition.module_id')
         ->join('tvente_services','tvente_services.id','=','tvente_entete_requisition.refService')
-        ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_requisition.refFournisseur')
-        ->join('tvente_categorie_fournisseur','tvente_categorie_fournisseur.id','=','tvente_fournisseur.refCategorieFss')
-        ->join('tfin_ssouscompte','tfin_ssouscompte.id','=','tvente_categorie_fournisseur.compte_fss_bl')
-        ->join('tfin_souscompte','tfin_souscompte.id','=','tfin_ssouscompte.refSousCompte')
-        ->join('tfin_compte','tfin_compte.id','=','tfin_souscompte.refCompte')
-        ->join('tfin_classe','tfin_classe.id','=','tfin_compte.refClasse')
-        ->join('tfin_typecompte','tfin_typecompte.id','=','tfin_compte.refTypecompte')
-        ->join('tfin_typeposition','tfin_typeposition.id','=','tfin_compte.refPosition')
+       
+        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+        ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+        ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
+
         ->select('tvente_entete_requisition.id','tvente_entete_requisition.code','refFournisseur','module_id',
         'refService','dateCmd','libelle','cloture',
         'niveau1','niveaumax','tvente_entete_requisition.active','montant','paie','tvente_entete_requisition.author','tvente_entete_requisition.refUser',
-        'tvente_entete_requisition.created_at',"tvente_fournisseur.noms","tvente_fournisseur.contact",
-        "tvente_fournisseur.mail","tvente_fournisseur.adresse",'refCategorieFss', "tvente_categorie_fournisseur.nom_categoriefss",
+        'tvente_entete_requisition.created_at', "tvente_categorie_fournisseur.nom_categoriefss",
         "compte_fss_bl",'refSousCompte','nom_ssouscompte','numero_ssouscompte','nom_souscompte','numero_souscompte','refCompte','nom_compte',
         'numero_compte','refClasse','refTypecompte','refPosition','nom_classe','numero_classe','nom_typeposition',"nom_typecompte"
-        ,"tvente_module.nom_module","tvente_services.nom_service")
-        ->selectRaw('(CONCAT(tvente_fournisseur.noms," - ",tvente_entete_requisition.dateCmd, " - N° : ",tvente_entete_requisition.id )) as designationCommande')
+        ,"tvente_module.nom_module","tvente_services.nom_service"
+        
+        ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
+        'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
+        'dateDebutEssaie','dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2',
+        'TempsPause','nbrConge','nbrCongeLettre','nomOffice','postnomOffice','qualifieOffice',
+        'codeAgent','directeur','numCNSS','numImpot','numcpteBanque','BanqueAgant','autresDetail',
+        'conge',"tperso_affectation_agent.author","matricule_agent","nummaison_agent",
+        "noms_agent as noms","sexe_agent","datenaissance_agent","lieunaissnce_agent",
+        "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent as contact",
+        "mail_agent as mail","grade_agent","fonction_agent","specialite_agent","Categorie_agent",
+        "niveauEtude_agent","anneeFinEtude_agent","Ecole_agent",
+        "tagent.photo as photo_agent","tagent.slug as slug_agent",'fammiliale','logement',
+        'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+        'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+         'param_secteur_id')
+        ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')   
+        ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante')
+        ->selectRaw('DATE_SUB(dateFin, INTERVAL 1 DAY) as dateFin')
+        ->selectRaw('(CONCAT(noms_agent," - ",tvente_entete_requisition.dateCmd, " - N° : ",tvente_entete_requisition.id )) as designationCommande')
         ->selectRaw('(montant - paie) as Reste')
         ->where('tvente_entete_requisition.paie','<=', 0)
         ->orderBy("tvente_entete_requisition.id", "desc")
