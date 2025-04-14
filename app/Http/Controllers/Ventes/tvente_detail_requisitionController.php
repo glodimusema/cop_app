@@ -41,8 +41,8 @@ class tvente_detail_requisitionController extends Controller
         ->join('tvente_produit','tvente_produit.id','=','tvente_detail_requisition.refProduit')
         ->join('tvente_categorie_produit','tvente_categorie_produit.id','=','tvente_produit.refCategorie')
         ->join('tvente_entete_requisition','tvente_entete_requisition.id','=','tvente_detail_requisition.refEnteteCmd')
-        
-        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+         
+        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_requisition.refFournisseur')
         ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
         ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
 
@@ -109,7 +109,7 @@ class tvente_detail_requisitionController extends Controller
         ->join('tvente_categorie_produit','tvente_categorie_produit.id','=','tvente_produit.refCategorie')
         ->join('tvente_entete_requisition','tvente_entete_requisition.id','=','tvente_detail_requisition.refEnteteCmd')
         
-        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_requisition.refFournisseur')
         ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
         ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
 
@@ -176,7 +176,7 @@ class tvente_detail_requisitionController extends Controller
         ->join('tvente_categorie_produit','tvente_categorie_produit.id','=','tvente_produit.refCategorie')
         ->join('tvente_entete_requisition','tvente_entete_requisition.id','=','tvente_detail_requisition.refEnteteCmd')
         
-        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_requisition.refFournisseur')
         ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
         ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
 
@@ -239,7 +239,7 @@ class tvente_detail_requisitionController extends Controller
         ->join('tvente_categorie_produit','tvente_categorie_produit.id','=','tvente_produit.refCategorie')
         ->join('tvente_entete_requisition','tvente_entete_requisition.id','=','tvente_detail_requisition.refEnteteCmd')
         
-        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_requisition.refFournisseur')
         ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
         ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
 
@@ -298,7 +298,7 @@ class tvente_detail_requisitionController extends Controller
         ->join('tvente_categorie_produit','tvente_categorie_produit.id','=','tvente_produit.refCategorie')
         ->join('tvente_entete_requisition','tvente_entete_requisition.id','=','tvente_detail_requisition.refEnteteCmd')
         
-        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_requisition.refFournisseur')
         ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
         ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
 
@@ -312,7 +312,7 @@ class tvente_detail_requisitionController extends Controller
         ,'compteachat.refSousCompte as refSousCompteAchat','compteachat.nom_ssouscompte as nom_ssouscompteAchat',
         'compteachat.numero_ssouscompte as numero_ssouscompteAchat'
         ,'compteproduit.refSousCompte as refSousCompteProduit','compteproduit.nom_ssouscompte as nom_ssouscompteProduit',
-        'compteproduit.numero_ssouscompte as numero_ssouscompteProduit','dateCmd'
+        'compteproduit.numero_ssouscompte as numero_ssouscompteProduit','idStockService','dateCmd'
 
 
         ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
@@ -1077,7 +1077,7 @@ class tvente_detail_requisitionController extends Controller
         ->join('tvente_categorie_produit','tvente_categorie_produit.id','=','tvente_produit.refCategorie')
         ->join('tvente_entete_requisition','tvente_entete_requisition.id','=','tvente_detail_requisition.refEnteteCmd')
         
-        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_requisition.refFournisseur')
         ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
         ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
 

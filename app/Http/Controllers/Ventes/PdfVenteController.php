@@ -6107,7 +6107,7 @@ function printRapportDetailEntree($date1, $date2)
                 <td style="width:0px;height:24px;"></td>
                 <td></td>
                 <td class="cs9FE9304F" style="width:101px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>N&#176;&nbsp;FACTURE</nobr></td>
-                <td class="cs9FE9304F" colspan="3" style="width:230px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>FOURNISSEUR</nobr></td>
+                <td class="cs9FE9304F" colspan="3" style="width:230px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>CREUSEUR</nobr></td>
                 <td class="cs9FE9304F" colspan="2" style="width:107px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>DATE&nbsp;ENTREE</nobr></td>
                 <td class="cs9FE9304F" style="width:178px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>ARTICLE</nobr></td>
                 <td class="cs9FE9304F" colspan="2" style="width:91px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>Qte</nobr></td>
@@ -6180,8 +6180,11 @@ function showDetailEntree($date1, $date2)
 
     ->join('tvente_entete_entree','tvente_entete_entree.id','=','tvente_detail_entree.refEnteteEntree')
     ->join('tvente_module','tvente_module.id','=','tvente_entete_entree.module_id')
-    ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_entree.refFournisseur')
-
+    
+    ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+    ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+    ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
+    
     ->join('tvente_services','tvente_services.id','=','tvente_entete_entree.refService')
     ->join('tvente_produit','tvente_produit.id','=','tvente_detail_entree.refProduit')
     ->join('tvente_categorie_produit','tvente_categorie_produit.id','=','tvente_produit.refCategorie')
@@ -6200,7 +6203,24 @@ function showDetailEntree($date1, $date2)
     'tvente_detail_entree.refUser','tvente_detail_entree.created_at','tvente_detail_entree.devise',
     'tvente_detail_entree.taux'
 
-    ,'noms','contact','mail','adresse','tvente_entete_entree.code','tvente_entete_entree.refFournisseur',
+    ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
+    'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
+    'dateDebutEssaie','dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2',
+    'TempsPause','nbrConge','nbrCongeLettre','nomOffice','postnomOffice','qualifieOffice',
+    'codeAgent','directeur','numCNSS','numImpot','numcpteBanque','BanqueAgant','autresDetail',
+    'conge',"tperso_affectation_agent.author","matricule_agent","nummaison_agent",
+    "noms_agent as noms","sexe_agent","datenaissance_agent","lieunaissnce_agent",
+    "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent as contact",
+    "mail_agent as mail","grade_agent","fonction_agent","specialite_agent","Categorie_agent",
+    "niveauEtude_agent","anneeFinEtude_agent","Ecole_agent",
+    "tagent.photo as photo_agent","tagent.slug as slug_agent",'fammiliale','logement',
+    'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+    'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+     'param_secteur_id'
+
+    // ,'noms','contact','mail','adresse'
+    
+    ,'tvente_entete_entree.code','tvente_entete_entree.refFournisseur',
     'tvente_entete_entree.refRecquisition','tvente_entete_entree.module_id','dateEntree',
     'tvente_entete_entree.libelle','transporteur','niveau1','niveaumax',"tvente_module.nom_module"
 
@@ -6539,7 +6559,7 @@ function printRapportDetailRequisition($date1, $date2)
                 <td></td>
                 <td></td>
                 <td></td>
-                <td class="csB6F858D0" colspan="9" style="width:625px;height:32px;line-height:28px;text-align:center;vertical-align:middle;"><nobr>RAPPORT&nbsp;JOURNALIER&nbsp;DES&nbsp;COMMANDES FSS.</nobr></td>
+                <td class="csB6F858D0" colspan="9" style="width:625px;height:32px;line-height:28px;text-align:center;vertical-align:middle;"><nobr>RAPPORT&nbsp;JOURNALIER&nbsp;DES&nbsp;CREUSEMENTS</nobr></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -6599,7 +6619,7 @@ function printRapportDetailRequisition($date1, $date2)
                 <td style="width:0px;height:24px;"></td>
                 <td></td>
                 <td class="cs9FE9304F" style="width:101px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>N&#176;&nbsp;COM.</nobr></td>
-                <td class="cs9FE9304F" colspan="3" style="width:230px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>FOURNISSEUR</nobr></td>
+                <td class="cs9FE9304F" colspan="3" style="width:230px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>CREUSEUR</nobr></td>
                 <td class="cs9FE9304F" colspan="2" style="width:107px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>DATE&nbsp;COM.</nobr></td>
                 <td class="cs9FE9304F" style="width:178px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>ARTICLE</nobr></td>
                 <td class="cs9FE9304F" colspan="2" style="width:91px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>Qte</nobr></td>
@@ -6674,7 +6694,11 @@ function showDetailRequisition($date1, $date2)
     ->join('tvente_produit','tvente_produit.id','=','tvente_detail_requisition.refProduit')
     ->join('tvente_categorie_produit','tvente_categorie_produit.id','=','tvente_produit.refCategorie')
     ->join('tvente_entete_requisition','tvente_entete_requisition.id','=','tvente_detail_requisition.refEnteteCmd')
-    ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_requisition.refFournisseur')
+    
+    ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_requisition.refFournisseur')
+    ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+    ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
+
     ->select('tvente_detail_requisition.id','refEnteteCmd','refProduit','tvente_detail_requisition.compte_achat',
     'tvente_detail_requisition.compte_produit','puCmd','qteCmd','uniteCmd','tvente_detail_requisition.puBase',
     'tvente_detail_requisition.qteBase','tvente_detail_requisition.uniteBase','tvente_detail_requisition.devise',
@@ -6685,7 +6709,25 @@ function showDetailRequisition($date1, $date2)
     ,'compteachat.refSousCompte as refSousCompteAchat','compteachat.nom_ssouscompte as nom_ssouscompteAchat',
     'compteachat.numero_ssouscompte as numero_ssouscompteAchat'
     ,'compteproduit.refSousCompte as refSousCompteProduit','compteproduit.nom_ssouscompte as nom_ssouscompteProduit',
-    'compteproduit.numero_ssouscompte as numero_ssouscompteProduit','noms','contact','mail','adresse','dateCmd')
+    'compteproduit.numero_ssouscompte as numero_ssouscompteProduit'
+
+    ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
+    'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
+    'dateDebutEssaie','dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2',
+    'TempsPause','nbrConge','nbrCongeLettre','nomOffice','postnomOffice','qualifieOffice',
+    'codeAgent','directeur','numCNSS','numImpot','numcpteBanque','BanqueAgant','autresDetail',
+    'conge',"tperso_affectation_agent.author","matricule_agent","nummaison_agent",
+    "noms_agent as noms","sexe_agent","datenaissance_agent","lieunaissnce_agent",
+    "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent as contact",
+    "mail_agent as mail","grade_agent","fonction_agent","specialite_agent","Categorie_agent",
+    "niveauEtude_agent","anneeFinEtude_agent","Ecole_agent",
+    "tagent.photo as photo_agent","tagent.slug as slug_agent",'fammiliale','logement',
+    'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+    'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+     'param_secteur_id'
+
+    // 'noms','contact','mail','adresse'
+    ,'dateCmd')
     ->selectRaw('(qteCmd*puCmd) as PTCmd')
     ->selectRaw('(qteBase*puBase) as PTBase')
     ->selectRaw('((qteCmd*puCmd)/tvente_detail_requisition.taux) as PTCmdFC')
@@ -7517,8 +7559,7 @@ function showDetailFicheStock($date1,$date2,$refCategorie)
         ->join('tvente_produit','tvente_produit.id','=','tvente_detail_entree.refProduit')
         ->join('tvente_categorie_produit','tvente_categorie_produit.id','=','tvente_produit.refCategorie')
         ->join('tvente_entete_entree','tvente_entete_entree.id','=','tvente_detail_entree.refEnteteEntree')
-        ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_entree.refFournisseur')
-
+        
         ->select(DB::raw('IFNULL(ROUND(SUM(qteBase*qteEntree),0),0) as totalEntree'))
         ->where([               
             ['tvente_entete_entree.dateEntree','<', $date1],
@@ -7563,8 +7604,7 @@ function showDetailFicheStock($date1,$date2,$refCategorie)
         ->join('tvente_produit','tvente_produit.id','=','tvente_detail_entree.refProduit')
         ->join('tvente_categorie_produit','tvente_categorie_produit.id','=','tvente_produit.refCategorie')
         ->join('tvente_entete_entree','tvente_entete_entree.id','=','tvente_detail_entree.refEnteteEntree')
-        ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_entree.refFournisseur')
-
+        
         ->select(DB::raw('IFNULL(ROUND(SUM(qteBase*qteEntree),0),0) as totalEntree'))
         ->where([
             ['tvente_entete_entree.dateEntree','>=', $date1],
@@ -16827,7 +16867,7 @@ function printRapportPaieFactureCommande($date1, $date2)
                 <td class="cs3DB3E5A1" style="width:87px;height:22px;line-height:12px;text-align:center;vertical-align:middle;"><nobr>DATE</nobr></td>
                 <td class="cs3DB3E5A1" colspan="2" style="width:120px;height:22px;line-height:12px;text-align:center;vertical-align:middle;"><nobr>AGENT</nobr></td>
                 <td class="cs3DB3E5A1" style="width:100px;height:22px;line-height:12px;text-align:center;vertical-align:middle;"><nobr>N&#176;&nbsp;PAIEMENT</nobr></td>
-                <td class="cs3DB3E5A1" colspan="3" style="width:198px;height:22px;line-height:12px;text-align:center;vertical-align:middle;"><nobr>FOURNISSEUR</nobr></td>
+                <td class="cs3DB3E5A1" colspan="3" style="width:198px;height:22px;line-height:12px;text-align:center;vertical-align:middle;"><nobr>CREUSEUR</nobr></td>
                 <td class="cs3DB3E5A1" style="width:126px;height:22px;line-height:12px;text-align:center;vertical-align:middle;"><nobr>LIBELLE</nobr></td>
                 <td class="cs3DB3E5A1" style="width:88px;height:22px;line-height:12px;text-align:center;vertical-align:middle;"><nobr>N&#176;&nbsp;FACTURE</nobr></td>
                 <td class="cs3DB3E5A1" colspan="3" style="width:96px;height:22px;line-height:12px;text-align:center;vertical-align:middle;"><nobr>MONTANT($)</nobr></td>
@@ -16904,9 +16944,12 @@ function showPaieFacturationCommande($date1, $date2)
     ->join('tvente_entete_paiecommande','tvente_entete_paiecommande.id','=','tvente_paiement_commande.refEntetepaie')
     ->join('tvente_module','tvente_module.id','=','tvente_entete_requisition.module_id')
     ->join('tvente_services','tvente_services.id','=','tvente_entete_requisition.refService')
-    ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_requisition.refFournisseur')
-    ->join('tvente_categorie_fournisseur','tvente_categorie_fournisseur.id','=','tvente_fournisseur.refCategorieFss')
-    ->join('tfin_ssouscompte as comptefss','comptefss.id','=','tvente_categorie_fournisseur.compte_fss_bl')
+    
+    ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_requisition.refFournisseur')
+    ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+    ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
+
+    
     ->join('tconf_banque' , 'tconf_banque.id','=','tvente_paiement_commande.refBanque')
     ->join('tfin_ssouscompte as compteBanque','compteBanque.id','=','tconf_banque.refSscompte')
 
@@ -16917,13 +16960,27 @@ function showPaieFacturationCommande($date1, $date2)
     "tvente_module.nom_module","tvente_services.nom_service",
     'refFournisseur','tvente_entete_paiecommande.module_id as module_idPaie',
     'tvente_entete_paiecommande.refService as refServicePaie','dateCmd','libelle','niveau1','niveaumax',
-    'montant','paie',"tvente_fournisseur.noms","tvente_fournisseur.contact","tvente_fournisseur.mail",
-    "tvente_fournisseur.adresse",'refCategorieFss',"tvente_categorie_fournisseur.nom_categoriefss",
-    "compte_fss_bl",'comptefss.refSousCompte as refSousCompteFss',
-    'comptefss.nom_ssouscompte as nom_ssouscompteFss','comptefss.numero_ssouscompte as numero_ssouscompteFss',
-    'date_entete_paie',    
-    "tconf_banque.nom_banque","tconf_banque.numerocompte",'tconf_banque.nom_mode',
-    "tconf_banque.refSscompte as refSscompteBanque"
+    'montant','paie'
+
+    ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
+    'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
+    'dateDebutEssaie','dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2',
+    'TempsPause','nbrConge','nbrCongeLettre','nomOffice','postnomOffice','qualifieOffice',
+    'codeAgent','directeur','numCNSS','numImpot','numcpteBanque','BanqueAgant','autresDetail',
+    'conge',"tperso_affectation_agent.author","matricule_agent","nummaison_agent",
+    "noms_agent as noms","sexe_agent","datenaissance_agent","lieunaissnce_agent",
+    "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent as contact",
+    "mail_agent as mail","grade_agent","fonction_agent","specialite_agent","Categorie_agent",
+    "niveauEtude_agent","anneeFinEtude_agent","Ecole_agent",
+    "tagent.photo as photo_agent","tagent.slug as slug_agent",'fammiliale','logement',
+    'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+    'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+     'param_secteur_id'
+    
+    // ,"tvente_fournisseur.noms","tvente_fournisseur.contact","tvente_fournisseur.mail",
+    // "tvente_fournisseur.adresse"
+    ,'date_entete_paie',"tconf_banque.nom_banque","tconf_banque.numerocompte",
+    'tconf_banque.nom_mode',"tconf_banque.refSscompte as refSscompteBanque"
     ,'compteBanque.refSousCompte as refSousCompteBanque',
     'compteBanque.nom_ssouscompte as nom_ssouscompteBanque',
     'compteBanque.numero_ssouscompte as numero_ssouscompteBanque')
@@ -17302,7 +17359,7 @@ function printRapportPaiementFactureCommande_Banque($date1, $date2,$refBanque)
                 <td class="cs3DB3E5A1" style="width:87px;height:22px;line-height:12px;text-align:center;vertical-align:middle;"><nobr>DATE</nobr></td>
                 <td class="cs3DB3E5A1" colspan="2" style="width:120px;height:22px;line-height:12px;text-align:center;vertical-align:middle;"><nobr>AGENT</nobr></td>
                 <td class="cs3DB3E5A1" style="width:100px;height:22px;line-height:12px;text-align:center;vertical-align:middle;"><nobr>N&#176;&nbsp;PAIEMENT</nobr></td>
-                <td class="cs3DB3E5A1" colspan="3" style="width:198px;height:22px;line-height:12px;text-align:center;vertical-align:middle;"><nobr>FOURNISSEUR</nobr></td>
+                <td class="cs3DB3E5A1" colspan="3" style="width:198px;height:22px;line-height:12px;text-align:center;vertical-align:middle;"><nobr>CREUSEUR</nobr></td>
                 <td class="cs3DB3E5A1" style="width:126px;height:22px;line-height:12px;text-align:center;vertical-align:middle;"><nobr>LIBELLE</nobr></td>
                 <td class="cs3DB3E5A1" style="width:88px;height:22px;line-height:12px;text-align:center;vertical-align:middle;"><nobr>N&#176;&nbsp;FACTURE</nobr></td>
                 <td class="cs3DB3E5A1" colspan="3" style="width:96px;height:22px;line-height:12px;text-align:center;vertical-align:middle;"><nobr>MONTANT($)</nobr></td>
@@ -17378,9 +17435,11 @@ function showPaiementFacturationCommande_Banque($date1, $date2,$refBanque)
         ->join('tvente_entete_paiecommande','tvente_entete_paiecommande.id','=','tvente_paiement_commande.refEntetepaie')
         ->join('tvente_module','tvente_module.id','=','tvente_entete_requisition.module_id')
         ->join('tvente_services','tvente_services.id','=','tvente_entete_requisition.refService')
-        ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_requisition.refFournisseur')
-        ->join('tvente_categorie_fournisseur','tvente_categorie_fournisseur.id','=','tvente_fournisseur.refCategorieFss')
-        ->join('tfin_ssouscompte as comptefss','comptefss.id','=','tvente_categorie_fournisseur.compte_fss_bl')
+        
+        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_requisition.refFournisseur')
+        ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+        ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
+        
         ->join('tconf_banque' , 'tconf_banque.id','=','tvente_paiement_commande.refBanque')
         ->join('tfin_ssouscompte as compteBanque','compteBanque.id','=','tconf_banque.refSscompte')
     
@@ -17391,10 +17450,28 @@ function showPaiementFacturationCommande_Banque($date1, $date2,$refBanque)
         "tvente_module.nom_module","tvente_services.nom_service",
         'refFournisseur','tvente_entete_paiecommande.module_id as module_idPaie',
         'tvente_entete_paiecommande.refService as refServicePaie','dateCmd','libelle','niveau1','niveaumax',
-        'montant','paie',"tvente_fournisseur.noms","tvente_fournisseur.contact","tvente_fournisseur.mail",
-        "tvente_fournisseur.adresse",'refCategorieFss',"tvente_categorie_fournisseur.nom_categoriefss",
-        "compte_fss_bl",'comptefss.refSousCompte as refSousCompteFss',
-        'comptefss.nom_ssouscompte as nom_ssouscompteFss','comptefss.numero_ssouscompte as numero_ssouscompteFss',
+        'montant','paie'
+
+        ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
+        'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
+        'dateDebutEssaie','dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2',
+        'TempsPause','nbrConge','nbrCongeLettre','nomOffice','postnomOffice','qualifieOffice',
+        'codeAgent','directeur','numCNSS','numImpot','numcpteBanque','BanqueAgant','autresDetail',
+        'conge',"tperso_affectation_agent.author","matricule_agent","nummaison_agent",
+        "noms_agent as noms","sexe_agent","datenaissance_agent","lieunaissnce_agent",
+        "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent as contact",
+        "mail_agent as mail","grade_agent","fonction_agent","specialite_agent","Categorie_agent",
+        "niveauEtude_agent","anneeFinEtude_agent","Ecole_agent",
+        "tagent.photo as photo_agent","tagent.slug as slug_agent",'fammiliale','logement',
+        'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+        'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+         'param_secteur_id',
+        
+        // ,"tvente_fournisseur.noms","tvente_fournisseur.contact","tvente_fournisseur.mail",
+        // "tvente_fournisseur.adresse",'refCategorieFss',"tvente_categorie_fournisseur.nom_categoriefss",
+        // "compte_fss_bl",'comptefss.refSousCompte as refSousCompteFss',
+        // 'comptefss.nom_ssouscompte as nom_ssouscompteFss','comptefss.numero_ssouscompte as numero_ssouscompteFss',
+        
         'date_entete_paie',    
         "tconf_banque.nom_banque","tconf_banque.numerocompte",'tconf_banque.nom_mode',
         "tconf_banque.refSscompte as refSscompteBanque"
@@ -17779,7 +17856,7 @@ function printRapportPaiementFactureCommande_Fournisseur($date1, $date2,$refFour
                 <td class="cs3DB3E5A1" style="width:87px;height:22px;line-height:12px;text-align:center;vertical-align:middle;"><nobr>DATE</nobr></td>
                 <td class="cs3DB3E5A1" colspan="2" style="width:120px;height:22px;line-height:12px;text-align:center;vertical-align:middle;"><nobr>AGENT</nobr></td>
                 <td class="cs3DB3E5A1" style="width:100px;height:22px;line-height:12px;text-align:center;vertical-align:middle;"><nobr>N&#176;&nbsp;PAIEMENT</nobr></td>
-                <td class="cs3DB3E5A1" colspan="3" style="width:198px;height:22px;line-height:12px;text-align:center;vertical-align:middle;"><nobr>FOURNISSEUR</nobr></td>
+                <td class="cs3DB3E5A1" colspan="3" style="width:198px;height:22px;line-height:12px;text-align:center;vertical-align:middle;"><nobr>CREUSEUR</nobr></td>
                 <td class="cs3DB3E5A1" style="width:126px;height:22px;line-height:12px;text-align:center;vertical-align:middle;"><nobr>LIBELLE</nobr></td>
                 <td class="cs3DB3E5A1" style="width:88px;height:22px;line-height:12px;text-align:center;vertical-align:middle;"><nobr>N&#176;&nbsp;FACTURE</nobr></td>
                 <td class="cs3DB3E5A1" colspan="3" style="width:96px;height:22px;line-height:12px;text-align:center;vertical-align:middle;"><nobr>MONTANT($)</nobr></td>
@@ -17855,9 +17932,11 @@ function showPaiementFacturationCommande_Fournisseur($date1, $date2,$refFourniss
         ->join('tvente_entete_paiecommande','tvente_entete_paiecommande.id','=','tvente_paiement_commande.refEntetepaie')
         ->join('tvente_module','tvente_module.id','=','tvente_entete_requisition.module_id')
         ->join('tvente_services','tvente_services.id','=','tvente_entete_requisition.refService')
-        ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_requisition.refFournisseur')
-        ->join('tvente_categorie_fournisseur','tvente_categorie_fournisseur.id','=','tvente_fournisseur.refCategorieFss')
-        ->join('tfin_ssouscompte as comptefss','comptefss.id','=','tvente_categorie_fournisseur.compte_fss_bl')
+        
+        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_requisition.refFournisseur')
+        ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+        ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
+        
         ->join('tconf_banque' , 'tconf_banque.id','=','tvente_paiement_commande.refBanque')
         ->join('tfin_ssouscompte as compteBanque','compteBanque.id','=','tconf_banque.refSscompte')
     
@@ -17868,11 +17947,30 @@ function showPaiementFacturationCommande_Fournisseur($date1, $date2,$refFourniss
         "tvente_module.nom_module","tvente_services.nom_service",
         'refFournisseur','tvente_entete_paiecommande.module_id as module_idPaie',
         'tvente_entete_paiecommande.refService as refServicePaie','dateCmd','libelle','niveau1','niveaumax',
-        'montant','paie',"tvente_fournisseur.noms","tvente_fournisseur.contact","tvente_fournisseur.mail",
-        "tvente_fournisseur.adresse",'refCategorieFss',"tvente_categorie_fournisseur.nom_categoriefss",
-        "compte_fss_bl",'comptefss.refSousCompte as refSousCompteFss',
-        'comptefss.nom_ssouscompte as nom_ssouscompteFss','comptefss.numero_ssouscompte as numero_ssouscompteFss',
-        'date_entete_paie',    
+        'montant','paie'
+
+
+        ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
+        'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
+        'dateDebutEssaie','dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2',
+        'TempsPause','nbrConge','nbrCongeLettre','nomOffice','postnomOffice','qualifieOffice',
+        'codeAgent','directeur','numCNSS','numImpot','numcpteBanque','BanqueAgant','autresDetail',
+        'conge',"tperso_affectation_agent.author","matricule_agent","nummaison_agent",
+        "noms_agent as noms","sexe_agent","datenaissance_agent","lieunaissnce_agent",
+        "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent as contact",
+        "mail_agent as mail","grade_agent","fonction_agent","specialite_agent","Categorie_agent",
+        "niveauEtude_agent","anneeFinEtude_agent","Ecole_agent",
+        "tagent.photo as photo_agent","tagent.slug as slug_agent",'fammiliale','logement',
+        'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+        'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+        'param_secteur_id'
+        
+        // "tvente_fournisseur.noms","tvente_fournisseur.contact","tvente_fournisseur.mail",
+        // "tvente_fournisseur.adresse",'refCategorieFss',"tvente_categorie_fournisseur.nom_categoriefss",
+        // "compte_fss_bl",'comptefss.refSousCompte as refSousCompteFss',
+        // 'comptefss.nom_ssouscompte as nom_ssouscompteFss','comptefss.numero_ssouscompte as numero_ssouscompteFss',
+        
+        ,'date_entete_paie',    
         "tconf_banque.nom_banque","tconf_banque.numerocompte",'tconf_banque.nom_mode',
         "tconf_banque.refSscompte as refSscompteBanque"
         ,'compteBanque.refSousCompte as refSousCompteBanque',
@@ -18021,8 +18119,7 @@ function printRapportDetailEntreeFss($date1, $date2, $refFournisseur)
          ->join('tvente_produit','tvente_produit.id','=','tvente_detail_entree.refProduit')
          ->join('tvente_categorie_produit','tvente_categorie_produit.id','=','tvente_produit.refCategorie')
          ->join('tvente_entete_entree','tvente_entete_entree.id','=','tvente_detail_entree.refEnteteEntree')
-         ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_entree.refFournisseur')
- 
+        
          ->select(DB::raw('ROUND(SUM(qteEntree*puEntree),0) as TotalFacture'))
          ->where([
             ['dateEntree','>=', $date1],
@@ -18041,9 +18138,11 @@ function printRapportDetailEntreeFss($date1, $date2, $refFournisseur)
          ->join('tvente_produit','tvente_produit.id','=','tvente_detail_entree.refProduit')
          ->join('tvente_categorie_produit','tvente_categorie_produit.id','=','tvente_produit.refCategorie')
          ->join('tvente_entete_entree','tvente_entete_entree.id','=','tvente_detail_entree.refEnteteEntree')
-         ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_entree.refFournisseur')
+         
+         ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+         ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
  
-         ->select('tvente_produit.designation as nom_produit','tvente_fournisseur.noms')
+         ->select('tvente_produit.designation as nom_produit','noms_agent as noms')
          ->where([
             ['dateEntree','>=', $date1],
             ['dateEntree','<=', $date2],
@@ -18295,7 +18394,7 @@ function printRapportDetailEntreeFss($date1, $date2, $refFournisseur)
                 <td style="width:0px;height:24px;"></td>
                 <td></td>
                 <td class="cs9FE9304F" style="width:101px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>N&#176;&nbsp;FACTURE</nobr></td>
-                <td class="cs9FE9304F" colspan="3" style="width:230px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>FOURNISSEUR</nobr></td>
+                <td class="cs9FE9304F" colspan="3" style="width:230px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>CREUSEUR</nobr></td>
                 <td class="cs9FE9304F" colspan="2" style="width:107px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>DATE&nbsp;ENTREE</nobr></td>
                 <td class="cs9FE9304F" style="width:178px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>ARTICLE</nobr></td>
                 <td class="cs9FE9304F" colspan="2" style="width:91px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>Qte</nobr></td>
@@ -18367,7 +18466,9 @@ function showDetailEntreeFss($date1,$date2,$refFournisseur)
 
     ->join('tvente_entete_entree','tvente_entete_entree.id','=','tvente_detail_entree.refEnteteEntree')
     ->join('tvente_module','tvente_module.id','=','tvente_entete_entree.module_id')
-    ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_entree.refFournisseur')
+    
+    ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+    ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
 
     ->join('tvente_services','tvente_services.id','=','tvente_entete_entree.refService')
     ->join('tvente_produit','tvente_produit.id','=','tvente_detail_entree.refProduit')
@@ -18387,7 +18488,22 @@ function showDetailEntreeFss($date1,$date2,$refFournisseur)
     'tvente_detail_entree.refUser','tvente_detail_entree.created_at','tvente_detail_entree.devise',
     'tvente_detail_entree.taux'
 
-    ,'noms','contact','mail','adresse','tvente_entete_entree.code','tvente_entete_entree.refFournisseur',
+    ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
+    'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
+    'dateDebutEssaie','dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2',
+    'TempsPause','nbrConge','nbrCongeLettre','nomOffice','postnomOffice','qualifieOffice',
+    'codeAgent','directeur','numCNSS','numImpot','numcpteBanque','BanqueAgant','autresDetail',
+    'conge',"tperso_affectation_agent.author","matricule_agent","nummaison_agent",
+    "noms_agent as noms","sexe_agent","datenaissance_agent","lieunaissnce_agent",
+    "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent as contact",
+    "mail_agent as mail","grade_agent","fonction_agent","specialite_agent","Categorie_agent",
+    "niveauEtude_agent","anneeFinEtude_agent","Ecole_agent",
+    "tagent.photo as photo_agent","tagent.slug as slug_agent",'fammiliale','logement',
+    'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+    'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+     'param_secteur_id'
+    
+    ,'tvente_entete_entree.code','tvente_entete_entree.refFournisseur',
     'tvente_entete_entree.refRecquisition','tvente_entete_entree.module_id','dateEntree',
     'tvente_entete_entree.libelle','transporteur','niveau1','niveaumax',"tvente_module.nom_module"
 
@@ -18548,9 +18664,12 @@ function printRapportDetailRequisitionFss($date1, $date2, $refFournisseur)
          ->join('tvente_produit','tvente_produit.id','=','tvente_detail_requisition.refProduit')
          ->join('tvente_categorie_produit','tvente_categorie_produit.id','=','tvente_produit.refCategorie')
          ->join('tvente_entete_requisition','tvente_entete_requisition.id','=','tvente_detail_requisition.refEnteteCmd')
-         ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_requisition.refFournisseur')
+         
+         ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_requisition.refFournisseur')
+         ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+         ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
  
-         ->select('tvente_produit.designation as nom_produit','tvente_fournisseur.noms')
+         ->select('tvente_produit.designation as nom_produit','noms_agent as noms')
          ->where([
             ['dateCmd','>=', $date1],
             ['dateCmd','<=', $date2],
@@ -18742,7 +18861,7 @@ function printRapportDetailRequisitionFss($date1, $date2, $refFournisseur)
                 <td></td>
                 <td></td>
                 <td></td>
-                <td class="csB6F858D0" colspan="9" style="width:625px;height:32px;line-height:28px;text-align:center;vertical-align:middle;"><nobr>RAPPORT&nbsp;JOURNALIER&nbsp;DES&nbsp;COMMANDES FSS.</nobr></td>
+                <td class="csB6F858D0" colspan="9" style="width:625px;height:32px;line-height:28px;text-align:center;vertical-align:middle;"><nobr>RAPPORT&nbsp;JOURNALIER&nbsp;DES&nbsp;CREUSEMENTS</nobr></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -18802,7 +18921,7 @@ function printRapportDetailRequisitionFss($date1, $date2, $refFournisseur)
                 <td style="width:0px;height:24px;"></td>
                 <td></td>
                 <td class="cs9FE9304F" style="width:101px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>N&#176;&nbsp;FACTURE</nobr></td>
-                <td class="cs9FE9304F" colspan="3" style="width:230px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>FOURNISSEUR</nobr></td>
+                <td class="cs9FE9304F" colspan="3" style="width:230px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>CREUSEUR</nobr></td>
                 <td class="cs9FE9304F" colspan="2" style="width:107px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>DATE&nbsp;ENTREE</nobr></td>
                 <td class="cs9FE9304F" style="width:178px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>ARTICLE</nobr></td>
                 <td class="cs9FE9304F" colspan="2" style="width:91px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>Qte</nobr></td>
@@ -18876,7 +18995,12 @@ function showDetailRequisitionFss($date1,$date2,$refFournisseur)
     ->join('tvente_produit','tvente_produit.id','=','tvente_detail_requisition.refProduit')
     ->join('tvente_categorie_produit','tvente_categorie_produit.id','=','tvente_produit.refCategorie')
     ->join('tvente_entete_requisition','tvente_entete_requisition.id','=','tvente_detail_requisition.refEnteteCmd')
-    ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_requisition.refFournisseur')
+    
+    ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_requisition.refFournisseur')
+    ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+    ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
+    
+    
     ->select('tvente_detail_requisition.id','refEnteteCmd','refProduit','tvente_detail_requisition.compte_achat',
     'tvente_detail_requisition.compte_produit','puCmd','qteCmd','uniteCmd','tvente_detail_requisition.puBase',
     'tvente_detail_requisition.qteBase','tvente_detail_requisition.uniteBase','tvente_detail_requisition.devise',
@@ -18887,7 +19011,25 @@ function showDetailRequisitionFss($date1,$date2,$refFournisseur)
     ,'compteachat.refSousCompte as refSousCompteAchat','compteachat.nom_ssouscompte as nom_ssouscompteAchat',
     'compteachat.numero_ssouscompte as numero_ssouscompteAchat'
     ,'compteproduit.refSousCompte as refSousCompteProduit','compteproduit.nom_ssouscompte as nom_ssouscompteProduit',
-    'compteproduit.numero_ssouscompte as numero_ssouscompteProduit','noms','contact','mail','adresse','dateCmd')
+    'compteproduit.numero_ssouscompte as numero_ssouscompteProduit'
+
+    ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
+    'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
+    'dateDebutEssaie','dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2',
+    'TempsPause','nbrConge','nbrCongeLettre','nomOffice','postnomOffice','qualifieOffice',
+    'codeAgent','directeur','numCNSS','numImpot','numcpteBanque','BanqueAgant','autresDetail',
+    'conge',"tperso_affectation_agent.author","matricule_agent","nummaison_agent",
+    "noms_agent as noms","sexe_agent","datenaissance_agent","lieunaissnce_agent",
+    "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent as contact",
+    "mail_agent as mail","grade_agent","fonction_agent","specialite_agent","Categorie_agent",
+    "niveauEtude_agent","anneeFinEtude_agent","Ecole_agent",
+    "tagent.photo as photo_agent","tagent.slug as slug_agent",'fammiliale','logement',
+    'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+    'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+     'param_secteur_id'
+
+    // ,'noms','contact','mail','adresse'
+    ,'dateCmd')
     ->selectRaw('(qteCmd*puCmd) as PTCmd')
     ->selectRaw('(qteBase*puBase) as PTBase')
     ->selectRaw('((qteCmd*puCmd)/tvente_detail_requisition.taux) as PTCmdFC')
@@ -19019,8 +19161,7 @@ function printRapportDetailEntreeFssProduit($date1, $date2, $refFournisseur,$idP
          ->join('tvente_produit','tvente_produit.id','=','tvente_detail_entree.refProduit')
          ->join('tvente_categorie_produit','tvente_categorie_produit.id','=','tvente_produit.refCategorie')
          ->join('tvente_entete_entree','tvente_entete_entree.id','=','tvente_detail_entree.refEnteteEntree')
-         ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_entree.refFournisseur')
- 
+        
          ->select(DB::raw('ROUND(SUM(qteEntree*puEntree),0) as TotalFacture'))
          ->where([
             ['dateEntree','>=', $date1],
@@ -19042,9 +19183,12 @@ function printRapportDetailEntreeFssProduit($date1, $date2, $refFournisseur,$idP
          ->join('tvente_produit','tvente_produit.id','=','tvente_detail_entree.refProduit')
          ->join('tvente_categorie_produit','tvente_categorie_produit.id','=','tvente_produit.refCategorie')
          ->join('tvente_entete_entree','tvente_entete_entree.id','=','tvente_detail_entree.refEnteteEntree')
-         ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_entree.refFournisseur')
+         
+         ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+        ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+
  
-         ->select('tvente_produit.designation as nom_produit','tvente_fournisseur.noms')
+         ->select('tvente_produit.designation as nom_produit','noms_agent as noms')
          ->where([
             ['dateEntree','>=', $date1],
             ['dateEntree','<=', $date2],
@@ -19298,7 +19442,7 @@ function printRapportDetailEntreeFssProduit($date1, $date2, $refFournisseur,$idP
                 <td style="width:0px;height:24px;"></td>
                 <td></td>
                 <td class="cs9FE9304F" style="width:101px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>N&#176;&nbsp;FACTURE</nobr></td>
-                <td class="cs9FE9304F" colspan="3" style="width:230px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>FOURNISSEUR</nobr></td>
+                <td class="cs9FE9304F" colspan="3" style="width:230px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>CREUSEUR</nobr></td>
                 <td class="cs9FE9304F" colspan="2" style="width:107px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>DATE&nbsp;ENTREE</nobr></td>
                 <td class="cs9FE9304F" style="width:178px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>ARTICLE</nobr></td>
                 <td class="cs9FE9304F" colspan="2" style="width:91px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>Qte</nobr></td>
@@ -19370,7 +19514,9 @@ function showDetailEntreeFssProduit($date1,$date2,$refFournisseur,$idProduit)
 
     ->join('tvente_entete_entree','tvente_entete_entree.id','=','tvente_detail_entree.refEnteteEntree')
     ->join('tvente_module','tvente_module.id','=','tvente_entete_entree.module_id')
-    ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_entree.refFournisseur')
+    
+    ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+    ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
 
     ->join('tvente_services','tvente_services.id','=','tvente_entete_entree.refService')
     ->join('tvente_produit','tvente_produit.id','=','tvente_detail_entree.refProduit')
@@ -19390,7 +19536,25 @@ function showDetailEntreeFssProduit($date1,$date2,$refFournisseur,$idProduit)
     'tvente_detail_entree.refUser','tvente_detail_entree.created_at','tvente_detail_entree.devise',
     'tvente_detail_entree.taux'
 
-    ,'noms','contact','mail','adresse','tvente_entete_entree.code','tvente_entete_entree.refFournisseur',
+    // ,'noms','contact','mail','adresse'
+
+    ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
+    'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
+    'dateDebutEssaie','dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2',
+    'TempsPause','nbrConge','nbrCongeLettre','nomOffice','postnomOffice','qualifieOffice',
+    'codeAgent','directeur','numCNSS','numImpot','numcpteBanque','BanqueAgant','autresDetail',
+    'conge',"tperso_affectation_agent.author","matricule_agent","nummaison_agent",
+    "noms_agent as noms","sexe_agent","datenaissance_agent","lieunaissnce_agent",
+    "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent as contact",
+    "mail_agent as mail","grade_agent","fonction_agent","specialite_agent","Categorie_agent",
+    "niveauEtude_agent","anneeFinEtude_agent","Ecole_agent",
+    "tagent.photo as photo_agent","tagent.slug as slug_agent",'fammiliale','logement',
+    'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+    'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+     'param_secteur_id'
+    
+    
+    ,'tvente_entete_entree.code','tvente_entete_entree.refFournisseur',
     'tvente_entete_entree.refRecquisition','tvente_entete_entree.module_id','dateEntree',
     'tvente_entete_entree.libelle','transporteur','niveau1','niveaumax',"tvente_module.nom_module"
 
@@ -19551,9 +19715,12 @@ function printRapportDetailRequisitionFssProduit($date1, $date2, $refFournisseur
          ->join('tvente_produit','tvente_produit.id','=','tvente_detail_requisition.refProduit')
          ->join('tvente_categorie_produit','tvente_categorie_produit.id','=','tvente_produit.refCategorie')
          ->join('tvente_entete_requisition','tvente_entete_requisition.id','=','tvente_detail_requisition.refEnteteCmd')
-         ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_requisition.refFournisseur')
+         
+         ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_requisition.refFournisseur')
+         ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+         ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
  
-         ->select('tvente_produit.designation as nom_produit','tvente_fournisseur.noms')
+         ->select('tvente_produit.designation as nom_produit','noms_agent as noms')
          ->where([
             ['dateCmd','>=', $date1],
             ['dateCmd','<=', $date2],
@@ -19807,7 +19974,7 @@ function printRapportDetailRequisitionFssProduit($date1, $date2, $refFournisseur
                 <td style="width:0px;height:24px;"></td>
                 <td></td>
                 <td class="cs9FE9304F" style="width:101px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>N&#176;&nbsp;FACTURE</nobr></td>
-                <td class="cs9FE9304F" colspan="3" style="width:230px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>FOURNISSEUR</nobr></td>
+                <td class="cs9FE9304F" colspan="3" style="width:230px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>CREUSEUR</nobr></td>
                 <td class="cs9FE9304F" colspan="2" style="width:107px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>DATE&nbsp;ENTREE</nobr></td>
                 <td class="cs9FE9304F" style="width:178px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>ARTICLE</nobr></td>
                 <td class="cs9FE9304F" colspan="2" style="width:91px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>Qte</nobr></td>
@@ -19881,7 +20048,11 @@ function showDetailRequisitionFssProduit($date1,$date2,$refFournisseur,$idProdui
     ->join('tvente_produit','tvente_produit.id','=','tvente_detail_requisition.refProduit')
     ->join('tvente_categorie_produit','tvente_categorie_produit.id','=','tvente_produit.refCategorie')
     ->join('tvente_entete_requisition','tvente_entete_requisition.id','=','tvente_detail_requisition.refEnteteCmd')
-    ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_requisition.refFournisseur')
+    
+    ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_requisition.refFournisseur')
+    ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+    ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat') 
+    
     ->select('tvente_detail_requisition.id','refEnteteCmd','refProduit','tvente_detail_requisition.compte_achat',
     'tvente_detail_requisition.compte_produit','puCmd','qteCmd','uniteCmd','tvente_detail_requisition.puBase',
     'tvente_detail_requisition.qteBase','tvente_detail_requisition.uniteBase','tvente_detail_requisition.devise',
@@ -19892,7 +20063,26 @@ function showDetailRequisitionFssProduit($date1,$date2,$refFournisseur,$idProdui
     ,'compteachat.refSousCompte as refSousCompteAchat','compteachat.nom_ssouscompte as nom_ssouscompteAchat',
     'compteachat.numero_ssouscompte as numero_ssouscompteAchat'
     ,'compteproduit.refSousCompte as refSousCompteProduit','compteproduit.nom_ssouscompte as nom_ssouscompteProduit',
-    'compteproduit.numero_ssouscompte as numero_ssouscompteProduit','noms','contact','mail','adresse','dateCmd')
+    'compteproduit.numero_ssouscompte as numero_ssouscompteProduit'
+
+    ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
+    'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
+    'dateDebutEssaie','dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2',
+    'TempsPause','nbrConge','nbrCongeLettre','nomOffice','postnomOffice','qualifieOffice',
+    'codeAgent','directeur','numCNSS','numImpot','numcpteBanque','BanqueAgant','autresDetail',
+    'conge',"tperso_affectation_agent.author","matricule_agent","nummaison_agent",
+    "noms_agent as noms","sexe_agent","datenaissance_agent","lieunaissnce_agent",
+    "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent as contact",
+    "mail_agent as mail","grade_agent","fonction_agent","specialite_agent","Categorie_agent",
+    "niveauEtude_agent","anneeFinEtude_agent","Ecole_agent",
+    "tagent.photo as photo_agent","tagent.slug as slug_agent",'fammiliale','logement',
+    'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+    'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+     'param_secteur_id'
+    
+    // ,'noms','contact','mail','adresse'
+    
+    ,'dateCmd')
     ->selectRaw('(qteCmd*puCmd) as PTCmd')
     ->selectRaw('(qteBase*puBase) as PTBase')
     ->selectRaw('((qteCmd*puCmd)/tvente_detail_requisition.taux) as PTCmdFC')
@@ -21353,7 +21543,7 @@ function printRapportEnteteFactureCommande($date1, $date2)
                 <td></td>
                 <td></td>
                 <td></td>
-                <td class="csB6F858D0" colspan="8" style="width:625px;height:32px;line-height:28px;text-align:center;vertical-align:middle;"><nobr>RAPPORT DES FACTURES DES FOURNISSEURS</nobr></td>
+                <td class="csB6F858D0" colspan="8" style="width:625px;height:32px;line-height:28px;text-align:center;vertical-align:middle;"><nobr>RAPPORT DES CREUSEMENTS DES CREUSEURS</nobr></td>
                 <td></td>
                 <td></td>
             </tr>
@@ -21399,7 +21589,7 @@ function printRapportEnteteFactureCommande($date1, $date2)
                 <td style="width:0px;height:24px;"></td>
                 <td></td>
                 <td class="cs9FE9304F" style="width:101px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>N&#176;&nbsp;FACTURE</nobr></td>
-                <td class="cs9FE9304F" colspan="3" style="width:230px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>FOURNISSEUR</nobr></td>
+                <td class="cs9FE9304F" colspan="3" style="width:230px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>CREUSEUR</nobr></td>
                 <td class="cs9FE9304F" colspan="2" style="width:107px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>DATE&nbsp;FACTURE</nobr></td>
                 <td class="cs9FE9304F" style="width:128px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>TOTAL&nbsp;FACTURE($)</nobr></td>
                 <td class="cs9FE9304F" style="width:113px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>TOTAL&nbsp;PAIE($)</nobr></td>
@@ -21463,21 +21653,32 @@ function showDetailFacturationCommande($date1, $date2)
     $data = DB::table('tvente_entete_requisition')
     ->join('tvente_module','tvente_module.id','=','tvente_entete_requisition.module_id')
     ->join('tvente_services','tvente_services.id','=','tvente_entete_requisition.refService')
-    ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_requisition.refFournisseur')
-    ->join('tvente_categorie_fournisseur','tvente_categorie_fournisseur.id','=','tvente_fournisseur.refCategorieFss')
-    ->join('tfin_ssouscompte','tfin_ssouscompte.id','=','tvente_categorie_fournisseur.compte_fss_bl')
-    ->join('tfin_souscompte','tfin_souscompte.id','=','tfin_ssouscompte.refSousCompte')
-    ->join('tfin_compte','tfin_compte.id','=','tfin_souscompte.refCompte')
-    ->join('tfin_classe','tfin_classe.id','=','tfin_compte.refClasse')
-    ->join('tfin_typecompte','tfin_typecompte.id','=','tfin_compte.refTypecompte')
-    ->join('tfin_typeposition','tfin_typeposition.id','=','tfin_compte.refPosition')
+    
+    ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_requisition.refFournisseur')
+    ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+    ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat') 
+    
     ->select('tvente_entete_requisition.id','tvente_entete_requisition.code','refFournisseur','module_id',
     'refService','dateCmd','libelle','cloture',
-    'niveau1','niveaumax','tvente_entete_requisition.active','montant','paie','tvente_entete_requisition.author','tvente_entete_requisition.refUser',
-    'tvente_entete_requisition.created_at',"tvente_fournisseur.noms","tvente_fournisseur.contact",
-    "tvente_fournisseur.mail","tvente_fournisseur.adresse",'refCategorieFss', "tvente_categorie_fournisseur.nom_categoriefss",
-    "compte_fss_bl",'refSousCompte','nom_ssouscompte','numero_ssouscompte','nom_souscompte','numero_souscompte','refCompte','nom_compte',
-    'numero_compte','refClasse','refTypecompte','refPosition','nom_classe','numero_classe','nom_typeposition',"nom_typecompte"
+    'niveau1','niveaumax','tvente_entete_requisition.active','montant','paie',
+    'tvente_entete_requisition.author','tvente_entete_requisition.refUser',
+    'tvente_entete_requisition.created_at'
+    
+    ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
+    'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
+    'dateDebutEssaie','dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2',
+    'TempsPause','nbrConge','nbrCongeLettre','nomOffice','postnomOffice','qualifieOffice',
+    'codeAgent','directeur','numCNSS','numImpot','numcpteBanque','BanqueAgant','autresDetail',
+    'conge',"tperso_affectation_agent.author","matricule_agent","nummaison_agent",
+    "noms_agent as noms","sexe_agent","datenaissance_agent","lieunaissnce_agent",
+    "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent as contact",
+    "mail_agent as mail","grade_agent","fonction_agent","specialite_agent","Categorie_agent",
+    "niveauEtude_agent","anneeFinEtude_agent","Ecole_agent",
+    "tagent.photo as photo_agent","tagent.slug as slug_agent",'fammiliale','logement',
+    'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+    'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+     'param_secteur_id'
+
     ,"tvente_module.nom_module","tvente_services.nom_service")
     ->selectRaw('CONCAT("F",YEAR(dateCmd),"",MONTH(dateCmd),"00",tvente_entete_requisition.id) as codeFacture')
     ->selectRaw(' IFNULL(montant,0) as totalFacture')
@@ -21784,7 +21985,7 @@ function printRapportEnteteFacture_Fournisseur($date1, $date2,$refFournisseur)
                 <td></td>
                 <td></td>
                 <td></td>
-                <td class="csB6F858D0" colspan="8" style="width:625px;height:32px;line-height:28px;text-align:center;vertical-align:middle;"><nobr>RAPPORT DES FACTURES DES FOURNISSEURS PAR FSS. </nobr></td>
+                <td class="csB6F858D0" colspan="8" style="width:625px;height:32px;line-height:28px;text-align:center;vertical-align:middle;"><nobr>RAPPORT DES CREUSEMENTS DES CREUSEURS PAR FSS. </nobr></td>
                 <td></td>
                 <td></td>
             </tr>
@@ -21830,7 +22031,7 @@ function printRapportEnteteFacture_Fournisseur($date1, $date2,$refFournisseur)
                 <td style="width:0px;height:24px;"></td>
                 <td></td>
                 <td class="cs9FE9304F" style="width:101px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>N&#176;&nbsp;FACTURE</nobr></td>
-                <td class="cs9FE9304F" colspan="3" style="width:230px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>FOURNISSEUR</nobr></td>
+                <td class="cs9FE9304F" colspan="3" style="width:230px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>CREUSEUR</nobr></td>
                 <td class="cs9FE9304F" colspan="2" style="width:107px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>DATE&nbsp;FACTURE</nobr></td>
                 <td class="cs9FE9304F" style="width:128px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>TOTAL&nbsp;FACTURE($)</nobr></td>
                 <td class="cs9FE9304F" style="width:113px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>TOTAL&nbsp;PAIE($)</nobr></td>
@@ -21894,21 +22095,39 @@ function showDetailFacturationCommande_Fournisseur($date1,$date2,$refFournisseur
         $data = DB::table('tvente_entete_requisition')
         ->join('tvente_module','tvente_module.id','=','tvente_entete_requisition.module_id')
         ->join('tvente_services','tvente_services.id','=','tvente_entete_requisition.refService')
-        ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_requisition.refFournisseur')
-        ->join('tvente_categorie_fournisseur','tvente_categorie_fournisseur.id','=','tvente_fournisseur.refCategorieFss')
-        ->join('tfin_ssouscompte','tfin_ssouscompte.id','=','tvente_categorie_fournisseur.compte_fss_bl')
-        ->join('tfin_souscompte','tfin_souscompte.id','=','tfin_ssouscompte.refSousCompte')
-        ->join('tfin_compte','tfin_compte.id','=','tfin_souscompte.refCompte')
-        ->join('tfin_classe','tfin_classe.id','=','tfin_compte.refClasse')
-        ->join('tfin_typecompte','tfin_typecompte.id','=','tfin_compte.refTypecompte')
-        ->join('tfin_typeposition','tfin_typeposition.id','=','tfin_compte.refPosition')
+        
+        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_requisition.refFournisseur')
+        ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+        ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
+        
         ->select('tvente_entete_requisition.id','tvente_entete_requisition.code','refFournisseur','module_id',
         'refService','dateCmd','libelle','cloture',
         'niveau1','niveaumax','tvente_entete_requisition.active','montant','paie','tvente_entete_requisition.author','tvente_entete_requisition.refUser',
-        'tvente_entete_requisition.created_at',"tvente_fournisseur.noms","tvente_fournisseur.contact",
-        "tvente_fournisseur.mail","tvente_fournisseur.adresse",'refCategorieFss', "tvente_categorie_fournisseur.nom_categoriefss",
-        "compte_fss_bl",'refSousCompte','nom_ssouscompte','numero_ssouscompte','nom_souscompte','numero_souscompte','refCompte','nom_compte',
-        'numero_compte','refClasse','refTypecompte','refPosition','nom_classe','numero_classe','nom_typeposition',"nom_typecompte"
+        'tvente_entete_requisition.created_at'
+
+        ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
+        'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
+        'dateDebutEssaie','dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2',
+        'TempsPause','nbrConge','nbrCongeLettre','nomOffice','postnomOffice','qualifieOffice',
+        'codeAgent','directeur','numCNSS','numImpot','numcpteBanque','BanqueAgant','autresDetail',
+        'conge',"tperso_affectation_agent.author","matricule_agent","nummaison_agent",
+        "noms_agent as noms","sexe_agent","datenaissance_agent","lieunaissnce_agent",
+        "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent as contact",
+        "mail_agent as mail","grade_agent","fonction_agent","specialite_agent","Categorie_agent",
+        "niveauEtude_agent","anneeFinEtude_agent","Ecole_agent",
+        "tagent.photo as photo_agent","tagent.slug as slug_agent",'fammiliale','logement',
+        'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+        'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+        'param_secteur_id'
+        
+        // ,"tvente_fournisseur.noms","tvente_fournisseur.contact",
+        // "tvente_fournisseur.mail","tvente_fournisseur.adresse",'refCategorieFss',
+        //  "tvente_categorie_fournisseur.nom_categoriefss",
+        // "compte_fss_bl",'refSousCompte','nom_ssouscompte','numero_ssouscompte',
+        // 'nom_souscompte','numero_souscompte','refCompte','nom_compte',
+        // 'numero_compte','refClasse','refTypecompte','refPosition','nom_classe',
+        // 'numero_classe','nom_typeposition',"nom_typecompte"
+
         ,"tvente_module.nom_module","tvente_services.nom_service")
         ->selectRaw('CONCAT("F",YEAR(dateCmd),"",MONTH(dateCmd),"00",tvente_entete_requisition.id) as codeFacture')
         ->selectRaw(' IFNULL(montant,0) as totalFacture')
@@ -22200,7 +22419,7 @@ function printRapportSoldeFacture_Fournisseur($date1, $date2)
                 <td></td>
                 <td></td>
                 <td></td>
-                <td class="cs2C853136" colspan="9" style="width:597px;height:23px;line-height:22px;text-align:center;vertical-align:middle;"><nobr>RAPPORTS DES SOLDES DES FOURNISSEURS</nobr></td>
+                <td class="cs2C853136" colspan="9" style="width:597px;height:23px;line-height:22px;text-align:center;vertical-align:middle;"><nobr>RAPPORTS DES SOLDES DES CREUSEURS</nobr></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -22243,7 +22462,7 @@ function printRapportSoldeFacture_Fournisseur($date1, $date2)
                 <td style="width:0px;height:24px;"></td>
                 <td></td>
                 <td class="cs275E312D" style="width:68px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>N&#176;</nobr></td>
-                <td class="csAB3AA82A" colspan="3" style="width:307px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>Fournisseur</nobr></td>
+                <td class="csAB3AA82A" colspan="3" style="width:307px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>Creuseur</nobr></td>
                 <td class="csAB3AA82A" colspan="3" style="width:119px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>Solde&nbsp;Innitial</nobr></td>
                 <td class="csAB3AA82A" style="width:100px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>Montant&nbsp;d&#249;</nobr></td>
                 <td class="csAB3AA82A" colspan="3" style="width:101px;height:22px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>Montant&nbsp;Pay&#233;</nobr></td>
@@ -22306,88 +22525,69 @@ function showDetailSoldeFournisseur($date1, $date2)
 {
         // Récupérer les données de stock, mouvements et ventes en une seule requête 
 
-        // $data1 = DB::table('tvente_fournisseur')
-        //     ->leftJoin('tvente_entete_requisition as dataCmd', function ($join) use ($date1) {
-        //         $join->on('dataCmd.refFournisseur', '=', 'tvente_fournisseur.id')
-        //              ->where('dataCmd.dateCmd', '<', $date1);
-        //     })
-        //     ->select(
-        //         "tvente_fournisseur.id","tvente_fournisseur.noms","tvente_fournisseur.contact",
-        //         "tvente_fournisseur.mail","tvente_fournisseur.adresse","tvente_fournisseur.author",
-        //         'refCategorieFss',
-        //         DB::raw('IFNULL(ROUND(SUM(dataCmd.montant), 2), 0) as dataFacture')                
-        //     )
-        //     ->groupBy("tvente_fournisseur.id","tvente_fournisseur.noms","tvente_fournisseur.contact",
-        //         "tvente_fournisseur.mail","tvente_fournisseur.adresse","tvente_fournisseur.author",
-        //         'refCategorieFss')
-        //     ->orderBy("tvente_fournisseur.noms", "asc")
-        //     ->get();
-
-        $data1 = DB::table('tvente_fournisseur') 
-        ->leftjoin('tvente_entete_requisition', 'tvente_entete_requisition.refFournisseur', '=', 'tvente_fournisseur.id')  
+        $data1 = DB::table('tperso_affectation_agent') 
+        ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+        ->leftjoin('tvente_entete_requisition', 'tvente_entete_requisition.refFournisseur', '=', 'tperso_affectation_agent.id')  
         ->leftJoin('tvente_detail_requisition as dataCmd', function ($join) use ($date1) {
             $join->on('dataCmd.refEnteteCmd', '=', 'tvente_entete_requisition.id')
             ->where('tvente_entete_requisition.dateCmd', '<', $date1);
         })
         ->select(
-            "tvente_fournisseur.id","tvente_fournisseur.noms","tvente_fournisseur.contact",
-            "tvente_fournisseur.mail","tvente_fournisseur.adresse","tvente_fournisseur.author",
-            'refCategorieFss',
+            "tperso_affectation_agent.id","noms_agent as noms","contact_agent as contact",
             DB::raw('IFNULL(ROUND(SUM(dataCmd.puCmd * dataCmd.qteCmd), 2), 0) as dataFacture')
         )
-        ->groupBy("tvente_fournisseur.id","tvente_fournisseur.noms","tvente_fournisseur.contact",
-                 "tvente_fournisseur.mail","tvente_fournisseur.adresse","tvente_fournisseur.author",
-                'refCategorieFss')
-        ->orderBy("tvente_fournisseur.noms", "asc")
+        ->groupBy("tperso_affectation_agent.id","noms_agent","contact_agent")
+        ->orderBy("noms_agent", "asc")
         ->get();
 
 
-            $data2 = DB::table('tvente_fournisseur') 
-            ->leftjoin('tvente_entete_requisition', 'tvente_entete_requisition.refFournisseur', '=', 'tvente_fournisseur.id')  
+            $data2 = DB::table('tperso_affectation_agent') 
+            ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent') 
+            ->leftjoin('tvente_entete_requisition', 'tvente_entete_requisition.refFournisseur', '=', 'tperso_affectation_agent.id')  
             ->leftJoin('tvente_paiement_commande as dataPaie', function ($join) use ($date1) {
                 $join->on('dataPaie.refCommande', '=', 'tvente_entete_requisition.id')
                 ->where('dataPaie.date_paie', '<', $date1);
             })
             ->select(
-                "tvente_fournisseur.id",
-                'tvente_fournisseur.noms',
+                "tperso_affectation_agent.id","noms_agent as noms","contact_agent as contact",
                 DB::raw('IFNULL(ROUND(SUM(dataPaie.montant_paie), 2), 0) as dataPaie')
             )
-            ->groupBy("tvente_fournisseur.id", "tvente_fournisseur.noms")
-            ->orderBy("tvente_fournisseur.noms", "asc")
+            ->groupBy("tperso_affectation_agent.id","noms_agent","contact_agent")
+            ->orderBy("noms_agent", "asc")
             ->get();
     
 
         //=============================================================================================
 
-        $data11 = DB::table('tvente_fournisseur') 
-        ->leftjoin('tvente_entete_requisition', 'tvente_entete_requisition.refFournisseur', '=', 'tvente_fournisseur.id')  
+        $data11 = DB::table('tperso_affectation_agent') 
+        ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent') 
+        ->leftjoin('tvente_entete_requisition', 'tvente_entete_requisition.refFournisseur', '=', 'tperso_affectation_agent.id')  
         ->leftJoin('tvente_detail_requisition as mvtCmd', function ($join) use ($date1, $date2) {
             $join->on('mvtCmd.refEnteteCmd', '=', 'tvente_entete_requisition.id')
             ->whereBetween('tvente_entete_requisition.dateCmd', [$date1, $date2]);
         })
         ->select(
-            "tvente_fournisseur.id","tvente_fournisseur.noms",
+            "tperso_affectation_agent.id","noms_agent as noms","contact_agent as contact",
             DB::raw('IFNULL(ROUND(SUM(mvtCmd.puCmd * mvtCmd.qteCmd), 2), 0) as mvtFacture')
         )
-        ->groupBy("tvente_fournisseur.id","tvente_fournisseur.noms")
-        ->orderBy("tvente_fournisseur.noms", "asc")
+        ->groupBy("tperso_affectation_agent.id","noms_agent","contact_agent")
+        ->orderBy("noms_agent", "asc")
         ->get();
     
     
-        $data22 = DB::table('tvente_fournisseur')   
-        ->leftjoin('tvente_entete_requisition', 'tvente_entete_requisition.refFournisseur', '=', 'tvente_fournisseur.id')
+        $data22 = DB::table('tperso_affectation_agent') 
+        ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')   
+        ->leftjoin('tvente_entete_requisition', 'tvente_entete_requisition.refFournisseur', '=', 'tperso_affectation_agent.id')
         ->leftJoin('tvente_paiement_commande as mvtPaie', function ($join) use ($date1, $date2) {
             $join->on('mvtPaie.refCommande', '=', 'tvente_entete_requisition.id')
             ->whereBetween('mvtPaie.date_paie', [$date1, $date2]);
         })
         ->select(
-            "tvente_fournisseur.id",
-            'tvente_fournisseur.noms',
+            "tperso_affectation_agent.id","noms_agent as noms","contact_agent as contact",
             DB::raw('IFNULL(ROUND(SUM(mvtPaie.montant_paie), 2), 0) as mvtPaie')
         )
-        ->groupBy("tvente_fournisseur.id", "tvente_fournisseur.noms")
-        ->orderBy("tvente_fournisseur.noms", "asc")
+        ->groupBy("tperso_affectation_agent.id","noms_agent","contact_agent")
+        ->orderBy("noms_agent", "asc")
         ->get();
 
 
@@ -22448,71 +22648,69 @@ function showDetailSoldeFournisseur($date1, $date2)
 function showSommeSoldeFournisseur($date1, $date2)
 {
 
-        $data1 = DB::table('tvente_fournisseur') 
-        ->leftjoin('tvente_entete_requisition', 'tvente_entete_requisition.refFournisseur', '=', 'tvente_fournisseur.id')  
+        $data1 = DB::table('tperso_affectation_agent') 
+        ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent') 
+        ->leftjoin('tvente_entete_requisition', 'tvente_entete_requisition.refFournisseur', '=', 'tperso_affectation_agent.id')  
         ->leftJoin('tvente_detail_requisition as dataCmd', function ($join) use ($date1) {
             $join->on('dataCmd.refEnteteCmd', '=', 'tvente_entete_requisition.id')
             ->where('tvente_entete_requisition.dateCmd', '<', $date1);
         })
         ->select(
-            "tvente_fournisseur.id","tvente_fournisseur.noms","tvente_fournisseur.contact",
-            "tvente_fournisseur.mail","tvente_fournisseur.adresse","tvente_fournisseur.author",
-            'refCategorieFss',
+            "tperso_affectation_agent.id","noms_agent as noms","contact_agent as contact",
             DB::raw('IFNULL(ROUND(SUM(dataCmd.puCmd * dataCmd.qteCmd), 2), 0) as dataFacture')
         )
-        ->groupBy("tvente_fournisseur.id","tvente_fournisseur.noms","tvente_fournisseur.contact",
-                 "tvente_fournisseur.mail","tvente_fournisseur.adresse","tvente_fournisseur.author",
-                'refCategorieFss')
-        ->orderBy("tvente_fournisseur.noms", "asc")
+        ->groupBy("tperso_affectation_agent.id","noms_agent","contact_agent")
+        ->orderBy("noms_agent", "asc")
         ->get();
 
 
-            $data2 = DB::table('tvente_fournisseur') 
-            ->leftjoin('tvente_entete_requisition', 'tvente_entete_requisition.refFournisseur', '=', 'tvente_fournisseur.id')  
+            $data2 = DB::table('tperso_affectation_agent') 
+            ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent') 
+            ->leftjoin('tvente_entete_requisition', 'tvente_entete_requisition.refFournisseur', '=', 'tperso_affectation_agent.id')  
             ->leftJoin('tvente_paiement_commande as dataPaie', function ($join) use ($date1) {
                 $join->on('dataPaie.refCommande', '=', 'tvente_entete_requisition.id')
                 ->where('dataPaie.date_paie', '<', $date1);
             })
             ->select(
-                "tvente_fournisseur.id",
-                'tvente_fournisseur.noms',
+                "tperso_affectation_agent.id","noms_agent as noms","contact_agent as contact",
                 DB::raw('IFNULL(ROUND(SUM(dataPaie.montant_paie), 2), 0) as dataPaie')
             )
-            ->groupBy("tvente_fournisseur.id", "tvente_fournisseur.noms")
-            ->orderBy("tvente_fournisseur.noms", "asc")
+            ->groupBy("tperso_affectation_agent.id","noms_agent","contact_agent",)
+            ->orderBy("noms_agent", "asc")
             ->get();
     
 
         //=============================================================================================
 
-        $data11 = DB::table('tvente_fournisseur') 
-        ->leftjoin('tvente_entete_requisition', 'tvente_entete_requisition.refFournisseur', '=', 'tvente_fournisseur.id')  
+        $data11 = DB::table('tperso_affectation_agent') 
+        ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent') 
+        ->leftjoin('tvente_entete_requisition', 'tvente_entete_requisition.refFournisseur', '=', 'tperso_affectation_agent.id')  
         ->leftJoin('tvente_detail_requisition as mvtCmd', function ($join) use ($date1, $date2) {
             $join->on('mvtCmd.refEnteteCmd', '=', 'tvente_entete_requisition.id')
             ->whereBetween('tvente_entete_requisition.dateCmd', [$date1, $date2]);
         })
         ->select(
-            "tvente_fournisseur.id","tvente_fournisseur.noms",
+            "tperso_affectation_agent.id","noms_agent as noms","contact_agent as contact",
             DB::raw('IFNULL(ROUND(SUM(mvtCmd.puCmd * mvtCmd.qteCmd), 2), 0) as mvtFacture')
         )
-        ->groupBy("tvente_fournisseur.id","tvente_fournisseur.noms")
-        ->orderBy("tvente_fournisseur.noms", "asc")
+        ->groupBy("tperso_affectation_agent.id","noms_agent","contact_agent",)
+        ->orderBy("noms_agent", "asc")
         ->get();
     
     
-        $data22 = DB::table('tvente_fournisseur')   
-        ->leftjoin('tvente_entete_requisition', 'tvente_entete_requisition.refFournisseur', '=', 'tvente_fournisseur.id')
+        $data22 = DB::table('tperso_affectation_agent') 
+        ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')   
+        ->leftjoin('tvente_entete_requisition', 'tvente_entete_requisition.refFournisseur', '=', 'tperso_affectation_agent.id')
         ->leftJoin('tvente_paiement_commande as mvtPaie', function ($join) use ($date1, $date2) {
             $join->on('mvtPaie.refCommande', '=', 'tvente_entete_requisition.id')
             ->whereBetween('mvtPaie.date_paie', [$date1, $date2]);
         })
         ->select(
-            "tvente_fournisseur.id",
-            'tvente_fournisseur.noms',
+            "tperso_affectation_agent.id","noms_agent as noms","contact_agent as contact",
             DB::raw('IFNULL(ROUND(SUM(mvtPaie.montant_paie), 2), 0) as mvtPaie')
         )
-        ->groupBy("tvente_fournisseur.id", "tvente_fournisseur.noms")
-        ->orderBy("tvente_fournisseur.noms", "asc")
+        ->groupBy("tperso_affectation_agent.id","noms_agent","contact_agent",)
+        ->orderBy("noms_agent", "asc")
         ->get();
 
 
@@ -26837,7 +27035,11 @@ function pdf_detail_commande_fournisseur_excel(Request $request)
         ->join('tvente_categorie_produit','tvente_categorie_produit.id','=','tvente_produit.refCategorie')
         ->join('tvente_grande_categorie_produit','tvente_grande_categorie_produit.id','=','tvente_categorie_produit.id_groupe_categorie')
         ->join('tvente_entete_requisition','tvente_entete_requisition.id','=','tvente_detail_requisition.refEnteteCmd')
-        ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_requisition.refFournisseur')
+        
+        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_requisition.refFournisseur')
+        ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+        ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
+                
         ->select('tvente_detail_requisition.id','refEnteteCmd','refProduit','tvente_detail_requisition.compte_achat',
         'tvente_detail_requisition.compte_produit','puCmd','qteCmd','uniteCmd','tvente_detail_requisition.puBase',
         'tvente_detail_requisition.qteBase','tvente_detail_requisition.uniteBase','tvente_detail_requisition.devise',
@@ -26848,7 +27050,26 @@ function pdf_detail_commande_fournisseur_excel(Request $request)
         ,'compteachat.refSousCompte as refSousCompteAchat','compteachat.nom_ssouscompte as nom_ssouscompteAchat',
         'compteachat.numero_ssouscompte as numero_ssouscompteAchat','designation_groupe'
         ,'compteproduit.refSousCompte as refSousCompteProduit','compteproduit.nom_ssouscompte as nom_ssouscompteProduit',
-        'compteproduit.numero_ssouscompte as numero_ssouscompteProduit','noms','contact','mail','adresse','dateCmd')
+        'compteproduit.numero_ssouscompte as numero_ssouscompteProduit'
+
+        ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
+        'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
+        'dateDebutEssaie','dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2',
+        'TempsPause','nbrConge','nbrCongeLettre','nomOffice','postnomOffice','qualifieOffice',
+        'codeAgent','directeur','numCNSS','numImpot','numcpteBanque','BanqueAgant','autresDetail',
+        'conge',"tperso_affectation_agent.author","matricule_agent","nummaison_agent",
+        "noms_agent as noms","sexe_agent","datenaissance_agent","lieunaissnce_agent",
+        "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent as contact",
+        "mail_agent as mail","grade_agent","fonction_agent","specialite_agent","Categorie_agent",
+        "niveauEtude_agent","anneeFinEtude_agent","Ecole_agent",
+        "tagent.photo as photo_agent","tagent.slug as slug_agent",'fammiliale','logement',
+        'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+        'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+        'param_secteur_id'
+        
+        // ,'noms','contact','mail','adresse'
+        
+        ,'dateCmd')
         ->selectRaw('(qteCmd*puCmd) as PTCmd')
         ->selectRaw('(qteBase*puBase) as PTBase')
         ->selectRaw('((qteCmd*puCmd)/tvente_detail_requisition.taux) as PTCmdFC')
@@ -26906,21 +27127,40 @@ function pdf_entete_commande_fournisseur_excel(Request $request)
         $data = DB::table('tvente_entete_requisition')
         ->join('tvente_module','tvente_module.id','=','tvente_entete_requisition.module_id')
         ->join('tvente_services','tvente_services.id','=','tvente_entete_requisition.refService')
-        ->join('tvente_fournisseur','tvente_fournisseur.id','=','tvente_entete_requisition.refFournisseur')
-        ->join('tvente_categorie_fournisseur','tvente_categorie_fournisseur.id','=','tvente_fournisseur.refCategorieFss')
-        ->join('tfin_ssouscompte','tfin_ssouscompte.id','=','tvente_categorie_fournisseur.compte_fss_bl')
-        ->join('tfin_souscompte','tfin_souscompte.id','=','tfin_ssouscompte.refSousCompte')
-        ->join('tfin_compte','tfin_compte.id','=','tfin_souscompte.refCompte')
-        ->join('tfin_classe','tfin_classe.id','=','tfin_compte.refClasse')
-        ->join('tfin_typecompte','tfin_typecompte.id','=','tfin_compte.refTypecompte')
-        ->join('tfin_typeposition','tfin_typeposition.id','=','tfin_compte.refPosition')
+        
+        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_requisition.refFournisseur')
+        ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+        ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')    
+        
         ->select('tvente_entete_requisition.id','tvente_entete_requisition.code','refFournisseur','module_id',
         'refService','dateCmd','libelle','cloture',
         'niveau1','niveaumax','tvente_entete_requisition.active','montant','paie','tvente_entete_requisition.author','tvente_entete_requisition.refUser',
-        'tvente_entete_requisition.created_at',"tvente_fournisseur.noms","tvente_fournisseur.contact",
-        "tvente_fournisseur.mail","tvente_fournisseur.adresse",'refCategorieFss', "tvente_categorie_fournisseur.nom_categoriefss",
-        "compte_fss_bl",'refSousCompte','nom_ssouscompte','numero_ssouscompte','nom_souscompte','numero_souscompte','refCompte','nom_compte',
-        'numero_compte','refClasse','refTypecompte','refPosition','nom_classe','numero_classe','nom_typeposition',"nom_typecompte"
+        'tvente_entete_requisition.created_at'
+
+
+        ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
+        'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
+        'dateDebutEssaie','dateFinEssaie','JourTrail1','JourTrail2','heureTrail1','heureTrail2',
+        'TempsPause','nbrConge','nbrCongeLettre','nomOffice','postnomOffice','qualifieOffice',
+        'codeAgent','directeur','numCNSS','numImpot','numcpteBanque','BanqueAgant','autresDetail',
+        'conge',"tperso_affectation_agent.author","matricule_agent","nummaison_agent",
+        "noms_agent as noms","sexe_agent","datenaissance_agent","lieunaissnce_agent",
+        "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent as contact",
+        "mail_agent as mail","grade_agent","fonction_agent","specialite_agent","Categorie_agent",
+        "niveauEtude_agent","anneeFinEtude_agent","Ecole_agent",
+        "tagent.photo as photo_agent","tagent.slug as slug_agent",'fammiliale','logement',
+        'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+        'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission','nom_contrat','code_contrat',
+        'param_secteur_id'
+        
+        // ,"tvente_fournisseur.noms","tvente_fournisseur.contact",
+        // "tvente_fournisseur.mail","tvente_fournisseur.adresse",'refCategorieFss', 
+        // "tvente_categorie_fournisseur.nom_categoriefss",
+        // "compte_fss_bl",'refSousCompte','nom_ssouscompte','numero_ssouscompte',
+        // 'nom_souscompte','numero_souscompte','refCompte','nom_compte',
+        // 'numero_compte','refClasse','refTypecompte','refPosition','nom_classe',
+        // 'numero_classe','nom_typeposition',"nom_typecompte"
+
         ,"tvente_module.nom_module","tvente_services.nom_service")
         ->selectRaw('CONCAT("F",YEAR(dateCmd),"",MONTH(dateCmd),"00",tvente_entete_requisition.id) as codeFacture')
         ->selectRaw(' IFNULL(montant,0) as totalFacture')

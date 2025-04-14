@@ -73,7 +73,7 @@
                                 <template v-slot:activator="{ on, attrs }">
                                     <span v-bind="attrs" v-on="on">
                                         <v-btn @click="exportToExcelEnteteCommande" block color="  blue" dark>
-                                            <v-icon>print</v-icon> FACTURES DES FOURNISSEURS/EXCEL
+                                            <v-icon>print</v-icon> FACTURES DES CREUSEURS/EXCEL
                                         </v-btn>
                                     </span>
                                 </template>
@@ -85,7 +85,7 @@
                                 <template v-slot:activator="{ on, attrs }">
                                     <span v-bind="attrs" v-on="on">
                                         <v-btn @click="exportToExcelDetailCommande" block color="  blue" dark>
-                                            <v-icon>print</v-icon> DETAILS DES FACTURES DES FSS./EXCEL
+                                            <v-icon>print</v-icon> DETAILS DES CREUSEMENTS DES CRESEUR/EXCEL
                                         </v-btn>
                                     </span>
                                 </template>
@@ -97,7 +97,7 @@
                                 <template v-slot:activator="{ on, attrs }">
                                     <span v-bind="attrs" v-on="on">
                                         <v-btn @click="showPaiementFactureCommandeByDate" block color="  blue" dark>
-                                            <v-icon>print</v-icon> RAPPORTS DES PAIEMENTS FOURNISSEUR
+                                            <v-icon>print</v-icon> RAPPORTS DES PAIEMENTS CREUSEUR
                                         </v-btn>
                                     </span>
                                 </template>
@@ -346,7 +346,7 @@
 
                             <br>
 
-                            <v-autocomplete label="Selectionnez le Fournisseur" prepend-inner-icon="mdi-map"
+                            <v-autocomplete label="Selectionnez le Creuseur" prepend-inner-icon="mdi-map"
                                     :rules="[(v) => !!v || 'Ce champ est requis']" :items="fournisseurList" item-text="noms_agent" item-value="id"
                                     outlined dense v-model="svData.refFournisseur">
                             </v-autocomplete>
@@ -355,7 +355,7 @@
                                 <template v-slot:activator="{ on, attrs }">
                                     <span v-bind="attrs" v-on="on">
                                         <v-btn @click="showDetailEntreeByDate_Fss" block color="  blue" dark>
-                                            <v-icon>print</v-icon> RAPPORTS ENTREE/FOURNISSEUR
+                                            <v-icon>print</v-icon> RAPPORTS ENTREE/CREUSEUR
                                         </v-btn>
                                     </span>
                                 </template>
@@ -367,7 +367,7 @@
                                 <template v-slot:activator="{ on, attrs }">
                                     <span v-bind="attrs" v-on="on">
                                         <v-btn @click="showDetailCommandeByDate_Fss" block color="  blue" dark>
-                                            <v-icon>print</v-icon> RAPPORTS COMMANDE/FOURNISSEUR
+                                            <v-icon>print</v-icon> RAPPORTS COMMANDE/CREUSEUR
                                         </v-btn>
                                     </span>
                                 </template>
@@ -378,7 +378,7 @@
                                 <template v-slot:activator="{ on, attrs }">
                                     <span v-bind="attrs" v-on="on">
                                         <v-btn @click="showSoldeFactureCommandeByDate" block color="  blue" dark>
-                                            <v-icon>print</v-icon> SOLDES DES FOURNISSEURS
+                                            <v-icon>print</v-icon> SOLDES DES CREUSEURS
                                         </v-btn>
                                     </span>
                                 </template>
@@ -389,7 +389,7 @@
                                 <template v-slot:activator="{ on, attrs }">
                                     <span v-bind="attrs" v-on="on">
                                         <v-btn @click="showEnteteFactureCommandeByDate" block color="  blue" dark>
-                                            <v-icon>print</v-icon> FACTURE DES FOURNISSEURS
+                                            <v-icon>print</v-icon> FACTURE DES CREUSEURS
                                         </v-btn>
                                     </span>
                                 </template>
@@ -401,7 +401,7 @@
                                 <template v-slot:activator="{ on, attrs }">
                                     <span v-bind="attrs" v-on="on">
                                         <v-btn @click="showEnteteFactureCommandeByDate_Fss" block color="  blue" dark>
-                                            <v-icon>print</v-icon> FACTURE DES FOURNISSEURS/FOURNISSEUR
+                                            <v-icon>print</v-icon> FACTURE DES CREUSEURS/CREUSEUR
                                         </v-btn>
                                     </span>
                                 </template>
@@ -413,7 +413,7 @@
                                 <template v-slot:activator="{ on, attrs }">
                                     <span v-bind="attrs" v-on="on">
                                         <v-btn @click="showPaiementFactureCommandeByDate_Fss" block color="  blue" dark>
-                                            <v-icon>print</v-icon> PAIEMENTS DES FOURNISSEURS/FOURNISSEUR
+                                            <v-icon>print</v-icon> PAIEMENTS DES CREUSEURS/CREUSEUR
                                         </v-btn>
                                     </span>
                                 </template>
@@ -425,7 +425,7 @@
                                 <template v-slot:activator="{ on, attrs }">
                                     <span v-bind="attrs" v-on="on">
                                         <v-btn @click="showDetailEntreeByDate_Fss_Produit" block color="  blue" dark>
-                                            <v-icon>print</v-icon> ENTREE/FOURNISSEUR/PRODUIT
+                                            <v-icon>print</v-icon> ENTREE/CREUSEUR/PRODUIT
                                         </v-btn>
                                     </span>
                                 </template>
@@ -437,7 +437,7 @@
                                 <template v-slot:activator="{ on, attrs }">
                                     <span v-bind="attrs" v-on="on">
                                         <v-btn @click="showDetailCommandeByDate_Fss_Produit" block color="  blue" dark>
-                                            <v-icon>print</v-icon>COMMANDE/FOURNISSEUR/PRODUIT
+                                            <v-icon>print</v-icon>COMMANDE/CREUSEUR/PRODUIT
                                         </v-btn>
                                     </span>
                                 </template>

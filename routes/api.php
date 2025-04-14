@@ -1649,7 +1649,7 @@ Route::get("fetch_perso_projets2",[tperso_projetsController::class, 'fetch_dropd
 Route::get("fetch_perso_projtes/{partenaire_id}",[tperso_projetsController::class, 'fetch_detail_entete']);
 Route::get("fetch_single_perso_projtes/{id}",[tperso_projetsController::class,'fetch_single']);
 Route::post('insert_perso_projtes',[tperso_projetsController::class, 'insert_data']);
-Route::post('update_perso_projtes/{id}', [tperso_projetsController::class, 'update_data']);
+Route::post('update_perso_projtes', [tperso_projetsController::class, 'update_data']);
 Route::get("delete_perso_projtes/{id}", [tperso_projetsController::class, 'delete_data']);
 //fetch_dropdown
 

@@ -74,7 +74,7 @@
 
               <v-flex xs12 sm12 md4 lg4>
                   <div class="mr-1">
-                      <v-autocomplete label="Selectionnez le Fournisseur" prepend-inner-icon="mdi-map"
+                      <v-autocomplete label="Selectionnez le Creuseur" prepend-inner-icon="mdi-map"
                           :rules="[(v) => !!v || 'Ce champ est requis']" :items="fournisseurList" item-text="noms_agent"
                           item-value="id" outlined dense v-model="svData.refFournisseur"
                           >
@@ -424,7 +424,7 @@ export default {
               refFournisseur: 0,
               refService: 0,
               dateCmd: '',
-              libelle: "Commandes des Produits",
+              libelle: "Creusement des Minerais",
               author: "",
               refUser: 0,
               totalInvoice:0,

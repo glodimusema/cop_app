@@ -9,7 +9,7 @@
           <VenteDetailUnite ref="VenteDetailUnite" />
           <VenteServiceStockByProduit ref="VenteServiceStockByProduit" />
 
-          <v-dialog v-model="dialog" max-width="400px" persistent>
+          <v-dialog v-model="dialog" max-width="600px" persistent>
             <v-card :loading="loading">
               <v-form ref="form" lazy-validation>
                 <v-card-title>
@@ -43,7 +43,7 @@
 
                     <v-flex xs12 sm12 md12 lg12>
                         <div class="mr-1">
-                          <v-text-field type="number" label="Prix Unitaire" prepend-inner-icon="event" dense
+                          <v-text-field type="number" label="Prix Unitaire/KG" prepend-inner-icon="event" dense
                                 :rules="[(v) => !!v || 'Ce champ est requis']" outlined v-model="svData.pu">
                           </v-text-field>
                         </div>
@@ -117,6 +117,40 @@
                     </v-flex>
 
 
+
+                    <v-flex xs12 sm12 md6 lg6>
+                        <div class="mr-1">
+                          <v-text-field type="number" label="% TVA" prepend-inner-icon="event" dense
+                                :rules="[(v) => !!v || 'Ce champ est requis']" outlined v-model="svData.pourcent_tva">
+                          </v-text-field>
+                        </div>
+                    </v-flex>
+                    <v-flex xs12 sm12 md6 lg6>
+                        <div class="mr-1">
+                          <v-text-field type="number" label="% Impot" prepend-inner-icon="event" dense
+                                :rules="[(v) => !!v || 'Ce champ est requis']" outlined v-model="svData.pourcent_impot">
+                          </v-text-field>
+                        </div>
+                    </v-flex>
+
+
+
+                    <v-flex xs12 sm12 md6 lg6>
+                        <div class="mr-1">
+                          <v-text-field type="number" label="% Cooperative" prepend-inner-icon="event" dense
+                                :rules="[(v) => !!v || 'Ce champ est requis']" outlined v-model="svData.pourcent_cooperative">
+                          </v-text-field>
+                        </div>
+                    </v-flex>
+                    <v-flex xs12 sm12 md6 lg6>
+                        <div class="mr-1">
+                          <v-text-field type="number" label="% Autre" prepend-inner-icon="event" dense
+                                :rules="[(v) => !!v || 'Ce champ est requis']" outlined v-model="svData.pourcent_autre">
+                          </v-text-field>
+                        </div>
+                    </v-flex>
+
+
                   </v-layout>                
   
                 </v-card-text>
@@ -132,7 +166,7 @@
           </v-dialog>
 
 
-          <v-dialog v-model="dialog2" max-width="400px" persistent>
+          <v-dialog v-model="dialog2" max-width="600px" persistent>
             <v-card :loading="loading">
               <v-form ref="form" lazy-validation>
                 <v-card-title>
@@ -166,7 +200,7 @@
 
                     <v-flex xs12 sm12 md12 lg12>
                         <div class="mr-1">
-                          <v-text-field type="number" label="Prix Unitaire" prepend-inner-icon="event" dense
+                          <v-text-field type="number" label="Prix Unitaire/KG" prepend-inner-icon="event" dense
                                 :rules="[(v) => !!v || 'Ce champ est requis']" outlined v-model="svData.pu">
                           </v-text-field>
                         </div>
@@ -238,6 +272,39 @@
                         </div>
                     </v-flex>
 
+                    <v-flex xs12 sm12 md6 lg6>
+                        <div class="mr-1">
+                          <v-text-field type="number" label="% TVA" prepend-inner-icon="event" dense
+                                :rules="[(v) => !!v || 'Ce champ est requis']" outlined v-model="svData.pourcent_tva">
+                          </v-text-field>
+                        </div>
+                    </v-flex>
+                    <v-flex xs12 sm12 md6 lg6>
+                        <div class="mr-1">
+                          <v-text-field type="number" label="% Impot" prepend-inner-icon="event" dense
+                                :rules="[(v) => !!v || 'Ce champ est requis']" outlined v-model="svData.pourcent_impot">
+                          </v-text-field>
+                        </div>
+                    </v-flex>
+
+
+
+                    <v-flex xs12 sm12 md6 lg6>
+                        <div class="mr-1">
+                          <v-text-field type="number" label="% Cooperative" prepend-inner-icon="event" dense
+                                :rules="[(v) => !!v || 'Ce champ est requis']" outlined v-model="svData.pourcent_cooperative">
+                          </v-text-field>
+                        </div>
+                    </v-flex>
+                    <v-flex xs12 sm12 md6 lg6>
+                        <div class="mr-1">
+                          <v-text-field type="number" label="% Autre" prepend-inner-icon="event" dense
+                                :rules="[(v) => !!v || 'Ce champ est requis']" outlined v-model="svData.pourcent_autre">
+                          </v-text-field>
+                        </div>
+                    </v-flex>
+                   
+
 
                   </v-layout>                
   
@@ -295,7 +362,10 @@
                           <th class="text-left">AvecTVA</th>
                           <th class="text-left">EstVandable</th>
                           <th class="text-left">StockAlerte</th>
-                          <!-- <th class="text-left">Observ.</th> -->
+                          <th class="text-left">%TVA</th>
+                          <th class="text-left">%Impot</th>
+                          <th class="text-left">%Coop.</th>
+                          <th class="text-left">%Autre</th>
                           <th class="text-left">Action</th>
                         </tr>
                       </thead>
@@ -311,6 +381,10 @@
                           <td>{{ item.tvaapplique}}</td>
                           <td>{{ item.estvendable}}</td>
                           <td>{{ item.stock_alerte}}</td>
+                          <td>{{ item.pourcent_tva}}</td>
+                          <td>{{ item.pourcent_impot}}</td>
+                          <td>{{ item.pourcent_cooperative}}</td>
+                          <td>{{ item.pourcent_autre}}</td>
                           <!-- <td>
                             
                             <v-btn
@@ -437,7 +511,12 @@
           estvendable : false,
           stock_alerte : 0,
           author:"",
-          refUser : 0           
+          refUser : 0,
+          
+          pourcent_tva : 0,
+          pourcent_impot : 0,
+          pourcent_cooperative : 0,
+          pourcent_autre : 0,
         },
         fetchData: [],
         categorieList: [],

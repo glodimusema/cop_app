@@ -35,16 +35,14 @@ class tvente_entete_requisitionController extends Controller
         ->join('tvente_module','tvente_module.id','=','tvente_entete_requisition.module_id')
         ->join('tvente_services','tvente_services.id','=','tvente_entete_requisition.refService')
        
-        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_requisition.refFournisseur')
         ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
         ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
 
         ->select('tvente_entete_requisition.id','tvente_entete_requisition.code','refFournisseur','module_id',
         'refService','dateCmd','libelle','cloture',
-        'niveau1','niveaumax','tvente_entete_requisition.active','montant','paie','tvente_entete_requisition.author','tvente_entete_requisition.refUser',
-        'tvente_entete_requisition.created_at', "tvente_categorie_fournisseur.nom_categoriefss",
-        "compte_fss_bl",'refSousCompte','nom_ssouscompte','numero_ssouscompte','nom_souscompte','numero_souscompte','refCompte','nom_compte',
-        'numero_compte','refClasse','refTypecompte','refPosition','nom_classe','numero_classe','nom_typeposition',"nom_typecompte"
+        'niveau1','niveaumax','tvente_entete_requisition.active','montant','paie','tvente_entete_requisition.author',
+        'tvente_entete_requisition.refUser','tvente_entete_requisition.created_at' 
         ,"tvente_module.nom_module","tvente_services.nom_service"
         
         ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
@@ -96,17 +94,15 @@ class tvente_entete_requisitionController extends Controller
                 ->join('tvente_module','tvente_module.id','=','tvente_entete_requisition.module_id')
                 ->join('tvente_services','tvente_services.id','=','tvente_entete_requisition.refService')
                
-                ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+                ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_requisition.refFournisseur')
                 ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
                 ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
         
                 ->select('tvente_entete_requisition.id','tvente_entete_requisition.code','refFournisseur','module_id',
                 'refService','dateCmd','libelle','cloture',
                 'niveau1','niveaumax','tvente_entete_requisition.active','montant','paie','tvente_entete_requisition.author','tvente_entete_requisition.refUser',
-                'tvente_entete_requisition.created_at', "tvente_categorie_fournisseur.nom_categoriefss",
-                "compte_fss_bl",'refSousCompte','nom_ssouscompte','numero_ssouscompte','nom_souscompte','numero_souscompte','refCompte','nom_compte',
-                'numero_compte','refClasse','refTypecompte','refPosition','nom_classe','numero_classe','nom_typeposition',"nom_typecompte"
-                ,"tvente_module.nom_module","tvente_services.nom_service"
+                'tvente_entete_requisition.created_at', 
+                "tvente_module.nom_module","tvente_services.nom_service"
                 
                 ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
                 'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
@@ -140,17 +136,15 @@ class tvente_entete_requisitionController extends Controller
                 ->join('tvente_module','tvente_module.id','=','tvente_entete_requisition.module_id')
                 ->join('tvente_services','tvente_services.id','=','tvente_entete_requisition.refService')
                
-                ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+                ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_requisition.refFournisseur')
                 ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
                 ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
         
                 ->select('tvente_entete_requisition.id','tvente_entete_requisition.code','refFournisseur','module_id',
                 'refService','dateCmd','libelle','cloture',
                 'niveau1','niveaumax','tvente_entete_requisition.active','montant','paie','tvente_entete_requisition.author','tvente_entete_requisition.refUser',
-                'tvente_entete_requisition.created_at', "tvente_categorie_fournisseur.nom_categoriefss",
-                "compte_fss_bl",'refSousCompte','nom_ssouscompte','numero_ssouscompte','nom_souscompte','numero_souscompte','refCompte','nom_compte',
-                'numero_compte','refClasse','refTypecompte','refPosition','nom_classe','numero_classe','nom_typeposition',"nom_typecompte"
-                ,"tvente_module.nom_module","tvente_services.nom_service"
+                'tvente_entete_requisition.created_at', 
+                "tvente_module.nom_module","tvente_services.nom_service"
                 
                 ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
                 'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
@@ -202,17 +196,15 @@ class tvente_entete_requisitionController extends Controller
                 ->join('tvente_module','tvente_module.id','=','tvente_entete_requisition.module_id')
                 ->join('tvente_services','tvente_services.id','=','tvente_entete_requisition.refService')
                
-                ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+                ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_requisition.refFournisseur')
                 ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
                 ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
         
                 ->select('tvente_entete_requisition.id','tvente_entete_requisition.code','refFournisseur','module_id',
                 'refService','dateCmd','libelle','cloture',
                 'niveau1','niveaumax','tvente_entete_requisition.active','montant','paie','tvente_entete_requisition.author','tvente_entete_requisition.refUser',
-                'tvente_entete_requisition.created_at', "tvente_categorie_fournisseur.nom_categoriefss",
-                "compte_fss_bl",'refSousCompte','nom_ssouscompte','numero_ssouscompte','nom_souscompte','numero_souscompte','refCompte','nom_compte',
-                'numero_compte','refClasse','refTypecompte','refPosition','nom_classe','numero_classe','nom_typeposition',"nom_typecompte"
-                ,"tvente_module.nom_module","tvente_services.nom_service"
+                'tvente_entete_requisition.created_at', 
+                "tvente_module.nom_module","tvente_services.nom_service"
                 
                 ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
                 'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
@@ -247,17 +239,15 @@ class tvente_entete_requisitionController extends Controller
                 ->join('tvente_module','tvente_module.id','=','tvente_entete_requisition.module_id')
                 ->join('tvente_services','tvente_services.id','=','tvente_entete_requisition.refService')
                
-                ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+                ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_requisition.refFournisseur')
                 ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
                 ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
         
                 ->select('tvente_entete_requisition.id','tvente_entete_requisition.code','refFournisseur','module_id',
                 'refService','dateCmd','libelle','cloture',
                 'niveau1','niveaumax','tvente_entete_requisition.active','montant','paie','tvente_entete_requisition.author','tvente_entete_requisition.refUser',
-                'tvente_entete_requisition.created_at', "tvente_categorie_fournisseur.nom_categoriefss",
-                "compte_fss_bl",'refSousCompte','nom_ssouscompte','numero_ssouscompte','nom_souscompte','numero_souscompte','refCompte','nom_compte',
-                'numero_compte','refClasse','refTypecompte','refPosition','nom_classe','numero_classe','nom_typeposition',"nom_typecompte"
-                ,"tvente_module.nom_module","tvente_services.nom_service"
+                'tvente_entete_requisition.created_at', 
+                "tvente_module.nom_module","tvente_services.nom_service"
                 
                 ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
                 'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
@@ -302,17 +292,15 @@ class tvente_entete_requisitionController extends Controller
         ->join('tvente_module','tvente_module.id','=','tvente_entete_requisition.module_id')
         ->join('tvente_services','tvente_services.id','=','tvente_entete_requisition.refService')
        
-        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_requisition.refFournisseur')
         ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
         ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
 
         ->select('tvente_entete_requisition.id','tvente_entete_requisition.code','refFournisseur','module_id',
         'refService','dateCmd','libelle','cloture',
         'niveau1','niveaumax','tvente_entete_requisition.active','montant','paie','tvente_entete_requisition.author','tvente_entete_requisition.refUser',
-        'tvente_entete_requisition.created_at', "tvente_categorie_fournisseur.nom_categoriefss",
-        "compte_fss_bl",'refSousCompte','nom_ssouscompte','numero_ssouscompte','nom_souscompte','numero_souscompte','refCompte','nom_compte',
-        'numero_compte','refClasse','refTypecompte','refPosition','nom_classe','numero_classe','nom_typeposition',"nom_typecompte"
-        ,"tvente_module.nom_module","tvente_services.nom_service"
+        'tvente_entete_requisition.created_at', 
+        "tvente_module.nom_module","tvente_services.nom_service"
         
         ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
         'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
@@ -354,17 +342,15 @@ class tvente_entete_requisitionController extends Controller
         ->join('tvente_module','tvente_module.id','=','tvente_entete_requisition.module_id')
         ->join('tvente_services','tvente_services.id','=','tvente_entete_requisition.refService')
        
-        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_requisition.refFournisseur')
         ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
         ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
 
         ->select('tvente_entete_requisition.id','tvente_entete_requisition.code','refFournisseur','module_id',
         'refService','dateCmd','libelle','cloture',
         'niveau1','niveaumax','tvente_entete_requisition.active','montant','paie','tvente_entete_requisition.author','tvente_entete_requisition.refUser',
-        'tvente_entete_requisition.created_at', "tvente_categorie_fournisseur.nom_categoriefss",
-        "compte_fss_bl",'refSousCompte','nom_ssouscompte','numero_ssouscompte','nom_souscompte','numero_souscompte','refCompte','nom_compte',
-        'numero_compte','refClasse','refTypecompte','refPosition','nom_classe','numero_classe','nom_typeposition',"nom_typecompte"
-        ,"tvente_module.nom_module","tvente_services.nom_service"
+        'tvente_entete_requisition.created_at', 
+        "tvente_module.nom_module","tvente_services.nom_service"
         
         ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
         'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
@@ -410,17 +396,15 @@ class tvente_entete_requisitionController extends Controller
         ->join('tvente_module','tvente_module.id','=','tvente_entete_requisition.module_id')
         ->join('tvente_services','tvente_services.id','=','tvente_entete_requisition.refService')
        
-        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_requisition.refFournisseur')
         ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
         ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
 
         ->select('tvente_entete_requisition.id','tvente_entete_requisition.code','refFournisseur','module_id',
         'refService','dateCmd','libelle','cloture',
         'niveau1','niveaumax','tvente_entete_requisition.active','montant','paie','tvente_entete_requisition.author','tvente_entete_requisition.refUser',
-        'tvente_entete_requisition.created_at', "tvente_categorie_fournisseur.nom_categoriefss",
-        "compte_fss_bl",'refSousCompte','nom_ssouscompte','numero_ssouscompte','nom_souscompte','numero_souscompte','refCompte','nom_compte',
-        'numero_compte','refClasse','refTypecompte','refPosition','nom_classe','numero_classe','nom_typeposition',"nom_typecompte"
-        ,"tvente_module.nom_module","tvente_services.nom_service"
+        'tvente_entete_requisition.created_at', 
+        "tvente_module.nom_module","tvente_services.nom_service"
         
         ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
         'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
@@ -455,17 +439,15 @@ class tvente_entete_requisitionController extends Controller
         ->join('tvente_module','tvente_module.id','=','tvente_entete_requisition.module_id')
         ->join('tvente_services','tvente_services.id','=','tvente_entete_requisition.refService')
        
-        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_requisition.refFournisseur')
         ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
         ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
 
         ->select('tvente_entete_requisition.id','tvente_entete_requisition.code','refFournisseur','module_id',
         'refService','dateCmd','libelle','cloture',
         'niveau1','niveaumax','tvente_entete_requisition.active','montant','paie','tvente_entete_requisition.author','tvente_entete_requisition.refUser',
-        'tvente_entete_requisition.created_at', "tvente_categorie_fournisseur.nom_categoriefss",
-        "compte_fss_bl",'refSousCompte','nom_ssouscompte','numero_ssouscompte','nom_souscompte','numero_souscompte','refCompte','nom_compte',
-        'numero_compte','refClasse','refTypecompte','refPosition','nom_classe','numero_classe','nom_typeposition',"nom_typecompte"
-        ,"tvente_module.nom_module","tvente_services.nom_service"
+        'tvente_entete_requisition.created_at', 
+        "tvente_module.nom_module","tvente_services.nom_service"
         
         ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
         'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',
@@ -500,17 +482,15 @@ class tvente_entete_requisitionController extends Controller
         ->join('tvente_module','tvente_module.id','=','tvente_entete_requisition.module_id')
         ->join('tvente_services','tvente_services.id','=','tvente_entete_requisition.refService')
        
-        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_entree.refFournisseur')
+        ->join('tperso_affectation_agent','tperso_affectation_agent.id','=','tvente_entete_requisition.refFournisseur')
         ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
         ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
 
         ->select('tvente_entete_requisition.id','tvente_entete_requisition.code','refFournisseur','module_id',
         'refService','dateCmd','libelle','cloture',
         'niveau1','niveaumax','tvente_entete_requisition.active','montant','paie','tvente_entete_requisition.author','tvente_entete_requisition.refUser',
-        'tvente_entete_requisition.created_at', "tvente_categorie_fournisseur.nom_categoriefss",
-        "compte_fss_bl",'refSousCompte','nom_ssouscompte','numero_ssouscompte','nom_souscompte','numero_souscompte','refCompte','nom_compte',
-        'numero_compte','refClasse','refTypecompte','refPosition','nom_classe','numero_classe','nom_typeposition',"nom_typecompte"
-        ,"tvente_module.nom_module","tvente_services.nom_service"
+        'tvente_entete_requisition.created_at', 
+        "tvente_module.nom_module","tvente_services.nom_service"
         
         ,'refAgent','refServicePerso','refCategorieAgent','refPoste','refLieuAffectation',
         'refMutuelle','refTypeContrat','dateAffectation','dureecontrat','dureeLettre',

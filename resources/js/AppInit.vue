@@ -679,6 +679,14 @@ export default {
                   href: "/admin/ParametreSalairebBase",
                 },
                 {
+                  text: "Bailleur",
+                  href: "/admin/PartenaireProjet",
+                },
+                {
+                  text: "Projets",
+                  href: "/admin/Projets",
+                },
+                {
                   text: "Param.Secteur Minier",
                   href: "/admin/ParametreSecteur",
                 },
@@ -781,38 +789,38 @@ export default {
           // ],
           listCommancdes: [
             {
-              text: "Remise Minarais",
+              text: "Creusement",
               icon: "mdi-cart-off",
               items: [ 
               { //Commandes
-                text: "Creation Commandes",
+                text: "Creation Creusement",
                 href: "/admin/Commandes",
               },
               {
-                text: "Appro. par Commande",
+                text: "Appro. par Creusement",
                 href: "/admin/ApprovCommandes",
               },               
               { //Commandes
-                text: "Listes Commandes",
+                text: "Listes Creusement",
                 href: "/admin/VenteEnteteCommande",
               },                
               { //Commandes
-                text: "Paiement Fact. Fss.",
+                text: "Paiement Creuseur",
                 href: "/admin/VenteEntetePaieCmd",
               },
-              {
-                text: "Clients",
-                href: "/admin/ClientVente",
-              },
+              // {
+              //   text: "Clients",
+              //   href: "/admin/ClientVente",
+              // },
               {
                 text: "Produits",
                 href: "/admin/Produits",
               },
-              {
-                icon: "store",
-                text: "Fournisseurs",
-                href: "/admin/Fournisseur",
-              },
+              // {
+              //   icon: "store",
+              //   text: "Fournisseurs",
+              //   href: "/admin/Fournisseur",
+              // },
               {
                 icon: "store",
                 text: "Rapports",
@@ -832,7 +840,7 @@ export default {
                 href: "/admin/Approvisionnements",
               },
               { //RetourStock
-                text: "Appro. par Commande",
+                text: "Appro. par Creusement",
                 href: "/admin/ApprovCommandes",
               },
               { //RetourStock
