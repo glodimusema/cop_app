@@ -1113,6 +1113,15 @@ Route::group(['namespace'   =>  "Ventes"], function(){
     Route::get("delete_vente_detail_unite/{id}", 'tvente_detail_uniteController@delete_data');
     //fetch_detailunite_stockdispo_service
 
+    Route::get("fetch_vente_localisation_produit", 'tvente_localisation_produitController@all');  
+    Route::get("/localisation_produit", 'tvente_localisation_produitController@fetch_data_map');  
+    Route::get("fetch_vente_localisation_produitByProd/{refEntete}", 'tvente_localisation_produitController@fetch_data_entete');
+    Route::get("fetch_single_vente_localisation_produit/{id}", 'tvente_localisation_produitController@fetch_single_data');    
+    Route::post("insert_vente_localisation_produit", 'tvente_localisation_produitController@insert_data');
+    Route::post("update_vente_localisation_produit/{id}", 'tvente_localisation_produitController@update_data');
+    Route::get("delete_vente_localisation_produit/{id}", 'tvente_localisation_produitController@delete_data');
+
+
     Route::get("fetch_vente_param_systeme", 'tvente_param_systemeController@all');
     Route::get("fetch_vente_param_systeme/{refEntete}", 'tvente_param_systemeController@fetch_data_entete');
     Route::get("fetch_single_vente_param_systeme/{id}", 'tvente_param_systemeController@fetch_single_data');    

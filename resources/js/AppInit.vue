@@ -816,6 +816,10 @@ export default {
                 text: "Produits",
                 href: "/admin/Produits",
               },
+              {
+                text: "Geolocalisation",
+                href: "/admin/Maproduit",
+              },
               // {
               //   icon: "store",
               //   text: "Fournisseurs",

@@ -334,7 +334,6 @@ export default {
         ({ data }) => {
           var donnees = data.data;
           this.fssList = donnees;
-
         }
       );
     },

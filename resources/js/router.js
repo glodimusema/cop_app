@@ -243,8 +243,7 @@ import CreateInventaire from './views/backend/Ventes/CreateInventaire.vue'
 import VenteEnteteInventaire from './views/backend/Ventes/VenteEnteteInventaire.vue'
 import VenteEnteteCuisine from './views/backend/Ventes/VenteEnteteCuisine.vue'
 import CreateCommandeCuisine from './views/backend/Ventes/CreateCommandeCuisine.vue'
-//VenteEnteteCuisine
-//CreateCommandeCuisine
+import Maproduit from './views/backend/Ventes/Maproduit.vue'
 
 import VenteEnteteUse from './views/backend/Ventes/VenteEnteteUse.vue'
 import CreateUsage from './views/backend/Ventes/CreateUsage.vue'
@@ -1103,10 +1102,15 @@ const Router = new VueRouter({
         name: 'VenteEnteteCuisine',
         component: VenteEnteteCuisine,
     },
-    {  
+    {  //Map
         path: '/admin/CreateCommandeCuisine',
         name: 'CreateCommandeCuisine',
         component: CreateCommandeCuisine,
+    },
+    {  //Map
+        path: '/admin/Maproduit',
+        name: 'Maproduit',
+        component: Maproduit,
     },
     { 
         path: '/admin/CreateInventaire',

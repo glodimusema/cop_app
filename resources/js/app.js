@@ -16,7 +16,12 @@ Vue.use(Vuetify)
 import DatetimePicker from 'vuetify-datetime-picker'
 Vue.use(DatetimePicker)
 
-
+// import Vue from 'vue';
+// import Map from './views/backend/Ventes/Map.vue';
+// new Vue({
+//   el: '#app',    
+//   components: { Map }
+// });
 
 import 'material-design-icons-iconfont/dist/material-design-icons.css' // Ensure you are using css-loader
 import '@mdi/font/css/materialdesignicons.css'
@@ -84,6 +89,15 @@ Vue.use(Toasted);
 import CKEditor from '@ckeditor/ckeditor5-vue2';
 Vue.use( CKEditor );
 
+import * as VueGoogleMaps from "vue2-google-maps";
+
+Vue.use(VueGoogleMaps, {
+    load: {
+        key: "AIzaSyBgSz7TPCEIkEHw9CbO93tZQqFSa2pz1ZE", // Remplace par ta clé API
+        libraries: "places",// geometry est nécessaire pour le calcul des distances
+    }
+});
+
 
 import shareData from './store/index';
 const store = new Vuex.Store(
@@ -91,6 +105,9 @@ const store = new Vuex.Store(
 );
 
 import router  from './router';
+
+// import "leaflet/dist/leaflet.css";
+// import 'leaflet-search/dist/leaflet-search.min.css'; // N'oublie pas d'importer le CSS
 
 
 import Dashboard from './views/Templete.vue'
