@@ -20,7 +20,7 @@
       </v-avatar>
       <strong>
         <!-- <h5>{{ userData.name }}</h5> -->
-        <h5>HOTEL</h5>
+        <h5>COOPERATIVE</h5>
       </strong>
 
       <!-- <h6 class="grey--text ">{{ userData.email }}</h6> -->
@@ -676,7 +676,7 @@
         <v-list-group no-action sub-group v-show="linkAdmin.links_hotel.length > 0">
           <template v-slot:activator>
             <v-list-item-content>
-              <v-list-item-title>Hotel</v-list-item-title>
+              <v-list-item-title>C</v-list-item-title>
             </v-list-item-content>
           </template>
 

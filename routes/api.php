@@ -998,6 +998,13 @@ Route::group(['namespace'   =>  "Ventes"], function(){
     Route::post("insert_vente_devise", 'tvente_deviseController@store');
     Route::get("fetch_tvente_devise_2", 'tvente_deviseController@fetch_tvente_devise_2');
 
+
+    Route::get("fetch_archives_blog", 'archivesController@index');
+    Route::get("fetch_single_archives_blog/{id}", 'archivesController@edit');
+    Route::get("delete_archives_blog/{id}", 'archivesController@destroy');
+    Route::post("insert_archives_blog", 'archivesController@store');
+    Route::get("fetch_archives_2", 'archivesController@fetch_archives_2');
+
     Route::get("fetch_grande_categorie_produit", 'tvente_grande_categorie_produitController@index');
     Route::get("fetch_single_grande_categorie_produit/{id}", 'tvente_grande_categorie_produitController@edit');
     Route::get("delete_grande_categorie_produit/{id}", 'tvente_grande_categorie_produitController@destroy');
