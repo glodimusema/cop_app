@@ -8,6 +8,8 @@
 
           <VenteDetailUnite ref="VenteDetailUnite" />
           <VenteServiceStockByProduit ref="VenteServiceStockByProduit" />
+          <VenteLocaliationProduit ref="VenteLocaliationProduit" />
+          <!--  -->
 
           <v-dialog v-model="dialog" max-width="600px" persistent>
             <v-card :loading="loading">
@@ -435,6 +437,15 @@
                               </v-list-item-title>
                             </v-list-item>
 
+                            <v-list-item link @click="showVenteLocaliationProduit(item.id, item.designation)">
+                              <v-list-item-icon>
+                                <v-icon color="blue">settings</v-icon>
+                              </v-list-item-icon>
+                              <v-list-item-title style="margin-left: -20px">Detail Coordonnées Géographique
+                              </v-list-item-title>
+                            </v-list-item>
+                            <!-- showVenteLocaliationProduit -->
+
                             <v-list-item link @click="showVenteServiceStockByProduit(item.id, item.designation)">
                               <v-list-item-icon>
                                 <v-icon color="blue">mdi-cart-plus</v-icon>
@@ -480,11 +491,14 @@
   import { mapGetters, mapActions } from "vuex";
   import VenteDetailUnite from "./VenteDetailUnite.vue";
   import VenteServiceStockByProduit from './VenteServiceStockByProduit.vue';
+  import VenteLocaliationProduit from './VenteLocaliationProduit.vue';
+  
   
   export default {
     components:{
       VenteDetailUnite,
-      VenteServiceStockByProduit
+      VenteServiceStockByProduit,
+      VenteLocaliationProduit
     },
     data() {
       return {  
@@ -681,9 +695,7 @@
           }
         );
       } ,
-      showVenteDetailUnite(refProduit, name) {
-        //VenteServiceStockByProduit
-  
+      showVenteDetailUnite(refProduit, name) {  
         if (refProduit != '') {
   
           this.$refs.VenteDetailUnite.$data.etatModal = true;
@@ -695,6 +707,23 @@
   
           this.$refs.VenteDetailUnite.$data.titleComponent =
             "Detail Unité pour " + name;
+  
+        } else {
+          this.showError("Personne n'a fait cette action");
+        }
+  
+      },
+      showVenteLocaliationProduit(refProduit, name) {  
+        if (refProduit != '') {
+  
+          this.$refs.VenteLocaliationProduit.$data.etatModal = true;
+          this.$refs.VenteLocaliationProduit.$data.refProduit = refProduit;
+          this.$refs.VenteLocaliationProduit.$data.svData.refProduit = refProduit;
+          this.$refs.VenteLocaliationProduit.fetchDataList();
+          this.fetchDataList();
+  
+          this.$refs.VenteLocaliationProduit.$data.titleComponent =
+            "Detail LOcalisation pour " + name;
   
         } else {
           this.showError("Personne n'a fait cette action");

@@ -1897,7 +1897,9 @@ Route::get("fetch_rapport_paiement_date_service",[Pdf_PersonnelController::class
 
 
 
+//
 
+Route::get("fetch_carte_membre",[Pdf_ContratController::class, 'fetch_carte_membre']);
 Route::get("fetch_rapport_contrat_date",[Pdf_ContratController::class, 'fetch_rapport_contrat_date']);
 Route::get("fetch_rapport_fincontrat_date",[Pdf_ContratController::class, 'fetch_rapport_fincontrat_date']);
 Route::get("fetch_rapport_contrat_date_typecontrat",[Pdf_ContratController::class, 'fetch_rapport_contrat_date_typecontrat']);

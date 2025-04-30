@@ -3,6 +3,7 @@ namespace App\Traits;
 use App\{User};
 use DB;
 use Carbon\Carbon;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 trait GlobalMethod{
 
@@ -11,6 +12,23 @@ trait GlobalMethod{
     {
       return str_replace(" ", "%", $request->get('query'));
     }
+
+    public function generateQrcodeTiquetCard($text) {
+
+      $qrc = QrCode::size(100)->generate($text);
+      $qrcode='<img src="data:image/svg+xml;base64,'.base64_encode($qrc).'"
+      style="
+          margin-bottom: 1px;
+          border-radius: 2px 2px 0 0;
+          overflow: hidden;
+          width : 1500vw;
+          height : 15000vh;
+          max-width : 1510px;
+          max-height : 1510px;
+      "
+      >';
+      return $qrcode;
+  }
 
     function f_date($date)
     {

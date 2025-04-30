@@ -21,7 +21,7 @@ class tperso_paramettre_secteurController extends Controller
         //
         
         if (!is_null($request->get('query'))) {
-            # code...
+            # code... 
             $query = $this->Gquery($request);
             $data = DB::table('tperso_paramettre_secteur')
             ->join('tperso_secteur_minerais','tperso_secteur_minerais.id','=','tperso_paramettre_secteur.refSecteur')

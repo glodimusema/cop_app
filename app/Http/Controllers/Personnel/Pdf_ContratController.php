@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Traits\{GlobalMethod,Slug};
 use DB;
 use Carbon\Carbon;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class Pdf_ContratController extends Controller
 {
@@ -12059,6 +12060,417 @@ function showRapportTimeSheetDate($date1, $date2,$affectation_id)
     }
 
     return $output;
+
+}
+
+
+
+//================== RAPPORT CARTE DES MEMBRES ======================================================================
+//=======================================================================================================================
+
+public function fetch_carte_membre(Request $request)
+{
+    if ($request->get('id'))  {
+
+        $id = $request->get('id');
+            $html = $this->printDataCarteMembre($id);
+            $pdf = \App::make('dompdf.wrapper');
+
+            // echo($html);
+
+
+            $pdf->loadHTML($html);
+            $pdf->loadHTML($html)->setPaper('a6');
+            return $pdf->stream();
+
+      
+
+    }  
+    
+}
+function printDataCarteMembre($id)
+{
+
+         //Info Entreprise
+         $nomEse='';
+         $adresseEse='';
+         $Tel1Ese='';
+         $Tel2Ese='';
+         $siteEse='';
+         $emailEse='';
+         $idNatEse='';
+         $numImpotEse='';
+         $rccEse='';
+         $siege='';
+         $busnessName='';
+         $pic='';
+         $pic2 = $this->displayImg("fichier", 'logo.png');
+         $logo='';
+         $amoirie = $this->displayImg("fichier", 'armoirie.png');
+        
+         $aps="'";
+ 
+         $data1 = DB::table('entreprises')
+         ->join('secteurs','secteurs.id','=','entreprises.idsecteur')
+         ->join('forme_juridiques','forme_juridiques.id','=','entreprises.idforme')
+ 
+         ->join('pays','pays.id','=','entreprises.idPays')
+         ->join('provinces','provinces.id','=','entreprises.idProvince')
+         ->join('users','users.id','=','entreprises.ceo')        
+         ->select('entreprises.id as id','entreprises.id as idEntreprise',
+         'entreprises.ceo','entreprises.nomEntreprise','entreprises.descriptionEntreprise',
+         'entreprises.emailEntreprise','entreprises.adresseEntreprise',
+         'entreprises.telephoneEntreprise','entreprises.solutionEntreprise','entreprises.idsecteur',
+         'entreprises.idforme','entreprises.etat',
+         'entreprises.idPays','entreprises.idProvince','entreprises.edition','entreprises.facebook',
+         'entreprises.linkedin','entreprises.twitter','entreprises.siteweb','entreprises.rccm',
+         'entreprises.invPersonnel','entreprises.invHub','entreprises.invRecherche',
+         'entreprises.chiffreAffaire','entreprises.nbremploye','entreprises.slug','entreprises.logo',
+             //forme
+             'forme_juridiques.nomForme','secteurs.nomSecteur',
+             //users
+             'users.name','users.email','users.avatar','users.telephone','users.adresse',
+             //
+             'provinces.nomProvince','pays.nomPays', 'entreprises.created_at')
+         ->get();
+         $output='';
+         foreach ($data1 as $row) 
+         {                                
+             $nomEse=$row->nomEntreprise;
+             $adresseEse=$row->adresseEntreprise;
+             $Tel1Ese=$row->telephoneEntreprise;
+             $Tel2Ese=$row->telephone;
+             $siteEse=$row->siteweb;
+             $emailEse=$row->emailEntreprise;
+             $idNatEse=$row->rccm;
+             $numImpotEse=$row->rccm;
+             $busnessName=$row->nomSecteur;
+             $rccmEse=$row->rccm;
+             $pic = $this->displayImg("fichier", 'logo.png');
+             $siege=$row->nomForme;         
+         }
+
+
+         $noms_agent = '';
+         $datenaissance_agent = '';
+         $lieunaissnce_agent = '';
+         $nomCommune = '';
+         $nomVille = '';
+         $nomProvince = '';
+         $codeCarte='';
+         $anneeeEncours = '';
+         $dateOperation = '';
+         $description_secteur = '';
+         $photo_agent = '';
+ 
+         $data3 = DB::table('tperso_affectation_agent')
+         ->join('tperso_parametre_salairebase','tperso_parametre_salairebase.id','=','tperso_affectation_agent.param_salaire_id')
+         ->join('tperso_projets','tperso_projets.id','=','tperso_parametre_salairebase.projet_id')
+         ->join('tperso_partenaire','tperso_partenaire.id','=','tperso_projets.partenaire_id')
+         ->join('tperso_poste','tperso_poste.id','=','tperso_affectation_agent.refPoste')
+         ->join('tperso_lieuaffectation','tperso_lieuaffectation.id','=','tperso_affectation_agent.refLieuAffectation')
+         ->join('tperso_mutuelle','tperso_mutuelle.id','=','tperso_affectation_agent.refMutuelle')
+         ->join('tperso_typecontrat','tperso_typecontrat.id','=','tperso_affectation_agent.refTypeContrat')
+         ->join('tperso_categorie_agent','tperso_categorie_agent.id','=','tperso_affectation_agent.refCategorieAgent')
+         ->join('tperso_service_personnel','tperso_service_personnel.id','=','tperso_affectation_agent.refServicePerso')
+         ->join('tperso_categorie_service','tperso_categorie_service.id','=','tperso_service_personnel.refCatService')
+         ->join('tagent','tagent.id','=','tperso_affectation_agent.refAgent')
+         ->join('avenues' , 'avenues.id','=','tagent.refAvenue_agent')
+         ->join('quartiers' , 'quartiers.id','=','avenues.idQuartier')
+         ->join('communes' , 'communes.id','=','quartiers.idCommune')
+         ->join('villes' , 'villes.id','=','communes.idVille')
+         ->join('provinces' , 'provinces.id','=','villes.idProvince')
+         ->join('pays' , 'pays.id','=','provinces.idPays')
+
+         ->join('tperso_paramettre_secteur','tperso_paramettre_secteur.id','=','tperso_affectation_agent.param_secteur_id')
+         ->join('tperso_secteur_minerais','tperso_secteur_minerais.id','=','tperso_paramettre_secteur.refSecteur')
+         ->join('tperso_cooperative_minerais','tperso_cooperative_minerais.id','=','tperso_paramettre_secteur.refCooperative')
+
+         ->select("tperso_affectation_agent.id",'refAgent','refServicePerso','refCategorieAgent',
+         'refPoste','refLieuAffectation','refMutuelle','refTypeContrat','dureecontrat','dureeLettre',
+         'JourTrail1','JourTrail2','heureTrail1','heureTrail2','TempsPause','nbrConge','nbrCongeLettre',
+         'nomOffice','postnomOffice','qualifieOffice','codeAgent','directeur','numCNSS','numImpot','numcpteBanque',
+         'BanqueAgant','autresDetail','conge',"tperso_affectation_agent.author","matricule_agent",
+         "nummaison_agent","noms_agent","sexe_agent",'datenaissance_agent',"lieunaissnce_agent",
+         "provinceOrigine_agent","etatcivil_agent","refAvenue_agent","contact_agent","mail_agent",
+         "grade_agent","fonction_agent","specialite_agent","Categorie_agent","niveauEtude_agent",
+         "anneeFinEtude_agent","Ecole_agent","tagent.photo as photo_agent",
+         "tagent.slug as slug_agent","name_serv_perso","name_categorie_service","name_categorie_agent",
+         'nom_poste','description_poste','nom_lieu','description_lieu','nom_mutuelle','description_mutuelle',
+         'nom_contrat','code_contrat','param_salaire_id','fammiliale','logement',
+         'tperso_affectation_agent.transport','sal_brut','sal_brut_imposable',
+         'inss_qpo','inss_qpp','cnss','inpp','onem','ipr','mission',"categorie_id","projet_id","salaire_base",
+         "partenaire_id","description_projet","chef_projet","nom_org",
+         "adresse_org","contact_org","rccm_org", "idnat_org","etat_contrat","salaire_prevu", 
+         'param_secteur_id',"avenues.nomAvenue", "quartiers.idCommune","quartiers.nomQuartier",
+         "quartiers.id as idQuartier","communes.idVille","communes.nomCommune","villes.idProvince",
+         "villes.nomVille","provinces.idPays","provinces.nomProvince","pays.nomPays"
+         
+         ,'refCooperative','refSecteur','active_param',"tperso_paramettre_secteur.created_at",
+         "tperso_cooperative_minerais.nom_coop",'responsable_coop','contact_respo_coop',
+         'description_coop',"tperso_secteur_minerais.nom_secteur",'description_secteur')
+
+         ->selectRaw('TIMESTAMPDIFF(YEAR, datenaissance_agent, CURDATE()) as age_agent')
+         ->selectRaw('TIMESTAMPDIFF(MONTH, CURDATE(), dateFin) as dureerestante') 
+         ->selectRaw("DATE_FORMAT(DATE_SUB(dateFin, INTERVAL 1 DAY),'%d/%M/%Y') as dateFin")
+         ->selectRaw("DATE_FORMAT(datenaissance_agent,'%d/%M/%Y') as datenaissance_agent")
+         ->selectRaw("DATE_FORMAT(dateDebutEssaie,'%d/%M/%Y') as dateDebutEssaie")
+         ->selectRaw("DATE_FORMAT(dateFinEssaie,'%d/%M/%Y') as dateFinEssaie")
+         ->selectRaw("DATE_FORMAT(dateAffectation,'%d/%M/%Y') as dateAffectation")
+         ->selectRaw("DATE_FORMAT(date_debut_projet,'%d/%M/%Y') as date_debut_projet")
+         ->selectRaw("DATE_FORMAT(date_fin_projet,'%d/%M/%Y') as date_fin_projet")
+         ->selectRaw("DATE_FORMAT(tperso_affectation_agent.created_at,'%d/%M/%Y') as dateOperation")
+         ->selectRaw('CONCAT("C",YEAR(tperso_affectation_agent.created_at),"",MONTH(tperso_affectation_agent.created_at),"00",tperso_affectation_agent.id) as codeCarte')
+         ->selectRaw('CONCAT("",YEAR(tperso_affectation_agent.created_at)) as anneeeEncours')
+         ->where([
+            ['tperso_affectation_agent.id','=', $id],
+        ])      
+        ->first();
+        if ($data3) 
+        {            
+            $noms_agent = $data3->noms_agent;
+            $datenaissance_agent = $data3->datenaissance_agent;
+            $lieunaissnce_agent = $data3->lieunaissnce_agent;
+            $nomCommune = $data3->nomCommune;
+            $nomVille = $data3->nomVille;
+            $nomProvince = $data3->nomProvince;
+            $codeCarte = $data3->codeCarte;
+            $anneeeEncours = $data3->anneeeEncours;
+            $dateOperation = $data3->dateOperation;
+            $description_secteur = $data3->description_secteur;
+            $photo_agent =$this->displayImg("fichier", $data3->photo_agent);
+        }
+   
+        $abs = "'";
+        $qrc = QrCode::size(100)->generate($codeCarte);
+
+        $output='
+            <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+            <!-- saved from url=(0016)http://localhost -->
+            <html>
+            <head>
+                <title>rptCarteCreuseur</title>
+                <meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8"/>
+                <style type="text/css">
+                    .cs101A94F7 {color:#000000;background-color:transparent;border-left-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;font-family:Times New Roman; font-size:13px; font-weight:normal; font-style:normal; }
+                    .cs99981FD7 {color:#000000;background-color:transparent;border-left-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;font-family:Times New Roman; font-size:7px; font-weight:bold; font-style:normal; padding-left:2px;}
+                    .cs3B6C809E {color:#000000;background-color:transparent;border-left-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;font-family:Times New Roman; font-size:8px; font-weight:bold; font-style:normal; padding-left:2px;}
+                    .csF180637D {color:#000000;background-color:transparent;border-left-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;font-family:Times New Roman; font-size:9px; font-weight:normal; font-style:italic; padding-left:2px;}
+                    .cs2CE99E9E {color:#483D8B;background-color:transparent;border-left-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;font-family:Times New Roman; font-size:11px; font-weight:bold; font-style:normal; padding-left:2px;padding-right:2px;}
+                    .cs4EE0E6F {color:#483D8B;background-color:transparent;border-left-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;font-family:Times New Roman; font-size:13px; font-weight:bold; font-style:normal; padding-left:2px;}
+                    .cs247BBD65 {color:#483D8B;background-color:transparent;border-left-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;font-family:Times New Roman; font-size:8px; font-weight:bold; font-style:normal; padding-left:2px;padding-right:2px;}
+                    .cs739196BC {color:#5C5C5C;background-color:transparent;border-left-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;font-family:Segoe UI; font-size:11px; font-weight:normal; font-style:normal; }
+                    .cs7FA22C95 {color:#A52A2A;background-color:transparent;border-left-style: none;border-top-style: none;border-right-style: none;border-bottom-style: none;font-family:Monotype Corsiva; font-size:13px; font-weight:bold; font-style:italic; padding-left:2px;padding-right:2px;}
+                    .csF7D3565D {height:0px;width:0px;overflow:hidden;font-size:0px;line-height:0px;}
+                </style>
+            </head>
+            <body leftMargin=10 topMargin=10 rightMargin=10 bottomMargin=10 style="background-color:#FFFFFF">
+            <table cellpadding="0" cellspacing="0" border="0" style="border-width:0px;empty-cells:show;width:409px;height:205px;position:relative;">
+                <tr>
+                    <td style="width:0px;height:0px;"></td>
+                    <td style="height:0px;width:4px;"></td>
+                    <td style="height:0px;width:49px;"></td>
+                    <td style="height:0px;width:31px;"></td>
+                    <td style="height:0px;width:1px;"></td>
+                    <td style="height:0px;width:29px;"></td>
+                    <td style="height:0px;width:13px;"></td>
+                    <td style="height:0px;width:7px;"></td>
+                    <td style="height:0px;width:26px;"></td>
+                    <td style="height:0px;width:5px;"></td>
+                    <td style="height:0px;width:74px;"></td>
+                    <td style="height:0px;width:11px;"></td>
+                    <td style="height:0px;width:1px;"></td>
+                    <td style="height:0px;width:6px;"></td>
+                    <td style="height:0px;width:2px;"></td>
+                    <td style="height:0px;width:10px;"></td>
+                    <td style="height:0px;width:44px;"></td>
+                    <td style="height:0px;width:96px;"></td>
+                </tr>
+                <tr style="vertical-align:top;">
+                    <td style="width:0px;height:23px;"></td>
+                    <td class="cs739196BC" colspan="17" style="width:409px;height:23px;line-height:14px;text-align:center;vertical-align:middle;"></td>
+                </tr>
+                <tr style="vertical-align:top;">
+                    <td style="width:0px;height:18px;"></td>
+                    <td></td>
+                    <td class="cs101A94F7" rowspan="3" style="width:49px;height:44px;text-align:left;vertical-align:top;"><div style="overflow:hidden;width:49px;height:44px;">
+                        <img alt="" src="'.$pic2.'" style="width:49px;height:44px;" /></div>
+                    </td>
+                    <td class="cs7FA22C95" colspan="11" style="width:200px;height:18px;line-height:15px;text-align:center;vertical-align:middle;"><nobr>R&#233;publique&nbsp;D&#233;mocratique&nbsp;du&nbsp;Congo</nobr></td>
+                    <td></td>
+                    <td class="cs101A94F7" colspan="2" rowspan="3" style="width:54px;height:44px;text-align:left;vertical-align:top;"><div style="overflow:hidden;width:54px;height:44px;">
+                        <img alt="" src="'.$amoirie.'" style="width:54px;height:44px;" /></div>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr style="vertical-align:top;">
+                    <td style="width:0px;height:17px;"></td>
+                    <td></td>
+                    <td class="cs2CE99E9E" colspan="11" style="width:200px;height:17px;line-height:12px;text-align:center;vertical-align:middle;"><nobr>Province&nbsp;du&nbsp;'.$nomProvince.'</nobr></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr style="vertical-align:top;">
+                    <td style="width:0px;height:9px;"></td>
+                    <td></td>
+                    <td class="cs2CE99E9E" colspan="11" rowspan="2" style="width:200px;height:15px;line-height:12px;text-align:center;vertical-align:middle;"><nobr>Minist&#232;re&nbsp;des&nbsp;Mines</nobr></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr style="vertical-align:top;">
+                    <td style="width:0px;height:6px;"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr style="vertical-align:top;">
+                    <td style="width:0px;height:17px;"></td>
+                    <td></td>
+                    <td class="cs101A94F7" colspan="2" rowspan="6" style="width:80px;height:70px;text-align:left;vertical-align:top;"><div style="overflow:hidden;width:80px;height:70px;"><img alt="" src="'.$photo_agent.'" style="width:80px;height:70px;" /></div>
+                    </td>
+                    <td class="cs4EE0E6F" colspan="7" rowspan="2" style="width:153px;height:22px;line-height:15px;text-align:left;vertical-align:middle;"><nobr>CARTE&nbsp;DE&nbsp;CREUSEUR</nobr></td>
+                    <td class="cs7FA22C95" colspan="6" style="width:70px;height:17px;line-height:15px;text-align:right;vertical-align:middle;"><nobr>Exercice&nbsp;'.$anneeeEncours.'</nobr></td>
+                    <td></td>
+                </tr>
+                <tr style="vertical-align:top;">
+                    <td style="width:0px;height:5px;"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr style="vertical-align:top;">
+                    <td style="width:0px;height:12px;"></td>
+                    <td></td>
+                    <td class="csF180637D" colspan="2" style="width:28px;height:12px;line-height:10px;text-align:left;vertical-align:middle;"><nobr>Nom&nbsp;:</nobr></td>
+                    <td class="cs3B6C809E" colspan="6" style="width:134px;height:12px;line-height:8px;text-align:left;vertical-align:middle;"><nobr>'.$noms_agent.'</nobr></td>
+                    <td class="cs101A94F7" colspan="5" rowspan="6" style="width:63px;height:60px;text-align:left;vertical-align:top;"><div style="overflow:hidden;width:63px;height:60px;"><img alt="" src="data:image/svg+xml;base64,'.base64_encode($qrc).'" style="width:63px;height:60px;" /></div>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr style="vertical-align:top;">
+                    <td style="width:0px;height:12px;"></td>
+                    <td></td>
+                    <td class="csF180637D" colspan="3" style="width:41px;height:13px;line-height:10px;text-align:left;vertical-align:middle;"><nobr>N&#233;&nbsp;(e)&nbsp;le&nbsp;:</nobr></td>
+                    <td class="cs3B6C809E" colspan="5" style="width:121px;height:12px;line-height:8px;text-align:left;vertical-align:middle;"><nobr>'.$datenaissance_agent.'&nbsp;&nbsp;&#224;&nbsp;'.$lieunaissnce_agent.'</nobr></td>
+                    <td></td>
+                </tr>
+                <tr style="vertical-align:top;">
+                    <td style="width:0px;height:13px;"></td>
+                    <td></td>
+                    <td class="csF180637D" colspan="8" style="width:164px;height:12px;line-height:10px;text-align:left;vertical-align:middle;"><nobr>Secteur&nbsp;(ou&nbsp;chefferie&nbsp;ou&nbsp;Commune)&nbsp;:</nobr></td>
+                    <td></td>
+                </tr>
+                <tr style="vertical-align:top;">
+                    <td style="width:0px;height:11px;"></td>
+                    <td></td>
+                    <td class="cs3B6C809E" colspan="8" rowspan="2" style="width:164px;height:12px;line-height:8px;text-align:left;vertical-align:middle;"><nobr>'.$nomCommune.'</nobr></td>
+                    <td></td>
+                </tr>
+                <tr style="vertical-align:top;">
+                    <td style="width:0px;height:1px;"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr style="vertical-align:top;">
+                    <td style="width:0px;height:11px;"></td>
+                    <td></td>
+                    <td class="cs99981FD7" colspan="2" rowspan="6" style="width:78px;height:56px;line-height:7px;text-align:left;vertical-align:middle;"><nobr>Le&nbsp;porteur&nbsp;de&nbsp;pr&#233;sente</nobr><br/><nobr>doit&nbsp;vendre&nbsp;toute&nbsp;la</nobr><br/><nobr>production&nbsp;ou&nbsp;n&#233;gociant</nobr><br/><nobr>ou&nbsp;au&nbsp;comptoir&nbsp;agr&#233;e&nbsp;par</nobr><br/><nobr>l'.$abs.'arr&#233;t&#233;&nbsp;du&nbsp;Minitre&nbsp;&nbsp;ayant</nobr><br/><nobr>les&nbsp;Mines&nbsp;dans&nbsp;ses</nobr><br/><nobr>attributions.</nobr></td>
+                    <td class="csF180637D" colspan="6" rowspan="2" style="width:79px;height:13px;line-height:10px;text-align:left;vertical-align:middle;"><nobr>Territoire&nbsp;ou&nbsp;Ville&nbsp;:</nobr></td>
+                    <td class="cs3B6C809E" colspan="2" rowspan="2" style="width:83px;height:12px;line-height:8px;text-align:left;vertical-align:middle;"><nobr>'.$nomVille.'</nobr></td>
+                    <td></td>
+                </tr>
+                <tr style="vertical-align:top;">
+                    <td style="width:0px;height:1px;"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr style="vertical-align:top;">
+                    <td style="width:0px;height:13px;"></td>
+                    <td></td>
+                    <td class="csF180637D" colspan="4" style="width:48px;height:12px;line-height:10px;text-align:left;vertical-align:middle;"><nobr>Province&nbsp;:</nobr></td>
+                    <td class="cs3B6C809E" colspan="4" style="width:114px;height:12px;line-height:8px;text-align:left;vertical-align:middle;"><nobr>'.$nomProvince.'</nobr></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr style="vertical-align:top;">
+                    <td style="width:0px;height:12px;"></td>
+                    <td></td>
+                    <td class="csF180637D" colspan="5" style="width:74px;height:13px;line-height:10px;text-align:left;vertical-align:middle;"><nobr>Minerais&nbsp;exploit&#233;&nbsp;:</nobr></td>
+                    <td class="cs3B6C809E" colspan="4" style="width:89px;height:12px;line-height:8px;text-align:left;vertical-align:middle;"><nobr>'.$description_secteur.'</nobr></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr style="vertical-align:top;">
+                    <td style="width:0px;height:7px;"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr style="vertical-align:top;">
+                    <td style="width:0px;height:12px;"></td>
+                    <td></td>
+                    <td></td>
+                    <td class="cs7FA22C95" colspan="4" rowspan="2" style="width:71px;height:17px;line-height:15px;text-align:right;vertical-align:middle;"><nobr>N&#176;&nbsp;'.$codeCarte.'</nobr></td>
+                    <td class="cs247BBD65" colspan="7" style="width:105px;height:12px;line-height:8px;text-align:right;vertical-align:bottom;"><nobr>Fait&nbsp;&#224;&nbsp;'.$nomVille.',&nbsp;le&nbsp;'.$dateOperation.'</nobr></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr style="vertical-align:top;">
+                    <td style="width:0px;height:5px;"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+            </body>
+            </html>
+       ';  
+       
+        return $output; 
 
 }
 

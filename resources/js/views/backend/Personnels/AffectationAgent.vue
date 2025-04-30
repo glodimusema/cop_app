@@ -626,6 +626,13 @@
                                         </v-list-item-title>
                                       </v-list-item>
 
+                                      <v-list-item link @click="printCarteMembres(item.id)">
+                                        <v-list-item-icon>
+                                          <v-icon>print</v-icon>
+                                        </v-list-item-icon>
+                                        <v-list-item-title style="margin-left: -20px">Carte des Creuseurs
+                                        </v-list-item-title>
+                                      </v-list-item>
 
                                       <v-list-item link @click="printBill(item.id)">
                                         <v-list-item-icon>
@@ -650,6 +657,9 @@
                                         <v-list-item-title style="margin-left: -20px">Nitification fin Contrat
                                         </v-list-item-title>
                                       </v-list-item>
+
+
+                                      <!-- printCarteMembres -->
 
 
                                     </v-list>
@@ -926,6 +936,9 @@ export default {
     },
     printNotification(id) {
       window.open(`${this.apiBaseURL}/pdf_notificationfin_contrat_agent?id=` + id);
+    },
+    printCarteMembres(id) {
+      window.open(`${this.apiBaseURL}/fetch_carte_membre?id=` + id);
     },
     fetchDataList() {
       this.fetch_data(`${this.apiBaseURL}/fetch_AffectationAgent/${this.refAgent}?page=`);
